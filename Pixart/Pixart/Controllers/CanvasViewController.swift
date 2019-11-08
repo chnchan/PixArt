@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  CanvasViewController.swift
 //  Pixart
 //
 //  Created by Hin Chan on 11/7/19.
@@ -7,14 +7,11 @@
 //
 
 import UIKit
+import SideMenu
 
-class ViewController: UIViewController {
+class CanvasViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
-
-
 }
-
