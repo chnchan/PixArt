@@ -36,7 +36,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="125" height="48"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
-                                            <segue destination="qmA-o9-0RN" kind="presentation" id="Ms4-ZT-nTl"/>
+                                            <segue destination="qmA-o9-0RN" kind="show" id="Ms4-ZT-nTl"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -144,7 +144,9 @@
         <!--SideMenu-->
         <scene sceneID="kau-Nm-ZQP">
             <objects>
-                <viewControllerPlaceholder storyboardName="SideMenu" id="qmA-o9-0RN" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="SideMenu" id="qmA-o9-0RN" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="LC7-gH-b8E"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Na3-Nv-LW9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1143" y="-561"/>

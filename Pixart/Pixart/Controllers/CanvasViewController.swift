@@ -10,7 +10,8 @@ import UIKit
 import SideMenu
 
 class CanvasViewController: UIViewController {
-
+    var root: UIViewController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="cdg-IK-HY1">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="6xx-4h-CWa" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Daj-3m-ybE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IFT-rK-vPA">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="896"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Who Are We?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dMT-XK-jT3">
+                                        <rect key="frame" x="16" y="150" width="157" height="30"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="ECf-sF-Oyg"/>
+                                    <constraint firstItem="dMT-XK-jT3" firstAttribute="leading" secondItem="IFT-rK-vPA" secondAttribute="leading" constant="16" id="Wkd-FX-2vn"/>
+                                    <constraint firstItem="dMT-XK-jT3" firstAttribute="top" secondItem="IFT-rK-vPA" secondAttribute="top" constant="150" id="kCc-K8-OnN"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.30190496575342468" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="IFT-rK-vPA" firstAttribute="leading" secondItem="EQa-CH-BgS" secondAttribute="leading" id="Dot-sP-N4y"/>
+                            <constraint firstAttribute="bottom" secondItem="IFT-rK-vPA" secondAttribute="bottom" id="T7o-h1-Uix"/>
+                            <constraint firstItem="IFT-rK-vPA" firstAttribute="top" secondItem="Daj-3m-ybE" secondAttribute="top" id="hlG-kl-Bh5"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="EQa-CH-BgS"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Gkz-Gm-PqT"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tny-LF-m8X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="676.81159420289862" y="41.517857142857139"/>
+        </scene>
+        <!--Side Menu Navigation Controller-->
+        <scene sceneID="xjZ-Qs-aTn">
+            <objects>
+                <navigationController storyboardIdentifier="CreditMenuNavigationController" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="7dQ-d9-ldG" customClass="SideMenuNavigationController" customModule="SideMenu" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="t3A-mS-KBk">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="statusBarEndAlpha">
+                            <real key="value" value="0.0"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="leftSide" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <segue destination="6xx-4h-CWa" kind="relationship" relationship="rootViewController" id="PTE-FS-aIY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lkB-Jc-G7A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-233.33333333333334" y="41.517857142857139"/>
+        </scene>
+    </scenes>
+</document>

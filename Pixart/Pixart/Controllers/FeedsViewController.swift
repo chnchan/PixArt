@@ -19,6 +19,4 @@ class FeedsViewController: UIViewController {
         image.layer.borderColor = UIColor.gray.cgColor
         // Do any additional setup after loading the view.
     }
-    
-
 }

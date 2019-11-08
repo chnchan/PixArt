@@ -10,6 +10,9 @@
 		32602BB623753C6E00FE7D31 /* WorksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32602BB523753C6E00FE7D31 /* WorksViewController.swift */; };
 		32602BB8237547A200FE7D31 /* CanvasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32602BB7237547A200FE7D31 /* CanvasViewController.swift */; };
 		32602BBA237553EF00FE7D31 /* FeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32602BB9237553EF00FE7D31 /* FeedsViewController.swift */; };
+		326CD37623760CA9008CEC07 /* Credits.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 326CD37523760CA9008CEC07 /* Credits.storyboard */; };
+		326CD37823761066008CEC07 /* LogoutConfirmation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 326CD37723761066008CEC07 /* LogoutConfirmation.storyboard */; };
+		326CD37C23761356008CEC07 /* LogoutConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326CD37B23761356008CEC07 /* LogoutConfirmationViewController.swift */; };
 		32C0F411237414BD00612535 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C0F410237414BD00612535 /* AppDelegate.swift */; };
 		32C0F413237414BD00612535 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C0F412237414BD00612535 /* SceneDelegate.swift */; };
 		32C0F415237414BD00612535 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C0F414237414BD00612535 /* SideMenuViewController.swift */; };
@@ -31,6 +34,9 @@
 		32602BB523753C6E00FE7D31 /* WorksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorksViewController.swift; sourceTree = "<group>"; };
 		32602BB7237547A200FE7D31 /* CanvasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasViewController.swift; sourceTree = "<group>"; };
 		32602BB9237553EF00FE7D31 /* FeedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsViewController.swift; sourceTree = "<group>"; };
+		326CD37523760CA9008CEC07 /* Credits.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Credits.storyboard; sourceTree = "<group>"; };
+		326CD37723761066008CEC07 /* LogoutConfirmation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LogoutConfirmation.storyboard; sourceTree = "<group>"; };
+		326CD37B23761356008CEC07 /* LogoutConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutConfirmationViewController.swift; sourceTree = "<group>"; };
 		32C0F40D237414BD00612535 /* Pixart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pixart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32C0F410237414BD00612535 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32C0F412237414BD00612535 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +68,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		326CD372237603A6008CEC07 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		326CD3792376106B008CEC07 /* Popups */ = {
+			isa = PBXGroup;
+			children = (
+				326CD37723761066008CEC07 /* LogoutConfirmation.storyboard */,
+			);
+			path = Popups;
+			sourceTree = "<group>";
+		};
+		326CD37A23761341008CEC07 /* Popups Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				326CD37B23761356008CEC07 /* LogoutConfirmationViewController.swift */,
+			);
+			path = "Popups Controllers";
+			sourceTree = "<group>";
+		};
 		32C0F404237414BD00612535 = {
 			isa = PBXGroup;
 			children = (
@@ -99,12 +128,14 @@
 		32C0F4242374150C00612535 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				326CD3792376106B008CEC07 /* Popups */,
 				32C0F43223749F4600612535 /* Main.storyboard */,
 				32C0F4302374956200612535 /* SideMenu.storyboard */,
 				32C0F416237414BD00612535 /* Canvas.storyboard */,
 				32C0F42A2374851200612535 /* Profile.storyboard */,
 				32C0F440237536BF00612535 /* Works.storyboard */,
 				32C0F42D2374856F00612535 /* Feeds.storyboard */,
+				326CD37523760CA9008CEC07 /* Credits.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -119,6 +150,7 @@
 		32C0F428237418D100612535 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				326CD37A23761341008CEC07 /* Popups Controllers */,
 				32C0F4382374F24D00612535 /* LoginViewController.swift */,
 				32C0F414237414BD00612535 /* SideMenuViewController.swift */,
 				32602BB7237547A200FE7D31 /* CanvasViewController.swift */,
@@ -132,6 +164,7 @@
 		32C0F4292374197100612535 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				326CD372237603A6008CEC07 /* Extensions */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -216,7 +249,9 @@
 				32C0F4312374956200612535 /* SideMenu.storyboard in Resources */,
 				32C0F441237536BF00612535 /* Works.storyboard in Resources */,
 				32C0F42E2374856F00612535 /* Feeds.storyboard in Resources */,
+				326CD37823761066008CEC07 /* LogoutConfirmation.storyboard in Resources */,
 				32C0F43323749F4600612535 /* Main.storyboard in Resources */,
+				326CD37623760CA9008CEC07 /* Credits.storyboard in Resources */,
 				32C0F41D237414BF00612535 /* LaunchScreen.storyboard in Resources */,
 				32C0F43D2375038700612535 /* Assets.xcassets in Resources */,
 				32C0F42C2374851200612535 /* Profile.storyboard in Resources */,
@@ -274,6 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				32C0F4392374F24D00612535 /* LoginViewController.swift in Sources */,
+				326CD37C23761356008CEC07 /* LogoutConfirmationViewController.swift in Sources */,
 				32C0F415237414BD00612535 /* SideMenuViewController.swift in Sources */,
 				32602BBA237553EF00FE7D31 /* FeedsViewController.swift in Sources */,
 				32C0F43F237503E100612535 /* ProfileViewController.swift in Sources */,

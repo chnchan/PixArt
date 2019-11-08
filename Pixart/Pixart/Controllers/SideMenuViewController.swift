@@ -9,9 +9,14 @@
 import UIKit
 import SideMenu
 
+protocol SideMenuViewControllerDelegate {
+    func dismissSideMenu()
+}
+
 class SideMenuViewController: UIViewController {
     
     @IBOutlet weak var profile_image: UIImageView!
+    var delegate: SideMenuViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()

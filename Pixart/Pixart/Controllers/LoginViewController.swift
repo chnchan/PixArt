@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import SideMenu
+
+var sideMenuInitialized: Bool = false
 
 class LoginViewController: UIViewController {
 
@@ -15,6 +18,17 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let storyboard = UIStoryboard(name: "Credits", bundle: nil)
+        SideMenuManager.default.leftMenuNavigationController = storyboard.instantiateViewController(withIdentifier: "CreditMenuNavigationController") as? SideMenuNavigationController
+        
+        if sideMenuInitialized == false {
+            setupSideMenu()
+        }
+    }
+    
+    private func setupSideMenu() {
+        SideMenuManager.default.addPanGestureToPresent(toView: self.navigationController!.navigationBar)
+        SideMenuManager.default.addScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
     }
     
     @IBAction func sendPressed(_ sender: Any) {

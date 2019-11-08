@@ -184,11 +184,11 @@
                     <navigationItem key="navigationItem" id="vAU-6f-j1W"/>
                     <connections>
                         <outlet property="profile_image" destination="FeI-he-bgr" id="YBi-tt-AfK"/>
-                        <segue destination="b6C-SQ-MBJ" kind="presentation" identifier="feeds" id="y1a-lO-rNf"/>
-                        <segue destination="8bY-Pn-6Ek" kind="presentation" identifier="profile" id="te7-hh-4LA"/>
+                        <segue destination="b6C-SQ-MBJ" kind="show" identifier="feeds" id="y1a-lO-rNf"/>
+                        <segue destination="8bY-Pn-6Ek" kind="show" identifier="profile" id="te7-hh-4LA"/>
                         <segue destination="sgs-Xo-Xus" kind="presentation" identifier="logout" id="2Yp-KI-JYJ"/>
-                        <segue destination="Ou6-YY-xh6" kind="presentation" identifier="works" id="jda-R8-wHT"/>
-                        <segue destination="Rjr-2U-NMr" kind="presentation" identifier="canvas" id="4zE-5S-nKC"/>
+                        <segue destination="Ou6-YY-xh6" kind="show" identifier="works" id="jda-R8-wHT"/>
+                        <segue destination="Rjr-2U-NMr" kind="show" identifier="canvas" id="4zE-5S-nKC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fx9-4K-pCy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -234,7 +234,9 @@
         <!--Feeds-->
         <scene sceneID="35d-y0-yxQ">
             <objects>
-                <viewControllerPlaceholder storyboardName="Feeds" id="b6C-SQ-MBJ" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Feeds" id="b6C-SQ-MBJ" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="5Bf-Fj-lwh"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gtn-Vg-HeW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1289" y="248"/>
@@ -242,10 +244,12 @@
         <!--Main-->
         <scene sceneID="CHX-CD-nlX">
             <objects>
-                <viewControllerPlaceholder storyboardName="Main" id="sgs-Xo-Xus" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Main" id="sgs-Xo-Xus" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="q5k-H2-h45"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gB0-rw-rlA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1286" y="376"/>
+            <point key="canvasLocation" x="1286" y="374"/>
         </scene>
         <!--Canvas-->
         <scene sceneID="to5-K2-RBa">
@@ -260,7 +264,9 @@
         <!--Works-->
         <scene sceneID="cTb-7k-4Iy">
             <objects>
-                <viewControllerPlaceholder storyboardName="Works" id="Ou6-YY-xh6" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Works" id="Ou6-YY-xh6" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="TgU-Ni-5vO"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0yN-PN-0ZD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1291" y="185"/>

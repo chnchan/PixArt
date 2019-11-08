@@ -39,7 +39,7 @@
                                             <constraint firstAttribute="height" constant="48" id="aUz-EO-Ubj"/>
                                         </constraints>
                                         <connections>
-                                            <segue destination="ypF-yh-G0S" kind="presentation" id="TSS-JX-ehS"/>
+                                            <segue destination="ypF-yh-G0S" kind="show" id="TSS-JX-ehS"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -72,7 +72,9 @@
         <!--SideMenu-->
         <scene sceneID="Tsu-QN-8tF">
             <objects>
-                <viewControllerPlaceholder storyboardName="SideMenu" id="ypF-yh-G0S" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="SideMenu" id="ypF-yh-G0S" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="n0X-zL-qhs"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B7l-bj-6A1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-4" y="113"/>

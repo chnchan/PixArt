@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="A1w-mC-UAh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GOF-Kx-JmO">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
@@ -10,7 +10,7 @@
         <!--Login View Controller-->
         <scene sceneID="pSS-u5-vk7">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="A1w-mC-UAh" customClass="LoginViewController" customModule="Pixart" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="login_page" modalPresentationStyle="fullScreen" id="A1w-mC-UAh" customClass="LoginViewController" customModule="Pixart" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NdK-K3-mEn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -83,23 +83,44 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="MMF-2p-ovh"/>
                     </view>
+                    <navigationItem key="navigationItem" id="7JQ-5Z-pCU"/>
                     <connections>
                         <outlet property="password" destination="Zq7-um-rcs" id="RQK-BB-75o"/>
                         <outlet property="username" destination="neR-mG-ngO" id="fvE-I2-UCB"/>
-                        <segue destination="7Xb-Z3-STo" kind="presentation" identifier="login" modalTransitionStyle="coverVertical" id="5e2-8K-n0y"/>
+                        <segue destination="7Xb-Z3-STo" kind="show" identifier="login" id="5e2-8K-n0y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2ge-Pb-Rey" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="205.79710144927537" y="112.5"/>
+            <point key="canvasLocation" x="1115.9420289855072" y="112.5"/>
         </scene>
         <!--Profile-->
         <scene sceneID="jcC-IV-Bj1">
             <objects>
-                <viewControllerPlaceholder storyboardName="Profile" id="7Xb-Z3-STo" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Profile" id="7Xb-Z3-STo" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="rEN-vA-u8S"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="roH-VT-7WK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="700" y="113"/>
+            <point key="canvasLocation" x="1608.6956521739132" y="112.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hce-I0-dTB">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tWg-gh-B7A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" navigationBarHidden="YES" id="GOF-Kx-JmO" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1UV-U3-6uy">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="A1w-mC-UAh" kind="relationship" relationship="rootViewController" id="LZU-3K-xxy"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="205.79710144927537" y="112.5"/>
         </scene>
     </scenes>
     <resources>
