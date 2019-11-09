@@ -18,8 +18,6 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let storyboard = UIStoryboard(name: "Credits", bundle: nil)
-        SideMenuManager.default.leftMenuNavigationController = storyboard.instantiateViewController(withIdentifier: "CreditMenuNavigationController") as? SideMenuNavigationController
         
         if sideMenuInitialized == false {
             setupSideMenu()
@@ -27,6 +25,8 @@ class LoginViewController: UIViewController {
     }
     
     private func setupSideMenu() {
+        let storyboard = UIStoryboard(name: "Credits", bundle: nil)
+        SideMenuManager.default.leftMenuNavigationController = storyboard.instantiateViewController(withIdentifier: "CreditMenuNavigationController") as? SideMenuNavigationController
         SideMenuManager.default.addPanGestureToPresent(toView: self.navigationController!.navigationBar)
         SideMenuManager.default.addScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
     }
@@ -35,5 +35,13 @@ class LoginViewController: UIViewController {
         // Login API { if error != nil
         self.performSegue(withIdentifier: "login", sender: nil)
         // }
+    }
+    
+    // MARK: UNWIND
+    @IBAction func unwindToLogin(_ unwindSegue: UIStoryboardSegue) {
+        dismiss(animated: true) {
+            let storyboard = UIStoryboard(name: "Credits", bundle: nil)
+            SideMenuManager.default.leftMenuNavigationController = storyboard.instantiateViewController(withIdentifier: "CreditMenuNavigationController") as? SideMenuNavigationController
+        }
     }
 }

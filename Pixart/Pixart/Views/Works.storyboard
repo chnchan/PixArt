@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JX1-Kr-prD" userLabel="SideMenu">
-                                <rect key="frame" x="0.0" y="44" width="177" height="48"/>
+                                <rect key="frame" x="0.0" y="44" width="188" height="48"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line.horizontal.3" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="tUG-1c-WfL" userLabel="Menu Icon">
                                         <rect key="frame" x="9.5" y="14" width="37" height="20.5"/>
@@ -33,10 +33,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fr1-Gw-3kE">
-                                        <rect key="frame" x="0.0" y="0.0" width="177" height="48"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="188" height="48"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="AE8-jR-RWl"/>
-                                            <constraint firstAttribute="width" constant="177" id="D2t-qA-mA3"/>
+                                            <constraint firstAttribute="width" constant="188" id="D2t-qA-mA3"/>
                                         </constraints>
                                         <connections>
                                             <segue destination="9AL-Mw-NVN" kind="show" id="F2A-Si-zHb"/>
@@ -50,9 +50,8 @@
                                     <constraint firstAttribute="height" constant="48" id="Iya-1s-V5T"/>
                                     <constraint firstItem="tUG-1c-WfL" firstAttribute="centerY" secondItem="JX1-Kr-prD" secondAttribute="centerY" id="Zn7-UU-1Ay"/>
                                     <constraint firstItem="Fr1-Gw-3kE" firstAttribute="centerX" secondItem="JX1-Kr-prD" secondAttribute="centerX" id="fus-2v-kd2"/>
-                                    <constraint firstAttribute="width" constant="177" id="hzo-eN-fKv"/>
-                                    <constraint firstAttribute="trailing" secondItem="CE2-i2-6dp" secondAttribute="trailing" constant="9" id="pWV-Uv-cGo"/>
-                                    <constraint firstItem="tUG-1c-WfL" firstAttribute="centerX" secondItem="JX1-Kr-prD" secondAttribute="centerX" constant="-60.5" id="rT9-5R-MNf"/>
+                                    <constraint firstAttribute="width" constant="188" id="hzo-eN-fKv"/>
+                                    <constraint firstItem="tUG-1c-WfL" firstAttribute="centerX" secondItem="JX1-Kr-prD" secondAttribute="centerX" constant="-66" id="rT9-5R-MNf"/>
                                     <constraint firstItem="Fr1-Gw-3kE" firstAttribute="centerY" secondItem="JX1-Kr-prD" secondAttribute="centerY" id="vy3-Ta-xL2"/>
                                 </constraints>
                             </view>

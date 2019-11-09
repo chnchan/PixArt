@@ -39,7 +39,7 @@
                                             <constraint firstAttribute="height" constant="48" id="aUz-EO-Ubj"/>
                                         </constraints>
                                         <connections>
-                                            <segue destination="ypF-yh-G0S" kind="show" id="TSS-JX-ehS"/>
+                                            <segue destination="ypF-yh-G0S" kind="presentation" id="TSS-JX-ehS"/>
                                         </connections>
                                     </button>
                                 </subviews>

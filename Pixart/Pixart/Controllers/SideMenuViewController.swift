@@ -43,5 +43,9 @@ class SideMenuViewController: UIViewController {
     @IBAction func logoutPressed(_ sender: Any) {
         self.performSegue(withIdentifier: "logout", sender: nil)
     }
+    
+    func printstuff(){
+        print("apple")
+    }
 }
 

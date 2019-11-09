@@ -186,12 +186,13 @@
                         <outlet property="profile_image" destination="FeI-he-bgr" id="YBi-tt-AfK"/>
                         <segue destination="b6C-SQ-MBJ" kind="show" identifier="feeds" id="y1a-lO-rNf"/>
                         <segue destination="8bY-Pn-6Ek" kind="show" identifier="profile" id="te7-hh-4LA"/>
-                        <segue destination="sgs-Xo-Xus" kind="presentation" identifier="logout" id="2Yp-KI-JYJ"/>
                         <segue destination="Ou6-YY-xh6" kind="show" identifier="works" id="jda-R8-wHT"/>
                         <segue destination="Rjr-2U-NMr" kind="show" identifier="canvas" id="4zE-5S-nKC"/>
+                        <segue destination="qTz-DE-qmq" kind="unwind" identifier="logout" unwindAction="unwindToLogin:" id="aGz-Dn-ZFc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fx9-4K-pCy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="qTz-DE-qmq" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="772.46376811594212" y="119.86607142857142"/>
         </scene>
@@ -240,16 +241,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gtn-Vg-HeW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1289" y="248"/>
-        </scene>
-        <!--Main-->
-        <scene sceneID="CHX-CD-nlX">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Main" id="sgs-Xo-Xus" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="q5k-H2-h45"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gB0-rw-rlA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1286" y="374"/>
         </scene>
         <!--Canvas-->
         <scene sceneID="to5-K2-RBa">
