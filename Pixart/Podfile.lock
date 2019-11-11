@@ -1,16 +1,20 @@
 PODS:
+  - ColorSlider (4.4)
   - SideMenu (6.4.6)
 
 DEPENDENCIES:
+  - ColorSlider (~> 4.4)
   - SideMenu (~> 6.0)
 
 SPEC REPOS:
   trunk:
+    - ColorSlider
     - SideMenu
 
 SPEC CHECKSUMS:
+  ColorSlider: 9a888e65b871fa1e6a26fadebf4931c949935681
   SideMenu: 43910eb6dc994dd59771f8e82573d04a9e776361
 
-PODFILE CHECKSUM: 047d07c78af583c2d2a10e11d8e58f9aa8e469bb
+PODFILE CHECKSUM: f9a4aeb43dae35c2ed867a650f804e5b3eda4970
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.8.3

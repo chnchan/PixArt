@@ -56,11 +56,21 @@
                                     <constraint firstAttribute="width" constant="139" id="njm-Qj-6B3"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z6y-b8-wl1" customClass="GridView" customModule="Pixart" customModuleProvider="target">
+                                <rect key="frame" x="43" y="119" width="324" height="565"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="324" id="MGW-78-O2t"/>
+                                    <constraint firstAttribute="height" priority="100" constant="565" id="W1n-Ba-fWF"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="1" green="0.96529688073223263" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Z6y-b8-wl1" firstAttribute="centerX" secondItem="4sF-6O-TTz" secondAttribute="centerX" constant="-2" id="FkP-dV-t2l"/>
                             <constraint firstItem="7NM-Ul-PmR" firstAttribute="leading" secondItem="4sF-6O-TTz" secondAttribute="leading" id="O7Q-E5-WDX"/>
                             <constraint firstItem="7NM-Ul-PmR" firstAttribute="top" secondItem="4sF-6O-TTz" secondAttribute="top" constant="44" id="WqB-d9-jCr"/>
+                            <constraint firstItem="Z6y-b8-wl1" firstAttribute="centerY" secondItem="4sF-6O-TTz" secondAttribute="centerY" constant="-46.5" id="i3s-NB-BaX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Imu-Wj-jNj"/>
                     </view>
