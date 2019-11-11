@@ -19,3 +19,15 @@
 
 ---
 
+### Discord meeting on Sat (11/9) Recap
+
+Went over what Hin finished.
+
+Target:
+
+- Google firebase
+  - Have users, be able to login
+
+- UI improvement
+
+- See process to push app to AppStore
