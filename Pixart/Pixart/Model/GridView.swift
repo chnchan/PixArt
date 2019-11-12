@@ -31,19 +31,31 @@ class GridView: UIView {
         cellWidth = self.frame.width / CGFloat(CELLS_PER_ROW)
         
         makeCells()
-        self.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture)))
-               
+        self.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handleGesture)))
+        self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleGesture)))
      }
 
-    @objc func handlePanGesture(gesture: UIPanGestureRecognizer) {
-
-        let location = gesture.location(in: self)
-        let cellWidth = self.frame.width / CGFloat(CELLS_PER_ROW)
-        let i = Int(location.x / cellWidth)
-        let j = Int(location.y / cellWidth)
-        let cellView = cells["\(i)|\(j)"]
-        cellView?.backgroundColor = drawingColor
+    @objc func handleGesture(gesture: Any?) {
+        if let panGesture = gesture as? UIPanGestureRecognizer {
+            let location = panGesture.location(in: self)
+            let cellWidth = self.frame.width / CGFloat(CELLS_PER_ROW)
+            let i = Int(location.x / cellWidth)
+            let j = Int(location.y / cellWidth)
+            let cellView = cells["\(i)|\(j)"]
+            cellView?.backgroundColor = drawingColor
+        }
+        
+        if let tapGesture = gesture as? UITapGestureRecognizer {
+            let location = tapGesture.location(in: self)
+            let cellWidth = self.frame.width / CGFloat(CELLS_PER_ROW)
+            let i = Int(location.x / cellWidth)
+            let j = Int(location.y / cellWidth)
+            let cellView = cells["\(i)|\(j)"]
+            cellView?.backgroundColor = drawingColor
+        }
     }
+    
+
     // This function makes a cell which is a view
     func makeCells(){
         

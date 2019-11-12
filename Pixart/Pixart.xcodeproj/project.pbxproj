@@ -147,6 +147,7 @@
 		32C0F4252374153A00612535 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B57EF8BB2377EF05009DE772 /* GridView.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -162,7 +163,6 @@
 				32C0F43E237503E100612535 /* ProfileViewController.swift */,
 				32602BB523753C6E00FE7D31 /* WorksViewController.swift */,
 				32602BB9237553EF00FE7D31 /* FeedsViewController.swift */,
-				B57EF8BB2377EF05009DE772 /* GridView.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
