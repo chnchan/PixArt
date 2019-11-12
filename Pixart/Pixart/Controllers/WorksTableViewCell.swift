@@ -16,6 +16,9 @@ class WorksTableViewCell: UITableViewCell {
     @IBOutlet weak var pixelArtName: UILabel!
     @IBOutlet weak var dislikes: UILabel!
     @IBOutlet weak var likes: UILabel!
+    @IBOutlet weak var sharemessage: UILabel!
+    @IBOutlet weak var shareswitch: UISwitch!
+    var isShareable: Bool! = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,4 +31,14 @@ class WorksTableViewCell: UITableViewCell {
    
     }
 
+    @IBAction func shareswitchtoggled(_ sender: UISwitch) {
+        self.isShareable = sender.isOn
+        if self.isShareable
+        {
+            self.sharemessage.text = "Public To Other Users"
+        }
+        else{
+            self.sharemessage.text = "Private To Other Users"
+        }
+    }
 }
