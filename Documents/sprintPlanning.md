@@ -9,7 +9,8 @@ In-person meeting: Monday 5pm - 6pm
 Discord meeting: Wednesday and Saturday after 7 pm. May change depending on everyone’s schedule.
 
 
-## Short Summary:
+### Short Summary:
+
 Pixart is a pixel art creation tool with the ability to share and browse through other people's work.
 ---
 
