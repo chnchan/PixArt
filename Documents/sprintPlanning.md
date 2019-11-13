@@ -20,14 +20,18 @@
 ---
 
 ### Discord meeting on Sat (11/9) Recap
-
 Went over what Hin finished.
-
 Target:
-
 - Google firebase
   - Have users, be able to login
-
 - UI improvement
-
 - See process to push app to AppStore
+---
+
+### In person meeting on Tues (11/12)
+Went over what Ronald finished (Canvas logic).
+Target for this week:
+- Pavit will look into firebase, and hopefully get login by milestone 1.
+- Bug fixes (color picker doesn’t show initial color, tap doesn’t draw, etc.)
+- UI improvement
+- create API handler, data structure for each “post”.
