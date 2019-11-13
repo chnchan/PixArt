@@ -29,6 +29,7 @@
 		90832A7785AFB42F2D75E7B9 /* Pods_Pixart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 139F0A8BC80429260D62ED46 /* Pods_Pixart.framework */; };
 		B57EF8BA2377CE15009DE772 /* WorksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57EF8B92377CE15009DE772 /* WorksTableViewCell.swift */; };
 		B57EF8BC2377EF05009DE772 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57EF8BB2377EF05009DE772 /* GridView.swift */; };
+		F3FC90E4237BAE4700AF6F80 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F3FC90E3237BAE4700AF6F80 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,8 @@
 		B57EF8B92377CE15009DE772 /* WorksTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorksTableViewCell.swift; sourceTree = "<group>"; };
 		B57EF8BB2377EF05009DE772 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		BC70609E9D45848D3A1BA3DB /* Pods-Pixart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pixart.release.xcconfig"; path = "Target Support Files/Pods-Pixart/Pods-Pixart.release.xcconfig"; sourceTree = "<group>"; };
+		F34055D4237BB56000AFDA02 /* Pixart.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Pixart.entitlements; sourceTree = "<group>"; };
+		F3FC90E3237BAE4700AF6F80 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../.Trash/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +119,8 @@
 		32C0F40F237414BD00612535 /* Pixart */ = {
 			isa = PBXGroup;
 			children = (
+				F34055D4237BB56000AFDA02 /* Pixart.entitlements */,
+				F3FC90E3237BAE4700AF6F80 /* GoogleService-Info.plist */,
 				32C0F4292374197100612535 /* Utils */,
 				32C0F4252374153A00612535 /* Model */,
 				32C0F4242374150C00612535 /* Views */,
@@ -260,6 +265,7 @@
 				326CD37623760CA9008CEC07 /* Credits.storyboard in Resources */,
 				32C0F41D237414BF00612535 /* LaunchScreen.storyboard in Resources */,
 				32C0F43D2375038700612535 /* Assets.xcassets in Resources */,
+				F3FC90E4237BAE4700AF6F80 /* GoogleService-Info.plist in Resources */,
 				32C0F42C2374851200612535 /* Profile.storyboard in Resources */,
 				32C0F418237414BD00612535 /* Canvas.storyboard in Resources */,
 			);
@@ -477,6 +483,7 @@
 			baseConfigurationReference = 4F67732EF58E34752E9602F7 /* Pods-Pixart.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Pixart/Pixart.entitlements;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Pixart/Info.plist;
@@ -497,6 +504,7 @@
 			baseConfigurationReference = BC70609E9D45848D3A1BA3DB /* Pods-Pixart.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Pixart/Pixart.entitlements;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Pixart/Info.plist;

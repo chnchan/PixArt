@@ -8,6 +8,7 @@
 
 import UIKit
 import SideMenu
+import AuthenticationServices
 
 var sideMenuInitialized: Bool = false
 
@@ -35,6 +36,11 @@ class LoginViewController: UIViewController {
         // Login API { if error != nil
         self.performSegue(withIdentifier: "login", sender: nil)
         // }
+    }
+    
+
+    @IBAction func signUpPressed() {
+        
     }
     
     // MARK: UNWIND

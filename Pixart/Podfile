@@ -7,6 +7,7 @@ target 'Pixart' do
 
   pod 'SideMenu', '~> 6.0'
   pod 'ColorSlider', '~> 4.4'
- 
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Auth'
 
 end

@@ -73,11 +73,21 @@
                                     <constraint firstAttribute="bottom" secondItem="YbH-NJ-4fN" secondAttribute="bottom" id="hr9-sG-KfO"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FWF-ns-ATR">
+                                <rect key="frame" x="175.66666666666666" y="536" width="63" height="33"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <state key="normal" title="Sign Up"/>
+                                <connections>
+                                    <action selector="signUpPressed" destination="A1w-mC-UAh" eventType="touchUpInside" id="j3a-7J-ihT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="FWF-ns-ATR" firstAttribute="centerX" secondItem="NdK-K3-mEn" secondAttribute="centerX" id="4Ap-aZ-SKJ"/>
                             <constraint firstItem="F1b-se-0dh" firstAttribute="top" secondItem="MMF-2p-ovh" secondAttribute="top" constant="42" id="6bD-pJ-MLK"/>
                             <constraint firstItem="F1b-se-0dh" firstAttribute="centerX" secondItem="NdK-K3-mEn" secondAttribute="centerX" id="ATC-WE-V9n"/>
+                            <constraint firstItem="FWF-ns-ATR" firstAttribute="top" secondItem="L0L-xM-zpd" secondAttribute="bottom" constant="27" id="RfF-lz-HVO"/>
                             <constraint firstItem="L0L-xM-zpd" firstAttribute="top" secondItem="F1b-se-0dh" secondAttribute="bottom" constant="8" id="rDi-bK-t9h"/>
                             <constraint firstItem="L0L-xM-zpd" firstAttribute="centerX" secondItem="NdK-K3-mEn" secondAttribute="centerX" id="u9v-cl-ZcG"/>
                         </constraints>
@@ -107,7 +117,6 @@
         <!--Navigation Controller-->
         <scene sceneID="hce-I0-dTB">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tWg-gh-B7A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" navigationBarHidden="YES" id="GOF-Kx-JmO" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
@@ -119,6 +128,7 @@
                         <segue destination="A1w-mC-UAh" kind="relationship" relationship="rootViewController" id="LZU-3K-xxy"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tWg-gh-B7A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="205.79710144927537" y="112.5"/>
         </scene>
