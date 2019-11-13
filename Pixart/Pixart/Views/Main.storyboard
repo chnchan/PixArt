@@ -62,8 +62,8 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YbH-NJ-4fN">
-                                        <rect key="frame" x="240" y="183" width="35" height="33.666666666666671"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YbH-NJ-4fN">
+                                        <rect key="frame" x="240" y="181" width="35" height="33.666666666666671"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="7re-1U-OND"/>
                                             <constraint firstAttribute="width" constant="35" id="BuC-vJ-abu"/>
@@ -77,6 +77,7 @@
                                 <constraints>
                                     <constraint firstItem="neR-mG-ngO" firstAttribute="top" secondItem="cqk-xn-vt3" secondAttribute="bottom" constant="8" id="2Vd-yf-uN1"/>
                                     <constraint firstItem="rkn-gQ-2r9" firstAttribute="top" secondItem="neR-mG-ngO" secondAttribute="bottom" constant="20" id="3yI-Wv-35V"/>
+                                    <constraint firstAttribute="bottom" secondItem="YbH-NJ-4fN" secondAttribute="bottom" id="6vu-Cg-12N"/>
                                     <constraint firstAttribute="width" constant="310" id="7NF-Gy-Kyq"/>
                                     <constraint firstAttribute="bottom" secondItem="FWF-ns-ATR" secondAttribute="bottom" id="9S5-da-wOi"/>
                                     <constraint firstAttribute="height" constant="215" id="Chl-i6-gei"/>
@@ -87,7 +88,6 @@
                                     <constraint firstItem="rkn-gQ-2r9" firstAttribute="leading" secondItem="Zq7-um-rcs" secondAttribute="leading" id="qhE-T2-dJU"/>
                                     <constraint firstItem="cqk-xn-vt3" firstAttribute="leading" secondItem="neR-mG-ngO" secondAttribute="leading" id="rzh-it-DYL"/>
                                     <constraint firstItem="Zq7-um-rcs" firstAttribute="centerX" secondItem="L0L-xM-zpd" secondAttribute="centerX" id="tCm-lB-1Br"/>
-                                    <constraint firstAttribute="bottom" secondItem="YbH-NJ-4fN" secondAttribute="bottom" id="tey-gJ-MRL"/>
                                     <constraint firstItem="neR-mG-ngO" firstAttribute="centerX" secondItem="L0L-xM-zpd" secondAttribute="centerX" id="yN8-OD-aYy"/>
                                 </constraints>
                             </view>

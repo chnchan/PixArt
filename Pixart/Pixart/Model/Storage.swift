@@ -16,11 +16,24 @@ struct Storage {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedContext = appDelegate.persistentContainer.viewContext
         guard let entity = NSEntityDescription.entity(forEntityName: "User", in: managedContext) else { return }
-        let user = NSManagedObject(entity: entity, insertInto: managedContext)
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "User")
         
-        user.setValue(username, forKey: "username")
-        user.setValue(password, forKey: "password")
-        
+        do {
+            let user = try managedContext.fetch(fetchRequest)
+            
+            if let user = user.first {
+                user.setValue(username, forKey: "username")
+                user.setValue(password, forKey: "password")
+            } else {
+                let user = NSManagedObject(entity: entity, insertInto: managedContext)
+                user.setValue(username, forKey: "username")
+                user.setValue(password, forKey: "password")
+            }
+        }
+        catch {
+            print("Failed to fetch video:", error)
+        }
+
         do {
             try managedContext.save()
         } catch let error as NSError {
