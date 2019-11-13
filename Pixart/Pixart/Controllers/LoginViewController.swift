@@ -8,9 +8,8 @@
 
 import UIKit
 import SideMenu
-import AuthenticationServices
+//import AuthenticationServices
 
-var sideMenuInitialized: Bool = false
 
 class LoginViewController: UIViewController {
 
@@ -19,9 +18,13 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupSideMenu()
         
-        if sideMenuInitialized == false {
-            setupSideMenu()
+        if let userInfo = Storage.fetchLogins() {
+            if (!userInfo.isEmpty) {
+                username.text = userInfo[0].value(forKey: "username") as? String
+                password.text = userInfo[0].value(forKey: "password") as? String
+            }
         }
     }
     
@@ -33,9 +36,15 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func sendPressed(_ sender: Any) {
-        // Login API { if error != nil
-        self.performSegue(withIdentifier: "login", sender: nil)
-        // }
+        if true { // API validate logins
+            if true { // remember me is on
+                Storage.saveLogins(username: username.text ?? "", password: password.text ?? "")
+            } else {
+                Storage.saveLogins(username: username.text ?? "", password: "")
+            }
+            
+            self.performSegue(withIdentifier: "login", sender: nil)
+        }
     }
     
 

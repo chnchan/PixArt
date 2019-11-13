@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3200289B237BD15B0095CE03 /* Local.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 32002899237BD15B0095CE03 /* Local.xcdatamodeld */; };
+		3200289D237BD1670095CE03 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3200289C237BD1670095CE03 /* Storage.swift */; };
 		32602BB623753C6E00FE7D31 /* WorksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32602BB523753C6E00FE7D31 /* WorksViewController.swift */; };
 		32602BB8237547A200FE7D31 /* CanvasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32602BB7237547A200FE7D31 /* CanvasViewController.swift */; };
 		32602BBA237553EF00FE7D31 /* FeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32602BB9237553EF00FE7D31 /* FeedsViewController.swift */; };
@@ -29,11 +31,12 @@
 		90832A7785AFB42F2D75E7B9 /* Pods_Pixart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 139F0A8BC80429260D62ED46 /* Pods_Pixart.framework */; };
 		B57EF8BA2377CE15009DE772 /* WorksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57EF8B92377CE15009DE772 /* WorksTableViewCell.swift */; };
 		B57EF8BC2377EF05009DE772 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57EF8BB2377EF05009DE772 /* GridView.swift */; };
-		F3FC90E4237BAE4700AF6F80 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F3FC90E3237BAE4700AF6F80 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		139F0A8BC80429260D62ED46 /* Pods_Pixart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pixart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3200289A237BD15B0095CE03 /* Local.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Local.xcdatamodel; sourceTree = "<group>"; };
+		3200289C237BD1670095CE03 /* Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		32602BB523753C6E00FE7D31 /* WorksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorksViewController.swift; sourceTree = "<group>"; };
 		32602BB7237547A200FE7D31 /* CanvasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasViewController.swift; sourceTree = "<group>"; };
 		32602BB9237553EF00FE7D31 /* FeedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsViewController.swift; sourceTree = "<group>"; };
@@ -60,7 +63,6 @@
 		B57EF8BB2377EF05009DE772 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		BC70609E9D45848D3A1BA3DB /* Pods-Pixart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pixart.release.xcconfig"; path = "Target Support Files/Pods-Pixart/Pods-Pixart.release.xcconfig"; sourceTree = "<group>"; };
 		F34055D4237BB56000AFDA02 /* Pixart.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Pixart.entitlements; sourceTree = "<group>"; };
-		F3FC90E3237BAE4700AF6F80 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../.Trash/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,7 +122,6 @@
 			isa = PBXGroup;
 			children = (
 				F34055D4237BB56000AFDA02 /* Pixart.entitlements */,
-				F3FC90E3237BAE4700AF6F80 /* GoogleService-Info.plist */,
 				32C0F4292374197100612535 /* Utils */,
 				32C0F4252374153A00612535 /* Model */,
 				32C0F4242374150C00612535 /* Views */,
@@ -129,6 +130,7 @@
 				32C0F412237414BD00612535 /* SceneDelegate.swift */,
 				32C0F41B237414BF00612535 /* LaunchScreen.storyboard */,
 				32C0F41E237414BF00612535 /* Info.plist */,
+				32002899237BD15B0095CE03 /* Local.xcdatamodeld */,
 				32C0F43C2375038700612535 /* Assets.xcassets */,
 			);
 			path = Pixart;
@@ -153,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				B57EF8BB2377EF05009DE772 /* GridView.swift */,
+				3200289C237BD1670095CE03 /* Storage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -265,7 +268,6 @@
 				326CD37623760CA9008CEC07 /* Credits.storyboard in Resources */,
 				32C0F41D237414BF00612535 /* LaunchScreen.storyboard in Resources */,
 				32C0F43D2375038700612535 /* Assets.xcassets in Resources */,
-				F3FC90E4237BAE4700AF6F80 /* GoogleService-Info.plist in Resources */,
 				32C0F42C2374851200612535 /* Profile.storyboard in Resources */,
 				32C0F418237414BD00612535 /* Canvas.storyboard in Resources */,
 			);
@@ -329,8 +331,10 @@
 				32C0F411237414BD00612535 /* AppDelegate.swift in Sources */,
 				32C0F413237414BD00612535 /* SceneDelegate.swift in Sources */,
 				32602BB8237547A200FE7D31 /* CanvasViewController.swift in Sources */,
+				3200289B237BD15B0095CE03 /* Local.xcdatamodeld in Sources */,
 				B57EF8BA2377CE15009DE772 /* WorksTableViewCell.swift in Sources */,
 				32602BB623753C6E00FE7D31 /* WorksViewController.swift in Sources */,
+				3200289D237BD1670095CE03 /* Storage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -542,6 +546,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		32002899237BD15B0095CE03 /* Local.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3200289A237BD15B0095CE03 /* Local.xcdatamodel */,
+			);
+			currentVersion = 3200289A237BD15B0095CE03 /* Local.xcdatamodel */;
+			path = Local.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 32C0F405237414BD00612535 /* Project object */;
 }
