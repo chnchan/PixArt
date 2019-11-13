@@ -2,6 +2,8 @@
 
 **Dev Team:** Hin Chan, Ronald Guerra, Jiahao Chen, Pavit Bath
 
+**Short Summary:** Pixart is a pixel art creation tool with the ability to share and browse through other people's work.
+
 **Link to our Trello board:** https://trello.com/b/Nrt4UUJa
 
 **General meeting schedule:**
@@ -9,9 +11,6 @@ In-person meeting: Monday 5pm - 6pm
 Discord meeting: Wednesday and Saturday after 7 pm. May change depending on everyone’s schedule.
 
 
-### Short Summary:
-
-Pixart is a pixel art creation tool with the ability to share and browse through other people's work.
 ---
 
 
