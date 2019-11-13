@@ -1,9 +1,13 @@
 # PixArt - Sprint Planning
 
 **Dev Team:** Hin Chan, Ronald Guerra, Jiahao Chen, Pavit Bath
-**General meeting schedule:**In-person meeting: Monday 5pm - 6pmDiscord meeting: Wednesday and Saturday after 7 pm. May change depending on everyone’s schedule.
+**Link to our Trello board:** https://trello.com/b/Nrt4UUJa
+**General meeting schedule:**
+In-person meeting: Monday 5pm - 6pm
+Discord meeting: Wednesday and Saturday after 7 pm. May change depending on everyone’s schedule.
 
-
+## Short Summary:
+Pixart is a pixel art creation tool with the ability to share and browse through other people's work.
 
 ---
 
@@ -20,18 +24,24 @@
 ---
 
 ### Discord meeting on Sat (11/9) Recap
-Went over what Hin finished.
+Completed:
+- Hin finished the UI portion, note: UI design is not finalized. Link to commit: https://github.com/ECS189E/project-f19-pixelart/commit/6ab2253996a4ab9fdc55c0a5b7dd72ced5cff85a
 Target:
 - Google firebase
   - Have users, be able to login
 - UI improvement
 - See process to push app to AppStore
+
 ---
 
 ### In person meeting on Tues (11/12)
-Went over what Ronald finished (Canvas logic).
+Completed:
+- Ronald finished the Canvas logic (can draw and display result in image viewer). Link to commit: https://github.com/ECS189E/project-f19-pixelart/commit/acc4e396b3ab851809a9351c158cf9e286edc3e3
+- Minor bug fixes.
 Target for this week:
 - Pavit will look into firebase, and hopefully get login by milestone 1.
 - Bug fixes (color picker doesn’t show initial color, tap doesn’t draw, etc.)
 - UI improvement
 - create API handler, data structure for each “post”.
+
+---
