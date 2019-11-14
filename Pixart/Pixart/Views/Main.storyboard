@@ -104,7 +104,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ii3-f1-SUo" customClass="GIDSignInButton">
+                            <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ii3-f1-SUo" customClass="GIDSignInButton">
                                 <rect key="frame" x="95" y="601" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -323,7 +323,8 @@
         <image name="pixart_logo" width="720" height="382"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lBA-MT-YoS"/>
+        <segue reference="rg0-NI-vYa"/>
+        <segue reference="5e2-8K-n0y"/>
         <segue reference="Bd5-lb-bVB"/>
     </inferredMetricsTieBreakers>
 </document>
