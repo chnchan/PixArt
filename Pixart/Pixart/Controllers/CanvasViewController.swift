@@ -67,7 +67,10 @@ class CanvasViewController: UIViewController {
         let data = image.pngData() ?? Data()
 
         // Create a reference to the file you want to upload
-        let name = drawingName.text ?? "NoName"
+        var name = drawingName.text ?? "NoName"
+        if name == "" {
+            name = "NoName"
+        }
         let location = userID + "/" + name + ".png"
         let drawingRef = storageRef.child(location)
 
