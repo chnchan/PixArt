@@ -7,7 +7,7 @@
 ## UI Design
 Log In
 
-![Picture3](https://user-images.githubusercontent.com/8505929/68825925-c9bd5400-0650-11ea-8ae4-4af710c79282.png")
+![Mockup1](https://user-images.githubusercontent.com/8505929/68826086-4819f600-0651-11ea-98e0-067e6d2b75c1.png)
 
 Side Menu and Canvas
 
