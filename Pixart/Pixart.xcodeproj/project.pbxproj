@@ -32,6 +32,7 @@
 		B57EF8BA2377CE15009DE772 /* WorksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57EF8B92377CE15009DE772 /* WorksTableViewCell.swift */; };
 		B57EF8BC2377EF05009DE772 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57EF8BB2377EF05009DE772 /* GridView.swift */; };
 		F317AD72237D152300BF1F2F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F317AD71237D152300BF1F2F /* GoogleService-Info.plist */; };
+		F31FD413237D3B1400E2B0FF /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31FD412237D3B1400E2B0FF /* SignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		B57EF8BB2377EF05009DE772 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		BC70609E9D45848D3A1BA3DB /* Pods-Pixart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pixart.release.xcconfig"; path = "Target Support Files/Pods-Pixart/Pods-Pixart.release.xcconfig"; sourceTree = "<group>"; };
 		F317AD71237D152300BF1F2F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F31FD412237D3B1400E2B0FF /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		F34055D4237BB56000AFDA02 /* Pixart.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Pixart.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -168,6 +170,7 @@
 			children = (
 				326CD37A23761341008CEC07 /* Popups Controllers */,
 				32C0F4382374F24D00612535 /* LoginViewController.swift */,
+				F31FD412237D3B1400E2B0FF /* SignUpViewController.swift */,
 				32C0F414237414BD00612535 /* SideMenuViewController.swift */,
 				32C0F43E237503E100612535 /* ProfileViewController.swift */,
 				32602BB7237547A200FE7D31 /* CanvasViewController.swift */,
@@ -352,6 +355,7 @@
 				32C0F43F237503E100612535 /* ProfileViewController.swift in Sources */,
 				32C0F411237414BD00612535 /* AppDelegate.swift in Sources */,
 				32C0F413237414BD00612535 /* SceneDelegate.swift in Sources */,
+				F31FD413237D3B1400E2B0FF /* SignUpViewController.swift in Sources */,
 				32602BB8237547A200FE7D31 /* CanvasViewController.swift in Sources */,
 				3200289B237BD15B0095CE03 /* Local.xcdatamodeld in Sources */,
 				B57EF8BA2377CE15009DE772 /* WorksTableViewCell.swift in Sources */,

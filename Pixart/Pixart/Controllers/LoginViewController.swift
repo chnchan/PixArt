@@ -8,22 +8,23 @@
 
 import UIKit
 import SideMenu
+import GoogleSignIn
 import FirebaseAuth
-import FirebaseUI
 
 
 class LoginViewController: UIViewController {
 
-    @IBOutlet weak var username: UITextField!
+    @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     
+    @IBOutlet weak var errorLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSideMenu()
-        
+        GIDSignIn.sharedInstance()?.presentingViewController = self
         if let userInfo = Storage.fetchLogins() {
             if (!userInfo.isEmpty) {
-                username.text = userInfo[0].value(forKey: "username") as? String
+                email.text = userInfo[0].value(forKey: "username") as? String
                 password.text = userInfo[0].value(forKey: "password") as? String
             }
         }
@@ -37,20 +38,26 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func sendPressed(_ sender: Any) {
-        if true { // API validate logins
-            if true { // remember me is on
-                Storage.saveLogins(username: username.text ?? "", password: password.text ?? "")
+        if true { // remember me is on
+            Storage.saveLogins(username: email.text ?? "", password: password.text ?? "")
+        } else {
+            Storage.saveLogins(username: email.text ?? "", password: "")
+        }
+        Auth.auth().signIn(withEmail: email.text ?? "", password: password.text ?? "") { [weak self] authResult, error in
+          guard let strongSelf = self else { return }
+            if error != nil {
+                strongSelf.errorLabel.text = "Invalid Credentials"
             } else {
-                Storage.saveLogins(username: username.text ?? "", password: "")
+                strongSelf.errorLabel.text = ""
+                strongSelf.performSegue(withIdentifier: "login", sender: strongSelf)
             }
-            
-            self.performSegue(withIdentifier: "login", sender: nil)
         }
     }
     
 
     @IBAction func signUpPressed() {
-
+        self.performSegue(withIdentifier: "newAcc", sender: self)
+        
     }
     
     // MARK: UNWIND
