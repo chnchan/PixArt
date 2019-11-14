@@ -16,7 +16,8 @@ class CanvasViewController: UIViewController {
     
     let SLIDER_HIGHT = 15
     let SLIDER_WIDTH = 300
-    let db = Firestore.firestore()
+    var handle: AuthStateDidChangeListenerHandle?
+    var userID = ""
     
     @IBOutlet weak var gridView: GridView!
     @IBOutlet weak var pixelArtImage: UIImageView!
@@ -32,6 +33,23 @@ class CanvasViewController: UIViewController {
         colorSlider.addTarget(self, action: #selector(changedColor(_:)), for: .valueChanged)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // [START auth_listener]
+        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+            self.userID = user?.uid ?? ""
+        }
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        // force unwrap justified since handle will never be nil after
+        // viewWillAppear called  (can only get to this view with authenticated
+        // user)
+        Auth.auth().removeStateDidChangeListener(handle!)
+    }
+    
     // This function saves the image to user folder
     // TODO: right now  it just displays it to the view
     // but i will change later
@@ -41,10 +59,12 @@ class CanvasViewController: UIViewController {
         let image = renderer.image { ctx in
             gridView.drawHierarchy(in: gridView.bounds, afterScreenUpdates: true)
         }
-        
+//        db.collection(userID).document("drawing").set
         pixelArtImage.image = image
     
     }
+    
+    
     
     @objc func changedColor(_ slider: ColorSlider) {
         let color = slider.color
