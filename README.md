@@ -8,7 +8,7 @@ Pavit Bath
 
 git handle: PavitBath
 
-![](Members/Pavit.jpg){:height="50%" width="50%"}
+![](Members/Pavit.jpg =250x)
 
 Ronald Guerra
 
