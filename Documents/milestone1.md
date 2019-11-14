@@ -63,11 +63,22 @@ Profile and Works (Has been separated into two views), Feed
     - Users will be able to slide to like, dislike, dismiss drawings by swiping in the appropriate direction
 
 ## Timeline
-
 - User Login, storing and fetching data to/from server for appropriate user - Done by Nov 17
 - Improve, unify UI across views to get our desired aesthetic - Done by Nov 20
 - Support sharing images to one global feed where users can like and dislike images - Done by Nov 23
-- Improve drawing canvas by having different size options and the ability for the user to zoom in on the grid for more fine control - done by Nov 25
+- Improve drawing canvas by having different size options and the ability for the user to zoom in on the grid for more fine control - Done by Nov 25
+- Test app features/usability - Done by Nov 30
 - Make sure app conforms to Apple guideline for submission to App store - done by Dec 1
 - Submit app to be published in the App store - Done by Dec 2
 - Push for 250 active users - Done by Dec 7
+
+## Testing Plan
+- What to Test
+    - Login flow (How long does it take to sign up/login)
+    - Usability of drawing canvas (How well does the canvas work for drawing? 1-10)
+    - Functionality of sharing drawings to global feed (How good is the feed for viewing others drawings? 1-5)
+    - General app responsiveness (How fast/responsive is the app? 1-10)
+    - General app bugginess (How buggy is the app? 1-10)
+- Testing group
+    - Tech oriented: other cs students, heavy phone users
+    - More casual user: older family members
