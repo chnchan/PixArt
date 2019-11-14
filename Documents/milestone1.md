@@ -1,10 +1,12 @@
 # PixArt - Milestone 1
 
 **Link to our Trello board:** https://trello.com/b/Nrt4UUJa
-
+**Link to Github Classroom Project:** https://github.com/ECS189E/project-f19-pixelart
 ---
 
 ## UI Design
+![Picture1](https://user-images.githubusercontent.com/8505929/68825451-04be8800-064f-11ea-92ce-8adb7a38dcb5.png)
+
 
 
 
@@ -15,7 +17,8 @@
 -  Color Slider
     - Used to provide the user with a color selector to use while drawing
 
-
+## Server Support
+- Will use Firebase as mentioned above
 
 ## Models
 - Firebase Cloud Firestore
@@ -51,4 +54,5 @@
 - Feed View Controller
     - Drawings that users have shared will appear here
     - Users will be able to slide to like, dislike, dismiss drawings by swiping in the appropriate direction
+
     
