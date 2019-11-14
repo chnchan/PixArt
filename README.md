@@ -25,3 +25,5 @@ git handle: chnchan
 Jiahao Chen
 
 git handle: cjh010
+
+![](Members/Ji.jpg)
