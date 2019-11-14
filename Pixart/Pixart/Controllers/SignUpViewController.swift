@@ -47,6 +47,7 @@ class SignUpViewController: UIViewController {
                     self.errorLabel.text = "Account with email already exists"
                 } else {
                     self.errorLabel.text = ""
+                    self.performSegue(withIdentifier: "login", sender: self)
                 }
               
             }

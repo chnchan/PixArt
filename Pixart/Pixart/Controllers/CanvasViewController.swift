@@ -9,13 +9,13 @@
 import UIKit
 import SideMenu
 import ColorSlider
+import Firebase
 
 class CanvasViewController: UIViewController {
     var root: UIViewController?
     
     let SLIDER_HIGHT = 15
     let SLIDER_WIDTH = 300
-    
     
     @IBOutlet weak var gridView: GridView!
     @IBOutlet weak var pixelArtImage: UIImageView!
