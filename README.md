@@ -8,19 +8,19 @@ Pavit Bath
 
 git handle: PavitBath
 
-![](Members/Pavit.jpg | width=100)
+![](Members/Pavit.jpg){:height="700px" width="400px"}
 
 Ronald Guerra
 
 git handle: raguerraa
 
-![](Members/ronald.jpg | width=100)
+![](Members/ronald.jpg ){:height="700px" width="400px"}
 
 Hin Chan
 
 git handle: chnchan
 
-![](Members/Hin.jpg | width=100)
+![](Members/Hin.jpg ){:height="700px" width="400px"}
 
 Jiahao Chen
 
