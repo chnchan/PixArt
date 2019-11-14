@@ -215,6 +215,7 @@
 				32C0F40A237414BD00612535 /* Frameworks */,
 				32C0F40B237414BD00612535 /* Resources */,
 				EDA71C29C5622348CCD24197 /* [CP] Embed Pods Frameworks */,
+				BCB895827F04010EEDADAB5D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -280,6 +281,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		BCB895827F04010EEDADAB5D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Pixart/Pods-Pixart-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Pixart/Pods-Pixart-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Pixart/Pods-Pixart-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		E04BD8C3C19C41F168AC3257 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
