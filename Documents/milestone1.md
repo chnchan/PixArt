@@ -6,7 +6,7 @@
 
 ## UI Design
 
----
+
 
 ## Libraries Used
 * Firebase
@@ -15,12 +15,14 @@
 *  Color Slider
     * Used to provide the user with a color selector to use while drawing
 
----
+
 
 ## Models
 * Firebase Cloud Firestore
     * As mentioned in the libraries function, we will be utilizing Firebase's Cloud Firestore to store the relevant user data
----
+* Core Data
+    * This is used for local storage (refilling last entered username, storing drawings on device for unregistered users)
+
 
 ## View Controllers
-    
+* Login View Controlelr
