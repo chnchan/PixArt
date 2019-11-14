@@ -17,6 +17,7 @@ class CanvasViewController: UIViewController {
     let SLIDER_HIGHT = 15
     let SLIDER_WIDTH = 300
     let storage = Storage.storage()
+    let db = Firestore.firestore()
     var storageRef = StorageReference.init()
     var handle: AuthStateDidChangeListenerHandle?
     var userID = ""
@@ -66,24 +67,31 @@ class CanvasViewController: UIViewController {
         let data = image.pngData() ?? Data()
 
         // Create a reference to the file you want to upload
-        let location = userID + "/" + (drawingName.text ?? "NoName")
-        let riversRef = storageRef.child(location)
+        let name = drawingName.text ?? "NoName"
+        let location = userID + "/" + name + ".png"
+        let drawingRef = storageRef.child(location)
 
         // Upload the file to the path "images/rivers.jpg"
-        let uploadTask = riversRef.putData(data, metadata: nil) { (metadata, error) in
-          guard let metadata = metadata else {
-            // Uh-oh, an error occurred!
-            return
-          }
-          // Metadata contains file metadata such as size, content-type.
-          let size = metadata.size
-          // You can also access to download URL after upload.
-          riversRef.downloadURL { (url, error) in
-            guard let downloadURL = url else {
-              // Uh-oh, an error occurred!
-              return
+        let uploadTask = drawingRef.putData(data, metadata: nil) { (metadata, error) in
+            
+            if error != nil {
+                print("oh no")
+                return
+            } else {
+                let size = metadata?.size
+                self.db.collection(self.userID).document(name).setData([
+                    "name": name,
+                    "filePath": location,
+                    "size": size ?? 0
+                ]) { err in
+                    if let err = err {
+                        print("Error adding document: \(err)")
+                    } else {
+                        print("Document added")
+                    }
+                }
             }
-          }
+
         }
             
     
