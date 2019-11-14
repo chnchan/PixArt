@@ -1,6 +1,6 @@
 # project-f19-pixelart
 
-Link to our Trello board:** https://trello.com/b/Nrt4UUJa
+Link to our Trello board: https://trello.com/b/Nrt4UUJa
 
 ## Contributors:
 
