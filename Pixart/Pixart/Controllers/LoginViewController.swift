@@ -22,7 +22,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         setupSideMenu()
         GIDSignIn.sharedInstance()?.presentingViewController = self
-        if let userInfo = Storage.fetchLogins() {
+        if let userInfo = LocalStorage.fetchLogins() {
             if (!userInfo.isEmpty) {
                 email.text = userInfo[0].value(forKey: "username") as? String
                 password.text = userInfo[0].value(forKey: "password") as? String
@@ -39,9 +39,9 @@ class LoginViewController: UIViewController {
     
     @IBAction func sendPressed(_ sender: Any) {
         if true { // remember me is on
-            Storage.saveLogins(username: email.text ?? "", password: password.text ?? "")
+            LocalStorage.saveLogins(username: email.text ?? "", password: password.text ?? "")
         } else {
-            Storage.saveLogins(username: email.text ?? "", password: "")
+            LocalStorage.saveLogins(username: email.text ?? "", password: "")
         }
         Auth.auth().signIn(withEmail: email.text ?? "", password: password.text ?? "") { [weak self] authResult, error in
           guard let strongSelf = self else { return }

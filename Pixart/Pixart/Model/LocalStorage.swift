@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import CoreData
 
-struct Storage {
+struct LocalStorage {
     
     static func saveLogins(username: String, password: String) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }

@@ -16,16 +16,18 @@ class CanvasViewController: UIViewController {
     
     let SLIDER_HIGHT = 15
     let SLIDER_WIDTH = 300
+    let storage = Storage.storage()
+    var storageRef = StorageReference.init()
     var handle: AuthStateDidChangeListenerHandle?
     var userID = ""
     
+    @IBOutlet weak var drawingName: UITextField!
     @IBOutlet weak var gridView: GridView!
-    @IBOutlet weak var pixelArtImage: UIImageView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        storageRef = storage.reference()
    
         let colorSlider = ColorSlider(orientation: .horizontal, previewSide: .top)
         colorSlider.frame = CGRect( x: Int((view.frame.width)/2) - Int(SLIDER_WIDTH/2), y:  Int(view.frame.height) - 180, width: SLIDER_WIDTH, height: SLIDER_HIGHT)
@@ -60,7 +62,30 @@ class CanvasViewController: UIViewController {
             gridView.drawHierarchy(in: gridView.bounds, afterScreenUpdates: true)
         }
 //        db.collection(userID).document("drawing").set
-        pixelArtImage.image = image
+        // Data in memory
+        let data = image.pngData() ?? Data()
+
+        // Create a reference to the file you want to upload
+        let location = userID + "/" + (drawingName.text ?? "NoName")
+        let riversRef = storageRef.child(location)
+
+        // Upload the file to the path "images/rivers.jpg"
+        let uploadTask = riversRef.putData(data, metadata: nil) { (metadata, error) in
+          guard let metadata = metadata else {
+            // Uh-oh, an error occurred!
+            return
+          }
+          // Metadata contains file metadata such as size, content-type.
+          let size = metadata.size
+          // You can also access to download URL after upload.
+          riversRef.downloadURL { (url, error) in
+            guard let downloadURL = url else {
+              // Uh-oh, an error occurred!
+              return
+            }
+          }
+        }
+            
     
     }
     

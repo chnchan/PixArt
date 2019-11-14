@@ -7,20 +7,40 @@
 //
 
 import UIKit
+import Firebase
 
 class WorksViewController: UIViewController {
 
     @IBOutlet weak var worksTableView: UITableView!
-    var works = ["cat", "wolf"]
+    let storage = Storage.storage()
+    var storageRef = StorageReference.init()
+    var handle: AuthStateDidChangeListenerHandle?
+    var userID = ""
+    var works: [String] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         worksTableView.dataSource = self
         worksTableView.delegate = self
        // worksTableView.reloadData()
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // [START auth_listener]
+        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+            self.userID = user?.uid ?? ""
+        }
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        // force unwrap justified since handle will never be nil after
+        // viewWillAppear called  (can only get to this view with authenticated
+        // user)
+        Auth.auth().removeStateDidChangeListener(handle!)
+    }
 
 }
 extension WorksViewController: UITableViewDataSource, UITableViewDelegate {
