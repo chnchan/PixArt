@@ -9,6 +9,7 @@
 import UIKit
 import SideMenu
 import FirebaseAuth
+import FirebaseUI
 
 
 class LoginViewController: UIViewController {
@@ -49,7 +50,7 @@ class LoginViewController: UIViewController {
     
 
     @IBAction func signUpPressed() {
-        
+
     }
     
     // MARK: UNWIND
