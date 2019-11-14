@@ -49,7 +49,6 @@ class LoginViewController: UIViewController {
                 strongSelf.errorLabel.text = "Invalid Credentials"
             } else {
                 strongSelf.errorLabel.text = ""
-//                print(authResult.getUser())
                 strongSelf.performSegue(withIdentifier: "login", sender: strongSelf)
             }
         }

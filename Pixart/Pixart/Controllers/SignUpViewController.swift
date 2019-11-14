@@ -21,6 +21,9 @@ class SignUpViewController: UIViewController {
         password.passwordRules = UITextInputPasswordRules(descriptor: "required: upper; required: lower; required: digit, [-().&@?'#,/&quot;+]; minlength: 7;")
     }
     
+    @IBAction func backPressed() {
+        performSegue(withIdentifier: "backToLogin", sender: self)
+    }
     private func validatePassword() -> Bool {
         // Minimum 8 characters at least 1 Uppercase Alphabet, 1 Lowercase Alphabet, 1 Number and 1 Special Character:
         // Pavits97!
@@ -52,7 +55,7 @@ class SignUpViewController: UIViewController {
                     self.errorLabel.text = ""
                     self.performSegue(withIdentifier: "signin", sender: self)
                 }
-              
+
             }
         }
 

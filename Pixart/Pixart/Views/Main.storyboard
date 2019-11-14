@@ -135,7 +135,7 @@
                         <outlet property="errorLabel" destination="tN9-Dc-Txq" id="nLR-qs-Pfn"/>
                         <outlet property="password" destination="Zq7-um-rcs" id="RQK-BB-75o"/>
                         <segue destination="7Xb-Z3-STo" kind="show" identifier="login" id="5e2-8K-n0y"/>
-                        <segue destination="mYe-cK-fBf" kind="showDetail" identifier="newAcc" id="rg0-NI-vYa"/>
+                        <segue destination="mYe-cK-fBf" kind="show" identifier="newAcc" id="rg0-NI-vYa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2ge-Pb-Rey" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -247,12 +247,22 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6zU-of-0xl">
+                                <rect key="frame" x="24" y="43" width="38" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="backPressed" destination="mYe-cK-fBf" eventType="touchUpInside" id="Lt6-Rg-utH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="6df-Hb-hHA" firstAttribute="leading" secondItem="HEw-Qe-wN0" secondAttribute="leading" constant="85" id="1E3-Sg-zfj"/>
                             <constraint firstItem="HEw-Qe-wN0" firstAttribute="bottom" secondItem="SOD-92-gtu" secondAttribute="bottom" constant="300" id="33b-EI-gNr"/>
                             <constraint firstItem="utM-6u-fBy" firstAttribute="leading" secondItem="6df-Hb-hHA" secondAttribute="leading" id="6hE-xa-FGP"/>
+                            <constraint firstItem="6zU-of-0xl" firstAttribute="leading" secondItem="HEw-Qe-wN0" secondAttribute="leading" constant="24" id="7Oy-5j-EXq"/>
+                            <constraint firstItem="6zU-of-0xl" firstAttribute="top" secondItem="wHK-oX-00S" secondAttribute="top" constant="43" id="8ET-lN-XNM"/>
                             <constraint firstItem="SOD-92-gtu" firstAttribute="top" secondItem="6df-Hb-hHA" secondAttribute="bottom" constant="37" id="DCv-eT-k8D"/>
                             <constraint firstItem="utM-6u-fBy" firstAttribute="top" secondItem="HEw-Qe-wN0" secondAttribute="top" constant="125" id="ZyM-R6-T2W"/>
                             <constraint firstItem="Sdg-fv-ale" firstAttribute="centerX" secondItem="wHK-oX-00S" secondAttribute="centerX" id="cVp-kx-eix"/>
@@ -271,6 +281,7 @@
                         <outlet property="password" destination="ThM-6O-AUW" id="dfO-aX-eoW"/>
                         <outlet property="sendButton" destination="Ztr-nb-hGm" id="Q4K-cS-2La"/>
                         <segue destination="7Xb-Z3-STo" kind="show" identifier="signin" id="lBA-MT-YoS"/>
+                        <segue destination="A1w-mC-UAh" kind="show" identifier="backToLogin" id="Bd5-lb-bVB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iY5-aT-rkq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -313,5 +324,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="lBA-MT-YoS"/>
+        <segue reference="Bd5-lb-bVB"/>
     </inferredMetricsTieBreakers>
 </document>
