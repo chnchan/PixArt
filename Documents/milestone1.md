@@ -1,0 +1,26 @@
+# PixArt - Milestone 1
+
+**Link to our Trello board:** https://trello.com/b/Nrt4UUJa
+
+---
+
+## UI Design
+
+---
+
+## Libraries Used
+* Firebase
+    * Used to store relevant user data (drawings, settings, etc)
+    * Also utilize the provided authentication functions to facilitate user log in
+*  Color Slider
+    * Used to provide the user with a color selector to use while drawing
+
+---
+
+## Models
+* Firebase Cloud Firestore
+    * As mentioned in the libraries function, we will be utilizing Firebase's Cloud Firestore to store the relevant user data
+---
+
+## View Controllers
+    
