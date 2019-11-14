@@ -16,6 +16,7 @@ class CanvasViewController: UIViewController {
     
     let SLIDER_HIGHT = 15
     let SLIDER_WIDTH = 300
+    let db = Firestore.firestore()
     
     @IBOutlet weak var gridView: GridView!
     @IBOutlet weak var pixelArtImage: UIImageView!

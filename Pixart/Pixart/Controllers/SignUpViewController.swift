@@ -16,6 +16,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var confirm_password: UITextField!
     @IBOutlet weak var errorLabel: UILabel!
     
+    @IBOutlet weak var sendButton: UIButton!
     override func viewDidLoad() {
         password.passwordRules = UITextInputPasswordRules(descriptor: "required: upper; required: lower; required: digit, [-().&@?'#,/&quot;+]; minlength: 7;")
     }
@@ -34,6 +35,7 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func sendPressed() {
+        sendButton.isUserInteractionEnabled = false
         if !self.validateEmail() {
             errorLabel.text = "Email not valid"
         } else if password.text != confirm_password.text {
@@ -43,11 +45,12 @@ class SignUpViewController: UIViewController {
         }
         else {
             Auth.auth().createUser(withEmail: email.text ?? "", password: password.text ?? "") { authResult, error in
+                self.sendButton.isUserInteractionEnabled = true
                 if error != nil {
                     self.errorLabel.text = "Account with email already exists"
                 } else {
                     self.errorLabel.text = ""
-                    self.performSegue(withIdentifier: "login", sender: self)
+                    self.performSegue(withIdentifier: "signin", sender: self)
                 }
               
             }

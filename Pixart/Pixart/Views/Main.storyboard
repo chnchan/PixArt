@@ -269,6 +269,8 @@
                         <outlet property="email" destination="GN7-Ai-F7q" id="UUC-0d-f0B"/>
                         <outlet property="errorLabel" destination="Sdg-fv-ale" id="dMb-iN-tLG"/>
                         <outlet property="password" destination="ThM-6O-AUW" id="dfO-aX-eoW"/>
+                        <outlet property="sendButton" destination="Ztr-nb-hGm" id="Q4K-cS-2La"/>
+                        <segue destination="7Xb-Z3-STo" kind="show" identifier="signin" id="lBA-MT-YoS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iY5-aT-rkq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -309,4 +311,7 @@
         <image name="login" width="4000" height="6000"/>
         <image name="pixart_logo" width="720" height="382"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="lBA-MT-YoS"/>
+    </inferredMetricsTieBreakers>
 </document>
