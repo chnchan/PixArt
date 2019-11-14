@@ -11,4 +11,7 @@ target 'Pixart' do
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
   pod 'GoogleSignIn'
+  pod 'Firebase/Core'
+  pod 'Firebase/Firestore'
+  pod 'FirebaseFirestoreSwift'
 end
