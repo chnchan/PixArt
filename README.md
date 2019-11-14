@@ -1,5 +1,4 @@
 # project-f19-pixelart
-project-f19-pixelart created by GitHub Classroom
 
 Link to our Trello board:** https://trello.com/b/Nrt4UUJa
 
