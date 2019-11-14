@@ -6,9 +6,13 @@
 
 ## UI Design
 Side Menu and Canvas
+
 ![Picture1](https://user-images.githubusercontent.com/8505929/68825533-47806000-064f-11ea-9d03-0c19680f2b10.png)
+
 Profile and Works (Has been separated into two views), Feed
+
 ![Picture2](https://user-images.githubusercontent.com/8505929/68825618-9a5a1780-064f-11ea-9265-d1b306bd10b8.png)
+
 
 
 
