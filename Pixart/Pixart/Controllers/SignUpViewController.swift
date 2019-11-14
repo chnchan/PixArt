@@ -41,10 +41,14 @@ class SignUpViewController: UIViewController {
         sendButton.isUserInteractionEnabled = false
         if !self.validateEmail() {
             errorLabel.text = "Email not valid"
+            self.sendButton.isUserInteractionEnabled = true
+            
         } else if password.text != confirm_password.text {
             errorLabel.text = "passwords do not match"
+            self.sendButton.isUserInteractionEnabled = true
         } else if !self.validatePassword() {
             errorLabel.text = "Password doesn't meet requirements"
+            self.sendButton.isUserInteractionEnabled = true
         }
         else {
             Auth.auth().createUser(withEmail: email.text ?? "", password: password.text ?? "") { authResult, error in
@@ -58,6 +62,6 @@ class SignUpViewController: UIViewController {
 
             }
         }
-
+        
     }
 }
