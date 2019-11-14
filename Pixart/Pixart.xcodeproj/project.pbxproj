@@ -165,11 +165,11 @@
 			children = (
 				326CD37A23761341008CEC07 /* Popups Controllers */,
 				32C0F4382374F24D00612535 /* LoginViewController.swift */,
-				B57EF8B92377CE15009DE772 /* WorksTableViewCell.swift */,
 				32C0F414237414BD00612535 /* SideMenuViewController.swift */,
-				32602BB7237547A200FE7D31 /* CanvasViewController.swift */,
 				32C0F43E237503E100612535 /* ProfileViewController.swift */,
+				32602BB7237547A200FE7D31 /* CanvasViewController.swift */,
 				32602BB523753C6E00FE7D31 /* WorksViewController.swift */,
+				B57EF8B92377CE15009DE772 /* WorksTableViewCell.swift */,
 				32602BB9237553EF00FE7D31 /* FeedsViewController.swift */,
 			);
 			path = Controllers;
