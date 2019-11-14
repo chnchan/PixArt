@@ -17,11 +17,6 @@ Profile and Works (Has been separated into two views), Feed
 
 ![Picture2](https://user-images.githubusercontent.com/8505929/68825618-9a5a1780-064f-11ea-9265-d1b306bd10b8.png)
 
-
-
-
-
-
 ## Libraries Used
 - Firebase
     - Used to store relevant user data (drawings, settings, etc)
@@ -67,4 +62,12 @@ Profile and Works (Has been separated into two views), Feed
     - Drawings that users have shared will appear here
     - Users will be able to slide to like, dislike, dismiss drawings by swiping in the appropriate direction
 
-    
+## Timeline
+
+- User Login, storing and fetching data to/from server for appropriate user - Done by Nov 17
+- Improve, unify UI across views to get our desired aesthetic - Done by Nov 20
+- Support sharing images to one global feed where users can like and dislike images - Done by Nov 23
+- Improve drawing canvas by having different size options and the ability for the user to zoom in on the grid for more fine control - done by Nov 25
+- Make sure app conforms to Apple guideline for submission to App store - done by Dec 1
+- Submit app to be published in the App store - Done by Dec 2
+- Push for 250 active users - Done by Dec 7
