@@ -1,19 +1,27 @@
 # project-f19-pixelart
-project-f19-pixelart created by GitHub Classroom
 
-Link to our Trello board:** https://trello.com/b/Nrt4UUJa
+Link to our Trello board: https://trello.com/b/Nrt4UUJa
 
 ## Contributors:
 
 Pavit Bath
+
 git handle: PavitBath
 
+![](Members/Pavit.jpg =250x)
+
 Ronald Guerra
+
 git handle: raguerraa
 
+![](Members/ronald.jpg){:height="50%" width="50%"}
+
 Hin Chan
+
 git handle: chnchan
 
+![](Members/Hin.jpg){:height="50%" width="50%"}
 
 Jiahao Chen
+
 git handle: cjh010
