@@ -14,9 +14,9 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6051175E4E4C37209FBE2BF5BE4627BD"
-               BuildableName = "FirebaseUI-FirebaseGoogleAuthUI.bundle"
-               BlueprintName = "FirebaseUI-FirebaseGoogleAuthUI"
+               BlueprintIdentifier = "17776A978F6ABFA2625326B87260F630"
+               BuildableName = "FirebaseUI-FirebaseEmailAuthUI.bundle"
+               BlueprintName = "FirebaseUI-FirebaseEmailAuthUI"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

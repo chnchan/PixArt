@@ -9,6 +9,7 @@ target 'Pixart' do
   pod 'ColorSlider', '~> 4.4'
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
+  pod 'FirebaseUI/Email'
   pod 'FirebaseUI/Auth'
   pod 'FirebaseUI/Google'
 end

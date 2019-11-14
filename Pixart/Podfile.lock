@@ -50,6 +50,8 @@ PODS:
   - FirebaseUI/Auth (8.3.1):
     - Firebase/Auth (~> 6.0)
     - GoogleUtilities/UserDefaults
+  - FirebaseUI/Email (8.3.1):
+    - FirebaseUI/Auth
   - FirebaseUI/Google (8.3.1):
     - FirebaseUI/Auth
     - GoogleSignIn (~> 5.0)
@@ -105,6 +107,7 @@ DEPENDENCIES:
   - Firebase/Analytics
   - Firebase/Auth
   - FirebaseUI/Auth
+  - FirebaseUI/Email
   - FirebaseUI/Google
   - SideMenu (~> 6.0)
 
@@ -153,6 +156,6 @@ SPEC CHECKSUMS:
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   SideMenu: 43910eb6dc994dd59771f8e82573d04a9e776361
 
-PODFILE CHECKSUM: 7ce4670303fa2f40ee0fae7835d8eeccccdea382
+PODFILE CHECKSUM: f7271cf4a468e2ba97eac40f025be19538fce7f4
 
 COCOAPODS: 1.8.4
