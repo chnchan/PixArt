@@ -11,11 +11,6 @@ import UIKit
 class WorksPrivateViewController: UIViewController { // Works saved on local device
 
     @IBOutlet weak var worksTableView: UITableView!
-//    let storage = Storage.storage()
-//    let db = Firestore.firestore()
-//    var storageRef = StorageReference.init()
-//    var handle: AuthStateDidChangeListenerHandle?
-//    var userID = ""
     var works: [[String: Any]] = []
     
     override func viewDidLoad() {

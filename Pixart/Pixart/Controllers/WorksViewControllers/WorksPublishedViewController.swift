@@ -21,7 +21,8 @@ class WorksPublishedViewController: UIViewController { // Works published to Fir
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        worksTableView.dataSource = self
+        worksTableView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
