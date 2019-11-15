@@ -29,7 +29,8 @@ class CanvasViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         storageRef = storage.reference()
-   
+        
+        // Set the color picker and add it to the view
         let colorSlider = ColorSlider(orientation: .horizontal, previewSide: .top)
         colorSlider.frame = CGRect( x: Int((view.frame.width)/2) - Int(SLIDER_WIDTH/2), y:  Int(view.frame.height) - 180, width: SLIDER_WIDTH, height: SLIDER_HIGHT)
              view.addSubview(colorSlider)
@@ -96,18 +97,12 @@ class CanvasViewController: UIViewController {
             }
 
         }
-            
-    
+
     }
-    
-    
-    
+
     @objc func changedColor(_ slider: ColorSlider) {
         let color = slider.color
         gridView.drawingColor  = color
     }
     
-    
-    
-  
 }
