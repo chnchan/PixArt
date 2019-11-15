@@ -140,14 +140,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2ge-Pb-Rey" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1114.4927536231885" y="112.5"/>
+            <point key="canvasLocation" x="1113" y="113"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="gC4-4s-fKQ">
             <objects>
-                <viewController id="mYe-cK-fBf" customClass="SignUpViewController" customModule="Pixart" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="mYe-cK-fBf" customClass="SignUpViewController" customModule="Pixart" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wHK-oX-00S">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="login" translatesAutoresizingMaskIntoConstraints="NO" id="ql6-C1-D3a">
@@ -155,7 +155,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SOD-92-gtu" userLabel="Sign Up View">
-                                <rect key="frame" x="52" y="206" width="310" height="302"/>
+                                <rect key="frame" x="52" y="250" width="310" height="312"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please Enter Your Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="4wL-iC-MX8">
                                         <rect key="frame" x="35" y="15" width="187.5" height="21"/>
@@ -230,19 +230,19 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sdg-fv-ale">
-                                <rect key="frame" x="207" y="538" width="0.0" height="0.0"/>
+                                <rect key="frame" x="207" y="592" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password Requirements:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="utM-6u-fBy">
-                                <rect key="frame" x="85" y="125" width="198" height="21"/>
+                                <rect key="frame" x="85" y="169" width="198" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8 char, 1 upper, 1 lower, 1 num, 1 sepcial" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6df-Hb-hHA">
-                                <rect key="frame" x="85" y="154" width="226" height="15"/>
+                                <rect key="frame" x="85" y="198" width="226" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -323,8 +323,7 @@
         <image name="pixart_logo" width="720" height="382"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rg0-NI-vYa"/>
-        <segue reference="5e2-8K-n0y"/>
+        <segue reference="lBA-MT-YoS"/>
         <segue reference="Bd5-lb-bVB"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -28,6 +28,11 @@
 		32C0F4392374F24D00612535 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C0F4382374F24D00612535 /* LoginViewController.swift */; };
 		32C0F43F237503E100612535 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C0F43E237503E100612535 /* ProfileViewController.swift */; };
 		32C0F441237536BF00612535 /* Works.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32C0F440237536BF00612535 /* Works.storyboard */; };
+		32CC193D237E337600810D77 /* WorksViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CC193C237E337600810D77 /* WorksViewController2.swift */; };
+		32CC1940237E33D600810D77 /* WorksPrivateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CC193F237E33D600810D77 /* WorksPrivateViewController.swift */; };
+		32CC1942237E33DF00810D77 /* WorksPublishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CC1941237E33DF00810D77 /* WorksPublishedViewController.swift */; };
+		32CC1945237E4ADF00810D77 /* PrivateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CC1944237E4ADF00810D77 /* PrivateTableViewCell.swift */; };
+		32CC1947237E4AED00810D77 /* PublishedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CC1946237E4AED00810D77 /* PublishedTableViewCell.swift */; };
 		90832A7785AFB42F2D75E7B9 /* Pods_Pixart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 139F0A8BC80429260D62ED46 /* Pods_Pixart.framework */; };
 		B57EF8BA2377CE15009DE772 /* WorksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57EF8B92377CE15009DE772 /* WorksTableViewCell.swift */; };
 		B57EF8BC2377EF05009DE772 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57EF8BB2377EF05009DE772 /* GridView.swift */; };
@@ -60,6 +65,11 @@
 		32C0F4382374F24D00612535 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		32C0F43E237503E100612535 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		32C0F440237536BF00612535 /* Works.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Works.storyboard; sourceTree = "<group>"; };
+		32CC193C237E337600810D77 /* WorksViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorksViewController2.swift; sourceTree = "<group>"; };
+		32CC193F237E33D600810D77 /* WorksPrivateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorksPrivateViewController.swift; sourceTree = "<group>"; };
+		32CC1941237E33DF00810D77 /* WorksPublishedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorksPublishedViewController.swift; sourceTree = "<group>"; };
+		32CC1944237E4ADF00810D77 /* PrivateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateTableViewCell.swift; sourceTree = "<group>"; };
+		32CC1946237E4AED00810D77 /* PublishedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishedTableViewCell.swift; sourceTree = "<group>"; };
 		4F67732EF58E34752E9602F7 /* Pods-Pixart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pixart.debug.xcconfig"; path = "Target Support Files/Pods-Pixart/Pods-Pixart.debug.xcconfig"; sourceTree = "<group>"; };
 		B57EF8B92377CE15009DE772 /* WorksTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorksTableViewCell.swift; sourceTree = "<group>"; };
 		B57EF8BB2377EF05009DE772 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
@@ -168,6 +178,7 @@
 		32C0F428237418D100612535 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				32CC193E237E33BA00810D77 /* WorksViewControllers */,
 				326CD37A23761341008CEC07 /* Popups Controllers */,
 				32C0F4382374F24D00612535 /* LoginViewController.swift */,
 				F31FD412237D3B1400E2B0FF /* SignUpViewController.swift */,
@@ -187,6 +198,26 @@
 				326CD372237603A6008CEC07 /* Extensions */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		32CC193E237E33BA00810D77 /* WorksViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				32CC1943237E4AC000810D77 /* TableViewCell */,
+				32CC193C237E337600810D77 /* WorksViewController2.swift */,
+				32CC193F237E33D600810D77 /* WorksPrivateViewController.swift */,
+				32CC1941237E33DF00810D77 /* WorksPublishedViewController.swift */,
+			);
+			path = WorksViewControllers;
+			sourceTree = "<group>";
+		};
+		32CC1943237E4AC000810D77 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				32CC1944237E4ADF00810D77 /* PrivateTableViewCell.swift */,
+				32CC1946237E4AED00810D77 /* PublishedTableViewCell.swift */,
+			);
+			path = TableViewCell;
 			sourceTree = "<group>";
 		};
 		7FB127BF296BCF317D1ABB7F /* Frameworks */ = {
@@ -351,12 +382,17 @@
 				326CD37C23761356008CEC07 /* LogoutConfirmationViewController.swift in Sources */,
 				32C0F415237414BD00612535 /* SideMenuViewController.swift in Sources */,
 				B57EF8BC2377EF05009DE772 /* GridView.swift in Sources */,
+				32CC1942237E33DF00810D77 /* WorksPublishedViewController.swift in Sources */,
+				32CC1945237E4ADF00810D77 /* PrivateTableViewCell.swift in Sources */,
 				32602BBA237553EF00FE7D31 /* FeedsViewController.swift in Sources */,
 				32C0F43F237503E100612535 /* ProfileViewController.swift in Sources */,
+				32CC1940237E33D600810D77 /* WorksPrivateViewController.swift in Sources */,
 				32C0F411237414BD00612535 /* AppDelegate.swift in Sources */,
 				32C0F413237414BD00612535 /* SceneDelegate.swift in Sources */,
+				32CC193D237E337600810D77 /* WorksViewController2.swift in Sources */,
 				F31FD413237D3B1400E2B0FF /* SignUpViewController.swift in Sources */,
 				32602BB8237547A200FE7D31 /* CanvasViewController.swift in Sources */,
+				32CC1947237E4AED00810D77 /* PublishedTableViewCell.swift in Sources */,
 				3200289B237BD15B0095CE03 /* Local.xcdatamodeld in Sources */,
 				B57EF8BA2377CE15009DE772 /* WorksTableViewCell.swift in Sources */,
 				32602BB623753C6E00FE7D31 /* WorksViewController.swift in Sources */,
