@@ -193,6 +193,7 @@
                     <navigationItem key="navigationItem" id="vAU-6f-j1W"/>
                     <connections>
                         <outlet property="profile_image" destination="FeI-he-bgr" id="YBi-tt-AfK"/>
+                        <outlet property="username" destination="6sN-MF-xw1" id="CcB-F4-t3t"/>
                         <segue destination="b6C-SQ-MBJ" kind="show" identifier="feeds" id="y1a-lO-rNf"/>
                         <segue destination="8bY-Pn-6Ek" kind="show" identifier="profile" id="te7-hh-4LA"/>
                         <segue destination="Ou6-YY-xh6" kind="show" identifier="works" id="jda-R8-wHT"/>

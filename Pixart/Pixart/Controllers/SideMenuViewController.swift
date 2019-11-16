@@ -15,6 +15,7 @@ protocol SideMenuViewControllerDelegate {
 
 class SideMenuViewController: UIViewController {
     
+    @IBOutlet weak var username: UILabel!
     @IBOutlet weak var profile_image: UIImageView!
     var delegate: SideMenuViewControllerDelegate?
     
@@ -22,6 +23,14 @@ class SideMenuViewController: UIViewController {
         super.viewDidLoad()
         profile_image.layer.masksToBounds = true
         profile_image.layer.cornerRadius = profile_image.bounds.width / 2
+        if let userInfo = LocalStorage.fetchLogins(){
+            if(!userInfo.isEmpty) {
+                username.text = userInfo[0].value(forKey: "username") as? String
+            }
+            else{
+                username.text = "Anonymous"
+            }
+        }
     }
     
     @IBAction func profilePressed(_ sender: Any) {
