@@ -24,11 +24,8 @@ class GridView: UIView {
     
 
     override func draw(_ rect: CGRect) {
-        
-        let gesture = UIPinchGestureRecognizer(target: self, action: #selector(pinchAction(sender:)))
-             self.addGestureRecognizer(gesture)
-        
-        
+
+        // Set border width and color of the view
         self.layer.borderColor = UIColor(red: 255.0/255.0, green: 213.0/255.0, blue: 3.0/255.0, alpha: 1).cgColor
         self.layer.borderWidth = 3.0
         
@@ -36,6 +33,8 @@ class GridView: UIView {
         cellWidth = self.frame.width / CGFloat(CELLS_PER_ROW)
         
         makeCells()
+
+        self.addGestureRecognizer(UIPinchGestureRecognizer(target: self, action: #selector(pinchAction(sender:))))
         self.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handleGesture)))
         self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleGesture)))
      }
@@ -51,11 +50,7 @@ class GridView: UIView {
     @objc func handleGesture(gesture: Any?) {
         if let panGesture = gesture as? UIPanGestureRecognizer {
             let location = panGesture.location(in: self)
-            print(location)
-            
-            let cellWidth = self.frame.width / CGFloat(CELLS_PER_ROW)
-            print (self.frame.width)
-            
+            //let cellWidth = self.frame.width / CGFloat(CELLS_PER_ROW)
             let i = Int(location.x / cellWidth)
             let j = Int(location.y / cellWidth)
             let cellView = cells["\(i)|\(j)"]
@@ -64,7 +59,7 @@ class GridView: UIView {
         
         if let tapGesture = gesture as? UITapGestureRecognizer {
             let location = tapGesture.location(in: self)
-            let cellWidth = self.frame.width / CGFloat(CELLS_PER_ROW)
+            //let cellWidth = self.frame.width / CGFloat(CELLS_PER_ROW)
             let i = Int(location.x / cellWidth)
             let j = Int(location.y / cellWidth)
             let cellView = cells["\(i)|\(j)"]
