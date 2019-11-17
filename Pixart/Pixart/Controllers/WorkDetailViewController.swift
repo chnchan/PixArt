@@ -65,14 +65,14 @@ class WorkDetailViewController: UIViewController {
     }
     
     @IBAction func changename(_ sender: UITextField) {
-        let name = self.currentname
+        /*let name = self.currentname
         guard let newname = self.workname.text else{
             return
         }
         self.currentname = newname
-        self.db.collection(self.userID).document(name).setData(["name" : newname], mergeFields: ["name"])
-        
+        self.db.collection(self.userID).document(name).setData(["name" : newname], mergeFields: ["name"])*/
     }
+    
     @IBAction func togglepublicsetting(_ sender: UIButton) {
         let name = self.currentname
         var publicsetting : String = "private"
