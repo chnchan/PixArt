@@ -86,7 +86,8 @@ class CanvasViewController: UIViewController {
                 self.db.collection(self.userID).document(name).setData([
                     "name": name,
                     "filePath": location,
-                    "size": size ?? 0
+                    "size": size ?? 0, 
+                    "public" : "private"
                 ]) { err in
                     if let err = err {
                         print("Error adding document: \(err)")

@@ -36,6 +36,7 @@
 		90832A7785AFB42F2D75E7B9 /* Pods_Pixart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 139F0A8BC80429260D62ED46 /* Pods_Pixart.framework */; };
 		B57EF8BA2377CE15009DE772 /* WorksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57EF8B92377CE15009DE772 /* WorksTableViewCell.swift */; };
 		B57EF8BC2377EF05009DE772 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57EF8BB2377EF05009DE772 /* GridView.swift */; };
+		B70C60592380BECD008C1C34 /* WorkDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70C60582380BECD008C1C34 /* WorkDetailViewController.swift */; };
 		F317AD72237D152300BF1F2F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F317AD71237D152300BF1F2F /* GoogleService-Info.plist */; };
 		F31FD413237D3B1400E2B0FF /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31FD412237D3B1400E2B0FF /* SignUpViewController.swift */; };
 /* End PBXBuildFile section */
@@ -73,6 +74,7 @@
 		4F67732EF58E34752E9602F7 /* Pods-Pixart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pixart.debug.xcconfig"; path = "Target Support Files/Pods-Pixart/Pods-Pixart.debug.xcconfig"; sourceTree = "<group>"; };
 		B57EF8B92377CE15009DE772 /* WorksTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorksTableViewCell.swift; sourceTree = "<group>"; };
 		B57EF8BB2377EF05009DE772 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
+		B70C60582380BECD008C1C34 /* WorkDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkDetailViewController.swift; sourceTree = "<group>"; };
 		BC70609E9D45848D3A1BA3DB /* Pods-Pixart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pixart.release.xcconfig"; path = "Target Support Files/Pods-Pixart/Pods-Pixart.release.xcconfig"; sourceTree = "<group>"; };
 		F317AD71237D152300BF1F2F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F31FD412237D3B1400E2B0FF /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				32602BB523753C6E00FE7D31 /* WorksViewController.swift */,
 				B57EF8B92377CE15009DE772 /* WorksTableViewCell.swift */,
 				32602BB9237553EF00FE7D31 /* FeedsViewController.swift */,
+				B70C60582380BECD008C1C34 /* WorkDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 			files = (
 				32C0F4392374F24D00612535 /* LoginViewController.swift in Sources */,
 				326CD37C23761356008CEC07 /* LogoutConfirmationViewController.swift in Sources */,
+				B70C60592380BECD008C1C34 /* WorkDetailViewController.swift in Sources */,
 				32C0F415237414BD00612535 /* SideMenuViewController.swift in Sources */,
 				B57EF8BC2377EF05009DE772 /* GridView.swift in Sources */,
 				32CC1942237E33DF00810D77 /* WorksPublishedViewController.swift in Sources */,

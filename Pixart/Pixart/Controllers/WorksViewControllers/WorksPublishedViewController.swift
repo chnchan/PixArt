@@ -18,7 +18,6 @@ class WorksPublishedViewController: UIViewController { // Works published to Fir
     var handle: AuthStateDidChangeListenerHandle?
     var userID = ""
     var works: [[String: Any]] = []
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         worksTableView.dataSource = self
@@ -34,14 +33,17 @@ class WorksPublishedViewController: UIViewController { // Works published to Fir
                 if let err = err {
                     print("Error getting documents: \(err)")
                 } else {
-                    print("hi")
+                    print("public works")
+                    self.works = []
                     // this force unwrap is what is used in the
                     // cloud firestore docs
                     for document in querySnapshot!.documents {
-                        self.works.append(document.data())
+                        if(document.data()["public"] as? String == "public" && document.data()["filePath"] as? String != nil)
+                        {
+                            self.works.append(document.data())
+                        }
                     }
                 }
-                
                 print(self.works)
                 self.worksTableView.reloadData()
             }
@@ -77,7 +79,6 @@ extension WorksPublishedViewController: UITableViewDataSource, UITableViewDelega
             cell.preview.image = image
           }
         }
-        
         cell.title.text = (works[indexPath.row])["name"] as? String
         cell.likes.text = "10"
         cell.dislikes.text = "10"
@@ -87,5 +88,12 @@ extension WorksPublishedViewController: UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         view.endEditing(true)
         tableView.deselectRow(at: indexPath, animated: true)
+        let storyboard = UIStoryboard(name: "Works", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: "workdetail") as! WorkDetailViewController
+        vc.modalPresentationStyle = .fullScreen
+        vc.work = works[indexPath.row]
+        self.present(vc, animated: true)
+        
     }
 }
+
