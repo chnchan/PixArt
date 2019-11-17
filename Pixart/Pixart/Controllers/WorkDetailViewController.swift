@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class WorkDetailViewController: UIViewController {
+class WorkDetailViewController: UIViewController , UITextFieldDelegate{
 
     @IBOutlet weak var publicbutton: UIButton!
     @IBOutlet weak var image: UIImageView!
@@ -19,7 +19,7 @@ class WorkDetailViewController: UIViewController {
     var handle: AuthStateDidChangeListenerHandle?
     var userID = ""
     var work: [String: Any] = [:]
-    var currentname : String = ""
+    var documentdata : String = ""
     @IBOutlet weak var workname: UITextField!
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,7 +41,10 @@ class WorkDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.currentname = work["name"] as? String ?? ""
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+        self.view.addGestureRecognizer(tap)
+        self.workname.delegate = self
+        self.documentdata = work["documentdata"] as? String ?? ""
         self.workname.text = work["name"] as? String
         if(work["public"] as? String == "private") {
             self.publicbutton.setTitle("Publish Your Art", for: .normal)
@@ -65,22 +68,19 @@ class WorkDetailViewController: UIViewController {
     }
     
     @IBAction func changename(_ sender: UITextField) {
-        /*let name = self.currentname
         guard let newname = self.workname.text else{
             return
         }
-        self.currentname = newname
-        self.db.collection(self.userID).document(name).setData(["name" : newname], mergeFields: ["name"])*/
+        self.db.collection(self.userID).document(self.documentdata).setData(["name" : newname], mergeFields: ["name"])
     }
     
     @IBAction func togglepublicsetting(_ sender: UIButton) {
-        let name = self.currentname
         var publicsetting : String = "private"
         if sender.currentTitle == "Publish Your Art" {
             print("publicsetting set to public")
             publicsetting = "public"
         }
-        self.db.collection(self.userID).document(name).setData([
+        self.db.collection(self.userID).document(self.documentdata).setData([
             "public" : publicsetting], mergeFields: ["public"])
         if publicsetting == "private" {
             sender.setTitle("Publish Your Art", for: .normal)
@@ -89,14 +89,17 @@ class WorkDetailViewController: UIViewController {
         }
     }
     @IBAction func deletebutton(_ sender: UIButton) {
-        let name = self.currentname
-        self.db.collection(self.userID).document(name).delete(completion: {error in
+        self.db.collection(self.userID).document(self.documentdata).delete(completion: {error in
             if error != nil {
                 print("error deleting")
             } else {
                 self.dismiss(animated: true, completion: nil)
             }
         })
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     /*
      

@@ -11,7 +11,7 @@ import SideMenu
 import ColorSlider
 import Firebase
 
-class CanvasViewController: UIViewController {
+class CanvasViewController: UIViewController, UITextFieldDelegate {
     var root: UIViewController?
     
     let SLIDER_HIGHT = 15
@@ -29,7 +29,7 @@ class CanvasViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         storageRef = storage.reference()
-        
+        self.drawingName.delegate = self
         // Set the color picker and add it to the view
         let colorSlider = ColorSlider(orientation: .horizontal, previewSide: .top)
         colorSlider.frame = CGRect( x: Int((view.frame.width)/2) - Int(SLIDER_WIDTH/2), y:  Int(view.frame.height) - 180, width: SLIDER_WIDTH, height: SLIDER_HIGHT)
@@ -84,7 +84,8 @@ class CanvasViewController: UIViewController {
             } else {
                 let size = metadata?.size
                 self.db.collection(self.userID).document(name).setData([
-                    "name": name,
+                    "documentdata": name, //keeping the original name used to refer to the document in database, should not be changed
+                    "name": name, //name of the work
                     "filePath": location,
                     "size": size ?? 0, 
                     "public" : "private"
@@ -104,6 +105,11 @@ class CanvasViewController: UIViewController {
     @objc func changedColor(_ slider: ColorSlider) {
         let color = slider.color
         gridView.drawingColor  = color
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
 }
