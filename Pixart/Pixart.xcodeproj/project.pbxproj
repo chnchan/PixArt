@@ -19,7 +19,9 @@
 		32A162A9238214F7002FEAC4 /* WorksDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32A162A8238214F7002FEAC4 /* WorksDetail.storyboard */; };
 		32A162AE2382235B002FEAC4 /* SettingsPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A162AD2382235B002FEAC4 /* SettingsPopupViewController.swift */; };
 		32A162B02382244D002FEAC4 /* Canvas.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32A162AF2382244D002FEAC4 /* Canvas.storyboard */; };
-		32A162B223822464002FEAC4 /* SettingsPopups.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32A162B123822464002FEAC4 /* SettingsPopups.storyboard */; };
+		32A162B223822464002FEAC4 /* SettingsPopup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32A162B123822464002FEAC4 /* SettingsPopup.storyboard */; };
+		32A162B5238279ED002FEAC4 /* PromptNamePopup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32A162B4238279ED002FEAC4 /* PromptNamePopup.storyboard */; };
+		32A162B823827A27002FEAC4 /* PromptNamePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A162B723827A27002FEAC4 /* PromptNamePopupViewController.swift */; };
 		32C0F411237414BD00612535 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C0F410237414BD00612535 /* AppDelegate.swift */; };
 		32C0F413237414BD00612535 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C0F412237414BD00612535 /* SceneDelegate.swift */; };
 		32C0F415237414BD00612535 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C0F414237414BD00612535 /* SideMenuViewController.swift */; };
@@ -58,7 +60,9 @@
 		32A162A8238214F7002FEAC4 /* WorksDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WorksDetail.storyboard; sourceTree = "<group>"; };
 		32A162AD2382235B002FEAC4 /* SettingsPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPopupViewController.swift; sourceTree = "<group>"; };
 		32A162AF2382244D002FEAC4 /* Canvas.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Canvas.storyboard; sourceTree = "<group>"; };
-		32A162B123822464002FEAC4 /* SettingsPopups.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SettingsPopups.storyboard; sourceTree = "<group>"; };
+		32A162B123822464002FEAC4 /* SettingsPopup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SettingsPopup.storyboard; sourceTree = "<group>"; };
+		32A162B4238279ED002FEAC4 /* PromptNamePopup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PromptNamePopup.storyboard; sourceTree = "<group>"; };
+		32A162B723827A27002FEAC4 /* PromptNamePopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptNamePopupViewController.swift; sourceTree = "<group>"; };
 		32C0F40D237414BD00612535 /* Pixart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pixart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32C0F410237414BD00612535 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32C0F412237414BD00612535 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,8 +129,8 @@
 		32A162A62382090B002FEAC4 /* CanvasViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				32A162B623827A12002FEAC4 /* Popups */,
 				32602BB7237547A200FE7D31 /* CanvasViewController.swift */,
-				32A162AD2382235B002FEAC4 /* SettingsPopupViewController.swift */,
 				B57EF8BB2377EF05009DE772 /* GridView.swift */,
 			);
 			path = CanvasViewControllers;
@@ -153,10 +157,28 @@
 		32A162AB23821824002FEAC4 /* Canvas */ = {
 			isa = PBXGroup;
 			children = (
+				32A162B3238279C2002FEAC4 /* Popups */,
 				32A162AF2382244D002FEAC4 /* Canvas.storyboard */,
-				32A162B123822464002FEAC4 /* SettingsPopups.storyboard */,
 			);
 			path = Canvas;
+			sourceTree = "<group>";
+		};
+		32A162B3238279C2002FEAC4 /* Popups */ = {
+			isa = PBXGroup;
+			children = (
+				32A162B123822464002FEAC4 /* SettingsPopup.storyboard */,
+				32A162B4238279ED002FEAC4 /* PromptNamePopup.storyboard */,
+			);
+			path = Popups;
+			sourceTree = "<group>";
+		};
+		32A162B623827A12002FEAC4 /* Popups */ = {
+			isa = PBXGroup;
+			children = (
+				32A162AD2382235B002FEAC4 /* SettingsPopupViewController.swift */,
+				32A162B723827A27002FEAC4 /* PromptNamePopupViewController.swift */,
+			);
+			path = Popups;
 			sourceTree = "<group>";
 		};
 		32C0F404237414BD00612535 = {
@@ -342,8 +364,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32A162B5238279ED002FEAC4 /* PromptNamePopup.storyboard in Resources */,
 				32C0F4312374956200612535 /* SideMenu.storyboard in Resources */,
-				32A162B223822464002FEAC4 /* SettingsPopups.storyboard in Resources */,
+				32A162B223822464002FEAC4 /* SettingsPopup.storyboard in Resources */,
 				32C0F441237536BF00612535 /* Works.storyboard in Resources */,
 				32A162A9238214F7002FEAC4 /* WorksDetail.storyboard in Resources */,
 				32C0F42E2374856F00612535 /* Feeds.storyboard in Resources */,
@@ -438,6 +461,7 @@
 				32C0F411237414BD00612535 /* AppDelegate.swift in Sources */,
 				32C0F413237414BD00612535 /* SceneDelegate.swift in Sources */,
 				32CC193D237E337600810D77 /* WorksViewController2.swift in Sources */,
+				32A162B823827A27002FEAC4 /* PromptNamePopupViewController.swift in Sources */,
 				F31FD413237D3B1400E2B0FF /* SignUpViewController.swift in Sources */,
 				32602BB8237547A200FE7D31 /* CanvasViewController.swift in Sources */,
 				32CC1947237E4AED00810D77 /* PublishedTableViewCell.swift in Sources */,

@@ -11,6 +11,7 @@ import SideMenu
 import GoogleSignIn
 import FirebaseAuth
 
+var safeArea_top: Int = 0
 
 class LoginViewController: UIViewController {
 
@@ -28,6 +29,10 @@ class LoginViewController: UIViewController {
                 password.text = userInfo[0].value(forKey: "password") as? String
             }
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        safeArea_top = Int(view.safeAreaInsets.top) // for color slider later
     }
     
     private func setupSideMenu() {

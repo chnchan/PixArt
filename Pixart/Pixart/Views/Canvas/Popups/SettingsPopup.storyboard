@@ -68,26 +68,28 @@
                                             <constraint firstAttribute="width" constant="360" id="n7S-l7-7sI"/>
                                         </constraints>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mUA-5t-zKZ">
                                         <rect key="frame" x="0.0" y="365" width="414" height="50"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j9o-LY-vPF">
-                                                <rect key="frame" x="226" y="7" width="180" height="43"/>
+                                                <rect key="frame" x="226" y="3.5" width="180" height="43"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="180" id="7oR-04-fCJ"/>
                                                     <constraint firstAttribute="height" constant="43" id="hkd-pO-jWK"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                                                <state key="normal" title="Apply"/>
+                                                <state key="normal" title="Apply">
+                                                    <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="apply:" destination="RVO-7c-1JZ" eventType="touchUpInside" id="KLZ-ER-OvB"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9xs-KA-fPV">
-                                                <rect key="frame" x="8" y="7" width="180" height="43"/>
+                                                <rect key="frame" x="8" y="3.5" width="180" height="43"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="180" id="wGR-xx-qAQ"/>
                                                     <constraint firstAttribute="height" constant="43" id="yA4-Kz-qPk"/>
@@ -101,9 +103,9 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="j9o-LY-vPF" secondAttribute="bottom" id="6Hh-1L-rE1"/>
                                             <constraint firstAttribute="trailing" secondItem="j9o-LY-vPF" secondAttribute="trailing" constant="8" id="9hu-nV-WtK"/>
-                                            <constraint firstAttribute="bottom" secondItem="9xs-KA-fPV" secondAttribute="bottom" id="UpT-Ur-pRY"/>
+                                            <constraint firstItem="9xs-KA-fPV" firstAttribute="centerY" secondItem="mUA-5t-zKZ" secondAttribute="centerY" id="H6B-IQ-mqI"/>
+                                            <constraint firstItem="j9o-LY-vPF" firstAttribute="centerY" secondItem="mUA-5t-zKZ" secondAttribute="centerY" id="YYp-d2-Ra0"/>
                                             <constraint firstItem="9xs-KA-fPV" firstAttribute="leading" secondItem="mUA-5t-zKZ" secondAttribute="leading" constant="8" id="Yh3-qj-awJ"/>
                                             <constraint firstAttribute="height" constant="50" id="xeb-Ga-71V"/>
                                         </constraints>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8eI-Rb-3nT">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Prompt Name Popup View Controller-->
+        <scene sceneID="9Ro-Qk-FA0">
+            <objects>
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="8eI-Rb-3nT" customClass="PromptNamePopupViewController" customModule="Pixart" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UDf-9f-VfX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AN9-tI-Fbi">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <connections>
+                                    <action selector="cancel:" destination="8eI-Rb-3nT" eventType="touchUpInside" id="Xmg-xO-EdQ"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RCn-A9-K9O">
+                                <rect key="frame" x="24" y="224" width="366" height="211"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dvt-gE-Cij">
+                                        <rect key="frame" x="0.0" y="0.0" width="366" height="49"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Give your artwork a name:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="spX-As-vK4">
+                                                <rect key="frame" x="60.5" y="16" width="245" height="24"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="245" id="wmy-HW-AJQ"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="spX-As-vK4" secondAttribute="bottom" constant="9" id="32D-92-uJ2"/>
+                                            <constraint firstItem="spX-As-vK4" firstAttribute="top" secondItem="dvt-gE-Cij" secondAttribute="top" constant="16" id="Rhz-dI-Qvn"/>
+                                            <constraint firstItem="spX-As-vK4" firstAttribute="centerX" secondItem="dvt-gE-Cij" secondAttribute="centerX" id="mjf-DY-C5H"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vZz-bI-5hq">
+                                        <rect key="frame" x="166" y="92" width="0.0" height="0.0"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="No Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nbU-PX-ceI">
+                                        <rect key="frame" x="62" y="111" width="242" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="Ssi-oT-2F1"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="Lqq-VM-aq9">
+                                        <rect key="frame" x="42" y="48" width="282" height="2"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="282" id="JWy-Mf-FPZ"/>
+                                        </constraints>
+                                    </progressView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Don't worry! You will can edit the name and the work even after you saved it." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ajF-YF-tdv">
+                                        <rect key="frame" x="42" y="58" width="282" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="LLi-hB-EM0"/>
+                                        </constraints>
+                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bTy-WQ-TKp">
+                                        <rect key="frame" x="0.0" y="161" width="366" height="50"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3on-Gq-oZD">
+                                                <rect key="frame" x="33" y="8" width="300" height="34"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="300" id="pbZ-3Z-CjY"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                <state key="normal" title="Done"/>
+                                                <connections>
+                                                    <action selector="done:" destination="8eI-Rb-3nT" eventType="touchUpInside" id="Yrt-hl-qkE"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="3on-Gq-oZD" firstAttribute="centerX" secondItem="bTy-WQ-TKp" secondAttribute="centerX" id="JCW-ES-xkO"/>
+                                            <constraint firstItem="3on-Gq-oZD" firstAttribute="centerY" secondItem="bTy-WQ-TKp" secondAttribute="centerY" id="Zbf-sg-o75"/>
+                                            <constraint firstAttribute="height" constant="50" id="rER-rB-SA1"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="dvt-gE-Cij" secondAttribute="trailing" id="43p-ZH-sXF"/>
+                                    <constraint firstAttribute="bottom" secondItem="bTy-WQ-TKp" secondAttribute="bottom" id="4Rq-Pt-x6w"/>
+                                    <constraint firstItem="bTy-WQ-TKp" firstAttribute="top" secondItem="nbU-PX-ceI" secondAttribute="bottom" constant="16" id="77e-LQ-EYo"/>
+                                    <constraint firstItem="Lqq-VM-aq9" firstAttribute="top" secondItem="dvt-gE-Cij" secondAttribute="bottom" constant="-1" id="LZY-rj-A3r"/>
+                                    <constraint firstItem="nbU-PX-ceI" firstAttribute="leading" secondItem="RCn-A9-K9O" secondAttribute="leading" constant="62" id="O7d-dz-maW"/>
+                                    <constraint firstItem="ajF-YF-tdv" firstAttribute="top" secondItem="Lqq-VM-aq9" secondAttribute="bottom" constant="8" id="Uqn-2O-K0z"/>
+                                    <constraint firstItem="dvt-gE-Cij" firstAttribute="top" secondItem="RCn-A9-K9O" secondAttribute="top" id="V5H-fq-QHi"/>
+                                    <constraint firstAttribute="trailing" secondItem="bTy-WQ-TKp" secondAttribute="trailing" id="ZVd-Sy-geY"/>
+                                    <constraint firstItem="nbU-PX-ceI" firstAttribute="top" secondItem="ajF-YF-tdv" secondAttribute="bottom" constant="8" id="aWH-45-KAh"/>
+                                    <constraint firstItem="bTy-WQ-TKp" firstAttribute="leading" secondItem="RCn-A9-K9O" secondAttribute="leading" id="fHO-4D-VBK"/>
+                                    <constraint firstAttribute="trailing" secondItem="ajF-YF-tdv" secondAttribute="trailing" constant="42" id="ga7-Lj-YAP"/>
+                                    <constraint firstItem="Lqq-VM-aq9" firstAttribute="centerX" secondItem="RCn-A9-K9O" secondAttribute="centerX" id="iAv-CQ-VGS"/>
+                                    <constraint firstItem="dvt-gE-Cij" firstAttribute="leading" secondItem="RCn-A9-K9O" secondAttribute="leading" id="odm-GG-haa"/>
+                                    <constraint firstItem="ajF-YF-tdv" firstAttribute="leading" secondItem="RCn-A9-K9O" secondAttribute="leading" constant="42" id="qEm-F0-HGm"/>
+                                    <constraint firstItem="ajF-YF-tdv" firstAttribute="centerX" secondItem="RCn-A9-K9O" secondAttribute="centerX" id="qLM-gX-LMt"/>
+                                    <constraint firstAttribute="trailing" secondItem="nbU-PX-ceI" secondAttribute="trailing" constant="62" id="xxG-oJ-aBz"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.2989619006849315" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="RCn-A9-K9O" firstAttribute="top" secondItem="zAC-Fv-Kxi" secondAttribute="top" constant="180" id="1aE-bu-l17"/>
+                            <constraint firstItem="AN9-tI-Fbi" firstAttribute="top" secondItem="UDf-9f-VfX" secondAttribute="top" id="1cw-wB-PvV"/>
+                            <constraint firstItem="AN9-tI-Fbi" firstAttribute="trailing" secondItem="zAC-Fv-Kxi" secondAttribute="trailing" id="98X-sR-2RQ"/>
+                            <constraint firstAttribute="bottom" secondItem="AN9-tI-Fbi" secondAttribute="bottom" id="bEx-L8-soh"/>
+                            <constraint firstItem="zAC-Fv-Kxi" firstAttribute="trailing" secondItem="RCn-A9-K9O" secondAttribute="trailing" constant="24" id="iSu-dl-i06"/>
+                            <constraint firstItem="RCn-A9-K9O" firstAttribute="leading" secondItem="zAC-Fv-Kxi" secondAttribute="leading" constant="24" id="oye-vO-VWd"/>
+                            <constraint firstItem="AN9-tI-Fbi" firstAttribute="leading" secondItem="zAC-Fv-Kxi" secondAttribute="leading" id="pV7-NZ-iaa"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="zAC-Fv-Kxi"/>
+                    </view>
+                    <connections>
+                        <outlet property="name" destination="nbU-PX-ceI" id="0rI-Iw-wv2"/>
+                        <segue destination="yeN-x7-AAG" kind="unwind" identifier="unwind_canvas2" unwindAction="unwindToCanvasAndSave:" id="oZq-kW-Gx2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UrY-qv-YRq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="yeN-x7-AAG" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="486.95652173913049" y="112.5"/>
+        </scene>
+    </scenes>
+</document>

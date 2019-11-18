@@ -12,29 +12,28 @@ import ColorSlider
 import Firebase
 
 class CanvasViewController: UIViewController, UITextFieldDelegate {
-    var root: UIViewController?
     
+    let SLIDER_Y_POS = 540
     let SLIDER_HIGHT = 15
     let SLIDER_WIDTH = 300
     let storage = Storage.storage()
     let db = Firestore.firestore()
+    
+    var root: UIViewController?
     var storageRef = StorageReference.init()
     var handle: AuthStateDidChangeListenerHandle?
     var userID = ""
+    var artwork_name = ""
     
-    @IBOutlet weak var drawingName: UITextField!
     @IBOutlet weak var gridView: GridView!
-    
+    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var canvasContainer: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         storageRef = storage.reference()
-        self.drawingName.delegate = self
-        // Set the color picker and add it to the view
-        let colorSlider = ColorSlider(orientation: .horizontal, previewSide: .top)
-        colorSlider.frame = CGRect( x: Int((view.frame.width)/2) - Int(SLIDER_WIDTH/2), y:  Int(view.frame.height) - 180, width: SLIDER_WIDTH, height: SLIDER_HIGHT)
-             view.addSubview(colorSlider)
-        colorSlider.addTarget(self, action: #selector(changedColor(_:)), for: .valueChanged)
+        self.saveButton.layer.cornerRadius = 5
+        setupColorSlider()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,7 +42,6 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
         handle = Auth.auth().addStateDidChangeListener { (auth, user) in
             self.userID = user?.uid ?? ""
         }
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -57,7 +55,7 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
     // This function saves the image to user folder
     // TODO: right now  it just displays it to the view
     // but i will change later
-    @IBAction func savePixelArt(_ sender: Any) {
+    private func savePixelArt() {
         
         let renderer = UIGraphicsImageRenderer(size: gridView.bounds.size)
         let image = renderer.image { ctx in
@@ -68,7 +66,7 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
         let data = image.pngData() ?? Data()
 
         // Create a reference to the file you want to upload
-        var name = drawingName.text ?? "NoName"
+        var name = artwork_name
         if name == "" {
             name = "NoName"
         }
@@ -76,7 +74,7 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
         let drawingRef = storageRef.child(location)
 
         // Upload the file to the path "images/rivers.jpg"
-        let uploadTask = drawingRef.putData(data, metadata: nil) { (metadata, error) in
+        let _ = drawingRef.putData(data, metadata: nil) { (metadata, error) in
             
             if error != nil {
                 print("oh no")
@@ -112,8 +110,24 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
+    private func setupColorSlider() {
+        print(safeArea_top)
+        let colorSlider = ColorSlider(orientation: .horizontal, previewSide: .top)
+        colorSlider.frame = CGRect( x: Int((view.frame.width)/2) - Int(SLIDER_WIDTH/2), y: safeArea_top + SLIDER_Y_POS, width: SLIDER_WIDTH, height: SLIDER_HIGHT)
+        view.addSubview(colorSlider)
+        
+        colorSlider.addTarget(self, action: #selector(changedColor(_:)), for: .valueChanged)
+        colorSlider.color = UIColor.black
+    }
+    
     // MARK: UNWIND
     @IBAction func unwindToCanvas(_ unwindSegue: UIStoryboardSegue) {
+        // MARK: Doesn't work, FIX ME
+        gridView.makeCells() // refresh / reset canvas
+    }
+    
+    @IBAction func unwindToCanvasAndSave(_ unwindSegue: UIStoryboardSegue) {
+        savePixelArt()
         gridView.makeCells()
     }
 }
