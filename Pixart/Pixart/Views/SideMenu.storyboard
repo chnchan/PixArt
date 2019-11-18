@@ -165,7 +165,6 @@
                                     <constraint firstItem="rbe-qh-i2w" firstAttribute="leading" secondItem="pbs-mu-qqc" secondAttribute="leading" constant="42" id="Ad9-JY-Brl"/>
                                     <constraint firstItem="orR-nT-xj3" firstAttribute="top" secondItem="pbs-mu-qqc" secondAttribute="top" id="G0s-Nt-kre"/>
                                     <constraint firstItem="EH5-nA-lBu" firstAttribute="leading" secondItem="pbs-mu-qqc" secondAttribute="leading" constant="40" id="Qtj-jt-5dA"/>
-                                    <constraint firstItem="Z0Z-fO-hgE" firstAttribute="top" secondItem="pbs-mu-qqc" secondAttribute="top" constant="100" id="SjW-Zw-tLA"/>
                                     <constraint firstItem="x7s-aD-nUG" firstAttribute="top" secondItem="rAh-09-G3s" secondAttribute="bottom" id="UFs-Ot-55U"/>
                                     <constraint firstItem="LN8-4u-eXr" firstAttribute="top" secondItem="cvd-k0-B3a" secondAttribute="bottom" constant="15" id="Y67-Xc-5eA"/>
                                     <constraint firstItem="orR-nT-xj3" firstAttribute="leading" secondItem="pbs-mu-qqc" secondAttribute="leading" id="cN9-hZ-kRo"/>
@@ -184,6 +183,7 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.29545697773972601" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Z0Z-fO-hgE" firstAttribute="top" secondItem="ZTZ-cv-vzV" secondAttribute="top" constant="56" id="0PW-Kd-dY8"/>
                             <constraint firstAttribute="bottom" secondItem="pbs-mu-qqc" secondAttribute="bottom" id="90T-1B-Y4I"/>
                             <constraint firstItem="pbs-mu-qqc" firstAttribute="top" secondItem="1NK-UC-O2q" secondAttribute="top" id="9fc-RA-C1U"/>
                             <constraint firstItem="pbs-mu-qqc" firstAttribute="leading" secondItem="ZTZ-cv-vzV" secondAttribute="leading" id="Ezc-iG-qhz"/>

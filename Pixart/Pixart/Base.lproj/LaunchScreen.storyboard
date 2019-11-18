@@ -15,32 +15,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="corgi_butt" translatesAutoresizingMaskIntoConstraints="NO" id="Md8-lZ-z0v">
-                                <rect key="frame" x="27" y="164" width="360" height="320"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="pixart_logo" translatesAutoresizingMaskIntoConstraints="NO" id="Md8-lZ-z0v">
+                                <rect key="frame" x="72" y="194" width="270" height="143"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="143" id="AzQ-ca-EGs"/>
+                                    <constraint firstAttribute="width" constant="270" id="MZN-hO-wxP"/>
+                                </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pixart" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U6O-y5-87e">
-                                <rect key="frame" x="139" y="489" width="136" height="60"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="U6O-y5-87e" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="7kS-pS-i3Z"/>
-                            <constraint firstItem="Md8-lZ-z0v" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Vaz-iN-2Yw"/>
-                            <constraint firstItem="U6O-y5-87e" firstAttribute="top" secondItem="Md8-lZ-z0v" secondAttribute="bottom" constant="5" id="ecn-ri-TtE"/>
-                            <constraint firstItem="Md8-lZ-z0v" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="120" id="fWz-fx-XLR"/>
+                            <constraint firstItem="Md8-lZ-z0v" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="NDM-FS-SCQ"/>
+                            <constraint firstItem="Md8-lZ-z0v" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="kiu-CB-snb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
     <resources>
-        <image name="corgi_butt" width="360" height="320"/>
+        <image name="pixart_logo" width="720" height="382"/>
     </resources>
 </document>

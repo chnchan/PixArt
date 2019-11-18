@@ -88,7 +88,7 @@ extension WorksPublishedViewController: UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         view.endEditing(true)
         tableView.deselectRow(at: indexPath, animated: true)
-        let storyboard = UIStoryboard(name: "Works", bundle: nil)
+        let storyboard = UIStoryboard(name: "WorksDetail", bundle: nil)
         let vc = storyboard.instantiateViewController(identifier: "workdetail") as! WorkDetailViewController
         vc.modalPresentationStyle = .fullScreen
         vc.work = works[indexPath.row]

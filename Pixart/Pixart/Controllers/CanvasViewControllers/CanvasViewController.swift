@@ -104,7 +104,7 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
 
     @objc func changedColor(_ slider: ColorSlider) {
         let color = slider.color
-        gridView.drawingColor  = color
+        gridView.drawingColor = color
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -112,4 +112,8 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
+    // MARK: UNWIND
+    @IBAction func unwindToCanvas(_ unwindSegue: UIStoryboardSegue) {
+        gridView.makeCells()
+    }
 }

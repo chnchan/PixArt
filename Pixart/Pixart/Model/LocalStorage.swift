@@ -31,7 +31,7 @@ struct LocalStorage {
             }
         }
         catch {
-            print("Failed to fetch video:", error)
+            print("Failed to fetch User:", error)
         }
 
         do {
@@ -54,5 +54,50 @@ struct LocalStorage {
         }
         
         return userInfo
+    }
+    
+    static func saveCanvasSize(size: Int = 8) { // 8x8 canvas size by default
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        guard let entity = NSEntityDescription.entity(forEntityName: "Settings", in: managedContext) else { return }
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Settings")
+        
+        do {
+            let settings = try managedContext.fetch(fetchRequest)
+            
+            if let settings = settings.first {
+                settings.setValue(size, forKey: "canvas_size")
+            } else {
+                let settings = NSManagedObject(entity: entity, insertInto: managedContext)
+                settings.setValue(size, forKey: "canvas_size")
+            }
+        }
+        catch {
+            print("Failed to fetch Settings:", error)
+        }
+
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
+    
+    static func fetchCanvasSize() -> Int {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return -1 }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Settings")
+        
+        do {
+            let settings = try managedContext.fetch(fetchRequest)
+            
+            if let settings = settings.first {
+                return settings.value(forKey: "canvas_size") as! Int
+            }
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        
+        return 8 // 8x8 canvas size by default
     }
 }

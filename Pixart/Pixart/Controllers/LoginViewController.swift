@@ -16,8 +16,8 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
-    
     @IBOutlet weak var errorLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSideMenu()
@@ -31,24 +31,20 @@ class LoginViewController: UIViewController {
     }
     
     private func setupSideMenu() {
-        let storyboard = UIStoryboard(name: "Credits", bundle: nil)
-        SideMenuManager.default.leftMenuNavigationController = storyboard.instantiateViewController(withIdentifier: "CreditMenuNavigationController") as? SideMenuNavigationController
+        SideMenuManager.default.leftMenuNavigationController = nil
+        SideMenuManager.default.rightMenuNavigationController = nil
         SideMenuManager.default.addPanGestureToPresent(toView: self.navigationController!.navigationBar)
         SideMenuManager.default.addScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
     }
     
     @IBAction func sendPressed(_ sender: Any) {
-        if true { // remember me is on
-            LocalStorage.saveLogins(username: email.text ?? "", password: password.text ?? "")
-        } else {
-            LocalStorage.saveLogins(username: email.text ?? "", password: "")
-        }
         Auth.auth().signIn(withEmail: email.text ?? "", password: password.text ?? "") { [weak self] authResult, error in
           guard let strongSelf = self else { return }
             if error != nil {
                 strongSelf.errorLabel.text = "Invalid Credentials"
             } else {
                 strongSelf.errorLabel.text = ""
+                LocalStorage.saveLogins(username: strongSelf.email.text ?? "", password: strongSelf.password.text ?? "")
                 strongSelf.performSegue(withIdentifier: "login", sender: strongSelf)
             }
         }
