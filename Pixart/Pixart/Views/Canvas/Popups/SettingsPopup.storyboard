@@ -17,6 +17,9 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x1T-ay-V5g">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <connections>
+                                    <action selector="cancel:" destination="RVO-7c-1JZ" eventType="touchUpInside" id="tQx-Pb-mQX"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ACC-m7-nQf">
                                 <rect key="frame" x="0.0" y="139" width="414" height="415"/>
