@@ -57,6 +57,7 @@ class SignUpViewController: UIViewController {
                     self.errorLabel.text = "Account with email already exists"
                 } else {
                     self.errorLabel.text = ""
+                    LocalStorage.saveLogins(username: self.email.text ?? "", password: self.password.text ?? "")
                     self.performSegue(withIdentifier: "signin", sender: self)
                 }
 
