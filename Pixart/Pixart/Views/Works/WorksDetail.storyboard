@@ -108,5 +108,58 @@
             </objects>
             <point key="canvasLocation" x="1505.7971014492755" y="-297.32142857142856"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="Lxl-27-SOU">
+            <objects>
+                <viewController id="B7u-gC-C8E" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XDm-uE-eNo">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SWh-Y6-aIa">
+                                <rect key="frame" x="17" y="108" width="380" height="380"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="380" id="9OC-Lb-yum"/>
+                                    <constraint firstAttribute="height" constant="380" id="CwJ-EC-PMw"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Artwork Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9ot-Mu-7wH">
+                                <rect key="frame" x="17" y="506" width="380" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="SWh-Y6-aIa" firstAttribute="centerX" secondItem="XDm-uE-eNo" secondAttribute="centerX" id="80x-bC-PUj"/>
+                            <constraint firstItem="SWh-Y6-aIa" firstAttribute="top" secondItem="Ihm-Jh-iA0" secondAttribute="top" constant="20" id="Njm-Xi-fA8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Ihm-Jh-iA0"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ncH-ml-Ovu"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nl8-Sc-ctA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3702.898550724638" y="-297.32142857142856"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="lZc-xH-hxf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8Eg-yx-Gwr" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mLb-yg-i0z">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="B7u-gC-C8E" kind="relationship" relationship="rootViewController" id="O8D-Gp-Rt0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b4p-TZ-9rZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2792.753623188406" y="-297.32142857142856"/>
+        </scene>
     </scenes>
 </document>

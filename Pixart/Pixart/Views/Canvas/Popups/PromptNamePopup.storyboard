@@ -62,7 +62,7 @@
                                             <constraint firstAttribute="height" constant="34" id="Ssi-oT-2F1"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                     </textField>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="Lqq-VM-aq9">
                                         <rect key="frame" x="42" y="48" width="282" height="2"/>
@@ -70,7 +70,7 @@
                                             <constraint firstAttribute="width" constant="282" id="JWy-Mf-FPZ"/>
                                         </constraints>
                                     </progressView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Don't worry! You will can edit the name and the work even after you saved it." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ajF-YF-tdv">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Don't worry! You will can edit the name and the work even after you saved it." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ajF-YF-tdv">
                                         <rect key="frame" x="42" y="58" width="282" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="LLi-hB-EM0"/>

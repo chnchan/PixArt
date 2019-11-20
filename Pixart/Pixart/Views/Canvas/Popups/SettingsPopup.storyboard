@@ -61,7 +61,7 @@
                                             <segment title="64x64"/>
                                         </segments>
                                     </segmentedControl>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="NOTE: Canvas will be cleared to accommodate the new settings. Please save your work before proceeding." translatesAutoresizingMaskIntoConstraints="NO" id="EUm-PL-EYX">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="NOTE: Canvas will be cleared to accommodate the new settings. Please save your work before proceeding." selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EUm-PL-EYX">
                                         <rect key="frame" x="27" y="308" width="360" height="47"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="47" id="M1Z-RE-O51"/>

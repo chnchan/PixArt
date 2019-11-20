@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class WorksViewController: UIViewController {
+class old_WorksViewController: UIViewController {
 
     @IBOutlet weak var worksTableView: UITableView!
     let storage = Storage.storage()
@@ -59,7 +59,7 @@ class WorksViewController: UIViewController {
     }
 
 }
-extension WorksViewController: UITableViewDataSource, UITableViewDelegate {
+extension old_WorksViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return works.count
     }

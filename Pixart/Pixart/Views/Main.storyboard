@@ -98,12 +98,6 @@
                                     <constraint firstAttribute="width" constant="310" id="YJb-y7-TBf"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photo by 祝 鹤槐 from Pexels" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Fw-gS-IRi">
-                                <rect key="frame" x="116.5" y="845" width="181" height="17"/>
-                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ii3-f1-SUo" customClass="GIDSignInButton">
                                 <rect key="frame" x="95" y="601" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -115,13 +109,19 @@
                                 <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photo by 祝 鹤槐 from Pexels" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Fw-gS-IRi">
+                                <rect key="frame" x="116.5" y="837" width="181" height="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="tN9-Dc-Txq" firstAttribute="top" secondItem="L0L-xM-zpd" secondAttribute="bottom" constant="15" id="2Dc-yr-63P"/>
                             <constraint firstItem="F1b-se-0dh" firstAttribute="centerX" secondItem="NdK-K3-mEn" secondAttribute="centerX" id="6xZ-2Z-iTc"/>
-                            <constraint firstItem="5Fw-gS-IRi" firstAttribute="bottom" secondItem="MMF-2p-ovh" secondAttribute="bottom" id="Daa-W9-NDW"/>
                             <constraint firstItem="tN9-Dc-Txq" firstAttribute="centerX" secondItem="NdK-K3-mEn" secondAttribute="centerX" id="Rzs-3k-Gus"/>
+                            <constraint firstItem="MMF-2p-ovh" firstAttribute="bottom" secondItem="5Fw-gS-IRi" secondAttribute="bottom" constant="8" id="SD2-Xf-wEq"/>
                             <constraint firstItem="L0L-xM-zpd" firstAttribute="top" secondItem="F1b-se-0dh" secondAttribute="bottom" constant="10" id="VWK-CS-nqb"/>
                             <constraint firstItem="F1b-se-0dh" firstAttribute="top" secondItem="MMF-2p-ovh" secondAttribute="top" constant="70" id="a4g-El-nah"/>
                             <constraint firstItem="5Fw-gS-IRi" firstAttribute="centerX" secondItem="NdK-K3-mEn" secondAttribute="centerX" id="qj6-s1-o1D"/>

@@ -8,12 +8,13 @@
 
 import UIKit
 
-class WorksViewController2: UIViewController {
+class WorksViewController: UIViewController {
 
     @IBOutlet weak var privateView: UIView!
     @IBOutlet weak var privateView_X_constraint: NSLayoutConstraint!
     @IBOutlet weak var publishedView: UIView!
     @IBOutlet weak var publishedView_X_constraint: NSLayoutConstraint!
+    @IBOutlet weak var options: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +31,18 @@ class WorksViewController2: UIViewController {
         default:
             print("Unknown segment index.")
         }
+    }
+    
+    @IBAction func swipeHandler(_ sender: UISwipeGestureRecognizer) {
+        if sender.direction == UISwipeGestureRecognizer.Direction.right {
+            options.selectedSegmentIndex  = 0
+            switchViews(options)
+        } else if sender.direction == UISwipeGestureRecognizer.Direction.left {
+            options.selectedSegmentIndex = 1
+            switchViews(options)
+        }
+        
+        return
     }
     
     private func showPrivateView() {

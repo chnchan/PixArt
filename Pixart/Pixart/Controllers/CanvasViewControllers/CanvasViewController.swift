@@ -13,7 +13,7 @@ import Firebase
 
 class CanvasViewController: UIViewController, UITextFieldDelegate {
     
-    let SLIDER_Y_POS = 540
+    let SLIDER_Y_POS = 50 // space from the canvas
     let SLIDER_HIGHT = 15
     let SLIDER_WIDTH = 300
     let storage = Storage.storage()
@@ -111,9 +111,11 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func setupColorSlider() {
-        print(safeArea_top)
+        
+        let y_pos = safeArea_top + 48 + 45 + Int(view.frame.width) - 10 + SLIDER_Y_POS
+        
         let colorSlider = ColorSlider(orientation: .horizontal, previewSide: .top)
-        colorSlider.frame = CGRect( x: Int((view.frame.width)/2) - Int(SLIDER_WIDTH/2), y: safeArea_top + SLIDER_Y_POS, width: SLIDER_WIDTH, height: SLIDER_HIGHT)
+        colorSlider.frame = CGRect( x: Int((view.frame.width)/2) - Int(SLIDER_WIDTH/2), y: y_pos, width: SLIDER_WIDTH, height: SLIDER_HIGHT)
         view.addSubview(colorSlider)
         
         colorSlider.addTarget(self, action: #selector(changedColor(_:)), for: .valueChanged)
@@ -122,8 +124,7 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: UNWIND
     @IBAction func unwindToCanvas(_ unwindSegue: UIStoryboardSegue) {
-        // MARK: Doesn't work, FIX ME
-        gridView.makeCells() // refresh / reset canvas
+        gridView.makeCells()
     }
     
     @IBAction func unwindToCanvasAndSave(_ unwindSegue: UIStoryboardSegue) {

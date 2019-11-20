@@ -81,18 +81,17 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z6y-b8-wl1" customClass="GridView" customModule="Pixart" customModuleProvider="target">
                                         <rect key="frame" x="5" y="5" width="380" height="380"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="380" id="5qg-SY-cBb"/>
-                                            <constraint firstAttribute="width" constant="380" id="BqU-Ei-JVe"/>
-                                        </constraints>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="390" id="7DM-gl-Akw"/>
+                                    <constraint firstItem="Z6y-b8-wl1" firstAttribute="top" secondItem="Pjw-oK-w6O" secondAttribute="top" constant="5" id="4sl-Bq-P5E"/>
                                     <constraint firstItem="Z6y-b8-wl1" firstAttribute="centerY" secondItem="Pjw-oK-w6O" secondAttribute="centerY" id="AIz-7e-BKL"/>
+                                    <constraint firstAttribute="trailing" secondItem="Z6y-b8-wl1" secondAttribute="trailing" constant="5" id="D2o-44-jWy"/>
+                                    <constraint firstAttribute="width" secondItem="Pjw-oK-w6O" secondAttribute="height" multiplier="1:1" id="LPF-FN-Ias"/>
+                                    <constraint firstAttribute="bottom" secondItem="Z6y-b8-wl1" secondAttribute="bottom" constant="5" id="TRv-8X-LnS"/>
+                                    <constraint firstItem="Z6y-b8-wl1" firstAttribute="leading" secondItem="Pjw-oK-w6O" secondAttribute="leading" constant="5" id="WaM-FE-iRH"/>
                                     <constraint firstItem="Z6y-b8-wl1" firstAttribute="centerX" secondItem="Pjw-oK-w6O" secondAttribute="centerX" id="f1V-P8-cQL"/>
-                                    <constraint firstAttribute="width" constant="390" id="lIB-hj-S3r"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -103,8 +102,10 @@
                             <constraint firstItem="Imu-Wj-jNj" firstAttribute="bottom" secondItem="HVT-4F-1ai" secondAttribute="bottom" constant="16" id="7zh-kN-JQh"/>
                             <constraint firstItem="HVT-4F-1ai" firstAttribute="leading" secondItem="Imu-Wj-jNj" secondAttribute="leading" constant="30" id="BDN-gp-yDn"/>
                             <constraint firstItem="7NM-Ul-PmR" firstAttribute="leading" secondItem="4sF-6O-TTz" secondAttribute="leading" id="O7Q-E5-WDX"/>
+                            <constraint firstItem="Pjw-oK-w6O" firstAttribute="leading" secondItem="Imu-Wj-jNj" secondAttribute="leading" constant="12" id="Z8F-bp-W0Y"/>
                             <constraint firstItem="7NM-Ul-PmR" firstAttribute="top" secondItem="Imu-Wj-jNj" secondAttribute="top" id="fgx-6p-2Ut"/>
                             <constraint firstItem="Pjw-oK-w6O" firstAttribute="centerX" secondItem="4sF-6O-TTz" secondAttribute="centerX" id="hSz-Yv-n7o"/>
+                            <constraint firstItem="Imu-Wj-jNj" firstAttribute="trailing" secondItem="Pjw-oK-w6O" secondAttribute="trailing" constant="12" id="hob-EA-kuY"/>
                             <constraint firstItem="AUd-Qj-Wza" firstAttribute="height" secondItem="7NM-Ul-PmR" secondAttribute="height" id="ic6-ZV-jY1"/>
                             <constraint firstItem="Imu-Wj-jNj" firstAttribute="trailing" secondItem="HVT-4F-1ai" secondAttribute="trailing" constant="30" id="ool-w8-2Ct"/>
                             <constraint firstItem="Pjw-oK-w6O" firstAttribute="top" secondItem="AUd-Qj-Wza" secondAttribute="bottom" constant="45" id="qOg-hE-UlP"/>
