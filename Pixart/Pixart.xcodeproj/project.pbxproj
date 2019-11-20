@@ -22,6 +22,7 @@
 		32A162B223822464002FEAC4 /* SettingsPopup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32A162B123822464002FEAC4 /* SettingsPopup.storyboard */; };
 		32A162B5238279ED002FEAC4 /* PromptNamePopup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32A162B4238279ED002FEAC4 /* PromptNamePopup.storyboard */; };
 		32A162B823827A27002FEAC4 /* PromptNamePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A162B723827A27002FEAC4 /* PromptNamePopupViewController.swift */; };
+		32A162BD2384FC82002FEAC4 /* WorksDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A162BC2384FC82002FEAC4 /* WorksDetailViewController.swift */; };
 		32C0F411237414BD00612535 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C0F410237414BD00612535 /* AppDelegate.swift */; };
 		32C0F413237414BD00612535 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C0F412237414BD00612535 /* SceneDelegate.swift */; };
 		32C0F415237414BD00612535 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C0F414237414BD00612535 /* SideMenuViewController.swift */; };
@@ -63,6 +64,7 @@
 		32A162B123822464002FEAC4 /* SettingsPopup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SettingsPopup.storyboard; sourceTree = "<group>"; };
 		32A162B4238279ED002FEAC4 /* PromptNamePopup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PromptNamePopup.storyboard; sourceTree = "<group>"; };
 		32A162B723827A27002FEAC4 /* PromptNamePopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptNamePopupViewController.swift; sourceTree = "<group>"; };
+		32A162BC2384FC82002FEAC4 /* WorksDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorksDetailViewController.swift; sourceTree = "<group>"; };
 		32C0F40D237414BD00612535 /* Pixart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pixart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32C0F410237414BD00612535 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32C0F412237414BD00612535 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -273,6 +275,7 @@
 				32CC193F237E33D600810D77 /* WorksPrivateViewController.swift */,
 				32CC1941237E33DF00810D77 /* WorksPublishedViewController.swift */,
 				B70C60582380BECD008C1C34 /* WorkDetailViewController.swift */,
+				32A162BC2384FC82002FEAC4 /* WorksDetailViewController.swift */,
 			);
 			path = WorksViewControllers;
 			sourceTree = "<group>";
@@ -456,6 +459,7 @@
 				32CC1942237E33DF00810D77 /* WorksPublishedViewController.swift in Sources */,
 				32CC1945237E4ADF00810D77 /* PrivateTableViewCell.swift in Sources */,
 				32602BBA237553EF00FE7D31 /* FeedsViewController.swift in Sources */,
+				32A162BD2384FC82002FEAC4 /* WorksDetailViewController.swift in Sources */,
 				32C0F43F237503E100612535 /* ProfileViewController.swift in Sources */,
 				32CC1940237E33D600810D77 /* WorksPrivateViewController.swift in Sources */,
 				32C0F411237414BD00612535 /* AppDelegate.swift in Sources */,
