@@ -24,6 +24,7 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
     var handle: AuthStateDidChangeListenerHandle?
     var userID = ""
     var artwork_name = ""
+    var cellB: [String:UIView] = [:]
     
     @IBOutlet weak var gridView: GridView!
     @IBOutlet weak var saveButton: UIButton!
@@ -64,15 +65,26 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
 //        db.collection(userID).document("drawing").set
         // Data in memory
         let data = image.pngData() ?? Data()
-
         // Create a reference to the file you want to upload
         var name = artwork_name
         if name == "" {
             name = "NoName"
         }
         let location = userID + "/" + name + ".png"
+        let gridLocation = userID + "/" + name
         let drawingRef = storageRef.child(location)
-
+        let gridRef = storageRef.child(gridLocation)
+        do {
+            let gridData = try NSKeyedArchiver.archivedData(withRootObject: gridView.cells, requiringSecureCoding: false)
+            let _ = gridRef.putData(gridData, metadata: nil) { (metadata, error) in
+                if error != nil {
+                    print("could not save grid array")
+                } 
+            }
+                
+        } catch {
+            print("couldn't save grid")
+        }
         // Upload the file to the path "images/rivers.jpg"
         let _ = drawingRef.putData(data, metadata: nil) { (metadata, error) in
             
@@ -85,7 +97,8 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
                     "documentdata": name, //keeping the original name used to refer to the document in database, should not be changed
                     "name": name, //name of the work
                     "filePath": location,
-                    "size": size ?? 0, 
+                    "gridFilePath": gridLocation,
+                    "size": size ?? 0,
                     "public" : "private"
                 ]) { err in
                     if let err = err {

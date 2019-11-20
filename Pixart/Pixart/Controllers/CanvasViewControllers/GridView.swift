@@ -80,5 +80,16 @@ class GridView: UIView {
         }
     }
     
+    func makeCells(cells: [String:UIView]){
+        let size = Int(sqrt(Double(cells.count)))
+        cellWidth = self.frame.width / CGFloat(size)
+        for j in 0...size - 1 {
+            for i in 0...size - 1 {
+                let cellView = cells["\(i)|\(j)"]
+                self.addSubview(cellView!)
+            }
+        }
+    }
+    
 
 }
