@@ -50,3 +50,28 @@ Target for this week:
 - UI improvement
 - create API handler, data structure for each “post”.
 ---
+
+### Discord meeting on Sat (11/16)
+Implemented:
+- Sign up page implemented, users now able to create accounts and login, drawings associated with user accounts, stored on server. 
+- Created CoreData Adapter since function calls to CoreData tend to be chunky. Will improve readability of code
+- Redesigned Works UI
+
+Goal for next meeting:
+- Store drawing as GridView object to support editing the drawing
+---
+
+
+### In person meeting on Tues (11/19)
+Implemented:
+- Redesigned Canvas UI.
+- Canvas can change grid size on Profile and Settings popup in Canvas.
+- Added Works detail page.
+
+Goal for next meeting:
+- Have Feeds complete by next week (meaning pulling random published art (backend)).
+---
+
+### Discord meeting on Tues (11/19) at night
+Completed Written Plan
+
