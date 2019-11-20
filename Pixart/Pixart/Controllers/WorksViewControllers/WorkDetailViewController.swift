@@ -46,7 +46,7 @@ class WorkDetailViewController: UIViewController , UITextFieldDelegate{
         self.workname.delegate = self
         self.documentdata = work["documentdata"] as? String ?? ""
         self.workname.text = work["name"] as? String
-        if(work["public"] as? String == "private") {
+        if(work["public"] as? Int == 0) {
             self.publicbutton.setTitle("Publish Your Art", for: .normal)
         } else {
             self.publicbutton.setTitle("Set To Private", for: .normal)
@@ -75,14 +75,14 @@ class WorkDetailViewController: UIViewController , UITextFieldDelegate{
     }
     
     @IBAction func togglepublicsetting(_ sender: UIButton) {
-        var publicsetting : String = "private"
+        var publicsetting : Int = 0
         if sender.currentTitle == "Publish Your Art" {
             print("publicsetting set to public")
-            publicsetting = "public"
+            publicsetting = 1
         }
         self.db.collection(self.userID).document(self.documentdata).setData([
             "public" : publicsetting], mergeFields: ["public"])
-        if publicsetting == "private" {
+        if publicsetting == 0 {
             sender.setTitle("Publish Your Art", for: .normal)
         } else {
             sender.setTitle("Set to Private", for: .normal)

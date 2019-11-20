@@ -99,7 +99,7 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
                     "filePath": location,
                     "gridFilePath": gridLocation,
                     "size": size ?? 0,
-                    "public" : "private"
+                    "public" : 0 // 0 if private
                 ]) { err in
                     if let err = err {
                         print("Error adding document: \(err)")

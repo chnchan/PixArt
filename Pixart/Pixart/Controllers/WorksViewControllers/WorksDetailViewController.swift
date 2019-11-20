@@ -52,7 +52,7 @@ class WorksDetailViewController: UIViewController , UITextFieldDelegate{
         self.documentdata = work["documentdata"] as? String ?? ""
         self.workname.text = work["name"] as? String
         
-        if (work["public"] as? String == "private") {
+        if (work["public"] as? Int == 0) {
             published_icon.alpha = 0
             publishedView_X_constraint.constant = 416
         } else {
@@ -80,7 +80,7 @@ class WorksDetailViewController: UIViewController , UITextFieldDelegate{
     
     @IBAction func publish(_ sender: Any) {
         self.db.collection(self.userID).document(self.documentdata).setData([
-        "public" : "public"], mergeFields: ["public"])
+        "public" : 1], mergeFields: ["public"])
         
         showPublishedIcon()
         showPublishedView()
@@ -88,7 +88,7 @@ class WorksDetailViewController: UIViewController , UITextFieldDelegate{
     
     @IBAction func removePublished(_ sender: Any) {
         self.db.collection(self.userID).document(self.documentdata).setData([
-        "public" : "private"], mergeFields: ["public"])
+        "public" : 0], mergeFields: ["public"])
         showPrivateIcon()
         showPrivateView()
     }
