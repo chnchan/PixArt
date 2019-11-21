@@ -126,19 +126,17 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9ks-nL-ouT" userLabel="image_container">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9ks-nL-ouT" userLabel="image_container">
                                 <rect key="frame" x="17" y="108" width="380" height="380"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SWh-Y6-aIa">
-                                        <rect key="frame" x="0.0" y="0.0" width="380" height="380"/>
-                                    </imageView>
+                                    <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cqz-3C-1eo" customClass="GridView" customModule="Pixart" customModuleProvider="target">
+                                        <rect key="frame" x="2.5" y="2.5" width="375" height="375"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    </view>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="SWh-Y6-aIa" firstAttribute="top" secondItem="9ks-nL-ouT" secondAttribute="top" id="ItH-Jk-Fef"/>
-                                    <constraint firstAttribute="bottom" secondItem="SWh-Y6-aIa" secondAttribute="bottom" id="VzX-yi-MGv"/>
-                                    <constraint firstAttribute="trailing" secondItem="SWh-Y6-aIa" secondAttribute="trailing" id="Z7d-xb-TKi"/>
-                                    <constraint firstItem="SWh-Y6-aIa" firstAttribute="leading" secondItem="9ks-nL-ouT" secondAttribute="leading" id="t3V-LJ-ZTh"/>
                                     <constraint firstAttribute="width" secondItem="9ks-nL-ouT" secondAttribute="height" multiplier="1:1" id="wWI-KO-YPy"/>
                                 </constraints>
                             </view>
@@ -334,7 +332,8 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="K76-4C-D6v"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="image" destination="SWh-Y6-aIa" id="dfg-jI-fpO"/>
+                        <outlet property="container" destination="9ks-nL-ouT" id="FJ0-1Y-BSd"/>
+                        <outlet property="gridView" destination="Cqz-3C-1eo" id="ypA-qB-ZCq"/>
                         <outlet property="privateView_X_constraint" destination="X9Y-9J-c6f" id="hz1-0u-Qhr"/>
                         <outlet property="private_icon" destination="I3E-Va-qbd" id="9Lq-hH-pZN"/>
                         <outlet property="publishedView_X_constraint" destination="5EX-Gb-IfN" id="N0Q-q6-Pvl"/>

@@ -11,8 +11,10 @@ import Firebase
 
 class WorksDetailViewController: UIViewController , UITextFieldDelegate{
 
-    @IBOutlet weak var publicbutton: UIButton!
-    @IBOutlet weak var image: UIImageView!
+    
+
+    @IBOutlet weak var container: UIView!
+    @IBOutlet weak var gridView: GridView!
     @IBOutlet weak var private_icon: UIView!
     @IBOutlet weak var published_icon: UIView!
     @IBOutlet weak var privateView_X_constraint: NSLayoutConstraint!
@@ -60,15 +62,23 @@ class WorksDetailViewController: UIViewController , UITextFieldDelegate{
             privateView_X_constraint.constant = -416
         }
         
-        let drawingref = storageRef.child(work["filePath"] as! String)
-        drawingref.getData(maxSize: 1*1024*1024, completion: {data, error in
+        let drawingref = storageRef.child(work["gridFilePath"] as! String)
+        let gridSize = work["gridSize"] as! Int
+        drawingref.getData(maxSize: 1*1024*1024) {data, error in
             if error != nil{
                 print("error getting image")
             } else {
-                let image = UIImage(data: data!)
-                self.image.image = image
+                  do {
+                      let gridCells = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data!) as? [String:UIView]
+                    self.gridView.makeCells(size: gridSize, cells: gridCells!)
+                    self.container.isHidden = false
+                    self.gridView.isHidden = false
+
+                  } catch {
+                      fatalError("Can't encode data: \(error)")
+                  }
             }
-        })
+        }
     }
     
     @IBAction func updateName(_ sender: UITextField) {

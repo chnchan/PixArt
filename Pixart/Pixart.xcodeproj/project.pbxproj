@@ -151,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				32602BB523753C6E00FE7D31 /* old_WorksViewController.swift */,
+				B70C60582380BECD008C1C34 /* WorkDetailViewController.swift */,
 				B57EF8B92377CE15009DE772 /* WorksTableViewCell.swift */,
 			);
 			path = Old_Codes;
@@ -274,7 +275,6 @@
 				32CC193C237E337600810D77 /* WorksViewController.swift */,
 				32CC193F237E33D600810D77 /* WorksPrivateViewController.swift */,
 				32CC1941237E33DF00810D77 /* WorksPublishedViewController.swift */,
-				B70C60582380BECD008C1C34 /* WorkDetailViewController.swift */,
 				32A162BC2384FC82002FEAC4 /* WorksDetailViewController.swift */,
 			);
 			path = WorksViewControllers;
