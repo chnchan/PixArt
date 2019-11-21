@@ -52,7 +52,7 @@ class WorksPrivateViewController: UIViewController { // Works saved on local dev
                     // this force unwrap is what is used in the
                     // cloud firestore docs
                     for document in querySnapshot!.documents {
-                        if(document.data()["public"] as? Int == 0 && document.data()["filePath"] as? String != nil)
+                        if(document.data()["public"] as? Int == 0 && document.data()["gridFilePath"] as? String != nil)
                         {
                             self.works.append(document.data())
                         }

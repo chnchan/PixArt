@@ -57,59 +57,39 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
     // TODO: right now  it just displays it to the view
     // but i will change later
     private func savePixelArt() {
-        
-        let renderer = UIGraphicsImageRenderer(size: gridView.bounds.size)
-        let image = renderer.image { ctx in
-            gridView.drawHierarchy(in: gridView.bounds, afterScreenUpdates: true)
-        }
-//        db.collection(userID).document("drawing").set
+
         // Data in memory
-        let data = image.pngData() ?? Data()
         // Create a reference to the file you want to upload
         var name = artwork_name
         if name == "" {
             name = "NoName"
         }
-        let location = userID + "/" + name + ".png"
         let gridLocation = userID + "/" + name
-        let drawingRef = storageRef.child(location)
         let gridRef = storageRef.child(gridLocation)
         do {
             let gridData = try NSKeyedArchiver.archivedData(withRootObject: gridView.cells, requiringSecureCoding: false)
             let _ = gridRef.putData(gridData, metadata: nil) { (metadata, error) in
                 if error != nil {
                     print("could not save grid array")
-                } 
+                } else {
+                    self.db.collection(self.userID).document(name).setData([
+                        "documentdata": name, //keeping the original name used to refer to the document in database, should not be changed
+                        "name": name, //name of the work
+                        "gridFilePath": gridLocation,
+                        "gridSize": LocalStorage.fetchCanvasSize(),
+                        "public" : 0 // 0 if private
+                    ]) { err in
+                        if let err = err {
+                            print("Error adding document: \(err)")
+                        } else {
+                            print("Document added")
+                        }
+                    }
+                }
             }
                 
         } catch {
             print("couldn't save grid")
-        }
-        // Upload the file to the path "images/rivers.jpg"
-        let _ = drawingRef.putData(data, metadata: nil) { (metadata, error) in
-            
-            if error != nil {
-                print("oh no")
-                return
-            } else {
-                let size = metadata?.size
-                self.db.collection(self.userID).document(name).setData([
-                    "documentdata": name, //keeping the original name used to refer to the document in database, should not be changed
-                    "name": name, //name of the work
-                    "filePath": location,
-                    "gridFilePath": gridLocation,
-                    "size": size ?? 0,
-                    "gridSize": LocalStorage.fetchCanvasSize(),
-                    "public" : 0 // 0 if private
-                ]) { err in
-                    if let err = err {
-                        print("Error adding document: \(err)")
-                    } else {
-                        print("Document added")
-                    }
-                }
-            }
-
         }
 
     }
