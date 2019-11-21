@@ -85,12 +85,14 @@ extension WorksPublishedViewController: UITableViewDataSource, UITableViewDelega
             print("uh oh")
             // Uh-oh, an error occurred!
           } else {
-            if let gridCells = NSKeyedUnarchiver.unarchiveObject(with: data!) as? [String:UIView] {
-                cell.preview_grid.makeCells(cells: gridCells)
-            }
+                do {
+                    let gridCells = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data!) as? [String:UIView]
+                    cell.preview_grid.makeCells(cells: gridCells!)
+                    cell.preview_grid.isHidden = false
 
-//            let image = UIImage(data: data!)
-//            cell.preview.image = image
+                } catch {
+                    fatalError("Can't encode data: \(error)")
+                }
           }
         }
         cell.title.text = (works[indexPath.row])["name"] as? String

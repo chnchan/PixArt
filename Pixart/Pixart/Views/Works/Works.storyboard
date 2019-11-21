@@ -147,7 +147,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="03w-zn-I1j" userLabel="preview_grid" customClass="GridView" customModule="Pixart" customModuleProvider="target">
+                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="03w-zn-I1j" userLabel="preview_grid" customClass="GridView" customModule="Pixart" customModuleProvider="target">
                                                     <rect key="frame" x="10" y="10" width="110" height="110"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <constraints>
@@ -226,7 +226,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I0M-dQ-M6L" userLabel="Preview_grid" customClass="GridView" customModule="Pixart" customModuleProvider="target">
+                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I0M-dQ-M6L" userLabel="Preview_grid" customClass="GridView" customModule="Pixart" customModuleProvider="target">
                                                     <rect key="frame" x="10" y="10" width="110" height="110"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <constraints>
