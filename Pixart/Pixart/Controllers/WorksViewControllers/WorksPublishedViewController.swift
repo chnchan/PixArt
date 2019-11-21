@@ -78,7 +78,7 @@ extension WorksPublishedViewController: UITableViewDataSource, UITableViewDelega
         let cell = worksTableView.dequeueReusableCell(withIdentifier: "published_post") as! PublishedTableViewCell
         // fix force unwrap
         let drawingref = storageRef.child((works[indexPath.row])["gridFilePath"] as! String)
-
+        let gridSize = (works[indexPath.row])["gridSize"] as! Int
 //         Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
         drawingref.getData(maxSize: 1 * 1024 * 1024) { data, error in
           if error != nil {
@@ -87,7 +87,7 @@ extension WorksPublishedViewController: UITableViewDataSource, UITableViewDelega
           } else {
                 do {
                     let gridCells = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data!) as? [String:UIView]
-                    cell.preview_grid.makeCells(cells: gridCells!)
+                    cell.preview_grid.makeCells(size: gridSize, cells: gridCells!)
                     cell.preview_grid.isHidden = false
 
                 } catch {

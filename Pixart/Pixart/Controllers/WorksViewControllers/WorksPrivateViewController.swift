@@ -81,6 +81,7 @@ extension WorksPrivateViewController: UITableViewDataSource, UITableViewDelegate
         let cell = worksTableView.dequeueReusableCell(withIdentifier: "private_post") as! PrivateTableViewCell
 
         let drawingref = storageRef.child((works[indexPath.row])["gridFilePath"] as! String)
+        let gridSize = (works[indexPath.row])["gridSize"] as! Int
 
         //         Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
                 drawingref.getData(maxSize: 1 * 1024 * 1024) { data, error in
@@ -90,7 +91,7 @@ extension WorksPrivateViewController: UITableViewDataSource, UITableViewDelegate
                   } else {
                         do {
                             let gridCells = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data!) as? [String:UIView]
-                            cell.preview_grid.makeCells(cells: gridCells!)
+                            cell.preview_grid.makeCells(size: gridSize, cells: gridCells!)
                             cell.preview_grid.isHidden = false
 
                         } catch {

@@ -99,6 +99,7 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
                     "filePath": location,
                     "gridFilePath": gridLocation,
                     "size": size ?? 0,
+                    "gridSize": LocalStorage.fetchCanvasSize(),
                     "public" : 0 // 0 if private
                 ]) { err in
                     if let err = err {
@@ -142,6 +143,6 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func unwindToCanvasAndSave(_ unwindSegue: UIStoryboardSegue) {
         savePixelArt()
-        gridView.makeCells()
+//        gridView.makeCells()
     }
 }

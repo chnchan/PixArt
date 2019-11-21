@@ -62,7 +62,7 @@
                                             <constraint firstAttribute="height" constant="34" id="Ssi-oT-2F1"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
                                     </textField>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="Lqq-VM-aq9">
                                         <rect key="frame" x="42" y="48" width="282" height="2"/>
