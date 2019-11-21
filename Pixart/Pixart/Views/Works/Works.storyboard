@@ -147,6 +147,14 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="03w-zn-I1j" userLabel="preview_grid" customClass="GridView" customModule="Pixart" customModuleProvider="target">
+                                                    <rect key="frame" x="10" y="10" width="110" height="110"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="110" id="LR2-y2-aHd"/>
+                                                        <constraint firstAttribute="height" constant="110" id="dnb-dH-1Pa"/>
+                                                    </constraints>
+                                                </view>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pMC-Kp-KJS">
                                                     <rect key="frame" x="10" y="10" width="110" height="110"/>
                                                     <constraints>
@@ -158,14 +166,18 @@
                                             <constraints>
                                                 <constraint firstItem="pMC-Kp-KJS" firstAttribute="top" secondItem="uXn-oK-tck" secondAttribute="top" constant="10" id="6G7-ER-ycr"/>
                                                 <constraint firstItem="PSu-gW-JGN" firstAttribute="leading" secondItem="pMC-Kp-KJS" secondAttribute="trailing" constant="18" id="FxJ-Im-Ew5"/>
+                                                <constraint firstItem="03w-zn-I1j" firstAttribute="leading" secondItem="uXn-oK-tck" secondAttribute="leading" constant="10" id="OZ3-3H-4Bv"/>
                                                 <constraint firstItem="PSu-gW-JGN" firstAttribute="centerY" secondItem="pMC-Kp-KJS" secondAttribute="centerY" id="RC4-mt-y4S"/>
                                                 <constraint firstAttribute="bottom" secondItem="pMC-Kp-KJS" secondAttribute="bottom" constant="10" id="e3I-TC-A3D"/>
+                                                <constraint firstAttribute="bottom" secondItem="03w-zn-I1j" secondAttribute="bottom" constant="10" id="e6q-mL-T7z"/>
+                                                <constraint firstItem="03w-zn-I1j" firstAttribute="top" secondItem="uXn-oK-tck" secondAttribute="top" constant="10" id="kGE-DD-U4j"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="PSu-gW-JGN" secondAttribute="trailing" constant="10" id="vGr-dG-tTW"/>
                                                 <constraint firstItem="pMC-Kp-KJS" firstAttribute="leading" secondItem="uXn-oK-tck" secondAttribute="leading" constant="10" id="zpc-vy-ROf"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="preview" destination="pMC-Kp-KJS" id="UO2-YT-V4B"/>
+                                            <outlet property="preview_grid" destination="03w-zn-I1j" id="DMB-LV-iCa"/>
                                             <outlet property="title" destination="PSu-gW-JGN" id="eV2-U1-hEc"/>
                                         </connections>
                                     </tableViewCell>
@@ -187,7 +199,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dgH-wC-dV2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="932" y="390"/>
+            <point key="canvasLocation" x="931.88405797101461" y="389.73214285714283"/>
         </scene>
         <!--Works Published View Controller-->
         <scene sceneID="gJt-P9-WVH">
@@ -214,6 +226,14 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I0M-dQ-M6L" userLabel="Preview_grid" customClass="GridView" customModule="Pixart" customModuleProvider="target">
+                                                    <rect key="frame" x="10" y="10" width="110" height="110"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="110" id="ggB-c1-QZJ"/>
+                                                        <constraint firstAttribute="height" constant="110" id="unb-pd-ggL"/>
+                                                    </constraints>
+                                                </view>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DWw-4f-xSY">
                                                     <rect key="frame" x="10" y="10" width="110" height="110"/>
                                                     <constraints>
@@ -276,19 +296,23 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="jj9-Ke-d3r" firstAttribute="leading" secondItem="DWw-4f-xSY" secondAttribute="trailing" constant="18" id="60p-rJ-kCz"/>
+                                                <constraint firstItem="I0M-dQ-M6L" firstAttribute="leading" secondItem="YHF-o7-F6p" secondAttribute="leading" constant="10" id="9L3-vE-qMT"/>
                                                 <constraint firstItem="6XE-MK-bYg" firstAttribute="top" secondItem="YHF-o7-F6p" secondAttribute="top" constant="30" id="CvK-86-3XO"/>
                                                 <constraint firstAttribute="bottom" secondItem="jj9-Ke-d3r" secondAttribute="bottom" constant="26" id="EzR-eo-Rtx"/>
                                                 <constraint firstItem="6XE-MK-bYg" firstAttribute="leading" secondItem="DWw-4f-xSY" secondAttribute="trailing" constant="18" id="Hcd-7k-jNR"/>
                                                 <constraint firstAttribute="bottom" secondItem="DWw-4f-xSY" secondAttribute="bottom" constant="10" id="Vmz-Rc-Vbq"/>
                                                 <constraint firstItem="DWw-4f-xSY" firstAttribute="top" secondItem="YHF-o7-F6p" secondAttribute="top" constant="10" id="YqG-Om-XMI"/>
+                                                <constraint firstAttribute="bottom" secondItem="I0M-dQ-M6L" secondAttribute="bottom" constant="10" id="eXG-o1-b2i"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="6XE-MK-bYg" secondAttribute="trailing" constant="10" id="ozm-7y-UUU"/>
                                                 <constraint firstItem="DWw-4f-xSY" firstAttribute="leading" secondItem="YHF-o7-F6p" secondAttribute="leading" constant="10" id="qtA-W9-Xrx"/>
+                                                <constraint firstItem="I0M-dQ-M6L" firstAttribute="top" secondItem="YHF-o7-F6p" secondAttribute="top" constant="10" id="rtx-ns-cO6"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="dislikes" destination="L7f-PW-C2G" id="Utw-98-TEx"/>
                                             <outlet property="likes" destination="2Xb-jJ-dWR" id="4EX-MO-2SR"/>
                                             <outlet property="preview" destination="DWw-4f-xSY" id="HI7-12-3li"/>
+                                            <outlet property="preview_grid" destination="I0M-dQ-M6L" id="R8V-pm-Gj9"/>
                                             <outlet property="title" destination="6XE-MK-bYg" id="nc6-gS-PAq"/>
                                         </connections>
                                     </tableViewCell>
@@ -310,7 +334,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E0U-eC-3c5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="338" y="390"/>
+            <point key="canvasLocation" x="337.68115942028987" y="389.73214285714283"/>
         </scene>
         <!--SideMenu-->
         <scene sceneID="iSP-Qm-RGq">

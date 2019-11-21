@@ -27,6 +27,10 @@ class WorksPrivateViewController: UIViewController { // Works saved on local dev
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        fetch()
+    }
+    
+    private func fetch() {
         // [START auth_listener]
         handle = Auth.auth().addStateDidChangeListener { (auth, user) in
             self.userID = user?.uid ?? ""
@@ -62,6 +66,12 @@ class WorksPrivateViewController: UIViewController { // Works saved on local dev
     }
 }
 
+extension WorksPrivateViewController: UIAdaptivePresentationControllerDelegate {
+    func presentationControllerWillDismiss(_ presentationController: UIPresentationController) {
+        fetch()
+    }
+}
+
 extension WorksPrivateViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return works.count
@@ -70,7 +80,7 @@ extension WorksPrivateViewController: UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = worksTableView.dequeueReusableCell(withIdentifier: "private_post") as! PrivateTableViewCell
 
-        let drawingref = storageRef.child((works[indexPath.row])["filePath"] as! String)
+        let drawingref = storageRef.child((works[indexPath.row])["gridFilePath"] as! String)
 
         //         Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
                 drawingref.getData(maxSize: 1 * 1024 * 1024) { data, error in
@@ -78,8 +88,11 @@ extension WorksPrivateViewController: UITableViewDataSource, UITableViewDelegate
                     print("uh oh")
                     // Uh-oh, an error occurred!
                   } else {
-                    let image = UIImage(data: data!)
-                    cell.preview.image = image
+                    if let gridCells = NSKeyedUnarchiver.unarchiveObject(with: data!) as? [String:UIView] {
+                        cell.preview_grid.makeCells(cells: gridCells)
+                    }
+//                    let image = UIImage(data: data!)
+//                    cell.preview.image = image
                   }
                 }
         cell.title.text = (works[indexPath.row])["name"] as? String
@@ -93,6 +106,7 @@ extension WorksPrivateViewController: UITableViewDataSource, UITableViewDelegate
         let vc = storyboard.instantiateViewController(identifier: "workdetail") as! WorksDetailViewController
         vc.modalTransitionStyle = .coverVertical
         vc.work = works[indexPath.row]
+        vc.presentationController?.delegate = self
         self.present(vc, animated: true)
     }
 }

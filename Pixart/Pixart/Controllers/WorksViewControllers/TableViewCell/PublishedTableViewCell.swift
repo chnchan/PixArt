@@ -12,6 +12,7 @@ class PublishedTableViewCell: UITableViewCell {
 
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var preview: UIImageView!
+    @IBOutlet weak var preview_grid: GridView!
     @IBOutlet weak var likes: UILabel!
     @IBOutlet weak var dislikes: UILabel!
     

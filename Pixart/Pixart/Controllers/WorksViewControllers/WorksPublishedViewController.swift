@@ -26,6 +26,18 @@ class WorksPublishedViewController: UIViewController { // Works published to Fir
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        fetch()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        // force unwrap justified since handle will never be nil after
+        // viewWillAppear called  (can only get to this view with authenticated
+        // user)
+        Auth.auth().removeStateDidChangeListener(handle!)
+    }
+    
+    private func fetch() {
         // [START auth_listener]
         handle = Auth.auth().addStateDidChangeListener { (auth, user) in
             self.userID = user?.uid ?? ""
@@ -49,13 +61,11 @@ class WorksPublishedViewController: UIViewController { // Works published to Fir
             }
         }
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        // force unwrap justified since handle will never be nil after
-        // viewWillAppear called  (can only get to this view with authenticated
-        // user)
-        Auth.auth().removeStateDidChangeListener(handle!)
+}
+
+extension WorksPublishedViewController: UIAdaptivePresentationControllerDelegate {
+    func presentationControllerWillDismiss(_ presentationController: UIPresentationController) {
+        fetch()
     }
 }
 
@@ -67,7 +77,7 @@ extension WorksPublishedViewController: UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = worksTableView.dequeueReusableCell(withIdentifier: "published_post") as! PublishedTableViewCell
         // fix force unwrap
-        let drawingref = storageRef.child((works[indexPath.row])["filePath"] as! String)
+        let drawingref = storageRef.child((works[indexPath.row])["gridFilePath"] as! String)
 
 //         Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
         drawingref.getData(maxSize: 1 * 1024 * 1024) { data, error in
@@ -75,8 +85,12 @@ extension WorksPublishedViewController: UITableViewDataSource, UITableViewDelega
             print("uh oh")
             // Uh-oh, an error occurred!
           } else {
-            let image = UIImage(data: data!)
-            cell.preview.image = image
+            if let gridCells = NSKeyedUnarchiver.unarchiveObject(with: data!) as? [String:UIView] {
+                cell.preview_grid.makeCells(cells: gridCells)
+            }
+
+//            let image = UIImage(data: data!)
+//            cell.preview.image = image
           }
         }
         cell.title.text = (works[indexPath.row])["name"] as? String
@@ -92,8 +106,8 @@ extension WorksPublishedViewController: UITableViewDataSource, UITableViewDelega
         let vc = storyboard.instantiateViewController(identifier: "workdetail") as! WorksDetailViewController
         vc.modalTransitionStyle = .coverVertical
         vc.work = works[indexPath.row]
+        vc.presentationController?.delegate = self
         self.present(vc, animated: true)
-        
     }
 }
 

@@ -86,6 +86,7 @@ class GridView: UIView {
         for j in 0...size - 1 {
             for i in 0...size - 1 {
                 let cellView = cells["\(i)|\(j)"]
+                cellView?.frame = CGRect(x: CGFloat(i) * cellWidth, y: CGFloat(j) * cellWidth, width: cellWidth, height: cellWidth)
                 self.addSubview(cellView!)
             }
         }
