@@ -79,7 +79,7 @@ class GridView: UIView {
     }
     
     func loadCanvas(size: Int, data: [String:String]){
-        let cellWidth = self.frame.width / CGFloat(size)
+        cellWidth = self.frame.width / CGFloat(size)
         for j in 0...size - 1 {
             for i in 0...size - 1 {
                 let cellView = UIView()
