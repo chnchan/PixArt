@@ -51,6 +51,7 @@ Target for this week:
 - create API handler, data structure for each “post”.
 ---
 
+
 ### Discord meeting on Sat (11/16)
 Implemented:
 - Sign up page implemented, users now able to create accounts and login, drawings associated with user accounts, stored on server. 
@@ -72,6 +73,17 @@ Goal for next meeting:
 - Have Feeds complete by next week (meaning pulling random published art (backend)).
 ---
 
+
 ### Discord meeting on Tues (11/19) at night
 Completed Written Plan
+
+
+### In person meeting on Thurs (11/21) after milestones 2
+
+Goals:
+- Clean up code
+- Ronald: fix Zoom, able to slide after zoomed in
+- Pavit: backend support for social media
+- Hin: UI, Transition logics
+- Jiahao: debug, and help out
 
