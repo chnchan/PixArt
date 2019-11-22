@@ -80,12 +80,12 @@ class GridView: UIView {
         }
     }
     
-    func loadCanvas(size: Int, data: [String:UIView]){
-        cellWidth = self.frame.width / CGFloat(size)
+    func loadCanvas(size: Int, data: [String:String]){
+        let cellWidth = self.frame.width / CGFloat(size)
         for j in 0...size - 1 {
             for i in 0...size - 1 {
                 let cellView = UIView()
-                cellView.backgroundColor = data["\(i)|\(j)"]?.backgroundColor
+                cellView.backgroundColor = UIColor.init(hexString: data["\(i)|\(j)"]!)
                 cellView.layer.borderWidth = BORDER_WIDTH
                 cellView.layer.borderColor = BORDER_COLOR
                 cellView.frame = CGRect(x: CGFloat(i) * cellWidth, y: CGFloat(j) * cellWidth, width: cellWidth, height: cellWidth)

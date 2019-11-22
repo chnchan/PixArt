@@ -18,7 +18,7 @@ class WorksDetailViewController: UIViewController , UITextFieldDelegate{
     var userID = ""
     var work: [String: Any] = [:]
     var documentdata : String = ""
-    var canvas: [String : UIView]?
+    var colors: [String : String] = [:]
     var canvas_size: Int = 8
     
     @IBOutlet weak var container: UIView!
@@ -62,20 +62,9 @@ class WorksDetailViewController: UIViewController , UITextFieldDelegate{
             privateView_X_constraint.constant = -416
         }
         
-        let drawingref = storageRef.child(work["gridFilePath"] as! String)
         canvas_size = work["gridSize"] as! Int
-        drawingref.getData(maxSize: 1*1024*1024) { data, error in
-            if error != nil{
-                print("error getting image")
-            } else {
-                do {
-                    self.canvas = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data!) as? [String:UIView]
-                    self.preview.makeCells(size: self.canvas_size, cells: self.canvas!)
-                } catch {
-                    fatalError("Can't encode data: \(error)")
-                }
-            }
-        }
+        colors = work["colors"] as! [String:String]
+        self.preview.makeCells(size: canvas_size, data: colors)
     }
     
     @IBAction func edit(_ sender: Any) {

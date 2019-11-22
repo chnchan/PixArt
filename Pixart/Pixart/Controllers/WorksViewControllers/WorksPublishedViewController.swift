@@ -50,13 +50,12 @@ class WorksPublishedViewController: UIViewController { // Works published to Fir
                     // this force unwrap is what is used in the
                     // cloud firestore docs
                     for document in querySnapshot!.documents {
-                        if(document.data()["public"] as? Int == 1 && document.data()["gridFilePath"] as? String != nil)
+                        if(document.data()["public"] as? Int == 1 && document.data()["colors"] as? String != nil)
                         {
                             self.works.append(document.data())
                         }
                     }
                 }
-                print(self.works)
                 self.worksTableView.reloadData()
             }
         }
@@ -76,24 +75,10 @@ extension WorksPublishedViewController: UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = worksTableView.dequeueReusableCell(withIdentifier: "published_post") as! PublishedTableViewCell
-        // fix force unwrap
-        let drawingref = storageRef.child((works[indexPath.row])["gridFilePath"] as! String)
         let gridSize = (works[indexPath.row])["gridSize"] as! Int
-//         Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
-        drawingref.getData(maxSize: 1 * 1024 * 1024) { data, error in
-          if error != nil {
-            print("uh oh")
-            // Uh-oh, an error occurred!
-          } else {
-                do {
-                    let gridCells = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data!) as? [String:UIView]
-                    cell.preview.makeCells(size: gridSize, cells: gridCells!)
-
-                } catch {
-                    fatalError("Can't encode data: \(error)")
-                }
-          }
-        }
+        
+        let colors: [String:String] = (works[indexPath.row])["colors"] as! [String:String]
+        cell.preview.makeCells(size: gridSize, data: colors)
         cell.title.text = (works[indexPath.row])["name"] as? String
         cell.likes.text = "10"
         cell.dislikes.text = "10"

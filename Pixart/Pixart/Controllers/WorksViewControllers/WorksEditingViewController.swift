@@ -47,20 +47,10 @@ class WorksEditingViewController: UIViewController {
     private func load() {
         artwork_name.text = work["name"] as? String
         
-        let drawingref = storageRef.child(work["gridFilePath"] as! String)
         canvas_size = work["gridSize"] as! Int
-        drawingref.getData(maxSize: 1*1024*1024) { data, error in
-            if error != nil{
-                print("error getting image")
-            } else {
-                do {
-                    let canvas_data = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data!) as? [String:UIView]
-                    self.canvas.loadCanvas(size: self.canvas_size, data: canvas_data!)
-                } catch {
-                    fatalError("Can't encode data: \(error)")
-                }
-            }
-        }
+        let colors = work["colors"] as! [String:String]
+        canvas.loadCanvas(size: canvas_size, data: colors)
+        self.view.addSubview(canvas)
     }
     
     private func textFieldShouldReturn(_ textField: UITextField) -> Bool {

@@ -49,6 +49,7 @@
 		B70C60592380BECD008C1C34 /* WorkDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70C60582380BECD008C1C34 /* WorkDetailViewController.swift */; };
 		F317AD72237D152300BF1F2F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F317AD71237D152300BF1F2F /* GoogleService-Info.plist */; };
 		F31FD413237D3B1400E2B0FF /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31FD412237D3B1400E2B0FF /* SignUpViewController.swift */; };
+		F3DEF75A23879FDC002822A5 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DEF75923879FDC002822A5 /* UIColorExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -99,6 +100,7 @@
 		F317AD71237D152300BF1F2F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F31FD412237D3B1400E2B0FF /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		F34055D4237BB56000AFDA02 /* Pixart.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Pixart.entitlements; sourceTree = "<group>"; };
+		F3DEF75923879FDC002822A5 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,6 +244,7 @@
 			children = (
 				3200289C237BD1670095CE03 /* LocalStorage.swift */,
 				32A162BE23875330002FEAC4 /* ServerAPI.swift */,
+				F3DEF75923879FDC002822A5 /* UIColorExtension.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -461,6 +464,7 @@
 				32A1470923876ED100A3D351 /* WorksEditingViewController.swift in Sources */,
 				32CC1940237E33D600810D77 /* WorksPrivateViewController.swift in Sources */,
 				32C0F411237414BD00612535 /* AppDelegate.swift in Sources */,
+				F3DEF75A23879FDC002822A5 /* UIColorExtension.swift in Sources */,
 				32C0F413237414BD00612535 /* SceneDelegate.swift in Sources */,
 				32CC193D237E337600810D77 /* WorksViewController.swift in Sources */,
 				32A162B823827A27002FEAC4 /* PromptNamePopupViewController.swift in Sources */,

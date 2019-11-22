@@ -59,35 +59,28 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
         // Data in memory
         // Create a reference to the file you want to upload
         var name = artwork_name
+        let gridSize = LocalStorage.fetchCanvasSize()
         if name == "" {
             name = "NoName"
         }
-        let gridLocation = userID + "/" + name
-        let gridRef = storageRef.child(gridLocation)
-        do {
-            let gridData = try NSKeyedArchiver.archivedData(withRootObject: gridView.cells, requiringSecureCoding: false)
-            let _ = gridRef.putData(gridData, metadata: nil) { (metadata, error) in
-                if error != nil {
-                    print("could not save grid array")
-                } else {
-                    self.db.collection(self.userID).document(name).setData([
-                        "documentdata": name, //keeping the original name used to refer to the document in database, should not be changed
-                        "name": name, //name of the work
-                        "gridFilePath": gridLocation,
-                        "gridSize": LocalStorage.fetchCanvasSize(),
-                        "public" : 0 // 0 if private
-                    ]) { err in
-                        if let err = err {
-                            print("Error adding document: \(err)")
-                        } else {
-                            print("Document added")
-                        }
-                    }
-                }
+        var gridColors: [String:String] = [:]
+        for j in 0...gridSize - 1 {
+            for i in 0...gridSize - 1 {
+                gridColors["\(i)|\(j)"] = gridView.cells["\(i)|\(j)"]?.backgroundColor!.htmlRGBA
             }
-                
-        } catch {
-            print("couldn't save grid")
+        }
+        self.db.collection(self.userID).document(name).setData([
+            "documentdata": name, //keeping the original name used to refer to the document in database, should not be changed
+            "name": name, //name of the work
+            "colors": gridColors,
+            "gridSize": gridSize,
+            "public" : 0 // 0 if private
+        ]) { err in
+            if let err = err {
+                print("Error adding document: \(err)")
+            } else {
+                print("Document added")
+            }
         }
 
     }

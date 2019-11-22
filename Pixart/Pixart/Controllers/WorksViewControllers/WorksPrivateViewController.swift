@@ -45,21 +45,18 @@ class WorksPrivateViewController: UIViewController { // Works saved on local dev
                     for document in querySnapshot!.documents {
                             temps.append(document.data())
                     }
-                    print(temps)
                     
                     print("private works")
                     self.works = []
                     // this force unwrap is what is used in the
                     // cloud firestore docs
                     for document in querySnapshot!.documents {
-                        if(document.data()["public"] as? Int == 0 && document.data()["gridFilePath"] as? String != nil)
+                        if(document.data()["public"] as? Int == 0 && document.data()["colors"] as? [String:String] != nil)
                         {
                             self.works.append(document.data())
                         }
                     }
                 }
-                
-                print(self.works)
                 self.worksTableView.reloadData()
             }
         }
@@ -79,24 +76,9 @@ extension WorksPrivateViewController: UITableViewDataSource, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = worksTableView.dequeueReusableCell(withIdentifier: "private_post") as! PrivateTableViewCell
-
-        let drawingref = storageRef.child((works[indexPath.row])["gridFilePath"] as! String)
         let gridSize = (works[indexPath.row])["gridSize"] as! Int
-
-        //         Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
-                drawingref.getData(maxSize: 1 * 1024 * 1024) { data, error in
-                  if error != nil {
-                    print("uh oh")
-                    // Uh-oh, an error occurred!
-                  } else {
-                        do {
-                            let gridCells = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data!) as? [String:UIView]
-                            cell.preview.makeCells(size: gridSize, cells: gridCells!)
-                        } catch {
-                            fatalError("Can't encode data: \(error)")
-                        }
-                  }
-                }
+        let colors: [String:String] = (works[indexPath.row])["colors"] as! [String:String]
+        cell.preview.makeCells(size: gridSize, data: colors)
         cell.title.text = (works[indexPath.row])["name"] as? String
         return cell
     }
@@ -112,3 +94,4 @@ extension WorksPrivateViewController: UITableViewDataSource, UITableViewDelegate
         self.present(vc, animated: true)
     }
 }
+
