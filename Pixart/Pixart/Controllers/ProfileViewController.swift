@@ -24,8 +24,7 @@ class ProfileViewController: UIViewController {
         loadData()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+    @IBAction func updateCanvasSize(_ sender: UISegmentedControl) {
         LocalStorage.saveCanvasSize(size: canvas_size[options.selectedSegmentIndex])
     }
     

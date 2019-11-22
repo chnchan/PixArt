@@ -16,22 +16,23 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
     let SLIDER_Y_POS = 50 // space from the canvas
     let SLIDER_HIGHT = 15
     let SLIDER_WIDTH = 300
+    
     let storage = Storage.storage()
     let db = Firestore.firestore()
-    
-    var root: UIViewController?
     var storageRef = StorageReference.init()
     var handle: AuthStateDidChangeListenerHandle?
     var userID = ""
-    var artwork_name = ""
-    var cellB: [String:UIView] = [:]
+
+    var work_name: String = ""
+    var canvas_size: Int = 8
     
     @IBOutlet weak var gridView: GridView!
     @IBOutlet weak var canvasContainer: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        gridView.makeCells()
+        canvas_size = LocalStorage.fetchCanvasSize()
+        gridView.makeCells(size: canvas_size)
         storageRef = storage.reference()
         setupColorSlider()
     }
@@ -59,10 +60,10 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
 
         // Data in memory
         // Create a reference to the file you want to upload
-        var name = artwork_name
+        var name = work_name
         let gridSize = LocalStorage.fetchCanvasSize()
         if name == "" {
-            name = "NoName"
+            name = "No Name"
         }
         var gridColors: [String:String] = [:]
         for j in 0...gridSize - 1 {
@@ -109,7 +110,7 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: UNWIND
     @IBAction func unwindToCanvas(_ unwindSegue: UIStoryboardSegue) {
-        gridView.makeCells()
+        gridView.makeCells(size: canvas_size)
     }
     
     @IBAction func unwindToCanvasAndSave(_ unwindSegue: UIStoryboardSegue) {

@@ -81,6 +81,9 @@
                                     <segment title="32x32"/>
                                     <segment title="64x64"/>
                                 </segments>
+                                <connections>
+                                    <action selector="updateCanvasSize:" destination="Ccl-4C-nNg" eventType="valueChanged" id="ncw-x9-a5q"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>

@@ -51,8 +51,8 @@ class GridView: UIView {
         }
     }
 
-    public func makeCells(){
-        canvas_size = LocalStorage.fetchCanvasSize()
+    public func makeCells(size: Int){
+        canvas_size = size
         cellWidth = self.frame.width / CGFloat(canvas_size)
         
         for j in 0...canvas_size - 1 {

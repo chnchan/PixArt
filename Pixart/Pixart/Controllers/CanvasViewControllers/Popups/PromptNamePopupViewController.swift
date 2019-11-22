@@ -20,7 +20,7 @@ class PromptNamePopupViewController: UIViewController, UITextFieldDelegate {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let dest = segue.destination as? CanvasViewController {
-            dest.artwork_name = name.text ?? "No Name"
+            dest.work_name = name.text ?? "No Name"
         }
     }
     
