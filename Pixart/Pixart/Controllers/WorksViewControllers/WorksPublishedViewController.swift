@@ -50,7 +50,7 @@ class WorksPublishedViewController: UIViewController { // Works published to Fir
                     // this force unwrap is what is used in the
                     // cloud firestore docs
                     for document in querySnapshot!.documents {
-                        if(document.data()["public"] as? Int == 1 && document.data()["colors"] as? String != nil)
+                        if(document.data()["public"] as? Int == 1 && document.data()["colors"] as? [String:String] != nil)
                         {
                             self.works.append(document.data())
                         }
