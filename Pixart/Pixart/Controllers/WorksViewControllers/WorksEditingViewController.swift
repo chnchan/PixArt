@@ -21,7 +21,7 @@ class WorksEditingViewController: UIViewController {
     var handle: AuthStateDidChangeListenerHandle?
     var work: [String: Any] = [:]
     var canvas_size: Int = 8
-    
+    var userID = ""
     @IBOutlet weak var artwork_name: UITextField!
     @IBOutlet weak var canvas: GridView!
     
@@ -31,6 +31,25 @@ class WorksEditingViewController: UIViewController {
         load()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // [START auth_listener]
+        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+            self.userID = user?.uid ?? ""
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        // force unwrap justified since handle will never be nil after
+        // viewWillAppear called  (can only get to this view with authenticated
+        // user)
+        Auth.auth().removeStateDidChangeListener(handle!)
+    }
+    
+    func presentationControllerDidDismiss(_ presentationController: UIPresentationController){
+        
+    }
     @IBAction func saveEdits(_ sender: Any) {
         savePixelArt()
     }
@@ -71,6 +90,21 @@ class WorksEditingViewController: UIViewController {
     private func savePixelArt() {
         print("updating")
         // MARK: TODO
-        dismiss(animated: true, completion: nil)
+        var gridColors: [String:String] = [:]
+        for j in 0...canvas_size - 1 {
+            for i in 0...canvas_size - 1 {
+                gridColors["\(i)|\(j)"] = canvas.cells["\(i)|\(j)"]?.backgroundColor!.htmlRGBA
+            }
+        }
+        self.db.collection(self.userID).document(work["documentdata"] as? String ?? "").updateData(["colors":gridColors], completion: {error in
+            if error != nil
+            {
+                print("error updating data")
+            }
+            else{
+                self.dismiss(animated: true, completion: nil)
+            }
+        })
+        //dismiss(animated: true, completion: nil)
     }
 }
