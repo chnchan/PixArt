@@ -31,6 +31,7 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        gridView.makeCells()
         storageRef = storage.reference()
         setupColorSlider()
     }

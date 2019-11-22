@@ -22,8 +22,6 @@ class GridView: UIView {
     override func draw(_ rect: CGRect) {
         // Calculate cell width based on the width of the view
 
-        makeCells()
-
         self.addGestureRecognizer(UIPinchGestureRecognizer(target: self, action: #selector(pinchAction(sender:))))
         self.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handleGesture)))
         self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleGesture)))

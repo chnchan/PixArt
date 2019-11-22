@@ -50,7 +50,6 @@ class WorksEditingViewController: UIViewController {
         canvas_size = work["gridSize"] as! Int
         let colors = work["colors"] as! [String:String]
         canvas.loadCanvas(size: canvas_size, data: colors)
-        self.view.addSubview(canvas)
     }
     
     private func textFieldShouldReturn(_ textField: UITextField) -> Bool {
