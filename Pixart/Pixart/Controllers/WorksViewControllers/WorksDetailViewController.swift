@@ -106,6 +106,14 @@ class WorksDetailViewController: UIViewController , UITextFieldDelegate{
                 self.dismiss(animated: true, completion: nil)
             }
         })
+        /* When we have trash can implemented
+        self.db.collection(self.userID).document(self.documentdata).updateData(["public" : -1], completion: {error in
+            if error != nil {
+                print("error updating data")
+            } else {
+                self.dismiss(animated: true, completion: nil)
+            }
+        })*/
     }
     
     @IBAction func done(_ sender: Any) {
