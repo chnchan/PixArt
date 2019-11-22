@@ -10,27 +10,30 @@
         <!--Works Editing View Controller-->
         <scene sceneID="7MX-Gl-ePR">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="KaF-3S-E2q" customClass="WorksEditingViewController" customModule="Pixart" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="work_edit" modalPresentationStyle="fullScreen" id="KaF-3S-E2q" customClass="WorksEditingViewController" customModule="Pixart" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZV3-HP-7f2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jfs-ja-ghO" userLabel="Back view">
-                                <rect key="frame" x="0.0" y="44" width="70" height="48"/>
+                                <rect key="frame" x="0.0" y="44" width="75" height="48"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eNG-Aj-NlX">
-                                        <rect key="frame" x="0.0" y="0.0" width="70" height="48"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="75" height="48"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="MWN-EX-r6X"/>
                                         </constraints>
-                                        <state key="normal" title="Back" image="arrow.left" catalog="system">
+                                        <state key="normal" title=" Back" image="arrow.left" catalog="system">
                                             <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="back:" destination="KaF-3S-E2q" eventType="touchUpInside" id="Yxw-go-XHa"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="70" id="3cd-2Y-d1z"/>
+                                    <constraint firstAttribute="width" constant="75" id="3cd-2Y-d1z"/>
                                     <constraint firstItem="eNG-Aj-NlX" firstAttribute="top" secondItem="Jfs-ja-ghO" secondAttribute="top" id="9JU-k7-ThO"/>
                                     <constraint firstAttribute="bottom" secondItem="eNG-Aj-NlX" secondAttribute="bottom" id="Euq-H6-Hew"/>
                                     <constraint firstItem="eNG-Aj-NlX" firstAttribute="leading" secondItem="Jfs-ja-ghO" secondAttribute="leading" id="dm6-Te-HY5"/>
@@ -39,15 +42,15 @@
                                 </constraints>
                             </view>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Artwork Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="62f-t1-3iH">
-                                <rect key="frame" x="70" y="55.5" width="274" height="25.5"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <rect key="frame" x="75" y="52.5" width="264" height="31.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hag-3c-zLf">
                                 <rect key="frame" x="30" y="802" width="354" height="44"/>
-                                <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
-                                <state key="normal" title="Save">
+                                <state key="normal" title="Save Edits">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -55,6 +58,9 @@
                                         <integer key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="saveEdits:" destination="KaF-3S-E2q" eventType="touchUpInside" id="298-F1-Be2"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SVh-cf-Huy" userLabel="container">
                                 <rect key="frame" x="12" y="137" width="390" height="390"/>

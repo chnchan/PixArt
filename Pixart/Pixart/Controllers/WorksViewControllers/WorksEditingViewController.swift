@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 import ColorSlider
 
 class WorksEditingViewController: UIViewController {
@@ -14,6 +15,12 @@ class WorksEditingViewController: UIViewController {
     let SLIDER_Y_POS = 50 // space from the canvas
     let SLIDER_HIGHT = 15
     let SLIDER_WIDTH = 300
+    let storage = Storage.storage()
+    let db = Firestore.firestore()
+    var storageRef = StorageReference.init()
+    var handle: AuthStateDidChangeListenerHandle?
+    var work: [String: Any] = [:]
+    var canvas_size: Int = 8
     
     @IBOutlet weak var artwork_name: UITextField!
     @IBOutlet weak var canvas: GridView!
@@ -21,11 +28,39 @@ class WorksEditingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupColorSlider()
+        load()
+    }
+    
+    @IBAction func saveEdits(_ sender: Any) {
+        savePixelArt()
+    }
+    
+    @IBAction func back(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
     
     @objc func changedColor(_ slider: ColorSlider) {
         let color = slider.color
         canvas.drawingColor = color
+    }
+    
+    private func load() {
+        artwork_name.text = work["name"] as? String
+        
+        let drawingref = storageRef.child(work["gridFilePath"] as! String)
+        canvas_size = work["gridSize"] as! Int
+        drawingref.getData(maxSize: 1*1024*1024) { data, error in
+            if error != nil{
+                print("error getting image")
+            } else {
+                do {
+                    let canvas_data = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data!) as? [String:UIView]
+                    self.canvas.loadCanvas(size: self.canvas_size, data: canvas_data!)
+                } catch {
+                    fatalError("Can't encode data: \(error)")
+                }
+            }
+        }
     }
     
     private func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -43,5 +78,10 @@ class WorksEditingViewController: UIViewController {
         colorSlider.addTarget(self, action: #selector(changedColor(_:)), for: .valueChanged)
         colorSlider.color = UIColor.black
     }
-
+    
+    private func savePixelArt() {
+        print("updating")
+        // MARK: TODO
+        dismiss(animated: true, completion: nil)
+    }
 }

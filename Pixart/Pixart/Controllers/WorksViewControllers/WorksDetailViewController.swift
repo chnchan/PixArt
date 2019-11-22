@@ -11,13 +11,6 @@ import Firebase
 
 class WorksDetailViewController: UIViewController , UITextFieldDelegate{
 
-    @IBOutlet weak var container: UIView!
-    @IBOutlet weak var preview: CanvasPreview!
-    @IBOutlet weak var private_icon: UIView!
-    @IBOutlet weak var published_icon: UIView!
-    @IBOutlet weak var privateView_X_constraint: NSLayoutConstraint!
-    @IBOutlet weak var publishedView_X_constraint: NSLayoutConstraint!
-    
     let storage = Storage.storage()
     let db = Firestore.firestore()
     var storageRef = StorageReference.init()
@@ -26,6 +19,14 @@ class WorksDetailViewController: UIViewController , UITextFieldDelegate{
     var work: [String: Any] = [:]
     var documentdata : String = ""
     var canvas: [String : UIView]?
+    var canvas_size: Int = 8
+    
+    @IBOutlet weak var container: UIView!
+    @IBOutlet weak var preview: CanvasPreview!
+    @IBOutlet weak var private_icon: UIView!
+    @IBOutlet weak var published_icon: UIView!
+    @IBOutlet weak var privateView_X_constraint: NSLayoutConstraint!
+    @IBOutlet weak var publishedView_X_constraint: NSLayoutConstraint!
     @IBOutlet weak var workname: UITextField!
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,14 +63,14 @@ class WorksDetailViewController: UIViewController , UITextFieldDelegate{
         }
         
         let drawingref = storageRef.child(work["gridFilePath"] as! String)
-        let gridSize = work["gridSize"] as! Int
+        canvas_size = work["gridSize"] as! Int
         drawingref.getData(maxSize: 1*1024*1024) { data, error in
             if error != nil{
                 print("error getting image")
             } else {
                 do {
-                    let gridCells = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data!) as? [String:UIView]
-                    self.preview.makeCells(size: gridSize, cells: gridCells!)
+                    self.canvas = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data!) as? [String:UIView]
+                    self.preview.makeCells(size: self.canvas_size, cells: self.canvas!)
                 } catch {
                     fatalError("Can't encode data: \(error)")
                 }
@@ -78,7 +79,12 @@ class WorksDetailViewController: UIViewController , UITextFieldDelegate{
     }
     
     @IBAction func edit(_ sender: Any) {
-        performSegue(withIdentifier: "work_edit", sender: self)
+        let storyboard = UIStoryboard(name: "WorksEditing", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: "work_edit") as! WorksEditingViewController
+        vc.modalPresentationStyle = .fullScreen
+        vc.work = work
+        self.present(vc, animated: true)
+//        performSegue(withIdentifier: "work_edit", sender: self)
     }
     
     @IBAction func updateName(_ sender: UITextField) {

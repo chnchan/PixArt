@@ -18,7 +18,7 @@ class GridView: UIView {
     var cellWidth: CGFloat = 0
     var cells = [String: UIView]()
     var previousScale: CGFloat = 1.0
-    
+
     override func draw(_ rect: CGRect) {
         // Calculate cell width based on the width of the view
 
@@ -80,16 +80,18 @@ class GridView: UIView {
         }
     }
     
-    func makeCells(size: Int, cells: [String:UIView]){
+    func loadCanvas(size: Int, data: [String:UIView]){
         cellWidth = self.frame.width / CGFloat(size)
         for j in 0...size - 1 {
             for i in 0...size - 1 {
-                let cellView = cells["\(i)|\(j)"]
-                cellView?.frame = CGRect(x: CGFloat(i) * cellWidth, y: CGFloat(j) * cellWidth, width: cellWidth, height: cellWidth)
-                self.addSubview(cellView!)
+                let cellView = UIView()
+                cellView.backgroundColor = data["\(i)|\(j)"]?.backgroundColor
+                cellView.layer.borderWidth = BORDER_WIDTH
+                cellView.layer.borderColor = BORDER_COLOR
+                cellView.frame = CGRect(x: CGFloat(i) * cellWidth, y: CGFloat(j) * cellWidth, width: cellWidth, height: cellWidth)
+                self.addSubview(cellView)
+                cells["\(i)|\(j)"] = cellView
             }
         }
     }
-    
-
 }

@@ -167,7 +167,6 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="preview" destination="03w-zn-I1j" id="ey4-B9-urM"/>
-                                            <outlet property="preview_grid" destination="5iG-D4-swU" id="mhu-Bp-Izo"/>
                                             <outlet property="title" destination="PSu-gW-JGN" id="eV2-U1-hEc"/>
                                         </connections>
                                     </tableViewCell>
