@@ -10,20 +10,20 @@ import UIKit
 
 class SettingsPopupViewController: UIViewController {
 
-    let canvas_size: [Int] = [8, 16, 32, 64]
+    var canvas_size: Int = 8
+    let canvas_sizes: [Int] = [8, 16, 32, 64]
     @IBOutlet weak var options: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let size = LocalStorage.fetchCanvasSize()
         
-        if size == 8 {
+        if canvas_size == 8 {
             options.selectedSegmentIndex = 0
-        } else if size == 16 {
+        } else if canvas_size == 16 {
             options.selectedSegmentIndex = 1
-        } else if size == 32 {
+        } else if canvas_size == 32 {
             options.selectedSegmentIndex = 2
-        } else if size == 64 {
+        } else if canvas_size == 64 {
             options.selectedSegmentIndex = 3
         } else {
             print("Unknown canvas size!")
@@ -32,7 +32,7 @@ class SettingsPopupViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let dest = segue.destination as? CanvasViewController {
-            dest.canvas_size = canvas_size[options.selectedSegmentIndex]
+            dest.canvas_size = canvas_sizes[options.selectedSegmentIndex]
         }
     }
     

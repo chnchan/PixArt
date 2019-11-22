@@ -53,6 +53,12 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
         Auth.auth().removeStateDidChangeListener(handle!)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let dest = segue.destination as? SettingsPopupViewController {
+            dest.canvas_size = self.canvas_size
+        }
+    }
+    
     // This function saves the image to user folder
     // TODO: right now  it just displays it to the view
     // but i will change later
@@ -90,11 +96,6 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
     @objc func changedColor(_ slider: ColorSlider) {
         let color = slider.color
         gridView.drawingColor = color
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
     }
     
     private func setupColorSlider() {
