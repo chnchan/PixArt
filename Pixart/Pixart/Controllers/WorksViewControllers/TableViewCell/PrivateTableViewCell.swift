@@ -11,8 +11,7 @@ import UIKit
 class PrivateTableViewCell: UITableViewCell {
 
     @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var preview: UIImageView!
-    @IBOutlet weak var preview_grid: GridView!
+    @IBOutlet weak var preview: CanvasPreview!
     
     override func awakeFromNib() {
         super.awakeFromNib()

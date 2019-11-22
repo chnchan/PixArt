@@ -27,13 +27,11 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
     var cellB: [String:UIView] = [:]
     
     @IBOutlet weak var gridView: GridView!
-    @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var canvasContainer: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         storageRef = storage.reference()
-        self.saveButton.layer.cornerRadius = 5
         setupColorSlider()
     }
     
@@ -105,7 +103,6 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func setupColorSlider() {
-        
         let y_pos = safeArea_top + 48 + 45 + Int(view.frame.width) - 10 + SLIDER_Y_POS
         
         let colorSlider = ColorSlider(orientation: .horizontal, previewSide: .top)

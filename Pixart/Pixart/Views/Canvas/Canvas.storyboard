@@ -71,6 +71,11 @@
                                 <state key="normal" title="Save">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="TQm-E1-vnu" kind="presentation" id="jXU-s1-Spd"/>
                                 </connections>
@@ -115,7 +120,6 @@
                     <connections>
                         <outlet property="canvasContainer" destination="Pjw-oK-w6O" id="5fB-qE-hOA"/>
                         <outlet property="gridView" destination="Z6y-b8-wl1" id="Bg6-kU-Pjl"/>
-                        <outlet property="saveButton" destination="HVT-4F-1ai" id="StZ-sW-iKx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PZR-P1-Afj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

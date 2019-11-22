@@ -16,6 +16,8 @@
 		326CD37623760CA9008CEC07 /* Credits.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 326CD37523760CA9008CEC07 /* Credits.storyboard */; };
 		326CD37823761066008CEC07 /* LogoutConfirmation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 326CD37723761066008CEC07 /* LogoutConfirmation.storyboard */; };
 		326CD37C23761356008CEC07 /* LogoutConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326CD37B23761356008CEC07 /* LogoutConfirmationViewController.swift */; };
+		32A1470923876ED100A3D351 /* WorksEditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A1470823876ED100A3D351 /* WorksEditingViewController.swift */; };
+		32A1470E2387717100A3D351 /* WorksEditing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32A1470D2387717100A3D351 /* WorksEditing.storyboard */; };
 		32A162A9238214F7002FEAC4 /* WorksDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32A162A8238214F7002FEAC4 /* WorksDetail.storyboard */; };
 		32A162AE2382235B002FEAC4 /* SettingsPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A162AD2382235B002FEAC4 /* SettingsPopupViewController.swift */; };
 		32A162B02382244D002FEAC4 /* Canvas.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32A162AF2382244D002FEAC4 /* Canvas.storyboard */; };
@@ -23,6 +25,8 @@
 		32A162B5238279ED002FEAC4 /* PromptNamePopup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32A162B4238279ED002FEAC4 /* PromptNamePopup.storyboard */; };
 		32A162B823827A27002FEAC4 /* PromptNamePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A162B723827A27002FEAC4 /* PromptNamePopupViewController.swift */; };
 		32A162BD2384FC82002FEAC4 /* WorksDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A162BC2384FC82002FEAC4 /* WorksDetailViewController.swift */; };
+		32A162BF23875330002FEAC4 /* ServerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A162BE23875330002FEAC4 /* ServerAPI.swift */; };
+		32A162C123876339002FEAC4 /* CanvasPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A162C023876339002FEAC4 /* CanvasPreview.swift */; };
 		32C0F411237414BD00612535 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C0F410237414BD00612535 /* AppDelegate.swift */; };
 		32C0F413237414BD00612535 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C0F412237414BD00612535 /* SceneDelegate.swift */; };
 		32C0F415237414BD00612535 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C0F414237414BD00612535 /* SideMenuViewController.swift */; };
@@ -58,6 +62,8 @@
 		326CD37523760CA9008CEC07 /* Credits.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Credits.storyboard; sourceTree = "<group>"; };
 		326CD37723761066008CEC07 /* LogoutConfirmation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LogoutConfirmation.storyboard; sourceTree = "<group>"; };
 		326CD37B23761356008CEC07 /* LogoutConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutConfirmationViewController.swift; sourceTree = "<group>"; };
+		32A1470823876ED100A3D351 /* WorksEditingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorksEditingViewController.swift; sourceTree = "<group>"; };
+		32A1470D2387717100A3D351 /* WorksEditing.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WorksEditing.storyboard; sourceTree = "<group>"; };
 		32A162A8238214F7002FEAC4 /* WorksDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WorksDetail.storyboard; sourceTree = "<group>"; };
 		32A162AD2382235B002FEAC4 /* SettingsPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPopupViewController.swift; sourceTree = "<group>"; };
 		32A162AF2382244D002FEAC4 /* Canvas.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Canvas.storyboard; sourceTree = "<group>"; };
@@ -65,6 +71,8 @@
 		32A162B4238279ED002FEAC4 /* PromptNamePopup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PromptNamePopup.storyboard; sourceTree = "<group>"; };
 		32A162B723827A27002FEAC4 /* PromptNamePopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptNamePopupViewController.swift; sourceTree = "<group>"; };
 		32A162BC2384FC82002FEAC4 /* WorksDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorksDetailViewController.swift; sourceTree = "<group>"; };
+		32A162BE23875330002FEAC4 /* ServerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerAPI.swift; sourceTree = "<group>"; };
+		32A162C023876339002FEAC4 /* CanvasPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasPreview.swift; sourceTree = "<group>"; };
 		32C0F40D237414BD00612535 /* Pixart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pixart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32C0F410237414BD00612535 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32C0F412237414BD00612535 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,13 +113,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		326CD372237603A6008CEC07 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
 		326CD3792376106B008CEC07 /* Popups */ = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +144,7 @@
 			children = (
 				32C0F440237536BF00612535 /* Works.storyboard */,
 				32A162A8238214F7002FEAC4 /* WorksDetail.storyboard */,
+				32A1470D2387717100A3D351 /* WorksEditing.storyboard */,
 			);
 			path = Works;
 			sourceTree = "<group>";
@@ -207,7 +209,6 @@
 			children = (
 				F34055D4237BB56000AFDA02 /* Pixart.entitlements */,
 				F317AD71237D152300BF1F2F /* GoogleService-Info.plist */,
-				32C0F4292374197100612535 /* Utils */,
 				32C0F4252374153A00612535 /* Model */,
 				32C0F4242374150C00612535 /* Views */,
 				32C0F428237418D100612535 /* Controllers */,
@@ -240,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				3200289C237BD1670095CE03 /* LocalStorage.swift */,
+				32A162BE23875330002FEAC4 /* ServerAPI.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -260,22 +262,16 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		32C0F4292374197100612535 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				326CD372237603A6008CEC07 /* Extensions */,
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
 		32CC193E237E33BA00810D77 /* WorksViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				32CC1943237E4AC000810D77 /* TableViewCell */,
+				32A162C023876339002FEAC4 /* CanvasPreview.swift */,
 				32CC193C237E337600810D77 /* WorksViewController.swift */,
 				32CC193F237E33D600810D77 /* WorksPrivateViewController.swift */,
 				32CC1941237E33DF00810D77 /* WorksPublishedViewController.swift */,
 				32A162BC2384FC82002FEAC4 /* WorksDetailViewController.swift */,
+				32A1470823876ED100A3D351 /* WorksEditingViewController.swift */,
 			);
 			path = WorksViewControllers;
 			sourceTree = "<group>";
@@ -374,6 +370,7 @@
 				32A162A9238214F7002FEAC4 /* WorksDetail.storyboard in Resources */,
 				32C0F42E2374856F00612535 /* Feeds.storyboard in Resources */,
 				326CD37823761066008CEC07 /* LogoutConfirmation.storyboard in Resources */,
+				32A1470E2387717100A3D351 /* WorksEditing.storyboard in Resources */,
 				3200289F237BDCD50095CE03 /* Assets.xcassets in Resources */,
 				32C0F43323749F4600612535 /* Main.storyboard in Resources */,
 				326CD37623760CA9008CEC07 /* Credits.storyboard in Resources */,
@@ -461,6 +458,7 @@
 				32602BBA237553EF00FE7D31 /* FeedsViewController.swift in Sources */,
 				32A162BD2384FC82002FEAC4 /* WorksDetailViewController.swift in Sources */,
 				32C0F43F237503E100612535 /* ProfileViewController.swift in Sources */,
+				32A1470923876ED100A3D351 /* WorksEditingViewController.swift in Sources */,
 				32CC1940237E33D600810D77 /* WorksPrivateViewController.swift in Sources */,
 				32C0F411237414BD00612535 /* AppDelegate.swift in Sources */,
 				32C0F413237414BD00612535 /* SceneDelegate.swift in Sources */,
@@ -468,9 +466,11 @@
 				32A162B823827A27002FEAC4 /* PromptNamePopupViewController.swift in Sources */,
 				F31FD413237D3B1400E2B0FF /* SignUpViewController.swift in Sources */,
 				32602BB8237547A200FE7D31 /* CanvasViewController.swift in Sources */,
+				32A162BF23875330002FEAC4 /* ServerAPI.swift in Sources */,
 				32CC1947237E4AED00810D77 /* PublishedTableViewCell.swift in Sources */,
 				3200289B237BD15B0095CE03 /* Local.xcdatamodeld in Sources */,
 				B57EF8BA2377CE15009DE772 /* WorksTableViewCell.swift in Sources */,
+				32A162C123876339002FEAC4 /* CanvasPreview.swift in Sources */,
 				32602BB623753C6E00FE7D31 /* old_WorksViewController.swift in Sources */,
 				3200289D237BD1670095CE03 /* LocalStorage.swift in Sources */,
 			);

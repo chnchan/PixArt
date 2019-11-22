@@ -87,8 +87,7 @@ extension WorksPublishedViewController: UITableViewDataSource, UITableViewDelega
           } else {
                 do {
                     let gridCells = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data!) as? [String:UIView]
-                    cell.preview_grid.makeCells(size: gridSize, cells: gridCells!)
-                    cell.preview_grid.isHidden = false
+                    cell.preview.makeCells(size: gridSize, cells: gridCells!)
 
                 } catch {
                     fatalError("Can't encode data: \(error)")

@@ -110,6 +110,9 @@
                                         <state key="normal" title=" Edit" image="square.and.pencil" catalog="system">
                                             <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="edit:" destination="B7u-gC-C8E" eventType="touchUpInside" id="HfJ-m1-f6a"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -126,17 +129,20 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9ks-nL-ouT" userLabel="image_container">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9ks-nL-ouT" userLabel="image_container">
                                 <rect key="frame" x="17" y="108" width="380" height="380"/>
                                 <subviews>
-                                    <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cqz-3C-1eo" customClass="GridView" customModule="Pixart" customModuleProvider="target">
-                                        <rect key="frame" x="2.5" y="2.5" width="375" height="375"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cqz-3C-1eo" customClass="CanvasPreview" customModule="Pixart" customModuleProvider="target">
+                                        <rect key="frame" x="5" y="5" width="370" height="370"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstItem="Cqz-3C-1eo" firstAttribute="top" secondItem="9ks-nL-ouT" secondAttribute="top" constant="5" id="BDd-tw-xqX"/>
+                                    <constraint firstAttribute="trailing" secondItem="Cqz-3C-1eo" secondAttribute="trailing" constant="5" id="KAD-Zg-HkF"/>
+                                    <constraint firstItem="Cqz-3C-1eo" firstAttribute="leading" secondItem="9ks-nL-ouT" secondAttribute="leading" constant="5" id="RgY-pc-8dD"/>
+                                    <constraint firstAttribute="bottom" secondItem="Cqz-3C-1eo" secondAttribute="bottom" constant="5" id="uHQ-iU-uu9"/>
                                     <constraint firstAttribute="width" secondItem="9ks-nL-ouT" secondAttribute="height" multiplier="1:1" id="wWI-KO-YPy"/>
                                 </constraints>
                             </view>
@@ -333,12 +339,13 @@
                     </navigationItem>
                     <connections>
                         <outlet property="container" destination="9ks-nL-ouT" id="FJ0-1Y-BSd"/>
-                        <outlet property="gridView" destination="Cqz-3C-1eo" id="ypA-qB-ZCq"/>
+                        <outlet property="preview" destination="Cqz-3C-1eo" id="LWP-PB-gYN"/>
                         <outlet property="privateView_X_constraint" destination="X9Y-9J-c6f" id="hz1-0u-Qhr"/>
                         <outlet property="private_icon" destination="I3E-Va-qbd" id="9Lq-hH-pZN"/>
                         <outlet property="publishedView_X_constraint" destination="5EX-Gb-IfN" id="N0Q-q6-Pvl"/>
                         <outlet property="published_icon" destination="qBa-9C-D1b" id="puP-OO-NZo"/>
                         <outlet property="workname" destination="9ot-Mu-7wH" id="A8R-zO-mJB"/>
+                        <segue destination="435-d5-lpY" kind="presentation" identifier="work_edit" id="GYr-3b-aFC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nl8-Sc-ctA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -350,6 +357,14 @@
                 </screenEdgePanGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3702.898550724638" y="-297.32142857142856"/>
+        </scene>
+        <!--WorksEditing-->
+        <scene sceneID="L5w-f0-Wbl">
+            <objects>
+                <viewControllerPlaceholder storyboardName="WorksEditing" id="435-d5-lpY" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GBF-f3-VMB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4304" y="-297"/>
         </scene>
     </scenes>
     <resources>

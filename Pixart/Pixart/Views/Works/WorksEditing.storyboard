@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KaF-3S-E2q">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Works Editing View Controller-->
+        <scene sceneID="7MX-Gl-ePR">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="KaF-3S-E2q" customClass="WorksEditingViewController" customModule="Pixart" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZV3-HP-7f2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jfs-ja-ghO" userLabel="Back view">
+                                <rect key="frame" x="0.0" y="44" width="70" height="48"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eNG-Aj-NlX">
+                                        <rect key="frame" x="0.0" y="0.0" width="70" height="48"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="MWN-EX-r6X"/>
+                                        </constraints>
+                                        <state key="normal" title="Back" image="arrow.left" catalog="system">
+                                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="3cd-2Y-d1z"/>
+                                    <constraint firstItem="eNG-Aj-NlX" firstAttribute="top" secondItem="Jfs-ja-ghO" secondAttribute="top" id="9JU-k7-ThO"/>
+                                    <constraint firstAttribute="bottom" secondItem="eNG-Aj-NlX" secondAttribute="bottom" id="Euq-H6-Hew"/>
+                                    <constraint firstItem="eNG-Aj-NlX" firstAttribute="leading" secondItem="Jfs-ja-ghO" secondAttribute="leading" id="dm6-Te-HY5"/>
+                                    <constraint firstAttribute="height" constant="48" id="fDb-pW-eoV"/>
+                                    <constraint firstAttribute="trailing" secondItem="eNG-Aj-NlX" secondAttribute="trailing" id="xdF-Bz-eHd"/>
+                                </constraints>
+                            </view>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Artwork Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="62f-t1-3iH">
+                                <rect key="frame" x="70" y="55.5" width="274" height="25.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hag-3c-zLf">
+                                <rect key="frame" x="30" y="802" width="354" height="44"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SVh-cf-Huy" userLabel="container">
+                                <rect key="frame" x="12" y="137" width="390" height="390"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ETV-mm-RSU" customClass="GridView" customModule="Pixart" customModuleProvider="target">
+                                        <rect key="frame" x="5" y="5" width="380" height="380"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="ETV-mm-RSU" firstAttribute="leading" secondItem="SVh-cf-Huy" secondAttribute="leading" constant="5" id="L4H-V9-z4f"/>
+                                    <constraint firstAttribute="trailing" secondItem="ETV-mm-RSU" secondAttribute="trailing" constant="5" id="SWS-El-BIP"/>
+                                    <constraint firstAttribute="bottom" secondItem="ETV-mm-RSU" secondAttribute="bottom" constant="5" id="YG0-RJ-qsw"/>
+                                    <constraint firstItem="ETV-mm-RSU" firstAttribute="top" secondItem="SVh-cf-Huy" secondAttribute="top" constant="5" id="qhn-n9-OA3"/>
+                                    <constraint firstAttribute="width" secondItem="SVh-cf-Huy" secondAttribute="height" multiplier="1:1" id="vL0-9W-l6x"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="1lK-og-bdj" firstAttribute="trailing" secondItem="Hag-3c-zLf" secondAttribute="trailing" constant="30" id="4Kl-tg-arp"/>
+                            <constraint firstItem="Hag-3c-zLf" firstAttribute="leading" secondItem="1lK-og-bdj" secondAttribute="leading" constant="30" id="DYI-Kn-HPk"/>
+                            <constraint firstItem="Jfs-ja-ghO" firstAttribute="leading" secondItem="1lK-og-bdj" secondAttribute="leading" id="Mxk-h5-vDi"/>
+                            <constraint firstItem="62f-t1-3iH" firstAttribute="centerY" secondItem="eNG-Aj-NlX" secondAttribute="centerY" id="NLc-uN-482"/>
+                            <constraint firstAttribute="trailing" secondItem="SVh-cf-Huy" secondAttribute="trailing" constant="12" id="QJP-9s-oZD"/>
+                            <constraint firstItem="Jfs-ja-ghO" firstAttribute="top" secondItem="1lK-og-bdj" secondAttribute="top" id="XlE-JG-NVG"/>
+                            <constraint firstItem="62f-t1-3iH" firstAttribute="leading" secondItem="eNG-Aj-NlX" secondAttribute="trailing" id="dDY-9L-Gb0"/>
+                            <constraint firstItem="62f-t1-3iH" firstAttribute="centerX" secondItem="ZV3-HP-7f2" secondAttribute="centerX" id="iZr-NK-MaC"/>
+                            <constraint firstItem="1lK-og-bdj" firstAttribute="bottom" secondItem="Hag-3c-zLf" secondAttribute="bottom" constant="16" id="mi3-AH-Rkm"/>
+                            <constraint firstItem="SVh-cf-Huy" firstAttribute="top" secondItem="Jfs-ja-ghO" secondAttribute="bottom" constant="45" id="rdp-PG-UOT"/>
+                            <constraint firstItem="SVh-cf-Huy" firstAttribute="leading" secondItem="ZV3-HP-7f2" secondAttribute="leading" constant="12" id="uRV-vu-NY9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="1lK-og-bdj"/>
+                    </view>
+                    <connections>
+                        <outlet property="artwork_name" destination="62f-t1-3iH" id="vrQ-Al-aKe"/>
+                        <outlet property="canvas" destination="ETV-mm-RSU" id="hIf-6S-6PN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ng7-Zt-s5V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4498.5507246376819" y="-297.32142857142856"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="arrow.left" catalog="system" width="64" height="48"/>
+    </resources>
+</document>

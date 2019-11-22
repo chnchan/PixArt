@@ -43,16 +43,25 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func sendPressed(_ sender: Any) {
-        Auth.auth().signIn(withEmail: email.text ?? "", password: password.text ?? "") { [weak self] authResult, error in
-          guard let strongSelf = self else { return }
+        ServerAPI.login(email: email.text ?? "", password: password.text ?? "") { response, error in
             if error != nil {
-                strongSelf.errorLabel.text = "Invalid Credentials"
+                self.errorLabel.text = error
             } else {
-                strongSelf.errorLabel.text = ""
-                LocalStorage.saveLogins(username: strongSelf.email.text ?? "", password: strongSelf.password.text ?? "")
-                strongSelf.performSegue(withIdentifier: "login", sender: strongSelf)
+                self.errorLabel.text = ""
+                self.performSegue(withIdentifier: "login", sender: self)
             }
         }
+        
+//        Auth.auth().signIn(withEmail: email.text ?? "", password: password.text ?? "") { [weak self] authResult, error in
+//          guard let strongSelf = self else { return }
+//            if error != nil {
+//                strongSelf.errorLabel.text = "Invalid Credentials"
+//            } else {
+//                strongSelf.errorLabel.text = ""
+//                LocalStorage.saveLogins(username: strongSelf.email.text ?? "", password: strongSelf.password.text ?? "")
+//                strongSelf.performSegue(withIdentifier: "login", sender: strongSelf)
+//            }
+//        }
     }
     
 

@@ -11,10 +11,8 @@ import Firebase
 
 class WorksDetailViewController: UIViewController , UITextFieldDelegate{
 
-    
-
     @IBOutlet weak var container: UIView!
-    @IBOutlet weak var gridView: GridView!
+    @IBOutlet weak var preview: CanvasPreview!
     @IBOutlet weak var private_icon: UIView!
     @IBOutlet weak var published_icon: UIView!
     @IBOutlet weak var privateView_X_constraint: NSLayoutConstraint!
@@ -27,6 +25,7 @@ class WorksDetailViewController: UIViewController , UITextFieldDelegate{
     var userID = ""
     var work: [String: Any] = [:]
     var documentdata : String = ""
+    var canvas: [String : UIView]?
     @IBOutlet weak var workname: UITextField!
     
     override func viewWillAppear(_ animated: Bool) {
@@ -64,21 +63,22 @@ class WorksDetailViewController: UIViewController , UITextFieldDelegate{
         
         let drawingref = storageRef.child(work["gridFilePath"] as! String)
         let gridSize = work["gridSize"] as! Int
-        drawingref.getData(maxSize: 1*1024*1024) {data, error in
+        drawingref.getData(maxSize: 1*1024*1024) { data, error in
             if error != nil{
                 print("error getting image")
             } else {
-                  do {
-                      let gridCells = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data!) as? [String:UIView]
-                    self.gridView.makeCells(size: gridSize, cells: gridCells!)
-                    self.container.isHidden = false
-                    self.gridView.isHidden = false
-
-                  } catch {
-                      fatalError("Can't encode data: \(error)")
-                  }
+                do {
+                    let gridCells = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data!) as? [String:UIView]
+                    self.preview.makeCells(size: gridSize, cells: gridCells!)
+                } catch {
+                    fatalError("Can't encode data: \(error)")
+                }
             }
         }
+    }
+    
+    @IBAction func edit(_ sender: Any) {
+        performSegue(withIdentifier: "work_edit", sender: self)
     }
     
     @IBAction func updateName(_ sender: UITextField) {
