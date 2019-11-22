@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GOF-Kx-JmO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GOF-Kx-JmO">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -115,11 +115,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="8Qn-9L-Mwo">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                                <color key="color" red="1" green="0.21929237900000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="tN9-Dc-Txq" firstAttribute="top" secondItem="L0L-xM-zpd" secondAttribute="bottom" constant="15" id="2Dc-yr-63P"/>
+                            <constraint firstItem="8Qn-9L-Mwo" firstAttribute="centerX" secondItem="NdK-K3-mEn" secondAttribute="centerX" id="61O-hc-aGd"/>
                             <constraint firstItem="F1b-se-0dh" firstAttribute="centerX" secondItem="NdK-K3-mEn" secondAttribute="centerX" id="6xZ-2Z-iTc"/>
+                            <constraint firstItem="8Qn-9L-Mwo" firstAttribute="centerY" secondItem="NdK-K3-mEn" secondAttribute="centerY" id="DfV-TA-AF2"/>
                             <constraint firstItem="tN9-Dc-Txq" firstAttribute="centerX" secondItem="NdK-K3-mEn" secondAttribute="centerX" id="Rzs-3k-Gus"/>
                             <constraint firstItem="MMF-2p-ovh" firstAttribute="bottom" secondItem="5Fw-gS-IRi" secondAttribute="bottom" constant="8" id="SD2-Xf-wEq"/>
                             <constraint firstItem="L0L-xM-zpd" firstAttribute="top" secondItem="F1b-se-0dh" secondAttribute="bottom" constant="10" id="VWK-CS-nqb"/>
@@ -134,6 +140,7 @@
                         <outlet property="email" destination="neR-mG-ngO" id="Dz9-jA-5dT"/>
                         <outlet property="errorLabel" destination="tN9-Dc-Txq" id="nLR-qs-Pfn"/>
                         <outlet property="password" destination="Zq7-um-rcs" id="RQK-BB-75o"/>
+                        <outlet property="spinner" destination="8Qn-9L-Mwo" id="cZQ-vZ-bea"/>
                         <segue destination="7Xb-Z3-STo" kind="show" identifier="login" id="5e2-8K-n0y"/>
                         <segue destination="mYe-cK-fBf" kind="show" identifier="newAcc" id="rg0-NI-vYa"/>
                     </connections>

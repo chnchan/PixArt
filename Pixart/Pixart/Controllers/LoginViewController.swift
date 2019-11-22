@@ -18,6 +18,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,11 +44,17 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func sendPressed(_ sender: Any) {
+        self.spinner.startAnimating()
+        self.view.isUserInteractionEnabled = false
         ServerAPI.login(email: email.text ?? "", password: password.text ?? "") { response, error in
             if error != nil {
+                self.spinner.stopAnimating()
+                self.view.isUserInteractionEnabled = true
                 self.errorLabel.text = error
             } else {
                 self.errorLabel.text = ""
+                self.spinner.stopAnimating()
+                self.view.isUserInteractionEnabled = true
                 self.performSegue(withIdentifier: "login", sender: self)
             }
         }
