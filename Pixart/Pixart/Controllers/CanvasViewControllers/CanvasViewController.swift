@@ -61,7 +61,7 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
         // Data in memory
         // Create a reference to the file you want to upload
         var name = work_name
-        let gridSize = LocalStorage.fetchCanvasSize()
+        let gridSize = canvas_size
         if name == "" {
             name = "No Name"
         }
