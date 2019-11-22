@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class WorksPrivateViewController: UIViewController { // Works saved on local device
+class WorksPrivateViewController: UIViewController {
 
     @IBOutlet weak var worksTableView: UITableView!
     let storage = Storage.storage()
@@ -18,6 +18,7 @@ class WorksPrivateViewController: UIViewController { // Works saved on local dev
     var handle: AuthStateDidChangeListenerHandle?
     var userID = ""
     var works: [[String: Any]] = []
+    var index: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +31,19 @@ class WorksPrivateViewController: UIViewController { // Works saved on local dev
         fetch()
     }
     
-    private func fetch() {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let dest = segue.destination as? WorksDetailViewController {
+            dest.presentationController?.delegate = self
+            dest.work_UUID = self.works[index]["documentdata"] as? String ?? ""
+            dest.work_name = self.works[index]["name"] as? String ?? ""
+            dest.published = self.works[index]["public"] as! Int
+            dest.canvas_size = self.works[index]["gridSize"] as! Int
+            dest.colors = self.works[index]["colors"] as! [String:String]
+        }
+    }
+    
+    func fetch() {
+        print("in private fetch")
         // [START auth_listener]
         handle = Auth.auth().addStateDidChangeListener { (auth, user) in
             self.userID = user?.uid ?? ""
@@ -86,12 +99,8 @@ extension WorksPrivateViewController: UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         view.endEditing(true)
         tableView.deselectRow(at: indexPath, animated: true)
-        let storyboard = UIStoryboard(name: "WorksDetail", bundle: nil)
-        let vc = storyboard.instantiateViewController(identifier: "workdetail") as! WorksDetailViewController
-        vc.modalTransitionStyle = .coverVertical
-        vc.work = works[indexPath.row]
-        vc.presentationController?.delegate = self
-        self.present(vc, animated: true)
+        index = indexPath.row
+        performSegue(withIdentifier: "works_detail_private", sender: self)
     }
 }
 

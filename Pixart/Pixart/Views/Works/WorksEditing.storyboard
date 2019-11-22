@@ -100,9 +100,11 @@
                     <connections>
                         <outlet property="artwork_name" destination="62f-t1-3iH" id="vrQ-Al-aKe"/>
                         <outlet property="canvas" destination="ETV-mm-RSU" id="hIf-6S-6PN"/>
+                        <segue destination="4nU-gj-2iK" kind="unwind" identifier="work_edit_return" unwindAction="unwindToWorksDetail:" id="pLk-n3-uUC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ng7-Zt-s5V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="4nU-gj-2iK" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4498.5507246376819" y="-297.32142857142856"/>
         </scene>

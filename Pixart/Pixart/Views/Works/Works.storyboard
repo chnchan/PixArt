@@ -64,7 +64,7 @@
                                     <constraint firstAttribute="width" constant="380" id="LIc-Bx-hrZ"/>
                                 </constraints>
                                 <connections>
-                                    <segue destination="Yyb-C3-OU9" kind="embed" id="udR-Jt-1zi"/>
+                                    <segue destination="Yyb-C3-OU9" kind="embed" identifier="" id="udR-Jt-1zi"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CR5-T1-k73">
@@ -73,7 +73,7 @@
                                     <constraint firstAttribute="width" constant="380" id="PbV-Si-SCE"/>
                                 </constraints>
                                 <connections>
-                                    <segue destination="hUY-aW-Jws" kind="embed" id="y0c-eI-gmg"/>
+                                    <segue destination="hUY-aW-Jws" kind="embed" identifier="" id="y0c-eI-gmg"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -122,7 +122,7 @@
         <!--Works Private View Controller-->
         <scene sceneID="fbG-O1-S7R">
             <objects>
-                <viewController id="Yyb-C3-OU9" customClass="WorksPrivateViewController" customModule="Pixart" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="works_private" id="Yyb-C3-OU9" customClass="WorksPrivateViewController" customModule="Pixart" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZcZ-4Z-pD2">
                         <rect key="frame" x="0.0" y="0.0" width="380" height="770"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -184,6 +184,7 @@
                     </view>
                     <connections>
                         <outlet property="worksTableView" destination="MDG-0N-L0C" id="ZjG-8r-Htl"/>
+                        <segue destination="PGV-vr-Z5e" kind="presentation" identifier="works_detail_private" id="xST-2G-jWc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dgH-wC-dV2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -193,7 +194,7 @@
         <!--Works Published View Controller-->
         <scene sceneID="gJt-P9-WVH">
             <objects>
-                <viewController id="hUY-aW-Jws" customClass="WorksPublishedViewController" customModule="Pixart" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="works_published" id="hUY-aW-Jws" customClass="WorksPublishedViewController" customModule="Pixart" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6IW-BZ-AJz">
                         <rect key="frame" x="0.0" y="0.0" width="380" height="770"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -308,11 +309,20 @@
                     </view>
                     <connections>
                         <outlet property="worksTableView" destination="Xsl-7l-usA" id="IVL-d2-OwF"/>
+                        <segue destination="PGV-vr-Z5e" kind="presentation" identifier="works_detail_published" id="lpF-Kr-jXB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E0U-eC-3c5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="337.68115942028987" y="389.73214285714283"/>
+        </scene>
+        <!--WorksDetail-->
+        <scene sceneID="2Ce-Wy-Poz">
+            <objects>
+                <viewControllerPlaceholder storyboardName="WorksDetail" id="PGV-vr-Z5e" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ml3-yt-CXP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="626" y="764"/>
         </scene>
         <!--SideMenu-->
         <scene sceneID="iSP-Qm-RGq">
@@ -330,4 +340,7 @@
         <image name="heart.slash.fill" catalog="system" width="64" height="56"/>
         <image name="line.horizontal.3" catalog="system" width="64" height="32"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="lpF-Kr-jXB"/>
+    </inferredMetricsTieBreakers>
 </document>

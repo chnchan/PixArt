@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class WorksDetailViewController: UIViewController , UITextFieldDelegate{
+class WorksDetailViewController: UIViewController {
 
     let storage = Storage.storage()
     let db = Firestore.firestore()
@@ -17,9 +17,12 @@ class WorksDetailViewController: UIViewController , UITextFieldDelegate{
     var handle: AuthStateDidChangeListenerHandle?
     var userID = ""
     var work: [String: Any] = [:]
-    var documentdata : String = ""
-    var colors: [String : String] = [:]
+    
+    var work_UUID: String = ""
+    var work_name: String = ""
+    var published: Int = 0
     var canvas_size: Int = 8
+    var colors: [String : String] = [:]
     
     @IBOutlet weak var container: UIView!
     @IBOutlet weak var preview: CanvasPreview!
@@ -35,7 +38,6 @@ class WorksDetailViewController: UIViewController , UITextFieldDelegate{
         handle = Auth.auth().addStateDidChangeListener { (auth, user) in
             self.userID = user?.uid ?? ""
         }
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -51,40 +53,39 @@ class WorksDetailViewController: UIViewController , UITextFieldDelegate{
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
         self.view.addGestureRecognizer(tap)
         self.workname.delegate = self
-        self.documentdata = work["documentdata"] as? String ?? ""
-        self.workname.text = work["name"] as? String
+        self.preview.makeCells(size: canvas_size, data: colors)
         
-        if (work["public"] as? Int == 0) {
+        if (self.published == 0) {
             published_icon.alpha = 0
             publishedView_X_constraint.constant = 416
         } else {
             private_icon.alpha = 0
             privateView_X_constraint.constant = -416
         }
-        
-        canvas_size = work["gridSize"] as! Int
-        colors = work["colors"] as! [String:String]
-        self.preview.makeCells(size: canvas_size, data: colors)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let dest = segue.destination as? WorksEditingViewController {
+            dest.work_UUID = self.work_UUID
+            dest.work_name = self.work_name
+            dest.canvas_size = self.canvas_size
+            dest.colors = self.colors
+        }
     }
     
     @IBAction func edit(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "WorksEditing", bundle: nil)
-        let vc = storyboard.instantiateViewController(identifier: "work_edit") as! WorksEditingViewController
-        vc.modalPresentationStyle = .fullScreen
-        vc.work = work
-        self.present(vc, animated: true)
-//        performSegue(withIdentifier: "work_edit", sender: self)
+        performSegue(withIdentifier: "work_edit", sender: self)
     }
     
     @IBAction func updateName(_ sender: UITextField) {
         guard let newname = self.workname.text else{
             return
         }
-        self.db.collection(self.userID).document(self.documentdata).setData(["name" : newname], mergeFields: ["name"])
+        self.db.collection(self.userID).document(self.work_UUID).setData(["name" : newname], mergeFields: ["name"])
     }
     
     @IBAction func publish(_ sender: Any) {
-        self.db.collection(self.userID).document(self.documentdata).setData([
+        self.db.collection(self.userID).document(self.work_UUID).setData([
         "public" : 1], mergeFields: ["public"])
         
         showPublishedIcon()
@@ -92,14 +93,14 @@ class WorksDetailViewController: UIViewController , UITextFieldDelegate{
     }
     
     @IBAction func removePublished(_ sender: Any) {
-        self.db.collection(self.userID).document(self.documentdata).setData([
+        self.db.collection(self.userID).document(self.work_UUID).setData([
         "public" : 0], mergeFields: ["public"])
         showPrivateIcon()
         showPrivateView()
     }
     
     @IBAction func deletebutton(_ sender: UIButton) {
-        self.db.collection(self.userID).document(self.documentdata).delete(completion: {error in
+        self.db.collection(self.userID).document(self.work_UUID).delete(completion: {error in
             if error != nil {
                 print("error deleting")
             } else {
@@ -110,11 +111,6 @@ class WorksDetailViewController: UIViewController , UITextFieldDelegate{
     
     @IBAction func done(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
     }
     
     private func showPrivateIcon() {
@@ -145,5 +141,23 @@ class WorksDetailViewController: UIViewController , UITextFieldDelegate{
             self.privateView_X_constraint.constant = -416
             self.view.layoutIfNeeded()
         })
+    }
+    
+    // MARK: Unwind
+    @IBAction func unwindToWorksDetail(_ unwindSegue: UIStoryboardSegue) {
+        preview.makeCells(size: canvas_size, data: colors)
+    }
+}
+
+extension WorksDetailViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
+
+extension WorksDetailViewController: UIAdaptivePresentationControllerDelegate {
+    func presentationControllerWillDismiss(_ presentationController: UIPresentationController) {
+        
     }
 }

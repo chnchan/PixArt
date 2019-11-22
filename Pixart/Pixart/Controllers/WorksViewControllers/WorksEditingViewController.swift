@@ -20,15 +20,21 @@ class WorksEditingViewController: UIViewController {
     var storageRef = StorageReference.init()
     var handle: AuthStateDidChangeListenerHandle?
     var work: [String: Any] = [:]
-    var canvas_size: Int = 8
     var userID = ""
+    
+    var work_UUID: String = ""
+    var work_name: String = ""
+    var canvas_size: Int = 8
+    var colors: [String : String] = [:]
+    
     @IBOutlet weak var artwork_name: UITextField!
     @IBOutlet weak var canvas: GridView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupColorSlider()
-        load()
+        artwork_name.text = work_name
+        canvas.loadCanvas(size: canvas_size, colors: colors)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,10 +52,14 @@ class WorksEditingViewController: UIViewController {
         // user)
         Auth.auth().removeStateDidChangeListener(handle!)
     }
-    
-    func presentationControllerDidDismiss(_ presentationController: UIPresentationController){
-        
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let dest = segue.destination as? WorksDetailViewController {
+            dest.work_name = self.work_name
+            dest.colors = self.colors
+        }
     }
+    
     @IBAction func saveEdits(_ sender: Any) {
         savePixelArt()
     }
@@ -61,19 +71,6 @@ class WorksEditingViewController: UIViewController {
     @objc func changedColor(_ slider: ColorSlider) {
         let color = slider.color
         canvas.drawingColor = color
-    }
-    
-    private func load() {
-        artwork_name.text = work["name"] as? String
-        
-        canvas_size = work["gridSize"] as! Int
-        let colors = work["colors"] as! [String:String]
-        canvas.loadCanvas(size: canvas_size, data: colors)
-    }
-    
-    private func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
     }
     
     private func setupColorSlider() {
@@ -88,23 +85,16 @@ class WorksEditingViewController: UIViewController {
     }
     
     private func savePixelArt() {
-        print("updating")
-        // MARK: TODO
-        var gridColors: [String:String] = [:]
-        for j in 0...canvas_size - 1 {
-            for i in 0...canvas_size - 1 {
-                gridColors["\(i)|\(j)"] = canvas.cells["\(i)|\(j)"]?.backgroundColor!.htmlRGBA
-            }
-        }
-        self.db.collection(self.userID).document(work["documentdata"] as? String ?? "").updateData(["colors":gridColors], completion: {error in
+        colors = canvas.exportColors()
+        
+        self.db.collection(self.userID).document(self.work_UUID).updateData(["colors": colors], completion: {error in
             if error != nil
             {
                 print("error updating data")
             }
             else{
-                self.dismiss(animated: true, completion: nil)
+                self.performSegue(withIdentifier: "work_edit_return", sender: self)
             }
         })
-        //dismiss(animated: true, completion: nil)
     }
 }

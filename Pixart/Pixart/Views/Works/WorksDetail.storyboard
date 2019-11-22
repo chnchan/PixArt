@@ -10,7 +10,7 @@
         <!--Works Detail View Controller-->
         <scene sceneID="Lxl-27-SOU">
             <objects>
-                <viewController storyboardIdentifier="workdetail" modalTransitionStyle="crossDissolve" id="B7u-gC-C8E" customClass="WorksDetailViewController" customModule="Pixart" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="workdetail" id="B7u-gC-C8E" customClass="WorksDetailViewController" customModule="Pixart" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XDm-uE-eNo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

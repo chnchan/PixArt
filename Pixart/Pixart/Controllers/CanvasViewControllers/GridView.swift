@@ -14,14 +14,13 @@ class GridView: UIView {
     let BORDER_COLOR = UIColor.black.cgColor
     let BACKGROUND_COLOR = UIColor.white
     
-    var drawingColor =  UIColor.red
-    var cellWidth: CGFloat = 0
+    var canvas_size: Int = 0
     var cells = [String: UIView]()
+    var cellWidth: CGFloat = 0
+    var drawingColor =  UIColor.red
     var previousScale: CGFloat = 1.0
 
     override func draw(_ rect: CGRect) {
-        // Calculate cell width based on the width of the view
-
         self.addGestureRecognizer(UIPinchGestureRecognizer(target: self, action: #selector(pinchAction(sender:))))
         self.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handleGesture)))
         self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleGesture)))
@@ -32,13 +31,11 @@ class GridView: UIView {
         self.transform = CGAffineTransform(scaleX: scale, y: scale);
 
         previousScale = sender.scale
-      
     }
     
     @objc func handleGesture(gesture: Any?) {
         if let panGesture = gesture as? UIPanGestureRecognizer {
             let location = panGesture.location(in: self)
-            //let cellWidth = self.frame.width / CGFloat(CELLS_PER_ROW)
             let i = Int(location.x / cellWidth)
             let j = Int(location.y / cellWidth)
             let cellView = cells["\(i)|\(j)"]
@@ -47,23 +44,19 @@ class GridView: UIView {
         
         if let tapGesture = gesture as? UITapGestureRecognizer {
             let location = tapGesture.location(in: self)
-            //let cellWidth = self.frame.width / CGFloat(CELLS_PER_ROW)
             let i = Int(location.x / cellWidth)
             let j = Int(location.y / cellWidth)
             let cellView = cells["\(i)|\(j)"]
             cellView?.backgroundColor = drawingColor
         }
     }
-    
 
-    // This function makes a cell which is a view
-    func makeCells(){
+    public func makeCells(){
+        canvas_size = LocalStorage.fetchCanvasSize()
+        cellWidth = self.frame.width / CGFloat(canvas_size)
         
-        //let cellsPerRow:Int = Int(self.frame.height / CGFloat(CELLS_PER_ROW))
-        let size = LocalStorage.fetchCanvasSize()
-        cellWidth = self.frame.width / CGFloat(size)
-        for j in 0...size - 1 {
-            for i in 0...size - 1 {
+        for j in 0...canvas_size - 1 {
+            for i in 0...canvas_size - 1 {
                 let cellView = UIView()
                 
                 cellView.backgroundColor = BACKGROUND_COLOR
@@ -78,12 +71,14 @@ class GridView: UIView {
         }
     }
     
-    func loadCanvas(size: Int, data: [String:String]){
-        cellWidth = self.frame.width / CGFloat(size)
-        for j in 0...size - 1 {
-            for i in 0...size - 1 {
+    public func loadCanvas(size: Int, colors: [String:String]){
+        canvas_size = size
+        cellWidth = self.frame.width / CGFloat(canvas_size)
+        
+        for j in 0...canvas_size - 1 {
+            for i in 0...canvas_size - 1 {
                 let cellView = UIView()
-                cellView.backgroundColor = UIColor.init(hexString: data["\(i)|\(j)"]!)
+                cellView.backgroundColor = UIColor.init(hexString: colors["\(i)|\(j)"]!)
                 cellView.layer.borderWidth = BORDER_WIDTH
                 cellView.layer.borderColor = BORDER_COLOR
                 cellView.frame = CGRect(x: CGFloat(i) * cellWidth, y: CGFloat(j) * cellWidth, width: cellWidth, height: cellWidth)
@@ -91,5 +86,17 @@ class GridView: UIView {
                 cells["\(i)|\(j)"] = cellView
             }
         }
+    }
+    
+    public func exportColors() -> [String: String] {
+        var gridColors: [String:String] = [:]
+        
+        for j in 0...canvas_size - 1 {
+            for i in 0...canvas_size - 1 {
+                gridColors["\(i)|\(j)"] = cells["\(i)|\(j)"]?.backgroundColor!.htmlRGBA
+            }
+        }
+        
+        return gridColors
     }
 }

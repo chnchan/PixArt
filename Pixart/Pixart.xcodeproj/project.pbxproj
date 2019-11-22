@@ -18,6 +18,7 @@
 		326CD37C23761356008CEC07 /* LogoutConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326CD37B23761356008CEC07 /* LogoutConfirmationViewController.swift */; };
 		32A1470923876ED100A3D351 /* WorksEditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A1470823876ED100A3D351 /* WorksEditingViewController.swift */; };
 		32A1470E2387717100A3D351 /* WorksEditing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32A1470D2387717100A3D351 /* WorksEditing.storyboard */; };
+		32A147162387C4EA00A3D351 /* CustomizeTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A147152387C4EA00A3D351 /* CustomizeTextfield.swift */; };
 		32A162A9238214F7002FEAC4 /* WorksDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32A162A8238214F7002FEAC4 /* WorksDetail.storyboard */; };
 		32A162AE2382235B002FEAC4 /* SettingsPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A162AD2382235B002FEAC4 /* SettingsPopupViewController.swift */; };
 		32A162B02382244D002FEAC4 /* Canvas.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32A162AF2382244D002FEAC4 /* Canvas.storyboard */; };
@@ -65,6 +66,7 @@
 		326CD37B23761356008CEC07 /* LogoutConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutConfirmationViewController.swift; sourceTree = "<group>"; };
 		32A1470823876ED100A3D351 /* WorksEditingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorksEditingViewController.swift; sourceTree = "<group>"; };
 		32A1470D2387717100A3D351 /* WorksEditing.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WorksEditing.storyboard; sourceTree = "<group>"; };
+		32A147152387C4EA00A3D351 /* CustomizeTextfield.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomizeTextfield.swift; sourceTree = "<group>"; };
 		32A162A8238214F7002FEAC4 /* WorksDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WorksDetail.storyboard; sourceTree = "<group>"; };
 		32A162AD2382235B002FEAC4 /* SettingsPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPopupViewController.swift; sourceTree = "<group>"; };
 		32A162AF2382244D002FEAC4 /* Canvas.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Canvas.storyboard; sourceTree = "<group>"; };
@@ -129,6 +131,22 @@
 				326CD37B23761356008CEC07 /* LogoutConfirmationViewController.swift */,
 			);
 			path = "Popups Controllers";
+			sourceTree = "<group>";
+		};
+		32A147132387C4EA00A3D351 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				32A147142387C4EA00A3D351 /* Extensions */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		32A147142387C4EA00A3D351 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				32A147152387C4EA00A3D351 /* CustomizeTextfield.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		32A162A62382090B002FEAC4 /* CanvasViewControllers */ = {
@@ -211,6 +229,7 @@
 			children = (
 				F34055D4237BB56000AFDA02 /* Pixart.entitlements */,
 				F317AD71237D152300BF1F2F /* GoogleService-Info.plist */,
+				32A147132387C4EA00A3D351 /* Utils */,
 				32C0F4252374153A00612535 /* Model */,
 				32C0F4242374150C00612535 /* Views */,
 				32C0F428237418D100612535 /* Controllers */,
@@ -469,6 +488,7 @@
 				32CC193D237E337600810D77 /* WorksViewController.swift in Sources */,
 				32A162B823827A27002FEAC4 /* PromptNamePopupViewController.swift in Sources */,
 				F31FD413237D3B1400E2B0FF /* SignUpViewController.swift in Sources */,
+				32A147162387C4EA00A3D351 /* CustomizeTextfield.swift in Sources */,
 				32602BB8237547A200FE7D31 /* CanvasViewController.swift in Sources */,
 				32A162BF23875330002FEAC4 /* ServerAPI.swift in Sources */,
 				32CC1947237E4AED00810D77 /* PublishedTableViewCell.swift in Sources */,

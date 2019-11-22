@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class WorksPublishedViewController: UIViewController { // Works published to FireBase
+class WorksPublishedViewController: UIViewController {
 
     @IBOutlet weak var worksTableView: UITableView!
     let storage = Storage.storage()
@@ -18,6 +18,8 @@ class WorksPublishedViewController: UIViewController { // Works published to Fir
     var handle: AuthStateDidChangeListenerHandle?
     var userID = ""
     var works: [[String: Any]] = []
+    var index: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         worksTableView.dataSource = self
@@ -37,8 +39,18 @@ class WorksPublishedViewController: UIViewController { // Works published to Fir
         Auth.auth().removeStateDidChangeListener(handle!)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let dest = segue.destination as? WorksDetailViewController {
+            dest.presentationController?.delegate = self
+            dest.work_UUID = self.works[index]["documentdata"] as? String ?? ""
+            dest.work_name = self.works[index]["name"] as? String ?? ""
+            dest.published = self.works[index]["public"] as! Int
+            dest.canvas_size = self.works[index]["gridSize"] as! Int
+            dest.colors = self.works[index]["colors"] as! [String:String]
+        }
+    }
+    
     private func fetch() {
-        // [START auth_listener]
         handle = Auth.auth().addStateDidChangeListener { (auth, user) in
             self.userID = user?.uid ?? ""
             self.db.collection(self.userID).getDocuments() { (querySnapshot, err) in
@@ -88,12 +100,8 @@ extension WorksPublishedViewController: UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         view.endEditing(true)
         tableView.deselectRow(at: indexPath, animated: true)
-        let storyboard = UIStoryboard(name: "WorksDetail", bundle: nil)
-        let vc = storyboard.instantiateViewController(identifier: "workdetail") as! WorksDetailViewController
-        vc.modalTransitionStyle = .coverVertical
-        vc.work = works[indexPath.row]
-        vc.presentationController?.delegate = self
-        self.present(vc, animated: true)
+        index = indexPath.row
+        performSegue(withIdentifier: "works_detail_published", sender: self)
     }
 }
 
