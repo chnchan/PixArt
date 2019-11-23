@@ -18,7 +18,7 @@
 		326CD37C23761356008CEC07 /* LogoutConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326CD37B23761356008CEC07 /* LogoutConfirmationViewController.swift */; };
 		32A1470923876ED100A3D351 /* WorksEditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A1470823876ED100A3D351 /* WorksEditingViewController.swift */; };
 		32A1470E2387717100A3D351 /* WorksEditing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32A1470D2387717100A3D351 /* WorksEditing.storyboard */; };
-		32A147162387C4EA00A3D351 /* CustomizeTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A147152387C4EA00A3D351 /* CustomizeTextfield.swift */; };
+		32A147162387C4EA00A3D351 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A147152387C4EA00A3D351 /* UITextFieldExtension.swift */; };
 		32A162A9238214F7002FEAC4 /* WorksDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32A162A8238214F7002FEAC4 /* WorksDetail.storyboard */; };
 		32A162AE2382235B002FEAC4 /* SettingsPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A162AD2382235B002FEAC4 /* SettingsPopupViewController.swift */; };
 		32A162B02382244D002FEAC4 /* Canvas.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32A162AF2382244D002FEAC4 /* Canvas.storyboard */; };
@@ -68,7 +68,7 @@
 		326CD37B23761356008CEC07 /* LogoutConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutConfirmationViewController.swift; sourceTree = "<group>"; };
 		32A1470823876ED100A3D351 /* WorksEditingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorksEditingViewController.swift; sourceTree = "<group>"; };
 		32A1470D2387717100A3D351 /* WorksEditing.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WorksEditing.storyboard; sourceTree = "<group>"; };
-		32A147152387C4EA00A3D351 /* CustomizeTextfield.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomizeTextfield.swift; sourceTree = "<group>"; };
+		32A147152387C4EA00A3D351 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		32A162A8238214F7002FEAC4 /* WorksDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WorksDetail.storyboard; sourceTree = "<group>"; };
 		32A162AD2382235B002FEAC4 /* SettingsPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPopupViewController.swift; sourceTree = "<group>"; };
 		32A162AF2382244D002FEAC4 /* Canvas.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Canvas.storyboard; sourceTree = "<group>"; };
@@ -148,7 +148,8 @@
 		32A147142387C4EA00A3D351 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				32A147152387C4EA00A3D351 /* CustomizeTextfield.swift */,
+				32A147152387C4EA00A3D351 /* UITextFieldExtension.swift */,
+				F3DEF75923879FDC002822A5 /* UIColorExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -269,7 +270,6 @@
 			children = (
 				3200289C237BD1670095CE03 /* LocalStorage.swift */,
 				32A162BE23875330002FEAC4 /* ServerAPI.swift */,
-				F3DEF75923879FDC002822A5 /* UIColorExtension.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -494,7 +494,7 @@
 				32CC193D237E337600810D77 /* WorksViewController.swift in Sources */,
 				32A162B823827A27002FEAC4 /* PromptNamePopupViewController.swift in Sources */,
 				F31FD413237D3B1400E2B0FF /* SignUpViewController.swift in Sources */,
-				32A147162387C4EA00A3D351 /* CustomizeTextfield.swift in Sources */,
+				32A147162387C4EA00A3D351 /* UITextFieldExtension.swift in Sources */,
 				32602BB8237547A200FE7D31 /* CanvasViewController.swift in Sources */,
 				32A162BF23875330002FEAC4 /* ServerAPI.swift in Sources */,
 				32CC1947237E4AED00810D77 /* PublishedTableViewCell.swift in Sources */,

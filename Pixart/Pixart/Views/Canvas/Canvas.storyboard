@@ -80,6 +80,31 @@
                                     <segue destination="TQm-E1-vnu" kind="presentation" id="jXU-s1-Spd"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DEw-BV-K97" userLabel="Zoom out button">
+                                <rect key="frame" x="291.33333333333331" y="518" width="110.66666666666669" height="36"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xcQ-KL-ltv">
+                                        <rect key="frame" x="8" y="12" width="94.666666666666671" height="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title=" Zoom out" image="minus.magnifyingglass" catalog="system">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="6pz-SW-pm6"/>
+                                    <constraint firstAttribute="trailing" secondItem="xcQ-KL-ltv" secondAttribute="trailing" constant="8" id="XeU-vk-B7b"/>
+                                    <constraint firstAttribute="bottom" secondItem="xcQ-KL-ltv" secondAttribute="bottom" constant="4" id="Yap-Bd-8wG"/>
+                                    <constraint firstItem="xcQ-KL-ltv" firstAttribute="leading" secondItem="DEw-BV-K97" secondAttribute="leading" constant="8" id="awF-yB-bPO"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pjw-oK-w6O">
                                 <rect key="frame" x="12" y="137" width="390" height="390"/>
                                 <subviews>
@@ -106,6 +131,7 @@
                             <constraint firstItem="AUd-Qj-Wza" firstAttribute="trailing" secondItem="Imu-Wj-jNj" secondAttribute="trailing" id="77o-fx-Nnn"/>
                             <constraint firstItem="Imu-Wj-jNj" firstAttribute="bottom" secondItem="HVT-4F-1ai" secondAttribute="bottom" constant="16" id="7zh-kN-JQh"/>
                             <constraint firstItem="HVT-4F-1ai" firstAttribute="leading" secondItem="Imu-Wj-jNj" secondAttribute="leading" constant="30" id="BDN-gp-yDn"/>
+                            <constraint firstItem="DEw-BV-K97" firstAttribute="trailing" secondItem="Pjw-oK-w6O" secondAttribute="trailing" id="EyT-22-z4U"/>
                             <constraint firstItem="7NM-Ul-PmR" firstAttribute="leading" secondItem="4sF-6O-TTz" secondAttribute="leading" id="O7Q-E5-WDX"/>
                             <constraint firstItem="Pjw-oK-w6O" firstAttribute="leading" secondItem="Imu-Wj-jNj" secondAttribute="leading" constant="12" id="Z8F-bp-W0Y"/>
                             <constraint firstItem="7NM-Ul-PmR" firstAttribute="top" secondItem="Imu-Wj-jNj" secondAttribute="top" id="fgx-6p-2Ut"/>
@@ -114,6 +140,7 @@
                             <constraint firstItem="AUd-Qj-Wza" firstAttribute="height" secondItem="7NM-Ul-PmR" secondAttribute="height" id="ic6-ZV-jY1"/>
                             <constraint firstItem="Imu-Wj-jNj" firstAttribute="trailing" secondItem="HVT-4F-1ai" secondAttribute="trailing" constant="30" id="ool-w8-2Ct"/>
                             <constraint firstItem="Pjw-oK-w6O" firstAttribute="top" secondItem="AUd-Qj-Wza" secondAttribute="bottom" constant="45" id="qOg-hE-UlP"/>
+                            <constraint firstItem="DEw-BV-K97" firstAttribute="top" secondItem="Pjw-oK-w6O" secondAttribute="bottom" constant="-9" id="uXe-Ya-TGQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Imu-Wj-jNj"/>
                     </view>
@@ -155,5 +182,6 @@
     </scenes>
     <resources>
         <image name="line.horizontal.3" catalog="system" width="64" height="32"/>
+        <image name="minus.magnifyingglass" catalog="system" width="64" height="56"/>
     </resources>
 </document>
