@@ -35,6 +35,7 @@ class WorksDetailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // [START auth_listener]
+        print("in workview appear")
         handle = Auth.auth().addStateDidChangeListener { (auth, user) in
             self.userID = user?.uid ?? ""
         }
@@ -85,18 +86,36 @@ class WorksDetailViewController: UIViewController {
     }
     
     @IBAction func publish(_ sender: Any) {
-        self.db.collection(self.userID).document(self.work_UUID).setData([
+        /*self.db.collection(self.userID).document(self.work_UUID).setData([
         "public" : 1], mergeFields: ["public"])
-        
         showPublishedIcon()
-        showPublishedView()
+        showPublishedView()*/
+        self.db.collection(self.userID).document(self.work_UUID).updateData(["public":1], completion: {error in
+            if error != nil {
+                print("error updating data")
+            } else {
+                print("updated")
+                self.showPublishedIcon()
+                self.showPublishedView()
+            }
+        })
     }
     
     @IBAction func removePublished(_ sender: Any) {
-        self.db.collection(self.userID).document(self.work_UUID).setData([
+        /*self.db.collection(self.userID).document(self.work_UUID).setData([
         "public" : 0], mergeFields: ["public"])
         showPrivateIcon()
-        showPrivateView()
+        showPrivateView()*/
+        self.db.collection(self.userID).document(self.work_UUID).updateData(["public":0], completion: {error in
+            if error != nil {
+                print("error updating data")
+            } else {
+                print("updated")
+                self.showPrivateIcon()
+                self.showPrivateView()
+            }
+        })
+        
     }
     
     @IBAction func deletebutton(_ sender: UIButton) {

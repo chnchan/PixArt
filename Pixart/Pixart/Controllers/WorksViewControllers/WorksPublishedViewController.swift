@@ -24,10 +24,12 @@ class WorksPublishedViewController: UIViewController {
         super.viewDidLoad()
         worksTableView.dataSource = self
         worksTableView.delegate = self
+        fetch()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        print("in appear")
         fetch()
     }
     
@@ -51,6 +53,7 @@ class WorksPublishedViewController: UIViewController {
     }
     
     private func fetch() {
+        print("in public fetch")
         handle = Auth.auth().addStateDidChangeListener { (auth, user) in
             self.userID = user?.uid ?? ""
             self.db.collection(self.userID).getDocuments() { (querySnapshot, err) in
@@ -68,6 +71,7 @@ class WorksPublishedViewController: UIViewController {
                         }
                     }
                 }
+                //print(self.works)
                 self.worksTableView.reloadData()
             }
         }
@@ -76,6 +80,7 @@ class WorksPublishedViewController: UIViewController {
 
 extension WorksPublishedViewController: UIAdaptivePresentationControllerDelegate {
     func presentationControllerWillDismiss(_ presentationController: UIPresentationController) {
+        print("in presentationcontrollerwilldissmiss")
         fetch()
     }
 }

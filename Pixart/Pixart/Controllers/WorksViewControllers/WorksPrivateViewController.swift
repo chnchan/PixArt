@@ -24,10 +24,12 @@ class WorksPrivateViewController: UIViewController {
         super.viewDidLoad()
         worksTableView.dataSource = self
         worksTableView.delegate = self
+        fetch()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        print("in appear")
         fetch()
     }
     
@@ -58,7 +60,7 @@ class WorksPrivateViewController: UIViewController {
                     for document in querySnapshot!.documents {
                             temps.append(document.data())
                     }
-                    
+                    //print(temps)
                     print("private works")
                     self.works = []
                     // this force unwrap is what is used in the
@@ -69,6 +71,7 @@ class WorksPrivateViewController: UIViewController {
                             self.works.append(document.data())
                         }
                     }
+                    //print(self.works)
                 }
                 self.worksTableView.reloadData()
             }
@@ -78,6 +81,7 @@ class WorksPrivateViewController: UIViewController {
 
 extension WorksPrivateViewController: UIAdaptivePresentationControllerDelegate {
     func presentationControllerWillDismiss(_ presentationController: UIPresentationController) {
+        print("in presentationcontrollerwilldissmiss")
         fetch()
     }
 }

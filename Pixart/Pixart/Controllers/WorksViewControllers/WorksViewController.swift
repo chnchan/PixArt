@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class WorksViewController: UIViewController {
 
@@ -16,8 +17,32 @@ class WorksViewController: UIViewController {
     @IBOutlet weak var publishedView_X_constraint: NSLayoutConstraint!
     @IBOutlet weak var options: UISegmentedControl!
     
+    @IBOutlet weak var publicTable_X_constraint: NSLayoutConstraint!
+    @IBOutlet weak var privateTable_X_constraint: NSLayoutConstraint!
+    @IBOutlet weak var publicTable: UITableView!
+    @IBOutlet weak var privateTable: UITableView!
+    
+    var privateWorks: [[String: Any]] = []
+    var publicWorks: [[String: Any]] = []
+    let storage = Storage.storage()
+    let db = Firestore.firestore()
+    var storageRef = StorageReference.init()
+    var handle: AuthStateDidChangeListenerHandle?
+    var userID = ""
+    var index: Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
+        privateTable.dataSource = self
+        privateTable.delegate = self
+        publicTable.dataSource = self
+        publicTable.delegate = self
+        fetch()
+        
+       
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
     
     @IBAction func switchViews(_ sender: UISegmentedControl) {
@@ -35,7 +60,7 @@ class WorksViewController: UIViewController {
     
     @IBAction func swipeHandler(_ sender: UISwipeGestureRecognizer) {
         if sender.direction == UISwipeGestureRecognizer.Direction.right {
-            options.selectedSegmentIndex  = 0
+            options.selectedSegmentIndex = 0
             switchViews(options)
         } else if sender.direction == UISwipeGestureRecognizer.Direction.left {
             options.selectedSegmentIndex = 1
@@ -47,17 +72,130 @@ class WorksViewController: UIViewController {
     
     private func showPrivateView() {
         UIView.animate(withDuration: 0.3, animations:{
-            self.publishedView_X_constraint.constant = 416
-            self.privateView_X_constraint.constant = 0
+            self.publicTable_X_constraint.constant = 416
+            self.privateTable_X_constraint.constant = 0
             self.view.layoutIfNeeded()
         })
+        self.publicTable.isHidden = true
+        self.privateTable.isHidden = false
     }
     
     private func showPublishedView() {
         UIView.animate(withDuration: 0.3, animations:{
-            self.publishedView_X_constraint.constant = 0
-            self.privateView_X_constraint.constant = -416
+            self.publicTable_X_constraint.constant = 0
+            self.privateTable_X_constraint.constant = -416
             self.view.layoutIfNeeded()
         })
+        self.publicTable.isHidden = false
+        self.privateTable.isHidden = true
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        var work :[String : Any] = [:]
+        if segue.identifier == "works_detail_published" {
+            work = self.publicWorks[index]
+        }
+        if segue.identifier == "works_detail_private" {
+            work = self.privateWorks[index]
+        }
+        if let dest = segue.destination as? WorksDetailViewController {
+            dest.presentationController?.delegate = self
+            dest.work_UUID = work["documentdata"] as? String ?? ""
+            dest.work_name = work["name"] as? String ?? ""
+            dest.published = work["public"] as! Int
+            dest.canvas_size = work["gridSize"] as! Int
+            dest.colors = work["colors"] as! [String:String]
+        }
+    }
+    
+    private func fetch() {
+        print("in work fetching")
+        self.privateWorks = []
+        self.publicWorks = []
+        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+            self.userID = user?.uid ?? ""
+            self.db.collection(self.userID).getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    // this force unwrap is what is used in the
+                    // cloud firestore docs
+                    for document in querySnapshot!.documents {
+                        if(document.data()["colors"] as? [String:String] != nil) {
+                            if(document.data()["public"] as? Int == 0) {
+                                self.privateWorks.append(document.data())
+                            }
+                            if(document.data()["public"] as? Int == 1) {
+                               self.publicWorks.append(document.data())
+                            }
+                        }
+                    }
+                    /*print("public works")
+                    print(self.publicWorks)
+                    print("private works")
+                    print(self.privateWorks)*/
+                    self.privateTable.reloadData()
+                    self.publicTable.reloadData()
+                }
+            }
+        }
+    }
+}
+extension WorksViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if tableView == publicTable {
+            print("publicTable")
+            return publicWorks.count
+        }
+        if tableView == privateTable{
+            print("privateTable")
+            return privateWorks.count
+        }
+        print("size 0")
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if tableView == publicTable {
+            print("public table")
+            let cell = publicTable.dequeueReusableCell(withIdentifier: "published_post") as! PublishedTableViewCell
+            let gridSize = (publicWorks[indexPath.row])["gridSize"] as! Int
+            
+            let colors: [String:String] = (publicWorks[indexPath.row])["colors"] as! [String:String]
+            cell.preview.makeCells(size: gridSize, data: colors)
+            cell.title.text = (publicWorks[indexPath.row])["name"] as? String
+            cell.likes.text = "10"
+            cell.dislikes.text = "10"
+            return cell
+        }
+        if tableView == privateTable {
+            print("private table")
+            let cell = privateTable.dequeueReusableCell(withIdentifier: "private_post") as! PrivateTableViewCell
+            let gridSize = (privateWorks[indexPath.row])["gridSize"] as! Int
+            let colors: [String:String] = (privateWorks[indexPath.row])["colors"] as! [String:String]
+            cell.preview.makeCells(size: gridSize, data: colors)
+            cell.title.text = (privateWorks[indexPath.row])["name"] as? String
+            return cell
+        }
+        print("not any table")
+        return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        view.endEditing(true)
+        tableView.deselectRow(at: indexPath, animated: true)
+        index = indexPath.row
+        if tableView == publicTable {
+            performSegue(withIdentifier: "works_detail_published", sender: self)
+        }
+        if tableView == privateTable {
+            performSegue(withIdentifier: "works_detail_private", sender: self)
+        }
+    }
+}
+
+extension WorksViewController: UIAdaptivePresentationControllerDelegate {
+    func presentationControllerWillDismiss(_ presentationController: UIPresentationController) {
+        fetch()
     }
 }
