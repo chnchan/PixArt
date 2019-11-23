@@ -19,7 +19,6 @@ class WorksEditingViewController: UIViewController {
     let db = Firestore.firestore()
     var storageRef = StorageReference.init()
     var handle: AuthStateDidChangeListenerHandle?
-    var work: [String: Any] = [:]
     var userID = ""
     
     var work_UUID: String = ""

@@ -16,7 +16,6 @@ class WorksDetailViewController: UIViewController {
     var storageRef = StorageReference.init()
     var handle: AuthStateDidChangeListenerHandle?
     var userID = ""
-    var work: [String: Any] = [:]
     
     var work_UUID: String = ""
     var work_name: String = ""
@@ -24,18 +23,18 @@ class WorksDetailViewController: UIViewController {
     var canvas_size: Int = 8
     var colors: [String : String] = [:]
     
-    @IBOutlet weak var container: UIView!
+    @IBOutlet weak var workname: UITextField!
+    @IBOutlet weak var edit_button: UIButton!
+    @IBOutlet weak var editButton_Y_top: NSLayoutConstraint!
     @IBOutlet weak var preview: CanvasPreview!
     @IBOutlet weak var private_icon: UIView!
     @IBOutlet weak var published_icon: UIView!
     @IBOutlet weak var privateView_X_constraint: NSLayoutConstraint!
     @IBOutlet weak var publishedView_X_constraint: NSLayoutConstraint!
-    @IBOutlet weak var workname: UITextField!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // [START auth_listener]
-        print("in workview appear")
         handle = Auth.auth().addStateDidChangeListener { (auth, user) in
             self.userID = user?.uid ?? ""
         }
@@ -57,11 +56,13 @@ class WorksDetailViewController: UIViewController {
         self.preview.makeCells(size: canvas_size, data: colors)
         
         if (self.published == 0) {
-            published_icon.alpha = 0
-            publishedView_X_constraint.constant = 416
+            self.published_icon.alpha = 0
+            self.publishedView_X_constraint.constant = 416
+            self.editButton_Y_top.constant = -9
         } else {
-            private_icon.alpha = 0
-            privateView_X_constraint.constant = -416
+            self.private_icon.alpha = 0
+            self.privateView_X_constraint.constant = -416
+            self.editButton_Y_top.constant = -50
         }
     }
     
@@ -95,7 +96,6 @@ class WorksDetailViewController: UIViewController {
                 print("error updating data")
             } else {
                 print("updated")
-                self.showPublishedIcon()
                 self.showPublishedView()
             }
         })
@@ -111,7 +111,6 @@ class WorksDetailViewController: UIViewController {
                 print("error updating data")
             } else {
                 print("updated")
-                self.showPrivateIcon()
                 self.showPrivateView()
             }
         })
@@ -140,22 +139,13 @@ class WorksDetailViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    private func showPrivateIcon() {
+    private func showPrivateView() {
+        self.edit_button.isEnabled = true
+        
         UIView.animate(withDuration: 0.3, animations:{
             self.private_icon.alpha = 1
             self.published_icon.alpha = 0
-        })
-    }
-    
-    private func showPublishedIcon() {
-        UIView.animate(withDuration: 0.3, animations:{
-            self.private_icon.alpha = 0
-            self.published_icon.alpha = 1
-        })
-    }
-    
-    private func showPrivateView() {
-        UIView.animate(withDuration: 0.3, animations:{
+            self.editButton_Y_top.constant = -9
             self.publishedView_X_constraint.constant = 416
             self.privateView_X_constraint.constant = 0
             self.view.layoutIfNeeded()
@@ -163,7 +153,12 @@ class WorksDetailViewController: UIViewController {
     }
     
     private func showPublishedView() {
+        self.edit_button.isEnabled = false
+        
         UIView.animate(withDuration: 0.3, animations:{
+            self.private_icon.alpha = 0
+            self.published_icon.alpha = 1
+            self.editButton_Y_top.constant = -50
             self.publishedView_X_constraint.constant = 0
             self.privateView_X_constraint.constant = -416
             self.view.layoutIfNeeded()
@@ -180,11 +175,5 @@ extension WorksDetailViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
-    }
-}
-
-extension WorksDetailViewController: UIAdaptivePresentationControllerDelegate {
-    func presentationControllerWillDismiss(_ presentationController: UIPresentationController) {
-        
     }
 }

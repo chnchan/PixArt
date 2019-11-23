@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="p9p-gi-iaX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="p9p-gi-iaX">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -58,10 +58,10 @@
                                     <action selector="switchViews:" destination="p9p-gi-iaX" eventType="valueChanged" id="l9I-ic-HVn"/>
                                 </connections>
                             </segmentedControl>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c1f-gv-nZ9">
-                                <rect key="frame" x="17" y="100" width="380" height="762"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bjd-rB-Dqi" userLabel="Published View">
+                                <rect key="frame" x="433" y="100" width="380" height="762"/>
                                 <subviews>
-                                    <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FjU-pm-9ht">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="130" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FjU-pm-9ht" userLabel="Published Table">
                                         <rect key="frame" x="0.0" y="0.0" width="380" height="762"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <prototypes>
@@ -160,7 +160,20 @@
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="59K-xU-5cg">
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="FjU-pm-9ht" secondAttribute="bottom" id="8Zq-m0-LI4"/>
+                                    <constraint firstAttribute="width" constant="380" id="N4Z-TD-jnp"/>
+                                    <constraint firstItem="FjU-pm-9ht" firstAttribute="leading" secondItem="Bjd-rB-Dqi" secondAttribute="leading" id="WRY-9g-7Yc"/>
+                                    <constraint firstItem="FjU-pm-9ht" firstAttribute="top" secondItem="Bjd-rB-Dqi" secondAttribute="top" id="bTq-5Q-qtC"/>
+                                    <constraint firstAttribute="trailing" secondItem="FjU-pm-9ht" secondAttribute="trailing" id="ky1-FF-4ja"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c1f-gv-nZ9" userLabel="Private View">
+                                <rect key="frame" x="17" y="100" width="380" height="762"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="130" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="59K-xU-5cg">
                                         <rect key="frame" x="0.0" y="0.0" width="380" height="762"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <prototypes>
@@ -209,30 +222,27 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstItem="59K-xU-5cg" firstAttribute="centerX" secondItem="c1f-gv-nZ9" secondAttribute="centerX" id="8mH-qv-gfZ"/>
-                                    <constraint firstItem="FjU-pm-9ht" firstAttribute="leading" secondItem="c1f-gv-nZ9" secondAttribute="leading" id="HCM-Ay-ZrW"/>
-                                    <constraint firstItem="59K-xU-5cg" firstAttribute="leading" secondItem="c1f-gv-nZ9" secondAttribute="leading" id="IrF-4a-5eR"/>
-                                    <constraint firstAttribute="trailing" secondItem="FjU-pm-9ht" secondAttribute="trailing" id="Iy6-8E-EcO"/>
-                                    <constraint firstItem="FjU-pm-9ht" firstAttribute="top" secondItem="c1f-gv-nZ9" secondAttribute="top" id="dfq-ab-gcA"/>
-                                    <constraint firstAttribute="width" constant="380" id="dyq-TC-F5J"/>
-                                    <constraint firstAttribute="trailing" secondItem="59K-xU-5cg" secondAttribute="trailing" id="gFY-O5-Z6H"/>
-                                    <constraint firstAttribute="bottom" secondItem="FjU-pm-9ht" secondAttribute="bottom" id="gTu-mg-ex6"/>
-                                    <constraint firstItem="59K-xU-5cg" firstAttribute="top" secondItem="c1f-gv-nZ9" secondAttribute="top" id="tsB-ZT-hPG"/>
-                                    <constraint firstItem="FjU-pm-9ht" firstAttribute="centerX" secondItem="c1f-gv-nZ9" secondAttribute="centerX" id="v18-KL-AC4"/>
-                                    <constraint firstAttribute="bottom" secondItem="59K-xU-5cg" secondAttribute="bottom" id="vKT-Hx-1xu"/>
+                                    <constraint firstAttribute="bottom" secondItem="59K-xU-5cg" secondAttribute="bottom" id="EpT-k2-c3k"/>
+                                    <constraint firstAttribute="trailing" secondItem="59K-xU-5cg" secondAttribute="trailing" id="G1Z-AC-T0V"/>
+                                    <constraint firstItem="59K-xU-5cg" firstAttribute="top" secondItem="c1f-gv-nZ9" secondAttribute="top" id="Tyf-we-P6y"/>
+                                    <constraint firstAttribute="width" constant="380" id="eRe-Hi-n5D"/>
+                                    <constraint firstItem="59K-xU-5cg" firstAttribute="leading" secondItem="c1f-gv-nZ9" secondAttribute="leading" id="z0N-Li-yV3"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="c1f-gv-nZ9" firstAttribute="top" secondItem="KeE-wG-Jbe" secondAttribute="bottom" constant="8" id="06A-v0-8DI"/>
                             <constraint firstItem="FAd-iz-whM" firstAttribute="centerX" secondItem="fod-N1-yYd" secondAttribute="centerX" id="4eY-b9-udX"/>
-                            <constraint firstItem="Vbm-96-Red" firstAttribute="bottom" secondItem="c1f-gv-nZ9" secondAttribute="bottom" id="XZk-bg-4ay"/>
+                            <constraint firstItem="Bjd-rB-Dqi" firstAttribute="centerX" secondItem="fod-N1-yYd" secondAttribute="centerX" constant="416" id="a9x-BQ-Y1C"/>
+                            <constraint firstItem="c1f-gv-nZ9" firstAttribute="centerX" secondItem="fod-N1-yYd" secondAttribute="centerX" id="cWA-Bg-yk7"/>
                             <constraint firstItem="KeE-wG-Jbe" firstAttribute="leading" secondItem="Vbm-96-Red" secondAttribute="leading" id="ehi-59-XrW"/>
+                            <constraint firstItem="Bjd-rB-Dqi" firstAttribute="bottom" secondItem="Vbm-96-Red" secondAttribute="bottom" id="l5Z-Xe-Mrm"/>
                             <constraint firstItem="FAd-iz-whM" firstAttribute="top" secondItem="Vbm-96-Red" secondAttribute="top" constant="9" id="mq5-hT-dq6"/>
                             <constraint firstItem="KeE-wG-Jbe" firstAttribute="top" secondItem="Vbm-96-Red" secondAttribute="top" id="nAL-FY-LNb"/>
-                            <constraint firstItem="c1f-gv-nZ9" firstAttribute="centerX" secondItem="fod-N1-yYd" secondAttribute="centerX" id="pW0-mf-KTV"/>
+                            <constraint firstItem="c1f-gv-nZ9" firstAttribute="bottom" secondItem="Vbm-96-Red" secondAttribute="bottom" id="t80-fS-tXm"/>
+                            <constraint firstItem="c1f-gv-nZ9" firstAttribute="top" secondItem="KeE-wG-Jbe" secondAttribute="bottom" constant="8" id="tLM-px-h0j"/>
+                            <constraint firstItem="Bjd-rB-Dqi" firstAttribute="top" secondItem="KeE-wG-Jbe" secondAttribute="bottom" constant="8" id="v6j-Sj-bKp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Vbm-96-Red"/>
                         <connections>
@@ -243,9 +253,9 @@
                     <connections>
                         <outlet property="options" destination="FAd-iz-whM" id="K0s-6f-8vh"/>
                         <outlet property="privateTable" destination="59K-xU-5cg" id="zRJ-iE-our"/>
-                        <outlet property="privateTable_X_constraint" destination="8mH-qv-gfZ" id="dWc-vl-i9Q"/>
+                        <outlet property="privateView_X_constraint" destination="cWA-Bg-yk7" id="eay-AQ-eQX"/>
                         <outlet property="publicTable" destination="FjU-pm-9ht" id="fFl-39-bKK"/>
-                        <outlet property="publicTable_X_constraint" destination="v18-KL-AC4" id="hHZ-hb-geH"/>
+                        <outlet property="publishedView_X_constraint" destination="a9x-BQ-Y1C" id="b5c-i4-Wh1"/>
                         <segue destination="PGV-vr-Z5e" kind="presentation" identifier="works_detail_published" id="Kaa-N1-R9r"/>
                         <segue destination="PGV-vr-Z5e" kind="presentation" identifier="works_detail_private" id="rZ1-Ba-L2v"/>
                     </connections>
@@ -455,7 +465,7 @@
                 <viewControllerPlaceholder storyboardName="WorksDetail" id="PGV-vr-Z5e" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ml3-yt-CXP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="620" y="142"/>
+            <point key="canvasLocation" x="923" y="-254"/>
         </scene>
         <!--SideMenu-->
         <scene sceneID="iSP-Qm-RGq">
@@ -465,7 +475,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hAu-2r-tdk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="914" y="-297"/>
+            <point key="canvasLocation" x="932" y="-312"/>
         </scene>
     </scenes>
     <resources>

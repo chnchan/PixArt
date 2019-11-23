@@ -18,23 +18,18 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YLF-VZ-1AY">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <subviews>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mxi-Ax-K3H">
-                                        <rect key="frame" x="349" y="5" width="60" height="34"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="60" id="tRc-90-nyn"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                                        <state key="normal" title="Done"/>
-                                        <connections>
-                                            <action selector="done:" destination="B7u-gC-C8E" eventType="touchUpInside" id="LBW-87-HZ8"/>
-                                        </connections>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mxi-Ax-K3H">
+                                        <rect key="frame" x="249" y="22" width="150" height="22"/>
+                                        <state key="normal" title=" Save to Photos" image="tray.and.arrow.down" catalog="system">
+                                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Mxi-Ax-K3H" secondAttribute="bottom" id="99K-Qz-Sm3"/>
                                     <constraint firstAttribute="height" constant="44" id="Ypg-yZ-1k8"/>
-                                    <constraint firstItem="Mxi-Ax-K3H" firstAttribute="centerY" secondItem="YLF-VZ-1AY" secondAttribute="centerY" id="eLW-hR-A4o"/>
-                                    <constraint firstAttribute="trailing" secondItem="Mxi-Ax-K3H" secondAttribute="trailing" constant="5" id="iYL-rv-lSk"/>
+                                    <constraint firstAttribute="trailing" secondItem="Mxi-Ax-K3H" secondAttribute="trailing" constant="15" id="clF-ta-MWp"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I3E-Va-qbd" userLabel="Private_icon">
@@ -338,7 +333,8 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="K76-4C-D6v"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="container" destination="9ks-nL-ouT" id="FJ0-1Y-BSd"/>
+                        <outlet property="editButton_Y_top" destination="Dc3-OW-Qus" id="59q-fr-UIr"/>
+                        <outlet property="edit_button" destination="iEB-vT-vuH" id="29w-n9-eBu"/>
                         <outlet property="preview" destination="Cqz-3C-1eo" id="LWP-PB-gYN"/>
                         <outlet property="privateView_X_constraint" destination="X9Y-9J-c6f" id="hz1-0u-Qhr"/>
                         <outlet property="private_icon" destination="I3E-Va-qbd" id="9Lq-hH-pZN"/>
@@ -374,5 +370,6 @@
         <image name="person.2" catalog="system" width="64" height="40"/>
         <image name="square.and.pencil" catalog="system" width="64" height="58"/>
         <image name="trash" catalog="system" width="60" height="64"/>
+        <image name="tray.and.arrow.down" catalog="system" width="64" height="54"/>
     </resources>
 </document>

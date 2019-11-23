@@ -11,16 +11,11 @@ import Firebase
 
 class WorksViewController: UIViewController {
 
-    @IBOutlet weak var privateView: UIView!
-    @IBOutlet weak var privateView_X_constraint: NSLayoutConstraint!
-    @IBOutlet weak var publishedView: UIView!
-    @IBOutlet weak var publishedView_X_constraint: NSLayoutConstraint!
     @IBOutlet weak var options: UISegmentedControl!
-    
-    @IBOutlet weak var publicTable_X_constraint: NSLayoutConstraint!
-    @IBOutlet weak var privateTable_X_constraint: NSLayoutConstraint!
     @IBOutlet weak var publicTable: UITableView!
     @IBOutlet weak var privateTable: UITableView!
+    @IBOutlet weak var publishedView_X_constraint: NSLayoutConstraint!
+    @IBOutlet weak var privateView_X_constraint: NSLayoutConstraint!
     
     var privateWorks: [[String: Any]] = []
     var publicWorks: [[String: Any]] = []
@@ -30,6 +25,7 @@ class WorksViewController: UIViewController {
     var handle: AuthStateDidChangeListenerHandle?
     var userID = ""
     var index: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         privateTable.dataSource = self
@@ -37,12 +33,18 @@ class WorksViewController: UIViewController {
         publicTable.dataSource = self
         publicTable.delegate = self
         fetch()
-        
-       
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let dest = segue.destination as? WorksDetailViewController {
+            let work = segue.identifier == "works_detail_published" ? publicWorks[index] : privateWorks[index]
+            dest.presentationController?.delegate = self
+            dest.work_UUID = work["documentdata"] as? String ?? ""
+            dest.work_name = work["name"] as? String ?? ""
+            dest.published = work["public"] as! Int
+            dest.canvas_size = work["gridSize"] as! Int
+            dest.colors = work["colors"] as! [String:String]
+        }
     }
     
     @IBAction func switchViews(_ sender: UISegmentedControl) {
@@ -72,41 +74,21 @@ class WorksViewController: UIViewController {
     
     private func showPrivateView() {
         UIView.animate(withDuration: 0.3, animations:{
-            self.publicTable_X_constraint.constant = 416
-            self.privateTable_X_constraint.constant = 0
+            self.publishedView_X_constraint.constant = 416
+            self.privateView_X_constraint.constant = 0
             self.view.layoutIfNeeded()
         })
-        self.publicTable.isHidden = true
-        self.privateTable.isHidden = false
     }
     
     private func showPublishedView() {
         UIView.animate(withDuration: 0.3, animations:{
-            self.publicTable_X_constraint.constant = 0
-            self.privateTable_X_constraint.constant = -416
+            self.publishedView_X_constraint.constant = 0
+            self.privateView_X_constraint.constant = -416
             self.view.layoutIfNeeded()
         })
-        self.publicTable.isHidden = false
-        self.privateTable.isHidden = true
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        var work :[String : Any] = [:]
-        if segue.identifier == "works_detail_published" {
-            work = self.publicWorks[index]
-        }
-        if segue.identifier == "works_detail_private" {
-            work = self.privateWorks[index]
-        }
-        if let dest = segue.destination as? WorksDetailViewController {
-            dest.presentationController?.delegate = self
-            dest.work_UUID = work["documentdata"] as? String ?? ""
-            dest.work_name = work["name"] as? String ?? ""
-            dest.published = work["public"] as! Int
-            dest.canvas_size = work["gridSize"] as! Int
-            dest.colors = work["colors"] as! [String:String]
-        }
-    }
+    
     
     private func fetch() {
         print("in work fetching")
@@ -141,6 +123,7 @@ class WorksViewController: UIViewController {
         }
     }
 }
+
 extension WorksViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == publicTable {
@@ -157,7 +140,6 @@ extension WorksViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == publicTable {
-            print("public table")
             let cell = publicTable.dequeueReusableCell(withIdentifier: "published_post") as! PublishedTableViewCell
             let gridSize = (publicWorks[indexPath.row])["gridSize"] as! Int
             
@@ -169,7 +151,6 @@ extension WorksViewController: UITableViewDataSource, UITableViewDelegate {
             return cell
         }
         if tableView == privateTable {
-            print("private table")
             let cell = privateTable.dequeueReusableCell(withIdentifier: "private_post") as! PrivateTableViewCell
             let gridSize = (privateWorks[indexPath.row])["gridSize"] as! Int
             let colors: [String:String] = (privateWorks[indexPath.row])["colors"] as! [String:String]
@@ -177,7 +158,7 @@ extension WorksViewController: UITableViewDataSource, UITableViewDelegate {
             cell.title.text = (privateWorks[indexPath.row])["name"] as? String
             return cell
         }
-        print("not any table")
+
         return UITableViewCell()
     }
     
@@ -185,6 +166,7 @@ extension WorksViewController: UITableViewDataSource, UITableViewDelegate {
         view.endEditing(true)
         tableView.deselectRow(at: indexPath, animated: true)
         index = indexPath.row
+        
         if tableView == publicTable {
             performSegue(withIdentifier: "works_detail_published", sender: self)
         }
