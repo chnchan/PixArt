@@ -15,9 +15,7 @@ class WorksEditingViewController: UIViewController {
     let SLIDER_Y_POS = 50 // space from the canvas
     let SLIDER_HIGHT = 15
     let SLIDER_WIDTH = 300
-    let storage = Storage.storage()
     let db = Firestore.firestore()
-    var storageRef = StorageReference.init()
     var handle: AuthStateDidChangeListenerHandle?
     var userID = ""
     

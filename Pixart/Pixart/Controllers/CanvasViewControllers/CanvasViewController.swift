@@ -17,9 +17,7 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
     let SLIDER_HIGHT = 15
     let SLIDER_WIDTH = 300
     
-    let storage = Storage.storage()
     let db = Firestore.firestore()
-    var storageRef = StorageReference.init()
     var handle: AuthStateDidChangeListenerHandle?
     var userID = ""
 
@@ -33,7 +31,6 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         canvas_size = LocalStorage.fetchCanvasSize()
         gridView.makeCells(size: canvas_size)
-        storageRef = storage.reference()
         setupColorSlider()
     }
     

@@ -11,9 +11,7 @@ import Firebase
 
 class WorksDetailViewController: UIViewController {
 
-    let storage = Storage.storage()
     let db = Firestore.firestore()
-    var storageRef = StorageReference.init()
     var handle: AuthStateDidChangeListenerHandle?
     var userID = ""
     

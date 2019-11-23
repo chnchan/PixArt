@@ -14,9 +14,7 @@ class WorksTrashViewController: UIViewController {
     @IBOutlet weak var worksTableView: UITableView!
     @IBOutlet weak var popup: UIView!
 
-    let storage = Storage.storage()
     let db = Firestore.firestore()
-    var storageRef = StorageReference.init()
     var handle: AuthStateDidChangeListenerHandle?
     var userID = ""
     var works: [[String: Any]] = []
