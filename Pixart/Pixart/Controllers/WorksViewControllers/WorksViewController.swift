@@ -91,7 +91,6 @@ class WorksViewController: UIViewController {
     
     
     private func fetch() {
-        print("in work fetching")
         self.privateWorks = []
         self.publicWorks = []
         handle = Auth.auth().addStateDidChangeListener { (auth, user) in
@@ -112,10 +111,7 @@ class WorksViewController: UIViewController {
                             }
                         }
                     }
-                    /*print("public works")
-                    print(self.publicWorks)
-                    print("private works")
-                    print(self.privateWorks)*/
+                    
                     self.privateTable.reloadData()
                     self.publicTable.reloadData()
                 }
@@ -127,11 +123,9 @@ class WorksViewController: UIViewController {
 extension WorksViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == publicTable {
-            print("publicTable")
             return publicWorks.count
         }
         if tableView == privateTable{
-            print("privateTable")
             return privateWorks.count
         }
         print("size 0")
@@ -146,10 +140,11 @@ extension WorksViewController: UITableViewDataSource, UITableViewDelegate {
             let colors: [String:String] = (publicWorks[indexPath.row])["colors"] as! [String:String]
             cell.preview.makeCells(size: gridSize, data: colors)
             cell.title.text = (publicWorks[indexPath.row])["name"] as? String
-            cell.likes.text = "10"
-            cell.dislikes.text = "10"
+            cell.likes.text = "0"
+            cell.dislikes.text = "0"
             return cell
         }
+        
         if tableView == privateTable {
             let cell = privateTable.dequeueReusableCell(withIdentifier: "private_post") as! PrivateTableViewCell
             let gridSize = (privateWorks[indexPath.row])["gridSize"] as! Int

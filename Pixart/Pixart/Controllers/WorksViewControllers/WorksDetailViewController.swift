@@ -53,6 +53,7 @@ class WorksDetailViewController: UIViewController {
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
         self.view.addGestureRecognizer(tap)
         self.workname.delegate = self
+        self.workname.text = self.work_name
         self.preview.makeCells(size: canvas_size, data: colors)
         
         if (self.published == 0) {
@@ -110,11 +111,24 @@ class WorksDetailViewController: UIViewController {
             if error != nil {
                 print("error updating data")
             } else {
-                print("updated")
+                let alert = UIAlertController(title: "Important Notice:", message: "To prevent possible exploit, likes and dislikes will reset to 0 if you edit the artwork.", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "Yes, I Understand.", style: .default, handler: nil)
+                alert.addAction(okAction)
+                self.present(alert, animated: true, completion: nil)
                 self.showPrivateView()
             }
         })
         
+    }
+    
+    @IBAction func saveToPhotos(_ sender: Any) {
+        let image = preview.exportToImg()
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+        
+        let alert = UIAlertController(title: "Artwork Saved", message: nil, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "ok", style: .default, handler: nil)
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
     }
     
     @IBAction func deletebutton(_ sender: UIButton) {

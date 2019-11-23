@@ -15,23 +15,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YLF-VZ-1AY">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mxi-Ax-K3H">
-                                        <rect key="frame" x="249" y="22" width="150" height="22"/>
-                                        <state key="normal" title=" Save to Photos" image="tray.and.arrow.down" catalog="system">
-                                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="Mxi-Ax-K3H" secondAttribute="bottom" id="99K-Qz-Sm3"/>
-                                    <constraint firstAttribute="height" constant="44" id="Ypg-yZ-1k8"/>
-                                    <constraint firstAttribute="trailing" secondItem="Mxi-Ax-K3H" secondAttribute="trailing" constant="15" id="clF-ta-MWp"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I3E-Va-qbd" userLabel="Private_icon">
                                 <rect key="frame" x="17" y="479" width="116" height="36"/>
                                 <subviews>
@@ -299,6 +282,18 @@
                                     <constraint firstAttribute="bottom" secondItem="xg9-zV-FA5" secondAttribute="bottom" id="z1E-VH-XvI"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mxi-Ax-K3H">
+                                <rect key="frame" x="244" y="64" width="150" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="e1A-m8-AYf"/>
+                                </constraints>
+                                <state key="normal" title=" Save to Photos" image="tray.and.arrow.down" catalog="system">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveToPhotos:" destination="B7u-gC-C8E" eventType="touchUpInside" id="6qC-ed-O6g"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <gestureRecognizers/>
@@ -308,18 +303,17 @@
                             <constraint firstItem="Ihm-Jh-iA0" firstAttribute="trailing" secondItem="qLN-ym-HCh" secondAttribute="trailing" constant="17" id="FIX-GY-dEO"/>
                             <constraint firstItem="Ihm-Jh-iA0" firstAttribute="trailing" secondItem="nZi-mF-fuf" secondAttribute="trailing" constant="17" id="IdJ-PI-aY3"/>
                             <constraint firstItem="9ks-nL-ouT" firstAttribute="leading" secondItem="Ihm-Jh-iA0" secondAttribute="leading" constant="17" id="LOk-th-Swy"/>
+                            <constraint firstItem="Mxi-Ax-K3H" firstAttribute="top" secondItem="Ihm-Jh-iA0" secondAttribute="top" constant="20" id="OGg-ga-sSJ"/>
                             <constraint firstItem="qLN-ym-HCh" firstAttribute="top" secondItem="qJV-Sp-TTO" secondAttribute="bottom" constant="16" id="Pyl-yE-jJh"/>
-                            <constraint firstItem="9ks-nL-ouT" firstAttribute="top" secondItem="YLF-VZ-1AY" secondAttribute="bottom" constant="20" id="Yr0-GU-Ecs"/>
-                            <constraint firstItem="Ihm-Jh-iA0" firstAttribute="top" secondItem="YLF-VZ-1AY" secondAttribute="top" id="aFu-lh-C2f"/>
+                            <constraint firstItem="Ihm-Jh-iA0" firstAttribute="trailing" secondItem="Mxi-Ax-K3H" secondAttribute="trailing" constant="20" id="Ze6-mG-GPw"/>
                             <constraint firstItem="I3E-Va-qbd" firstAttribute="height" secondItem="qBa-9C-D1b" secondAttribute="height" id="cBX-vX-SaZ"/>
                             <constraint firstItem="qBa-9C-D1b" firstAttribute="leading" secondItem="Ihm-Jh-iA0" secondAttribute="leading" constant="17" id="feb-7b-y96"/>
                             <constraint firstItem="I3E-Va-qbd" firstAttribute="trailing" secondItem="qBa-9C-D1b" secondAttribute="trailing" id="iRp-Mh-tct"/>
+                            <constraint firstItem="9ks-nL-ouT" firstAttribute="top" secondItem="Ihm-Jh-iA0" secondAttribute="top" constant="64" id="j9g-3q-AIE"/>
                             <constraint firstItem="I3E-Va-qbd" firstAttribute="bottom" secondItem="qBa-9C-D1b" secondAttribute="bottom" id="jUa-4U-gif"/>
-                            <constraint firstItem="YLF-VZ-1AY" firstAttribute="leading" secondItem="XDm-uE-eNo" secondAttribute="leading" id="m43-8U-tU5"/>
                             <constraint firstItem="I3E-Va-qbd" firstAttribute="top" secondItem="qBa-9C-D1b" secondAttribute="top" id="mvN-qg-sjw"/>
                             <constraint firstItem="I3E-Va-qbd" firstAttribute="leading" secondItem="qBa-9C-D1b" secondAttribute="leading" id="nfa-A1-LXG"/>
                             <constraint firstAttribute="bottom" secondItem="qLN-ym-HCh" secondAttribute="bottom" constant="33" id="pkK-bw-PMO"/>
-                            <constraint firstAttribute="trailing" secondItem="YLF-VZ-1AY" secondAttribute="trailing" id="qY7-nD-77n"/>
                             <constraint firstItem="Ihm-Jh-iA0" firstAttribute="trailing" secondItem="9ks-nL-ouT" secondAttribute="trailing" constant="17" id="wxX-M2-IGy"/>
                             <constraint firstItem="qBa-9C-D1b" firstAttribute="top" secondItem="9ks-nL-ouT" secondAttribute="bottom" constant="-9" id="xWS-hq-RdG"/>
                         </constraints>
