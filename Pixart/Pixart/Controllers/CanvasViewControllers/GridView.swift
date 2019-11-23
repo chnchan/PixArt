@@ -18,22 +18,50 @@ class GridView: UIView {
     var cells = [String: UIView]()
     var cellWidth: CGFloat = 0
     var drawingColor =  UIColor.red
-    var previousScale: CGFloat = 1.0
+
 
     override func draw(_ rect: CGRect) {
-        self.addGestureRecognizer(UIPinchGestureRecognizer(target: self, action: #selector(pinchAction(sender:))))
-        self.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handleGesture)))
-        self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleGesture)))
+        self.addGestureRecognizer(UIPinchGestureRecognizer(target: self, action: #selector(pinchAction(gesture:))))
+        self.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handleGesturePan)))
+        
+        let oneTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleGestureTap))
+        oneTapGesture.numberOfTapsRequired = 1
+        self.addGestureRecognizer(oneTapGesture)
+        
+        let doubleTapGesture = UITapGestureRecognizer(target: self, action: #selector(resizeBack))
+        doubleTapGesture.numberOfTapsRequired = 2
+        self.addGestureRecognizer(doubleTapGesture)
+        oneTapGesture.require(toFail: doubleTapGesture)
      }
-    
-    @objc func pinchAction(sender:UIPinchGestureRecognizer) {
-        let scale:CGFloat = previousScale * sender.scale
-        self.transform = CGAffineTransform(scaleX: scale, y: scale);
-
-        previousScale = sender.scale
+    // This function resizes the canvas to normal size
+    @objc func resizeBack(){
+        
+        UIView.animate(withDuration: 0.1, animations: {
+            self.transform = CGAffineTransform.identity
+        })
     }
     
-    @objc func handleGesture(gesture: Any?) {
+    // this function zooms in and out
+    @objc func pinchAction(gesture:UIPinchGestureRecognizer) {
+   
+         if let view = gesture.view {
+              switch gesture.state {
+              case .changed:
+                  let pinchCenter = CGPoint(x: gesture.location(in: view).x - view.bounds.midX,
+                                            y: gesture.location(in: view).y - view.bounds.midY)
+                  let transform = view.transform.translatedBy(x: pinchCenter.x, y: pinchCenter.y)
+                                                  .scaledBy(x: gesture.scale, y: gesture.scale)
+                                                  .translatedBy(x: -pinchCenter.x, y: -pinchCenter.y)
+                  view.transform = transform
+                  gesture.scale = 1
+              default:
+                  return
+              }
+          }
+    }
+    
+    
+    @objc func handleGesturePan(gesture: Any?) {
         if let panGesture = gesture as? UIPanGestureRecognizer {
             let location = panGesture.location(in: self)
             let i = Int(location.x / cellWidth)
@@ -41,7 +69,8 @@ class GridView: UIView {
             let cellView = cells["\(i)|\(j)"]
             cellView?.backgroundColor = drawingColor
         }
-        
+    }
+    @objc func handleGestureTap(gesture: Any?) {
         if let tapGesture = gesture as? UITapGestureRecognizer {
             let location = tapGesture.location(in: self)
             let i = Int(location.x / cellWidth)
@@ -100,3 +129,4 @@ class GridView: UIView {
         return gridColors
     }
 }
+
