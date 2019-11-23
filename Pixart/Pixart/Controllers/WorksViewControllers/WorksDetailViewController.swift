@@ -100,6 +100,16 @@ class WorksDetailViewController: UIViewController {
                 self.showPublishedView()
             }
         })
+        self.db.collection("PublishedWorks").document(self.work_UUID).setData([
+            "userID": self.userID,
+            "workID": self.work_UUID,
+        ]) { err in
+            if let err = err {
+                print("Error adding document: \(err)")
+            } else {
+                print("Document added")
+            }
+        }
     }
     
     @IBAction func removePublished(_ sender: Any) {
@@ -118,7 +128,7 @@ class WorksDetailViewController: UIViewController {
                 self.showPrivateView()
             }
         })
-        
+        self.db.collection("PublishedWorks").document(self.work_UUID).delete()
     }
     
     @IBAction func saveToPhotos(_ sender: Any) {

@@ -19,9 +19,7 @@ class WorksViewController: UIViewController {
     
     var privateWorks: [[String: Any]] = []
     var publicWorks: [[String: Any]] = []
-    let storage = Storage.storage()
     let db = Firestore.firestore()
-    var storageRef = StorageReference.init()
     var handle: AuthStateDidChangeListenerHandle?
     var userID = ""
     var index: Int = 0
