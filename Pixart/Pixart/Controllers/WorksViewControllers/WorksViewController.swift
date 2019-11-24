@@ -181,9 +181,4 @@ extension WorksViewController: UIAdaptivePresentationControllerDelegate {
         print("will dismissed")
         fetch()
     }
-    
-    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
-        print("dismissed")
-        fetch()
-    }
 }
