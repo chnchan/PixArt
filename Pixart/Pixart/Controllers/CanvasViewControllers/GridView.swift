@@ -12,7 +12,6 @@ class GridView: UIView {
 
     let BORDER_WIDTH: CGFloat = 0.5
     let BORDER_COLOR = UIColor.black.cgColor
-    let BACKGROUND_COLOR = UIColor.white
     
     var canvas_size: Int = 0
     var cells = [String: UIView]()
@@ -69,7 +68,13 @@ class GridView: UIView {
         }
     }
 
-    public func makeCells(size: Int){
+    public func resetZoom() {
+        UIView.animate(withDuration: 0.1, animations: {
+            self.transform = CGAffineTransform.identity
+        })
+    }
+    
+    public func makeCells(size: Int, color: UIColor = UIColor.white){
         canvas_size = size
         cellWidth = self.frame.width / CGFloat(canvas_size)
         
@@ -77,7 +82,7 @@ class GridView: UIView {
             for i in 0...canvas_size - 1 {
                 let cellView = UIView()
                 
-                cellView.backgroundColor = BACKGROUND_COLOR
+                cellView.backgroundColor = color
                 cellView.layer.borderWidth = BORDER_WIDTH
                 cellView.layer.borderColor = BORDER_COLOR
                 cellView.frame = CGRect(x: CGFloat(i) * cellWidth, y: CGFloat(j) * cellWidth, width: cellWidth, height: cellWidth)

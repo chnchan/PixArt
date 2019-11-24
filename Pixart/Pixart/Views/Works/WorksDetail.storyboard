@@ -336,9 +336,11 @@
                         <outlet property="published_icon" destination="qBa-9C-D1b" id="puP-OO-NZo"/>
                         <outlet property="workname" destination="9ot-Mu-7wH" id="A8R-zO-mJB"/>
                         <segue destination="435-d5-lpY" kind="presentation" identifier="work_edit" id="GYr-3b-aFC"/>
+                        <segue destination="Zhq-vp-HbA" kind="unwind" identifier="unwind_works" unwindAction="unwindToWorks:" id="Ggn-V8-jbL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nl8-Sc-ctA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Zhq-vp-HbA" userLabel="Exit" sceneMemberID="exit"/>
                 <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" id="C17-ev-06Y">
                     <rectEdge key="edges" left="YES"/>
                     <connections>

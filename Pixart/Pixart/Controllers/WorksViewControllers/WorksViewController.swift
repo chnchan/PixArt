@@ -70,6 +70,10 @@ class WorksViewController: UIViewController {
         return
     }
     
+    @IBAction func newPressed(_ sender: Any) {
+        performSegue(withIdentifier: "works_to_canvas", sender: self)
+    }
+    
     private func showPrivateView() {
         UIView.animate(withDuration: 0.3, animations:{
             self.publishedView_X_constraint.constant = 416
@@ -85,8 +89,6 @@ class WorksViewController: UIViewController {
             self.view.layoutIfNeeded()
         })
     }
-    
-    
     
     private func fetch() {
         self.privateWorks = []
@@ -115,6 +117,11 @@ class WorksViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    // MARK: Unwind
+    @IBAction func unwindToWorks(_ unwindSegue: UIStoryboardSegue) {
+        fetch()
     }
 }
 
@@ -171,6 +178,12 @@ extension WorksViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension WorksViewController: UIAdaptivePresentationControllerDelegate {
     func presentationControllerWillDismiss(_ presentationController: UIPresentationController) {
+        print("will dismissed")
+        fetch()
+    }
+    
+    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        print("dismissed")
         fetch()
     }
 }

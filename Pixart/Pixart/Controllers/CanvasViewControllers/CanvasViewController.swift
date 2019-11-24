@@ -23,6 +23,7 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
 
     var work_name: String = ""
     var canvas_size: Int = 8
+    var BACKGROUND_COLOR: UIColor = UIColor.white
     
     @IBOutlet weak var gridView: GridView!
     @IBOutlet weak var canvasContainer: UIView!
@@ -56,6 +57,10 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    @IBAction func zoomOut(_ sender: Any) {
+        gridView.resetZoom()
+    }
+    
     // This function saves the image to user folder
     // TODO: right now  it just displays it to the view
     // but i will change later
@@ -85,6 +90,7 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
                 print("Error adding document: \(err)")
             } else {
                 print("Document added")
+                self.performSegue(withIdentifier: "canvas_to_works", sender: self)
             }
         }
 
@@ -108,21 +114,10 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: UNWIND
     @IBAction func unwindToCanvas(_ unwindSegue: UIStoryboardSegue) {
-        gridView.makeCells(size: canvas_size)
+        gridView.makeCells(size: canvas_size, color: BACKGROUND_COLOR)
     }
     
     @IBAction func unwindToCanvasAndSave(_ unwindSegue: UIStoryboardSegue) {
         savePixelArt()
-//        gridView.makeCells()
     }
-    
-    // This function resizes the canvas to normal size
-    @IBAction func zoomToNormal(_ sender: Any) {
-        
-        UIView.animate(withDuration: 0.1, animations: {
-            self.gridView.transform = CGAffineTransform.identity
-        })
-        
-    }
-    
 }

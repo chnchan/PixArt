@@ -62,6 +62,37 @@
                                     <action selector="saveEdits:" destination="KaF-3S-E2q" eventType="touchUpInside" id="298-F1-Be2"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EWC-dv-2gs" userLabel="Zoom out button">
+                                <rect key="frame" x="291" y="518" width="111" height="36"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bNK-gT-7Hc">
+                                        <rect key="frame" x="8" y="12" width="95" height="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title=" Zoom out" image="minus.magnifyingglass" catalog="system">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="zoomOut:" destination="KaF-3S-E2q" eventType="touchUpInside" id="zWX-we-OUW"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="bNK-gT-7Hc" secondAttribute="trailing" constant="8" id="00g-FW-2vq"/>
+                                    <constraint firstAttribute="bottom" secondItem="bNK-gT-7Hc" secondAttribute="bottom" constant="4" id="1Uj-gy-P7n"/>
+                                    <constraint firstItem="bNK-gT-7Hc" firstAttribute="leading" secondItem="EWC-dv-2gs" secondAttribute="leading" constant="8" id="EQb-qE-kzf"/>
+                                    <constraint firstItem="bNK-gT-7Hc" firstAttribute="leading" secondItem="EWC-dv-2gs" secondAttribute="leading" constant="8" id="Mda-32-ETg"/>
+                                    <constraint firstAttribute="bottom" secondItem="bNK-gT-7Hc" secondAttribute="bottom" constant="4" id="io7-uc-1DC"/>
+                                    <constraint firstAttribute="trailing" secondItem="bNK-gT-7Hc" secondAttribute="trailing" constant="8" id="jM0-Rl-bGk"/>
+                                    <constraint firstAttribute="height" constant="36" id="uUW-6r-F0P"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SVh-cf-Huy" userLabel="container">
                                 <rect key="frame" x="12" y="137" width="390" height="390"/>
                                 <subviews>
@@ -90,8 +121,10 @@
                             <constraint firstAttribute="trailing" secondItem="SVh-cf-Huy" secondAttribute="trailing" constant="12" id="QJP-9s-oZD"/>
                             <constraint firstItem="Jfs-ja-ghO" firstAttribute="top" secondItem="1lK-og-bdj" secondAttribute="top" id="XlE-JG-NVG"/>
                             <constraint firstItem="62f-t1-3iH" firstAttribute="leading" secondItem="eNG-Aj-NlX" secondAttribute="trailing" id="dDY-9L-Gb0"/>
+                            <constraint firstItem="EWC-dv-2gs" firstAttribute="trailing" secondItem="SVh-cf-Huy" secondAttribute="trailing" id="gRT-el-6qe"/>
                             <constraint firstItem="62f-t1-3iH" firstAttribute="centerX" secondItem="ZV3-HP-7f2" secondAttribute="centerX" id="iZr-NK-MaC"/>
                             <constraint firstItem="1lK-og-bdj" firstAttribute="bottom" secondItem="Hag-3c-zLf" secondAttribute="bottom" constant="16" id="mi3-AH-Rkm"/>
+                            <constraint firstItem="EWC-dv-2gs" firstAttribute="top" secondItem="SVh-cf-Huy" secondAttribute="bottom" constant="-9" id="rTK-gY-cVc"/>
                             <constraint firstItem="SVh-cf-Huy" firstAttribute="top" secondItem="Jfs-ja-ghO" secondAttribute="bottom" constant="45" id="rdp-PG-UOT"/>
                             <constraint firstItem="SVh-cf-Huy" firstAttribute="leading" secondItem="ZV3-HP-7f2" secondAttribute="leading" constant="12" id="uRV-vu-NY9"/>
                         </constraints>
@@ -111,5 +144,6 @@
     </scenes>
     <resources>
         <image name="arrow.left" catalog="system" width="64" height="48"/>
+        <image name="minus.magnifyingglass" catalog="system" width="64" height="56"/>
     </resources>
 </document>

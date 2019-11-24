@@ -31,8 +31,10 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var signup_password: UITextField!
     @IBOutlet weak var confirm_password: UITextField!
     @IBOutlet weak var signup_errorLabel: UILabel!
-    @IBOutlet weak var signup_X_constraint: NSLayoutConstraint!
+    @IBOutlet weak var signup_button: UIButton!
     @IBOutlet weak var signup_spinner: UIActivityIndicatorView!
+    @IBOutlet weak var signup_X_constraint: NSLayoutConstraint!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,6 +61,14 @@ class LoginViewController: UIViewController {
         GIDSignIn.sharedInstance()?.presentingViewController = self
         signup_password.passwordRules = UITextInputPasswordRules(descriptor: "required: upper; required: lower; required: digit, [-().&@?'#,/&quot;+]; minlength: 7;")
         
+        UIView.animate(withDuration: 0.3, animations: {
+            self.login_view.alpha = 1
+        })
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        card_view_X_constraint.constant = 0
+        signup_X_constraint.constant = 416
         
         if let userInfo = LocalStorage.fetchLogins() {
             if (!userInfo.isEmpty) {
@@ -66,10 +76,6 @@ class LoginViewController: UIViewController {
                 password.text = userInfo[0].value(forKey: "password") as? String
             }
         }
-        
-        UIView.animate(withDuration: 0.3, animations: {
-            self.login_view.alpha = 1
-        })
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -84,6 +90,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginRequested(_ sender: Any) {
+        self.view.endEditing(true)
         self.spinner.startAnimating()
         self.view.isUserInteractionEnabled = false
         self.login_button.backgroundColor = UIColor.lightGray
@@ -103,27 +110,33 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func signupRequested() {
+        self.view.endEditing(true)
         self.signup_spinner.startAnimating()
         self.view.isUserInteractionEnabled = false
+        self.login_button.backgroundColor = UIColor.lightGray
         
         if !self.validateEmail() {
             signup_errorLabel.text = "Invalid Email."
             self.signup_spinner.stopAnimating()
             self.view.isUserInteractionEnabled = true
+            self.login_button.backgroundColor = UIColor.systemGreen
             
         } else if signup_password.text != confirm_password.text {
             signup_errorLabel.text = "Passwords do not match."
             self.signup_spinner.stopAnimating()
             self.view.isUserInteractionEnabled = true
+            self.login_button.backgroundColor = UIColor.systemGreen
         } else if !self.validatePassword() {
             signup_errorLabel.text = "Password doesn't meet requirements."
             self.signup_spinner.stopAnimating()
             self.view.isUserInteractionEnabled = true
+            self.login_button.backgroundColor = UIColor.systemGreen
         }
         else {
             Auth.auth().createUser(withEmail: signup_email.text ?? "", password: signup_password.text ?? "") { authResult, error in
                 self.signup_spinner.stopAnimating()
                 self.view.isUserInteractionEnabled = true
+                self.login_button.backgroundColor = UIColor.systemGreen
                 
                 if error != nil {
                     self.signup_errorLabel.text = "Account with email already exists."
@@ -137,6 +150,10 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func showSignup(_ sender: Any) {
+        signup_email.text = ""
+        signup_password.text = ""
+        confirm_password.text = ""
+        self.view.endEditing(true)
         self.view.isUserInteractionEnabled = false
         
         UIView.animate(withDuration: 0.3, animations: {
@@ -151,6 +168,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func showLogin(_ sender: Any) {
+        self.view.endEditing(true)
         self.view.isUserInteractionEnabled = false
         
         UIView.animate(withDuration: 0.3, animations: {

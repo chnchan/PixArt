@@ -436,6 +436,7 @@
                         <outlet property="login_view" destination="mSb-xB-cz7" id="ebp-OO-qOS"/>
                         <outlet property="password" destination="Z2J-mZ-1MY" id="T5F-n5-Ofd"/>
                         <outlet property="signup_X_constraint" destination="BRE-h8-0K7" id="GYD-gB-4w6"/>
+                        <outlet property="signup_button" destination="cg4-iG-kz0" id="Fzw-lM-BdA"/>
                         <outlet property="signup_email" destination="TSP-7v-v16" id="a8m-5g-mIK"/>
                         <outlet property="signup_errorLabel" destination="07U-vZ-ir1" id="pac-Q5-AVG"/>
                         <outlet property="signup_password" destination="EBF-Fd-YqN" id="QTg-zZ-CO6"/>

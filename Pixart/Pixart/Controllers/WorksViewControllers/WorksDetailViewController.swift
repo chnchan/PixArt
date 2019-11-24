@@ -145,9 +145,10 @@ class WorksDetailViewController: UIViewController {
             if error != nil {
                 print("error deleting")
             } else {
-                self.dismiss(animated: true, completion: nil)
+                self.performSegue(withIdentifier: "unwind_works", sender: self)
             }
         })
+
         /* When we have trash can implemented
         self.db.collection(self.userID).document(self.documentdata).updateData(["public" : -1], completion: {error in
             if error != nil {
