@@ -16,12 +16,46 @@ class FeedsViewController: UIViewController {
     var handle: AuthStateDidChangeListenerHandle?
     var publicWorks: [[String: Any]] = []
     
+    @IBOutlet weak var card_view: UIView!
+    @IBOutlet weak var swipe_view: UIView!
+    @IBOutlet weak var swipe_left_icon: UIView!
+    @IBOutlet weak var swipe_right_icon: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-//        image.layer.borderWidth = 5
-//        image.layer.borderColor = UIColor.gray.cgColor
-        // Do any additional setup after loading the view.
-        fetch()
+        let left_swipe = UISwipeGestureRecognizer(target: self, action: #selector(gestureHandler(gesture:)))
+        let right_swipe = UISwipeGestureRecognizer(target: self, action: #selector(gestureHandler(gesture:)))
+        left_swipe.direction = .left
+        right_swipe.direction = .right
+        swipe_view.addGestureRecognizer(left_swipe)
+        swipe_view.addGestureRecognizer(right_swipe)
+        card_view.addShadow(x: 0.5, y: 5)
+        swipe_left_icon.addShadow()
+        swipe_right_icon.addShadow()
+        //fetch()
+    }
+    
+    @IBAction func like(_ sender: Any) {
+        print("like!")
+        // MARK: TODO
+        //like
+        //fetch next
+    }
+    
+    @IBAction func pass(_ sender: Any) {
+        print("pass!")
+        // MARK: TODO
+        //fetch next
+    }
+    
+    @objc func gestureHandler(gesture: UISwipeGestureRecognizer) {
+        if gesture.state == .ended {
+            if gesture.direction == UISwipeGestureRecognizer.Direction.right {
+                like(self)
+            } else if gesture.direction == UISwipeGestureRecognizer.Direction.left {
+                pass(self)
+            }
+        }
     }
     
     private func fetch() {
@@ -58,5 +92,4 @@ class FeedsViewController: UIViewController {
             }
         }
     }
-    
 }

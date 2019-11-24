@@ -130,8 +130,9 @@ class WorksDetailViewController: UIViewController {
     }
     
     @IBAction func saveToPhotos(_ sender: Any) {
-        let image = preview.exportToImg()
-        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+        let image = preview.exportToImg().pngData()
+        let compressedImage = UIImage(data: image!)
+        UIImageWriteToSavedPhotosAlbum(compressedImage!, nil, nil, nil)
         
         let alert = UIAlertController(title: "Artwork Saved", message: nil, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "ok", style: .default, handler: nil)
