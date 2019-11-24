@@ -15,18 +15,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="pixart_logo" translatesAutoresizingMaskIntoConstraints="NO" id="Md8-lZ-z0v">
-                                <rect key="frame" x="72" y="194" width="270" height="143"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dkb-E4-2de">
+                                <rect key="frame" x="132" y="373" width="150" height="150"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo_2" translatesAutoresizingMaskIntoConstraints="NO" id="Md8-lZ-z0v">
+                                        <rect key="frame" x="5" y="5" width="140" height="140"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="143" id="AzQ-ca-EGs"/>
-                                    <constraint firstAttribute="width" constant="270" id="MZN-hO-wxP"/>
+                                    <constraint firstItem="Md8-lZ-z0v" firstAttribute="leading" secondItem="Dkb-E4-2de" secondAttribute="leading" constant="5" id="8o4-R7-s1w"/>
+                                    <constraint firstAttribute="width" constant="150" id="9ZH-ij-66U"/>
+                                    <constraint firstItem="Md8-lZ-z0v" firstAttribute="top" secondItem="Dkb-E4-2de" secondAttribute="top" constant="5" id="LAf-iy-UUC"/>
+                                    <constraint firstAttribute="trailing" secondItem="Md8-lZ-z0v" secondAttribute="trailing" constant="5" id="Zla-Ui-AJB"/>
+                                    <constraint firstAttribute="bottom" secondItem="Md8-lZ-z0v" secondAttribute="bottom" constant="5" id="qtP-ag-jNe"/>
+                                    <constraint firstAttribute="width" secondItem="Dkb-E4-2de" secondAttribute="height" multiplier="1:1" id="yS5-f5-Ks6"/>
                                 </constraints>
-                            </imageView>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Md8-lZ-z0v" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="NDM-FS-SCQ"/>
-                            <constraint firstItem="Md8-lZ-z0v" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="kiu-CB-snb"/>
+                            <constraint firstItem="Dkb-E4-2de" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Rcj-ta-o01"/>
+                            <constraint firstItem="Dkb-E4-2de" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="js8-bb-va0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -37,6 +47,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="pixart_logo" width="720" height="382"/>
+        <image name="logo_2" width="740" height="740"/>
     </resources>
 </document>
