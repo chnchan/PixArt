@@ -12,8 +12,7 @@ import Firebase
 class WorksTrashViewController: UIViewController {
 
     @IBOutlet weak var worksTableView: UITableView!
-    @IBOutlet weak var popup: UIView!
-
+    
     let db = Firestore.firestore()
     var handle: AuthStateDidChangeListenerHandle?
     var userID = ""
@@ -38,6 +37,19 @@ class WorksTrashViewController: UIViewController {
         // user)
         Auth.auth().removeStateDidChangeListener(handle!)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let dest = segue.destination as? WorksDetailViewController {
+            let work = works[chosenindex]
+            dest.presentationController?.delegate = self
+            dest.work_UUID = work["documentdata"] as? String ?? ""
+            dest.work_name = work["name"] as? String ?? ""
+            dest.published = work["public"] as! Int
+            dest.canvas_size = work["gridSize"] as! Int
+            dest.colors = work["colors"] as! [String:String]
+        }
+    }
+    
     private func fetch() {
         // [START auth_listener]
         handle = Auth.auth().addStateDidChangeListener { (auth, user) in
@@ -61,31 +73,19 @@ class WorksTrashViewController: UIViewController {
         }
     }
     
-    func restore(){
-        let documentdata = works[chosenindex]["documentdata"] as? String ?? ""
-        self.db.collection(self.userID).document(documentdata).updateData(["public" : 0], completion: {error in
-            if error != nil {
-                print("error updating data")
-            } else {
-                self.works.remove(at: self.chosenindex)
-                self.worksTableView.reloadData()
-                self.popup.isHidden = true
-            }
-        })
+    @IBAction func DeleteAll(_ sender: UIButton) {
+        for work in works {
+            let documentdata = work["documentdata"] as? String ?? ""
+            self.db.collection(self.userID).document(documentdata).delete(completion: {error in
+                if error != nil {
+                    print("error deleting")
+                } else {
+                    self.fetch()
+                }
+            })
+        }
     }
     
-    func deleteforever(){
-        let documentdata = works[chosenindex]["documentdata"] as? String ?? ""
-        self.db.collection(self.userID).document(documentdata).delete(completion: {error in
-            if error != nil {
-                print("error deleting")
-            } else {
-                self.works.remove(at: self.chosenindex)
-                self.worksTableView.reloadData()
-                self.popup.isHidden = true
-            }
-        })
-    }
 }
 extension WorksTrashViewController: UIAdaptivePresentationControllerDelegate {
     func presentationControllerWillDismiss(_ presentationController: UIPresentationController) {
@@ -110,14 +110,8 @@ extension WorksTrashViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         view.endEditing(true)
         tableView.deselectRow(at: indexPath, animated: true)
-        self.popup.isHidden = false
         self.chosenindex = indexPath.row
-        /*let storyboard = UIStoryboard(name: "WorksDetail", bundle: nil)
-        let vc = storyboard.instantiateViewController(identifier: "workdetail") as! WorksDetailViewController
-        vc.modalTransitionStyle = .coverVertical
-        vc.work = works[indexPath.row]
-        vc.presentationController?.delegate = self
-        self.present(vc, animated: true)*/
+        performSegue(withIdentifier: "trash_detail", sender: self)
         
     }
 }
