@@ -115,4 +115,14 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
         savePixelArt()
 //        gridView.makeCells()
     }
+    
+    // This function resizes the canvas to normal size
+    @IBAction func zoomToNormal(_ sender: Any) {
+        
+        UIView.animate(withDuration: 0.1, animations: {
+            self.gridView.transform = CGAffineTransform.identity
+        })
+        
+    }
+    
 }

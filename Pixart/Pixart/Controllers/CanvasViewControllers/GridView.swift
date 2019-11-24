@@ -25,21 +25,10 @@ class GridView: UIView {
         self.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handleGesturePan)))
         
         let oneTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleGestureTap))
-        oneTapGesture.numberOfTapsRequired = 1
         self.addGestureRecognizer(oneTapGesture)
-        
-        let doubleTapGesture = UITapGestureRecognizer(target: self, action: #selector(resizeBack))
-        doubleTapGesture.numberOfTapsRequired = 2
-        self.addGestureRecognizer(doubleTapGesture)
-        oneTapGesture.require(toFail: doubleTapGesture)
      }
-    // This function resizes the canvas to normal size
-    @objc func resizeBack(){
-        
-        UIView.animate(withDuration: 0.1, animations: {
-            self.transform = CGAffineTransform.identity
-        })
-    }
+    
+
     
     // this function zooms in and out
     @objc func pinchAction(gesture:UIPinchGestureRecognizer) {
