@@ -21,7 +21,7 @@
                                     <action selector="cancel:" destination="RVO-7c-1JZ" eventType="touchUpInside" id="tQx-Pb-mQX"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ACC-m7-nQf">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ACC-m7-nQf" userLabel="container">
                                 <rect key="frame" x="7" y="119" width="400" height="415"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZsZ-p1-tRM">
@@ -169,6 +169,7 @@
                         <outlet property="background" destination="sAR-rO-SU5" id="dey-Qd-wkY"/>
                         <outlet property="centerX" destination="bZZ-Af-VYc" id="3eP-o3-MsP"/>
                         <outlet property="options" destination="uTR-2I-bNO" id="vMa-qb-jfb"/>
+                        <outlet property="view_container" destination="ACC-m7-nQf" id="Vgg-D7-L6v"/>
                         <segue destination="dLw-pP-1f9" kind="unwind" identifier="unwind_canvas" animates="NO" unwindAction="unwindToCanvas:" id="zen-Oh-MeH"/>
                     </connections>
                 </viewController>
