@@ -108,6 +108,7 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: UNWIND
     @IBAction func unwindToCanvas(_ unwindSegue: UIStoryboardSegue) {
+        gridView.resetZoom()
         gridView.makeCells(size: canvas_size, color: BACKGROUND_COLOR)
     }
     

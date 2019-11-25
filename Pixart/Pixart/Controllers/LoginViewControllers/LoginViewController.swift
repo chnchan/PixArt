@@ -12,6 +12,7 @@ import GoogleSignIn
 import FirebaseAuth
 
 var safeArea_top: Int = 0
+var sidemenu_initialized: Bool = false
 
 class LoginViewController: UIViewController {
     
@@ -38,7 +39,6 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupSideMenu()
         signup_view.addShadow()
         card_view.addShadow()
         login_view.alpha = 0
@@ -80,13 +80,9 @@ class LoginViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         safeArea_top = Int(view.safeAreaInsets.top) // for color slider later
-    }
-    
-    private func setupSideMenu() {
+        sidemenu_initialized = false
         SideMenuManager.default.leftMenuNavigationController = nil
         SideMenuManager.default.rightMenuNavigationController = nil
-        SideMenuManager.default.addPanGestureToPresent(toView: self.navigationController!.navigationBar)
-        SideMenuManager.default.addScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
     }
     
     @IBAction func loginRequested(_ sender: Any) {

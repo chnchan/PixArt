@@ -20,7 +20,6 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var card_view: UIView!
     @IBOutlet weak var options: UISegmentedControl!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
@@ -55,8 +54,13 @@ class ProfileViewController: UIViewController {
     }
     
     private func setupSideMenu() {
-        let storyboard = UIStoryboard(name: "SideMenu", bundle: nil)
-        SideMenuManager.default.leftMenuNavigationController = storyboard.instantiateViewController(withIdentifier: "LeftMenuNavigationController") as? SideMenuNavigationController
+        if sidemenu_initialized == false {
+            sidemenu_initialized = true
+            let storyboard = UIStoryboard(name: "SideMenu", bundle: nil)
+            SideMenuManager.default.leftMenuNavigationController = storyboard.instantiateViewController(withIdentifier: "LeftMenuNavigationController") as? SideMenuNavigationController
+            SideMenuManager.default.addPanGestureToPresent(toView: self.navigationController!.navigationBar)
+            SideMenuManager.default.addScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
+        }
     }
     
     private func loadData() {

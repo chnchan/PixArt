@@ -49,7 +49,7 @@
                                 <rect key="frame" x="49.666666666666657" y="273" width="315" height="350"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="60x-aN-o9G">
-                                        <rect key="frame" x="88.333333333333343" y="-75" width="138" height="138"/>
+                                        <rect key="frame" x="88.333333333333343" y="-65" width="138" height="138"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_1" translatesAutoresizingMaskIntoConstraints="NO" id="bbw-vb-pkU">
                                                 <rect key="frame" x="5" y="5" width="128" height="128"/>
@@ -73,12 +73,12 @@
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="64"/>
+                                                <integer key="value" value="69"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="fd0-WL-EJi">
-                                        <rect key="frame" x="20" y="83" width="275" height="40"/>
+                                        <rect key="frame" x="20" y="93" width="275" height="40"/>
                                         <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="E4c-v5-JYi"/>
@@ -98,7 +98,7 @@
                                         </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Alias" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="Zet-dG-GOR">
-                                        <rect key="frame" x="20" y="139" width="275" height="40"/>
+                                        <rect key="frame" x="20" y="149" width="275" height="40"/>
                                         <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="OAf-Z7-pCE"/>
@@ -110,10 +110,7 @@
                                         </connections>
                                     </textField>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="XwR-h9-hEc">
-                                        <rect key="frame" x="20" y="199" width="275" height="32"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="275" id="xIy-5K-38z"/>
-                                        </constraints>
+                                        <rect key="frame" x="20" y="209" width="275" height="32"/>
                                         <segments>
                                             <segment title="8x8"/>
                                             <segment title="16x16"/>
@@ -134,15 +131,13 @@
                                     <constraint firstItem="dCD-7a-TWB" firstAttribute="centerX" secondItem="58x-RR-AWC" secondAttribute="centerX" id="HqJ-pe-wWi"/>
                                     <constraint firstAttribute="height" constant="350" id="Ph6-X0-heo"/>
                                     <constraint firstItem="fd0-WL-EJi" firstAttribute="centerX" secondItem="58x-RR-AWC" secondAttribute="centerX" id="RbG-AL-LCZ"/>
-                                    <constraint firstAttribute="trailing" secondItem="Zet-dG-GOR" secondAttribute="trailing" constant="20" id="Rll-8I-f6z"/>
                                     <constraint firstItem="fd0-WL-EJi" firstAttribute="leading" secondItem="58x-RR-AWC" secondAttribute="leading" constant="20" id="RrE-qU-DUE"/>
                                     <constraint firstItem="XwR-h9-hEc" firstAttribute="top" secondItem="Zet-dG-GOR" secondAttribute="bottom" constant="20" id="UpO-vO-U8z"/>
-                                    <constraint firstAttribute="trailing" secondItem="fd0-WL-EJi" secondAttribute="trailing" constant="20" id="du7-0O-Ces"/>
                                     <constraint firstItem="Zet-dG-GOR" firstAttribute="centerX" secondItem="58x-RR-AWC" secondAttribute="centerX" id="jn4-sz-bYl"/>
-                                    <constraint firstItem="60x-aN-o9G" firstAttribute="top" secondItem="58x-RR-AWC" secondAttribute="top" constant="-75" id="nUq-3A-Jdd"/>
-                                    <constraint firstAttribute="trailing" secondItem="XwR-h9-hEc" secondAttribute="trailing" constant="20" id="pYc-rY-68k"/>
+                                    <constraint firstItem="60x-aN-o9G" firstAttribute="top" secondItem="58x-RR-AWC" secondAttribute="top" constant="-65" id="nUq-3A-Jdd"/>
                                     <constraint firstAttribute="bottom" secondItem="dCD-7a-TWB" secondAttribute="bottom" constant="20" id="phy-Jh-MGg"/>
                                     <constraint firstItem="XwR-h9-hEc" firstAttribute="leading" secondItem="58x-RR-AWC" secondAttribute="leading" constant="20" id="tnd-W3-6Td"/>
+                                    <constraint firstItem="XwR-h9-hEc" firstAttribute="centerX" secondItem="58x-RR-AWC" secondAttribute="centerX" id="uCq-oG-Ub1"/>
                                     <constraint firstItem="60x-aN-o9G" firstAttribute="centerX" secondItem="58x-RR-AWC" secondAttribute="centerX" id="xe1-mA-Z0j"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>

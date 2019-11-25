@@ -52,7 +52,7 @@
 		B57EF8BA2377CE15009DE772 /* WorksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57EF8B92377CE15009DE772 /* WorksTableViewCell.swift */; };
 		B57EF8BC2377EF05009DE772 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57EF8BB2377EF05009DE772 /* GridView.swift */; };
 		B70C60592380BECD008C1C34 /* WorkDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70C60582380BECD008C1C34 /* WorkDetailViewController.swift */; };
-		B71BFABB238A0F920057E6DA /* TrashStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B71BFABA238A0F920057E6DA /* TrashStoryboard.storyboard */; };
+		B71BFABB238A0F920057E6DA /* Trashed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B71BFABA238A0F920057E6DA /* Trashed.storyboard */; };
 		B71BFABD238A1F8E0057E6DA /* TrashDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71BFABC238A1F8E0057E6DA /* TrashDetailViewController.swift */; };
 		B738F6012387D77D0077C679 /* WorksTrashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B738F6002387D77D0077C679 /* WorksTrashViewController.swift */; };
 		B738F6052387D7E60077C679 /* TrashTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B738F6042387D7E60077C679 /* TrashTableViewCell.swift */; };
@@ -110,7 +110,7 @@
 		B57EF8B92377CE15009DE772 /* WorksTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorksTableViewCell.swift; sourceTree = "<group>"; };
 		B57EF8BB2377EF05009DE772 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		B70C60582380BECD008C1C34 /* WorkDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkDetailViewController.swift; sourceTree = "<group>"; };
-		B71BFABA238A0F920057E6DA /* TrashStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TrashStoryboard.storyboard; sourceTree = "<group>"; };
+		B71BFABA238A0F920057E6DA /* Trashed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Trashed.storyboard; sourceTree = "<group>"; };
 		B71BFABC238A1F8E0057E6DA /* TrashDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashDetailViewController.swift; sourceTree = "<group>"; };
 		B738F6002387D77D0077C679 /* WorksTrashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorksTrashViewController.swift; sourceTree = "<group>"; };
 		B738F6042387D7E60077C679 /* TrashTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashTableViewCell.swift; sourceTree = "<group>"; };
@@ -184,7 +184,7 @@
 				32C0F440237536BF00612535 /* Works.storyboard */,
 				32A162A8238214F7002FEAC4 /* WorksDetail.storyboard */,
 				32A1470D2387717100A3D351 /* WorksEditing.storyboard */,
-				B71BFABA238A0F920057E6DA /* TrashStoryboard.storyboard */,
+				B71BFABA238A0F920057E6DA /* Trashed.storyboard */,
 			);
 			path = Works;
 			sourceTree = "<group>";
@@ -445,7 +445,7 @@
 				3200289F237BDCD50095CE03 /* Assets.xcassets in Resources */,
 				32C0F43323749F4600612535 /* Main.storyboard in Resources */,
 				32C0F41D237414BF00612535 /* LaunchScreen.storyboard in Resources */,
-				B71BFABB238A0F920057E6DA /* TrashStoryboard.storyboard in Resources */,
+				B71BFABB238A0F920057E6DA /* Trashed.storyboard in Resources */,
 				F317AD72237D152300BF1F2F /* GoogleService-Info.plist in Resources */,
 				32C0F42C2374851200612535 /* Profile.storyboard in Resources */,
 				32A162B02382244D002FEAC4 /* Canvas.storyboard in Resources */,
