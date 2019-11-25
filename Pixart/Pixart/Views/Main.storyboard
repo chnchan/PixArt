@@ -111,7 +111,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mSb-xB-cz7">
-                                        <rect key="frame" x="20" y="140" width="275" height="265"/>
+                                        <rect key="frame" x="20" y="130" width="275" height="296"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="6Sy-no-QcC">
                                                 <rect key="frame" x="0.0" y="0.0" width="275" height="40"/>
@@ -134,7 +134,7 @@
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vWu-jN-OrV">
-                                                <rect key="frame" x="137.5" y="107" width="0.0" height="18"/>
+                                                <rect key="frame" x="137.5" y="138" width="0.0" height="18"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="18" id="kMc-RQ-rEQ"/>
                                                 </constraints>
@@ -143,7 +143,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A1W-H4-55x" userLabel="Login">
-                                                <rect key="frame" x="117.5" y="136" width="40" height="40"/>
+                                                <rect key="frame" x="117.5" y="167" width="40" height="40"/>
                                                 <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="40" id="Hlr-pU-mX0"/>
@@ -163,7 +163,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qcq-h9-cPV">
-                                                <rect key="frame" x="75" y="229" width="125" height="36"/>
+                                                <rect key="frame" x="75" y="260" width="125" height="36"/>
                                                 <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="36" id="d91-C9-XHm"/>
@@ -183,7 +183,7 @@
                                                 </connections>
                                             </button>
                                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="f0U-Jx-oeT">
-                                                <rect key="frame" x="62.5" y="201.5" width="150" height="2"/>
+                                                <rect key="frame" x="62.5" y="232.5" width="150" height="2"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="2" id="6uv-Di-ALs"/>
@@ -191,7 +191,7 @@
                                                 </constraints>
                                             </progressView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Or" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UEP-le-T2C">
-                                                <rect key="frame" x="122.5" y="192" width="30" height="21"/>
+                                                <rect key="frame" x="122.5" y="223" width="30" height="21"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="30" id="Qzv-VA-mVr"/>
@@ -200,6 +200,21 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0mD-1l-hRa">
+                                                <rect key="frame" x="70" y="108" width="135" height="19"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="135" id="UbN-Bn-QCG"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="  Auto Sign-in" image="square" catalog="system">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <state key="selected" image="checkmark.square" catalog="system"/>
+                                                <connections>
+                                                    <action selector="autoSigninPressed:" destination="HqM-Ct-jdq" eventType="touchUpInside" id="0OE-Ox-CzK"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -207,21 +222,23 @@
                                             <constraint firstItem="UEP-le-T2C" firstAttribute="top" secondItem="A1W-H4-55x" secondAttribute="bottom" constant="16" id="8K0-aD-djm"/>
                                             <constraint firstItem="A1W-H4-55x" firstAttribute="centerX" secondItem="mSb-xB-cz7" secondAttribute="centerX" id="CWt-3Z-IMq"/>
                                             <constraint firstAttribute="bottom" secondItem="qcq-h9-cPV" secondAttribute="bottom" id="Vre-uJ-elA"/>
-                                            <constraint firstItem="vWu-jN-OrV" firstAttribute="top" secondItem="Z2J-mZ-1MY" secondAttribute="bottom" constant="11" id="WfI-tJ-xav"/>
                                             <constraint firstItem="Z2J-mZ-1MY" firstAttribute="top" secondItem="6Sy-no-QcC" secondAttribute="bottom" constant="16" id="XWc-Oj-oxS"/>
                                             <constraint firstItem="f0U-Jx-oeT" firstAttribute="centerY" secondItem="UEP-le-T2C" secondAttribute="centerY" id="Y9n-nl-WKZ"/>
                                             <constraint firstItem="UEP-le-T2C" firstAttribute="centerX" secondItem="mSb-xB-cz7" secondAttribute="centerX" id="YA9-kJ-yzk"/>
                                             <constraint firstItem="qcq-h9-cPV" firstAttribute="centerX" secondItem="mSb-xB-cz7" secondAttribute="centerX" id="Zlg-Hu-yOp"/>
+                                            <constraint firstItem="vWu-jN-OrV" firstAttribute="top" secondItem="0mD-1l-hRa" secondAttribute="bottom" constant="11" id="bK9-nd-2YA"/>
+                                            <constraint firstItem="0mD-1l-hRa" firstAttribute="centerX" secondItem="mSb-xB-cz7" secondAttribute="centerX" id="cxv-MD-MyI"/>
                                             <constraint firstItem="vWu-jN-OrV" firstAttribute="centerX" secondItem="mSb-xB-cz7" secondAttribute="centerX" id="e9u-bl-JAt"/>
                                             <constraint firstAttribute="width" constant="275" id="gvG-KZ-dwG"/>
                                             <constraint firstItem="6Sy-no-QcC" firstAttribute="top" secondItem="mSb-xB-cz7" secondAttribute="top" id="iJ6-Dg-WKC"/>
+                                            <constraint firstItem="0mD-1l-hRa" firstAttribute="top" secondItem="Z2J-mZ-1MY" secondAttribute="bottom" constant="12" id="nrb-vU-CCY"/>
                                             <constraint firstItem="qcq-h9-cPV" firstAttribute="top" secondItem="UEP-le-T2C" secondAttribute="bottom" constant="16" id="pkd-85-WUj"/>
                                             <constraint firstItem="f0U-Jx-oeT" firstAttribute="centerX" secondItem="mSb-xB-cz7" secondAttribute="centerX" id="xK4-od-g1j"/>
                                             <constraint firstItem="Z2J-mZ-1MY" firstAttribute="centerX" secondItem="mSb-xB-cz7" secondAttribute="centerX" id="zmE-LT-QFa"/>
                                         </constraints>
                                     </view>
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="3je-Zb-P5D">
-                                        <rect key="frame" x="137.5" y="276" width="40" height="40"/>
+                                        <rect key="frame" x="137.5" y="297" width="40" height="40"/>
                                         <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </activityIndicatorView>
                                 </subviews>
@@ -236,7 +253,7 @@
                                     <constraint firstAttribute="height" constant="450" id="XV6-Fq-Khq"/>
                                     <constraint firstItem="mSb-xB-cz7" firstAttribute="centerX" secondItem="Fwt-ND-5de" secondAttribute="centerX" id="Xoc-gj-pAB"/>
                                     <constraint firstItem="3je-Zb-P5D" firstAttribute="bottom" secondItem="A1W-H4-55x" secondAttribute="bottom" id="Zc2-UC-zZO"/>
-                                    <constraint firstItem="mSb-xB-cz7" firstAttribute="top" secondItem="DPv-J2-4dL" secondAttribute="bottom" constant="60" id="imn-rm-t9e"/>
+                                    <constraint firstItem="mSb-xB-cz7" firstAttribute="top" secondItem="DPv-J2-4dL" secondAttribute="bottom" constant="50" id="imn-rm-t9e"/>
                                     <constraint firstItem="DPv-J2-4dL" firstAttribute="width" secondItem="DPv-J2-4dL" secondAttribute="height" multiplier="1:1" id="r1B-DE-XMe"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -423,6 +440,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="YUO-xL-H0I"/>
                     <connections>
+                        <outlet property="auto_signin" destination="0mD-1l-hRa" id="4gG-di-WVF"/>
                         <outlet property="card_view" destination="Fwt-ND-5de" id="E7J-xG-XTf"/>
                         <outlet property="card_view_X_constraint" destination="IZE-Ay-5u4" id="D9s-2O-S7P"/>
                         <outlet property="confirm_password" destination="hMv-9c-sCB" id="bU4-a6-eMa"/>
@@ -477,6 +495,8 @@
     </scenes>
     <resources>
         <image name="arrow.right" catalog="system" width="64" height="48"/>
+        <image name="checkmark.square" catalog="system" width="64" height="56"/>
         <image name="logo_2" width="740" height="740"/>
+        <image name="square" catalog="system" width="64" height="56"/>
     </resources>
 </document>

@@ -5,7 +5,7 @@
     </entity>
     <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class">
         <attribute name="alias" optional="YES" attributeType="String"/>
-        <attribute name="auto_login" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="auto_signin" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="password" optional="YES" attributeType="String"/>
         <attribute name="username" optional="YES" attributeType="String"/>
     </entity>

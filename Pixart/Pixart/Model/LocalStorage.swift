@@ -12,7 +12,7 @@ import CoreData
 
 struct LocalStorage {
     
-    static func saveLogins(username: String, password: String) {
+    static func saveLogins(username: String, password: String, auto_signin: Bool = false) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedContext = appDelegate.persistentContainer.viewContext
         guard let entity = NSEntityDescription.entity(forEntityName: "User", in: managedContext) else { return }
@@ -24,10 +24,12 @@ struct LocalStorage {
             if let user = user.first {
                 user.setValue(username, forKey: "username")
                 user.setValue(password, forKey: "password")
+                user.setValue(auto_signin, forKey: "auto_signin")
             } else {
                 let user = NSManagedObject(entity: entity, insertInto: managedContext)
                 user.setValue(username, forKey: "username")
                 user.setValue(password, forKey: "password")
+                user.setValue(auto_signin, forKey: "auto_signin")
                 user.setValue("", forKey: "alias")
             }
         }

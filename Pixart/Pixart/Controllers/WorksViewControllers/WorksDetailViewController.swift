@@ -21,10 +21,10 @@ class WorksDetailViewController: UIViewController {
     var canvas_size: Int = 8
     var colors: [String : String] = [:]
     
-    @IBOutlet weak var worknamex: UITextField!
     @IBOutlet weak var workname: UIButton!
     @IBOutlet weak var edit_button: UIButton!
     @IBOutlet weak var editButton_Y_top: NSLayoutConstraint!
+    @IBOutlet weak var likes_Y_top: NSLayoutConstraint!
     @IBOutlet weak var preview: CanvasPreview!
     @IBOutlet weak var private_icon: UIView!
     @IBOutlet weak var published_icon: UIView!
@@ -35,8 +35,6 @@ class WorksDetailViewController: UIViewController {
         super.viewDidLoad()
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
         self.view.addGestureRecognizer(tap)
-//        self.workname.delegate = self
-//        self.workname.text = self.work_name
         self.workname.setTitle(self.work_name, for: .normal)
         self.preview.makeCells(size: canvas_size, data: colors)
         
@@ -44,10 +42,12 @@ class WorksDetailViewController: UIViewController {
             self.published_icon.alpha = 0
             self.publishedView_X_constraint.constant = 416
             self.editButton_Y_top.constant = -9
+            self.likes_Y_top.constant = -50
         } else {
             self.private_icon.alpha = 0
             self.privateView_X_constraint.constant = -416
             self.editButton_Y_top.constant = -50
+            self.likes_Y_top.constant = -9
         }
     }
     
@@ -128,7 +128,7 @@ class WorksDetailViewController: UIViewController {
             if error != nil {
                 print("error updating data")
             } else {
-                let alert = UIAlertController(title: "Important Notice:", message: "To prevent possible exploit, likes and dislikes will reset to 0 if you edit the artwork.", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Important:", message: "To prevent possible exploit, likes and dislikes will reset to 0 if you edit the artwork.", preferredStyle: .alert)
                 let okAction = UIAlertAction(title: "Yes, I Understand.", style: .default, handler: nil)
                 alert.addAction(okAction)
                 self.present(alert, animated: true, completion: nil)
@@ -179,6 +179,7 @@ class WorksDetailViewController: UIViewController {
             self.private_icon.alpha = 1
             self.published_icon.alpha = 0
             self.editButton_Y_top.constant = -9
+            self.likes_Y_top.constant = -50
             self.publishedView_X_constraint.constant = 416
             self.privateView_X_constraint.constant = 0
             self.view.layoutIfNeeded()
@@ -192,6 +193,7 @@ class WorksDetailViewController: UIViewController {
             self.private_icon.alpha = 0
             self.published_icon.alpha = 1
             self.editButton_Y_top.constant = -50
+            self.likes_Y_top.constant = -9
             self.publishedView_X_constraint.constant = 0
             self.privateView_X_constraint.constant = -416
             self.view.layoutIfNeeded()

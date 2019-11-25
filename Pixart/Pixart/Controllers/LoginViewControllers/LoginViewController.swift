@@ -26,6 +26,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var login_button: UIButton!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var card_view_X_constraint: NSLayoutConstraint!
+    @IBOutlet weak var auto_signin: UIButton!
     // Signup
     @IBOutlet weak var signup_view: UIView!
     @IBOutlet weak var signup_email: UITextField!
@@ -63,6 +64,10 @@ class LoginViewController: UIViewController {
         
         UIView.animate(withDuration: 0.3, animations: {
             self.login_view.alpha = 1
+        }, completion: { finished in
+            if self.auto_signin.isSelected == true {
+                self.loginRequested(self)
+            }
         })
     }
     
@@ -74,6 +79,7 @@ class LoginViewController: UIViewController {
             if (!userInfo.isEmpty) {
                 email.text = userInfo[0].value(forKey: "username") as? String
                 password.text = userInfo[0].value(forKey: "password") as? String
+                auto_signin.isSelected = (userInfo[0].value(forKey: "auto_signin") as? Bool) ?? false
             }
         }
     }
@@ -100,6 +106,7 @@ class LoginViewController: UIViewController {
                 self.errorLabel.text = error
             } else {
                 self.errorLabel.text = ""
+                LocalStorage.saveLogins(username: self.email.text ?? "", password: self.password.text ?? "", auto_signin: self.auto_signin.isSelected)
                 self.performSegue(withIdentifier: "login", sender: self)
             }
         }
@@ -176,6 +183,14 @@ class LoginViewController: UIViewController {
                 self.view.isUserInteractionEnabled = true
             }
         })
+    }
+    
+    @IBAction func autoSigninPressed(_ sender: Any) {
+        if auto_signin.isSelected == false {
+            auto_signin.isSelected = true
+        } else {
+            auto_signin.isSelected = false
+        }
     }
     
     private func validatePassword() -> Bool {
