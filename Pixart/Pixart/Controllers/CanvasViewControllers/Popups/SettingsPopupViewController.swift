@@ -10,8 +10,10 @@ import UIKit
 
 class SettingsPopupViewController: UIViewController {
 
-    var canvas_size: Int = 8
     let canvas_sizes: [Int] = [8, 16, 32, 64]
+    
+    var canvas_size: Int = 8
+    var background_color: UIColor = UIColor.white
     @IBOutlet weak var options: UISegmentedControl!
     
     override func viewDidLoad() {
@@ -33,6 +35,7 @@ class SettingsPopupViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let dest = segue.destination as? CanvasViewController {
             dest.canvas_size = canvas_sizes[options.selectedSegmentIndex]
+            dest.BACKGROUND_COLOR = UIColor.white
         }
     }
     

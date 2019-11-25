@@ -48,7 +48,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qiY-Zk-t1j">
                                         <rect key="frame" x="0.0" y="0.0" width="56" height="48"/>
                                         <connections>
-                                            <segue destination="ypF-yh-G0S" kind="presentation" id="TSS-JX-ehS"/>
+                                            <segue destination="ypF-yh-G0S" kind="show" id="TSS-JX-ehS"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -91,7 +91,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="zoomToNormal:" destination="GMg-zR-12w" eventType="touchUpInside" id="yJG-9L-hMR"/>
+                                            <action selector="zoomOut:" destination="GMg-zR-12w" eventType="touchUpInside" id="KzL-Ik-kuV"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -150,6 +150,7 @@
                     <connections>
                         <outlet property="canvasContainer" destination="Pjw-oK-w6O" id="5fB-qE-hOA"/>
                         <outlet property="gridView" destination="Z6y-b8-wl1" id="Bg6-kU-Pjl"/>
+                        <segue destination="20m-TV-b0U" kind="show" identifier="canvas_to_works" id="G00-7O-SqL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PZR-P1-Afj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -164,7 +165,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B7l-bj-6A1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="17" y="79"/>
+            <point key="canvasLocation" x="16" y="62"/>
         </scene>
         <!--SettingsPopup-->
         <scene sceneID="jjI-f9-XuJ">
@@ -172,7 +173,7 @@
                 <viewControllerPlaceholder storyboardName="SettingsPopup" id="tN3-ap-A3D" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kvm-8r-xIx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="39" y="113"/>
+            <point key="canvasLocation" x="38" y="96"/>
         </scene>
         <!--PromptNamePopup-->
         <scene sceneID="fpz-Md-D3d">
@@ -180,7 +181,17 @@
                 <viewControllerPlaceholder storyboardName="PromptNamePopup" id="TQm-E1-vnu" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5bS-V7-HmD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="59" y="146"/>
+            <point key="canvasLocation" x="58" y="163"/>
+        </scene>
+        <!--Works-->
+        <scene sceneID="HNo-UT-f9v">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Works" id="20m-TV-b0U" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="9WN-Oa-cE0"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KjZ-7G-Fbu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="0.0" y="129"/>
         </scene>
     </scenes>
     <resources>

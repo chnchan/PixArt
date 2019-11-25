@@ -65,6 +65,10 @@ class WorksEditingViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func zoomOut(_ sender: Any) {
+        canvas.resetZoom()
+    }
+    
     @objc func changedColor(_ slider: ColorSlider) {
         let color = slider.color
         canvas.drawingColor = color

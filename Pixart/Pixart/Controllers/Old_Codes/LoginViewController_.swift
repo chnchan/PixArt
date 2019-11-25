@@ -11,9 +11,9 @@ import SideMenu
 import GoogleSignIn
 import FirebaseAuth
 
-var safeArea_top: Int = 0
+//var safeArea_top: Int = 0
 
-class LoginViewController: UIViewController {
+class LoginViewController_: UIViewController {
 
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
@@ -55,7 +55,7 @@ class LoginViewController: UIViewController {
                 self.errorLabel.text = ""
                 self.spinner.stopAnimating()
                 self.view.isUserInteractionEnabled = true
-                self.performSegue(withIdentifier: "login", sender: self)
+                self.performSegue(withIdentifier: "login_", sender: self)
             }
         }
         
