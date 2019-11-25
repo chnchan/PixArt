@@ -73,14 +73,15 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
         if name == "" {
             name = "No Name"
         }
+        let uuid = UUID().uuidString
         var gridColors: [String:String] = [:]
         for j in 0...gridSize - 1 {
             for i in 0...gridSize - 1 {
                 gridColors["\(i)|\(j)"] = gridView.cells["\(i)|\(j)"]?.backgroundColor!.htmlRGBA
             }
         }
-        self.db.collection(self.userID).document(name).setData([
-            "documentdata": name, //keeping the original name used to refer to the document in database, should not be changed
+        self.db.collection(self.userID).document(uuid).setData([
+            "documentdata": uuid, //keeping the original name used to refer to the document in database, should not be changed
             "name": name, //name of the work
             "colors": gridColors,
             "gridSize": gridSize,
