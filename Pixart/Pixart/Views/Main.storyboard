@@ -122,9 +122,6 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits" textContentType="email"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="Z2J-mZ-1MY">
                                                 <rect key="frame" x="0.0" y="56" width="275" height="40"/>
@@ -209,7 +206,6 @@
                                             <constraint firstItem="6Sy-no-QcC" firstAttribute="centerX" secondItem="mSb-xB-cz7" secondAttribute="centerX" id="7Qv-2b-6Vh"/>
                                             <constraint firstItem="UEP-le-T2C" firstAttribute="top" secondItem="A1W-H4-55x" secondAttribute="bottom" constant="16" id="8K0-aD-djm"/>
                                             <constraint firstItem="A1W-H4-55x" firstAttribute="centerX" secondItem="mSb-xB-cz7" secondAttribute="centerX" id="CWt-3Z-IMq"/>
-                                            <constraint firstItem="6Sy-no-QcC" firstAttribute="centerX" secondItem="mSb-xB-cz7" secondAttribute="centerX" id="P70-FP-b1b"/>
                                             <constraint firstAttribute="bottom" secondItem="qcq-h9-cPV" secondAttribute="bottom" id="Vre-uJ-elA"/>
                                             <constraint firstItem="vWu-jN-OrV" firstAttribute="top" secondItem="Z2J-mZ-1MY" secondAttribute="bottom" constant="11" id="WfI-tJ-xav"/>
                                             <constraint firstItem="Z2J-mZ-1MY" firstAttribute="top" secondItem="6Sy-no-QcC" secondAttribute="bottom" constant="16" id="XWc-Oj-oxS"/>

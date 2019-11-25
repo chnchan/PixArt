@@ -11,21 +11,47 @@ import SideMenu
 
 class ProfileViewController: UIViewController {
 
+    let CORNER_RADIUS: CGFloat = 20
+    let canvas_sizes: [Int] = [8, 16, 32, 64]
+    
     @IBOutlet weak var profile_image: UIImageView!
-    @IBOutlet weak var username: UILabel!
+    @IBOutlet weak var email: UITextField!
+    @IBOutlet weak var alias: UITextField!
+    @IBOutlet weak var card_view: UIView!
     @IBOutlet weak var options: UISegmentedControl!
-    let canvas_size: [Int] = [8, 16, 32, 64]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        profile_image.layer.masksToBounds = true
-        profile_image.layer.cornerRadius = profile_image.bounds.width / 2
-        setupSideMenu()
         loadData()
+        setupSideMenu()
+        card_view.addShadow()
+        email.setLeftImage(systemImage: "envelope", cornerRadius: CORNER_RADIUS)
+        email.layer.borderColor = UIColor.lightGray.cgColor
+        email.layer.borderWidth = 0.2
+        email.layer.cornerRadius = CORNER_RADIUS
+        alias.setLeftImage(systemImage: "person", cornerRadius: CORNER_RADIUS)
+        alias.layer.borderColor = UIColor.lightGray.cgColor
+        alias.layer.borderWidth = 0.2
+        alias.layer.cornerRadius = CORNER_RADIUS
+        alias.delegate = self
     }
     
     @IBAction func updateCanvasSize(_ sender: UISegmentedControl) {
-        LocalStorage.saveCanvasSize(size: canvas_size[options.selectedSegmentIndex])
+        LocalStorage.saveCanvasSize(size: canvas_sizes[options.selectedSegmentIndex])
+    }
+    
+    @IBAction func updateAlias(_ sender: Any) {
+        LocalStorage.saveAlias(alias: alias.text ?? "")
+    }
+    
+    @IBAction func openSideMenu(_ sender: Any) {
+        view.endEditing(true)
+        performSegue(withIdentifier: "profile_to_sidemenu", sender: self)
+    }
+    
+    @IBAction func deleteAccount(_ sender: Any) {
+        
     }
     
     private func setupSideMenu() {
@@ -35,15 +61,8 @@ class ProfileViewController: UIViewController {
     
     private func loadData() {
         let size = LocalStorage.fetchCanvasSize()
-        
-        if let userInfo = LocalStorage.fetchLogins(){
-            if(!userInfo.isEmpty) {
-                username.text = userInfo[0].value(forKey: "username") as? String
-            }
-            else{
-                username.text = "Anonymous"
-            }
-        }
+        email.text = LocalStorage.fetchEmail()
+        alias.text = LocalStorage.fetchAlias()
         
         if size == 8 {
             options.selectedSegmentIndex = 0
@@ -56,5 +75,12 @@ class ProfileViewController: UIViewController {
         } else {
             print("Unknown canvas size!")
         }
+    }
+}
+
+extension ProfileViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

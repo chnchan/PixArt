@@ -28,6 +28,7 @@ struct LocalStorage {
                 let user = NSManagedObject(entity: entity, insertInto: managedContext)
                 user.setValue(username, forKey: "username")
                 user.setValue(password, forKey: "password")
+                user.setValue("", forKey: "alias")
             }
         }
         catch {
@@ -54,6 +55,59 @@ struct LocalStorage {
         }
         
         return userInfo
+    }
+    
+    static func saveAlias(alias: String) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "User")
+        
+        do {
+            let user = try managedContext.fetch(fetchRequest)
+            
+            if let user = user.first {
+                user.setValue(alias, forKey: "alias")
+            }
+        }
+        catch {
+            print("Failed to fetch alias:", error)
+        }
+
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
+    
+    static func fetchAlias() -> String {
+        var userInfo: [NSManagedObject] = []
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return "" }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "User")
+        
+        do {
+            userInfo = try managedContext.fetch(fetchRequest)
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        
+        return userInfo[0].value(forKey: "alias") as? String ?? ""
+    }
+    
+    static func fetchEmail() -> String {
+        var userInfo: [NSManagedObject] = []
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return "" }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "User")
+        
+        do {
+            userInfo = try managedContext.fetch(fetchRequest)
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        
+        return userInfo[0].value(forKey: "username") as! String
     }
     
     static func saveCanvasSize(size: Int = 8) { // 8x8 canvas size by default

@@ -126,13 +126,13 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XxM-wD-3XL" userLabel="Card View">
-                                <rect key="frame" x="0.0" y="-10" width="414" height="654"/>
+                                <rect key="frame" x="0.0" y="-30" width="414" height="674"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HZM-4h-gDY" userLabel="SideMenu">
-                                        <rect key="frame" x="0.0" y="54" width="56" height="48"/>
+                                        <rect key="frame" x="0.0" y="74" width="56" height="48"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line.horizontal.3" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Auj-8J-ISF" userLabel="Menu Icon">
-                                                <rect key="frame" x="9.6666666666666643" y="13.999999999999996" width="37" height="20.333333333333339"/>
+                                                <rect key="frame" x="9.6666666666666643" y="13.999999999999995" width="37" height="20.333333333333357"/>
                                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="29.670000000000002" id="XIO-Jh-lcb"/>
@@ -158,7 +158,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nk0-WC-Ntj" userLabel="image_container">
-                                        <rect key="frame" x="17" y="134" width="380" height="380"/>
+                                        <rect key="frame" x="17" y="154" width="380" height="380"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CBO-UU-LRJ" customClass="CanvasPreview" customModule="Pixart" customModuleProvider="target">
                                                 <rect key="frame" x="5" y="5" width="370" height="370"/>
@@ -175,25 +175,25 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artwork Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Yy-zM-r5A">
-                                        <rect key="frame" x="122.66666666666669" y="529" width="169" height="30"/>
+                                        <rect key="frame" x="122.66666666666669" y="549" width="169" height="30"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P9L-qG-akE">
-                                        <rect key="frame" x="156.66666666666666" y="577" width="100.99999999999997" height="21"/>
+                                        <rect key="frame" x="156.66666666666666" y="597" width="100.99999999999997" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Published on: 11/23/2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h6P-4k-UtN">
-                                        <rect key="frame" x="132" y="608" width="150" height="16"/>
+                                        <rect key="frame" x="132" y="628" width="150" height="16"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="glP-Sh-pd3">
-                                        <rect key="frame" x="122.66666666666669" y="560" width="169" height="2"/>
+                                        <rect key="frame" x="122.66666666666669" y="580" width="169" height="2"/>
                                     </progressView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -221,7 +221,7 @@
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="XxM-wD-3XL" firstAttribute="top" secondItem="rLO-dY-e9K" secondAttribute="top" constant="-10" id="KG0-VV-2WF"/>
+                            <constraint firstItem="XxM-wD-3XL" firstAttribute="top" secondItem="rLO-dY-e9K" secondAttribute="top" constant="-30" id="KG0-VV-2WF"/>
                             <constraint firstItem="XxM-wD-3XL" firstAttribute="leading" secondItem="f3G-YN-baA" secondAttribute="leading" id="RDj-QC-s8h"/>
                             <constraint firstItem="HZM-4h-gDY" firstAttribute="top" secondItem="f3G-YN-baA" secondAttribute="top" id="TBU-vX-E4Z"/>
                             <constraint firstAttribute="bottom" secondItem="kLZ-T9-aVb" secondAttribute="bottom" id="XZM-za-Aa1"/>

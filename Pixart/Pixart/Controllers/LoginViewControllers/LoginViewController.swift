@@ -44,11 +44,11 @@ class LoginViewController: UIViewController {
         login_view.alpha = 0
         email.layer.cornerRadius = CORNER_RADIUS
         email.layer.borderColor = UIColor.lightGray.cgColor
-        email.layer.borderWidth = 0.1
+        email.layer.borderWidth = 0.2
         email.setLeftImage(systemImage: "envelope", cornerRadius: CORNER_RADIUS)
         password.layer.cornerRadius = CORNER_RADIUS
         password.layer.borderColor = UIColor.lightGray.cgColor
-        password.layer.borderWidth = 0.1
+        password.layer.borderWidth = 0.2
         password.setLeftImage(systemImage: "lock", cornerRadius: CORNER_RADIUS)
         signup_email.addLeftPadding(width: 20)
         signup_password.addLeftPadding(width: 20)

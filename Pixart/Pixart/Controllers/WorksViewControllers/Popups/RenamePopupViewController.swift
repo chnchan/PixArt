@@ -2,22 +2,31 @@
 //  PromptNamePopupViewController.swift
 //  Pixart
 //
-//  Created by Hin Chan on 11/17/19.
+//  Created by Hin Chan on 11/24/19.
 //  Copyright © 2019 UC Davis. All rights reserved.
 //
 
 import UIKit
+import Firebase
 
-class PromptNamePopupViewController: UIViewController, UITextFieldDelegate {
+class RenamePopupViewController: UIViewController, UITextFieldDelegate {
 
+    let db = Firestore.firestore()
+    var userID = ""
+    var work_UUID: String = ""
+    var work_name: String = "No Name"
+    
     @IBOutlet weak var name: UITextField!
-    @IBOutlet var background: UIView!
+    @IBOutlet weak var popup_view: UIView!
     @IBOutlet weak var centerX: NSLayoutConstraint!
+    @IBOutlet var background: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.centerX.constant = -416
         self.name.delegate = self
+        self.name.placeholder = work_name
+        self.centerX.constant = -416
+        self.popup_view.addShadow(radius: 0.5)
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -30,13 +39,17 @@ class PromptNamePopupViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let dest = segue.destination as? CanvasViewController {
-            dest.work_name = (name.text ?? "").isEmpty ? "No Name" : name.text ?? ""
+        if let dest = segue.destination as? WorksDetailViewController {
+            dest.work_name = (name.text ?? "").isEmpty ? work_name : name.text ?? ""
         }
     }
     
     @IBAction func done(_ sender: Any?) {
         view.endEditing(true)
+        
+        if name.text != "" && name.text != work_name {
+            self.db.collection(self.userID).document(self.work_UUID).setData(["name" : name.text ?? ""], mergeFields: ["name"])
+        }
         
         UIView.animate(withDuration: 0.2, animations: {
             self.centerX.constant = 416
@@ -44,7 +57,7 @@ class PromptNamePopupViewController: UIViewController, UITextFieldDelegate {
             self.view.layoutIfNeeded()
         }, completion: { finished in
             if finished == true {
-                self.performSegue(withIdentifier: "unwind_canvas2", sender: self)
+                self.performSegue(withIdentifier: "unwind_works_detail2", sender: self)
             }
         })
     }

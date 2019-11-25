@@ -13,7 +13,6 @@
 		32602BB623753C6E00FE7D31 /* old_WorksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32602BB523753C6E00FE7D31 /* old_WorksViewController.swift */; };
 		32602BB8237547A200FE7D31 /* CanvasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32602BB7237547A200FE7D31 /* CanvasViewController.swift */; };
 		32602BBA237553EF00FE7D31 /* FeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32602BB9237553EF00FE7D31 /* FeedsViewController.swift */; };
-		326CD37623760CA9008CEC07 /* Credits.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 326CD37523760CA9008CEC07 /* Credits.storyboard */; };
 		326CD37823761066008CEC07 /* LogoutConfirmation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 326CD37723761066008CEC07 /* LogoutConfirmation.storyboard */; };
 		326CD37C23761356008CEC07 /* LogoutConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326CD37B23761356008CEC07 /* LogoutConfirmationViewController.swift */; };
 		32A1470923876ED100A3D351 /* WorksEditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A1470823876ED100A3D351 /* WorksEditingViewController.swift */; };
@@ -47,6 +46,8 @@
 		32CC1947237E4AED00810D77 /* PublishedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CC1946237E4AED00810D77 /* PublishedTableViewCell.swift */; };
 		32D5FA9C238A4A0500AA65CF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D5FA9B238A4A0500AA65CF /* LoginViewController.swift */; };
 		32E0C60E238A5ACF005DD68F /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E0C60D238A5ACF005DD68F /* LaunchViewController.swift */; };
+		32E0C616238B35B8005DD68F /* RenamePopup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32E0C615238B35B8005DD68F /* RenamePopup.storyboard */; };
+		32E0C619238B38C3005DD68F /* RenamePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E0C618238B38C3005DD68F /* RenamePopupViewController.swift */; };
 		90832A7785AFB42F2D75E7B9 /* Pods_Pixart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 139F0A8BC80429260D62ED46 /* Pods_Pixart.framework */; };
 		B57EF8BA2377CE15009DE772 /* WorksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57EF8B92377CE15009DE772 /* WorksTableViewCell.swift */; };
 		B57EF8BC2377EF05009DE772 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57EF8BB2377EF05009DE772 /* GridView.swift */; };
@@ -68,7 +69,6 @@
 		32602BB523753C6E00FE7D31 /* old_WorksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = old_WorksViewController.swift; sourceTree = "<group>"; };
 		32602BB7237547A200FE7D31 /* CanvasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasViewController.swift; sourceTree = "<group>"; };
 		32602BB9237553EF00FE7D31 /* FeedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsViewController.swift; sourceTree = "<group>"; };
-		326CD37523760CA9008CEC07 /* Credits.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Credits.storyboard; sourceTree = "<group>"; };
 		326CD37723761066008CEC07 /* LogoutConfirmation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LogoutConfirmation.storyboard; sourceTree = "<group>"; };
 		326CD37B23761356008CEC07 /* LogoutConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutConfirmationViewController.swift; sourceTree = "<group>"; };
 		32A1470823876ED100A3D351 /* WorksEditingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorksEditingViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +104,8 @@
 		32CC1946237E4AED00810D77 /* PublishedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishedTableViewCell.swift; sourceTree = "<group>"; };
 		32D5FA9B238A4A0500AA65CF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		32E0C60D238A5ACF005DD68F /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		32E0C615238B35B8005DD68F /* RenamePopup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RenamePopup.storyboard; sourceTree = "<group>"; };
+		32E0C618238B38C3005DD68F /* RenamePopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenamePopupViewController.swift; sourceTree = "<group>"; };
 		4F67732EF58E34752E9602F7 /* Pods-Pixart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pixart.debug.xcconfig"; path = "Target Support Files/Pods-Pixart/Pods-Pixart.debug.xcconfig"; sourceTree = "<group>"; };
 		B57EF8B92377CE15009DE772 /* WorksTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorksTableViewCell.swift; sourceTree = "<group>"; };
 		B57EF8BB2377EF05009DE772 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 		32A162A7238214D3002FEAC4 /* Works */ = {
 			isa = PBXGroup;
 			children = (
+				32E0C614238B35B8005DD68F /* Popups */,
 				32C0F440237536BF00612535 /* Works.storyboard */,
 				32A162A8238214F7002FEAC4 /* WorksDetail.storyboard */,
 				32A1470D2387717100A3D351 /* WorksEditing.storyboard */,
@@ -274,7 +277,6 @@
 				32C0F4302374956200612535 /* SideMenu.storyboard */,
 				32C0F42A2374851200612535 /* Profile.storyboard */,
 				32C0F42D2374856F00612535 /* Feeds.storyboard */,
-				326CD37523760CA9008CEC07 /* Credits.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -306,6 +308,7 @@
 		32CC193E237E33BA00810D77 /* WorksViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				32E0C617238B3895005DD68F /* Popups */,
 				32CC1943237E4AC000810D77 /* TableViewCell */,
 				32A162C023876339002FEAC4 /* CanvasPreview.swift */,
 				32CC193C237E337600810D77 /* WorksViewController.swift */,
@@ -334,6 +337,22 @@
 				32D5FA9B238A4A0500AA65CF /* LoginViewController.swift */,
 			);
 			path = LoginViewControllers;
+			sourceTree = "<group>";
+		};
+		32E0C614238B35B8005DD68F /* Popups */ = {
+			isa = PBXGroup;
+			children = (
+				32E0C615238B35B8005DD68F /* RenamePopup.storyboard */,
+			);
+			path = Popups;
+			sourceTree = "<group>";
+		};
+		32E0C617238B3895005DD68F /* Popups */ = {
+			isa = PBXGroup;
+			children = (
+				32E0C618238B38C3005DD68F /* RenamePopupViewController.swift */,
+			);
+			path = Popups;
 			sourceTree = "<group>";
 		};
 		7FB127BF296BCF317D1ABB7F /* Frameworks */ = {
@@ -422,9 +441,9 @@
 				32C0F42E2374856F00612535 /* Feeds.storyboard in Resources */,
 				326CD37823761066008CEC07 /* LogoutConfirmation.storyboard in Resources */,
 				32A1470E2387717100A3D351 /* WorksEditing.storyboard in Resources */,
+				32E0C616238B35B8005DD68F /* RenamePopup.storyboard in Resources */,
 				3200289F237BDCD50095CE03 /* Assets.xcassets in Resources */,
 				32C0F43323749F4600612535 /* Main.storyboard in Resources */,
-				326CD37623760CA9008CEC07 /* Credits.storyboard in Resources */,
 				32C0F41D237414BF00612535 /* LaunchScreen.storyboard in Resources */,
 				B71BFABB238A0F920057E6DA /* TrashStoryboard.storyboard in Resources */,
 				F317AD72237D152300BF1F2F /* GoogleService-Info.plist in Resources */,
@@ -510,6 +529,7 @@
 				32CC1942237E33DF00810D77 /* WorksPublishedViewController.swift in Sources */,
 				32CC1945237E4ADF00810D77 /* PrivateTableViewCell.swift in Sources */,
 				32602BBA237553EF00FE7D31 /* FeedsViewController.swift in Sources */,
+				32E0C619238B38C3005DD68F /* RenamePopupViewController.swift in Sources */,
 				32A162BD2384FC82002FEAC4 /* WorksDetailViewController.swift in Sources */,
 				32C0F43F237503E100612535 /* ProfileViewController.swift in Sources */,
 				32A1470923876ED100A3D351 /* WorksEditingViewController.swift in Sources */,

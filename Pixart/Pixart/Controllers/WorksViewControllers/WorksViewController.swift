@@ -30,6 +30,7 @@ class WorksViewController: UIViewController {
         privateTable.delegate = self
         publicTable.dataSource = self
         publicTable.delegate = self
+        publishedView_X_constraint.constant = 416
         fetch()
     }
     

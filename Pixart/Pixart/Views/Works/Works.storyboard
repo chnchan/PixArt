@@ -59,7 +59,7 @@
                                 </connections>
                             </segmentedControl>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bjd-rB-Dqi" userLabel="Published View">
-                                <rect key="frame" x="433" y="100" width="380" height="762"/>
+                                <rect key="frame" x="17" y="100" width="380" height="762"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="130" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FjU-pm-9ht" userLabel="Published Table">
                                         <rect key="frame" x="0.0" y="0.0" width="380" height="762"/>
@@ -247,7 +247,7 @@
                             <constraint firstItem="bZL-xe-QRS" firstAttribute="top" secondItem="KeE-wG-Jbe" secondAttribute="top" id="2xY-zk-9Df"/>
                             <constraint firstItem="FAd-iz-whM" firstAttribute="centerX" secondItem="fod-N1-yYd" secondAttribute="centerX" id="4eY-b9-udX"/>
                             <constraint firstItem="bZL-xe-QRS" firstAttribute="trailing" secondItem="Vbm-96-Red" secondAttribute="trailing" id="8gB-jU-380"/>
-                            <constraint firstItem="Bjd-rB-Dqi" firstAttribute="centerX" secondItem="fod-N1-yYd" secondAttribute="centerX" constant="416" id="a9x-BQ-Y1C"/>
+                            <constraint firstItem="Bjd-rB-Dqi" firstAttribute="centerX" secondItem="fod-N1-yYd" secondAttribute="centerX" id="a9x-BQ-Y1C"/>
                             <constraint firstItem="c1f-gv-nZ9" firstAttribute="centerX" secondItem="fod-N1-yYd" secondAttribute="centerX" id="cWA-Bg-yk7"/>
                             <constraint firstItem="KeE-wG-Jbe" firstAttribute="leading" secondItem="Vbm-96-Red" secondAttribute="leading" id="ehi-59-XrW"/>
                             <constraint firstItem="Bjd-rB-Dqi" firstAttribute="bottom" secondItem="Vbm-96-Red" secondAttribute="bottom" id="l5Z-Xe-Mrm"/>

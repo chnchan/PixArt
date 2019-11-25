@@ -169,10 +169,10 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sMy-sg-dAR">
-                                        <rect key="frame" x="103" y="0.0" width="174" height="276"/>
+                                        <rect key="frame" x="103" y="8.5" width="174" height="267.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Typ-EM-e6g">
-                                                <rect key="frame" x="-13" y="236" width="200" height="40"/>
+                                                <rect key="frame" x="-13" y="227.5" width="200" height="40"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="JSP-bJ-sex"/>
@@ -192,7 +192,7 @@
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c4Y-8j-NFO">
-                                                <rect key="frame" x="0.0" y="95.5" width="174" height="54"/>
+                                                <rect key="frame" x="0.0" y="91.5" width="174" height="54"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart.slash" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="cdV-LR-D2l">
                                                         <rect key="frame" x="99" y="0.5" width="50" height="50"/>
@@ -258,27 +258,31 @@
                                             <constraint firstAttribute="trailing" secondItem="c4Y-8j-NFO" secondAttribute="trailing" id="rzd-SZ-PFG"/>
                                         </constraints>
                                     </view>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Artwork Name" placeholder="No Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9ot-Mu-7wH">
-                                        <rect key="frame" x="0.0" y="0.0" width="380" height="31.5"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cUS-Wf-5i0">
+                                        <rect key="frame" x="114.5" y="0.0" width="151" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Ieb-x5-ItH"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
+                                        <state key="normal" title="Artwork Name">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
-                                            <action selector="updateName:" destination="B7u-gC-C8E" eventType="editingDidEnd" id="Kdj-ds-nm2"/>
+                                            <action selector="updateName:" destination="B7u-gC-C8E" eventType="touchUpInside" id="7aQ-rI-qkd"/>
                                         </connections>
-                                    </textField>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstItem="sMy-sg-dAR" firstAttribute="centerX" secondItem="qLN-ym-HCh" secondAttribute="centerX" id="5EX-Gb-IfN"/>
-                                    <constraint firstItem="9ot-Mu-7wH" firstAttribute="leading" secondItem="qLN-ym-HCh" secondAttribute="leading" id="BrR-59-KnJ"/>
+                                    <constraint firstItem="sMy-sg-dAR" firstAttribute="top" secondItem="cUS-Wf-5i0" secondAttribute="bottom" constant="-31.5" id="Djp-q6-LIt"/>
                                     <constraint firstItem="xg9-zV-FA5" firstAttribute="top" secondItem="x0l-8a-TAN" secondAttribute="bottom" constant="20" id="EFe-2A-0Nj"/>
+                                    <constraint firstItem="cUS-Wf-5i0" firstAttribute="top" secondItem="qLN-ym-HCh" secondAttribute="top" id="Fmd-cQ-VxY"/>
                                     <constraint firstItem="xg9-zV-FA5" firstAttribute="centerX" secondItem="qLN-ym-HCh" secondAttribute="centerX" id="O5G-Z4-Ukx"/>
                                     <constraint firstItem="x0l-8a-TAN" firstAttribute="centerX" secondItem="qLN-ym-HCh" secondAttribute="centerX" id="X9Y-9J-c6f"/>
-                                    <constraint firstItem="9ot-Mu-7wH" firstAttribute="top" secondItem="qLN-ym-HCh" secondAttribute="top" id="iDY-uj-BXP"/>
-                                    <constraint firstItem="sMy-sg-dAR" firstAttribute="top" secondItem="9ot-Mu-7wH" secondAttribute="bottom" constant="-31.5" id="iSo-dY-F3r"/>
-                                    <constraint firstAttribute="trailing" secondItem="9ot-Mu-7wH" secondAttribute="trailing" id="jWK-E8-Bea"/>
                                     <constraint firstItem="xg9-zV-FA5" firstAttribute="top" secondItem="sMy-sg-dAR" secondAttribute="bottom" constant="20" id="o30-eg-Q3h"/>
                                     <constraint firstAttribute="bottom" secondItem="xg9-zV-FA5" secondAttribute="bottom" id="o6k-7b-EQw"/>
+                                    <constraint firstItem="cUS-Wf-5i0" firstAttribute="centerX" secondItem="qLN-ym-HCh" secondAttribute="centerX" id="smV-zd-L66"/>
                                     <constraint firstAttribute="bottom" secondItem="xg9-zV-FA5" secondAttribute="bottom" id="z1E-VH-XvI"/>
                                 </constraints>
                             </view>
@@ -334,9 +338,10 @@
                         <outlet property="private_icon" destination="I3E-Va-qbd" id="9Lq-hH-pZN"/>
                         <outlet property="publishedView_X_constraint" destination="5EX-Gb-IfN" id="N0Q-q6-Pvl"/>
                         <outlet property="published_icon" destination="qBa-9C-D1b" id="puP-OO-NZo"/>
-                        <outlet property="workname" destination="9ot-Mu-7wH" id="A8R-zO-mJB"/>
+                        <outlet property="workname" destination="cUS-Wf-5i0" id="pW4-qU-xcD"/>
                         <segue destination="435-d5-lpY" kind="presentation" identifier="work_edit" id="GYr-3b-aFC"/>
                         <segue destination="Zhq-vp-HbA" kind="unwind" identifier="unwind_works" unwindAction="unwindToWorks:" id="Ggn-V8-jbL"/>
+                        <segue destination="NwQ-PT-iqg" kind="presentation" identifier="rename_popup" animates="NO" id="fKz-HU-SW5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nl8-Sc-ctA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -357,6 +362,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GBF-f3-VMB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4304" y="-297"/>
+        </scene>
+        <!--RenamePopup-->
+        <scene sceneID="pDY-Qh-fu3">
+            <objects>
+                <viewControllerPlaceholder storyboardName="RenamePopup" id="NwQ-PT-iqg" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XmB-8l-clI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4308" y="-267"/>
         </scene>
     </scenes>
     <resources>

@@ -27,6 +27,7 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var gridView: GridView!
     @IBOutlet weak var canvasContainer: UIView!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,32 +65,22 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
         gridView.resetZoom()
     }
     
-    // This function saves the image to user folder
-    // TODO: right now  it just displays it to the view
-    // but i will change later
     private func savePixelArt() {
-
-        // Data in memory
-        // Create a reference to the file you want to upload
-        var name = work_name
-        let gridSize = canvas_size
-        if name == "" {
-            name = "No Name"
-        }
         let uuid = UUID().uuidString
-        var gridColors: [String:String] = [:]
-        for j in 0...gridSize - 1 {
-            for i in 0...gridSize - 1 {
-                gridColors["\(i)|\(j)"] = gridView.cells["\(i)|\(j)"]?.backgroundColor!.htmlRGBA
-            }
-        }
+        let gridColors: [String:String] = gridView.exportColors()
+        self.view.isUserInteractionEnabled = false
+        self.spinner.startAnimating()
+        
         self.db.collection(self.userID).document(uuid).setData([
-            "documentdata": uuid, //keeping the original name used to refer to the document in database, should not be changed
-            "name": name, //name of the work
+            "documentdata": uuid,
+            "name": self.work_name,
             "colors": gridColors,
-            "gridSize": gridSize,
-            "public" : 0 // 0 if private
+            "gridSize": self.canvas_size,
+            "public" : 0
         ]) { err in
+            self.view.isUserInteractionEnabled = true
+            self.spinner.stopAnimating()
+            
             if let err = err {
                 print("Error adding document: \(err)")
             } else {
@@ -97,7 +88,6 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
                 self.performSegue(withIdentifier: "canvas_to_works", sender: self)
             }
         }
-
     }
 
     @objc func changedColor(_ slider: ColorSlider) {

@@ -21,7 +21,8 @@ class WorksDetailViewController: UIViewController {
     var canvas_size: Int = 8
     var colors: [String : String] = [:]
     
-    @IBOutlet weak var workname: UITextField!
+    @IBOutlet weak var worknamex: UITextField!
+    @IBOutlet weak var workname: UIButton!
     @IBOutlet weak var edit_button: UIButton!
     @IBOutlet weak var editButton_Y_top: NSLayoutConstraint!
     @IBOutlet weak var preview: CanvasPreview!
@@ -29,6 +30,26 @@ class WorksDetailViewController: UIViewController {
     @IBOutlet weak var published_icon: UIView!
     @IBOutlet weak var privateView_X_constraint: NSLayoutConstraint!
     @IBOutlet weak var publishedView_X_constraint: NSLayoutConstraint!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+        self.view.addGestureRecognizer(tap)
+//        self.workname.delegate = self
+//        self.workname.text = self.work_name
+        self.workname.setTitle(self.work_name, for: .normal)
+        self.preview.makeCells(size: canvas_size, data: colors)
+        
+        if (self.published == 0) {
+            self.published_icon.alpha = 0
+            self.publishedView_X_constraint.constant = 416
+            self.editButton_Y_top.constant = -9
+        } else {
+            self.private_icon.alpha = 0
+            self.privateView_X_constraint.constant = -416
+            self.editButton_Y_top.constant = -50
+        }
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -46,25 +67,6 @@ class WorksDetailViewController: UIViewController {
         Auth.auth().removeStateDidChangeListener(handle!)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
-        self.view.addGestureRecognizer(tap)
-        self.workname.delegate = self
-        self.workname.text = self.work_name
-        self.preview.makeCells(size: canvas_size, data: colors)
-        
-        if (self.published == 0) {
-            self.published_icon.alpha = 0
-            self.publishedView_X_constraint.constant = 416
-            self.editButton_Y_top.constant = -9
-        } else {
-            self.private_icon.alpha = 0
-            self.privateView_X_constraint.constant = -416
-            self.editButton_Y_top.constant = -50
-        }
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let dest = segue.destination as? WorksEditingViewController {
             dest.work_UUID = self.work_UUID
@@ -72,17 +74,24 @@ class WorksDetailViewController: UIViewController {
             dest.canvas_size = self.canvas_size
             dest.colors = self.colors
         }
+        
+        if let dest = segue.destination as? RenamePopupViewController {
+            dest.userID = self.userID
+            dest.work_UUID = self.work_UUID
+            dest.work_name = self.work_name
+        }
     }
     
     @IBAction func edit(_ sender: Any) {
         performSegue(withIdentifier: "work_edit", sender: self)
     }
     
-    @IBAction func updateName(_ sender: UITextField) {
-        guard let newname = self.workname.text else{
-            return
-        }
-        self.db.collection(self.userID).document(self.work_UUID).setData(["name" : newname], mergeFields: ["name"])
+    @IBAction func updateName(_ sender: Any) {
+        performSegue(withIdentifier: "rename_popup", sender: self)
+//        guard let newname = self.work_name else{
+//            return
+//        }
+//        self.db.collection(self.userID).document(self.work_UUID).setData(["name" : newname], mergeFields: ["name"])
     }
     
     @IBAction func publish(_ sender: Any) {
@@ -191,6 +200,7 @@ class WorksDetailViewController: UIViewController {
     
     // MARK: Unwind
     @IBAction func unwindToWorksDetail(_ unwindSegue: UIStoryboardSegue) {
+        workname.setTitle(work_name, for: .normal)
         preview.makeCells(size: canvas_size, data: colors)
     }
 }

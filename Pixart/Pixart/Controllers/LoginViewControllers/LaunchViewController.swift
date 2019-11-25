@@ -21,8 +21,10 @@ class LaunchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         card_view.addShadow()
-        
-        UIView.animate(withDuration: 1.2, animations: {
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        UIView.animate(withDuration: 1, animations: {
             self.logo_Y_constraint.constant = -220
             self.logo_view.layer.cornerRadius = 10
             self.logo.layer.cornerRadius = 8

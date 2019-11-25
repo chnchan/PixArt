@@ -18,10 +18,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pbs-mu-qqc">
                                 <rect key="frame" x="0.0" y="0.0" width="200" height="896"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sideMenu" translatesAutoresizingMaskIntoConstraints="NO" id="orR-nT-xj3">
-                                        <rect key="frame" x="0.0" y="0.0" width="200" height="896"/>
-                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
-                                    </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z0Z-fO-hgE" userLabel="Mini Profile">
                                         <rect key="frame" x="37" y="100" width="126" height="132"/>
                                         <subviews>
@@ -122,6 +118,11 @@
                                             <color key="titleColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="logoutPressed:" destination="PLL-lV-fyY" eventType="touchUpInside" id="e6W-Tm-0Ec"/>
                                         </connections>
@@ -155,7 +156,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="x7s-aD-nUG" firstAttribute="leading" secondItem="pbs-mu-qqc" secondAttribute="leading" constant="39" id="061-Ze-RSp"/>
                                     <constraint firstAttribute="trailing" secondItem="Z0Z-fO-hgE" secondAttribute="trailing" constant="37" id="14q-4x-gcc"/>
@@ -163,19 +164,15 @@
                                     <constraint firstAttribute="bottom" secondItem="dWu-9m-f71" secondAttribute="bottom" constant="50" id="7Aw-My-9hH"/>
                                     <constraint firstItem="cvd-k0-B3a" firstAttribute="centerX" secondItem="pbs-mu-qqc" secondAttribute="centerX" id="AbO-F6-qaf"/>
                                     <constraint firstItem="rbe-qh-i2w" firstAttribute="leading" secondItem="pbs-mu-qqc" secondAttribute="leading" constant="42" id="Ad9-JY-Brl"/>
-                                    <constraint firstItem="orR-nT-xj3" firstAttribute="top" secondItem="pbs-mu-qqc" secondAttribute="top" id="G0s-Nt-kre"/>
                                     <constraint firstItem="EH5-nA-lBu" firstAttribute="leading" secondItem="pbs-mu-qqc" secondAttribute="leading" constant="40" id="Qtj-jt-5dA"/>
                                     <constraint firstItem="x7s-aD-nUG" firstAttribute="top" secondItem="rAh-09-G3s" secondAttribute="bottom" id="UFs-Ot-55U"/>
                                     <constraint firstItem="LN8-4u-eXr" firstAttribute="top" secondItem="cvd-k0-B3a" secondAttribute="bottom" constant="15" id="Y67-Xc-5eA"/>
-                                    <constraint firstItem="orR-nT-xj3" firstAttribute="leading" secondItem="pbs-mu-qqc" secondAttribute="leading" id="cN9-hZ-kRo"/>
-                                    <constraint firstAttribute="bottom" secondItem="orR-nT-xj3" secondAttribute="bottom" id="dcN-lQ-31u"/>
                                     <constraint firstItem="cvd-k0-B3a" firstAttribute="top" secondItem="Z0Z-fO-hgE" secondAttribute="bottom" constant="15" id="djR-0A-6PH"/>
                                     <constraint firstItem="rAh-09-G3s" firstAttribute="leading" secondItem="pbs-mu-qqc" secondAttribute="leading" constant="38" id="k3m-Rm-ibA"/>
                                     <constraint firstItem="rAh-09-G3s" firstAttribute="top" secondItem="rbe-qh-i2w" secondAttribute="bottom" id="mI9-In-rbI"/>
                                     <constraint firstItem="EH5-nA-lBu" firstAttribute="top" secondItem="x7s-aD-nUG" secondAttribute="bottom" id="o1T-o2-9Yb"/>
                                     <constraint firstItem="LN8-4u-eXr" firstAttribute="leading" secondItem="pbs-mu-qqc" secondAttribute="leading" constant="42" id="oVb-Cm-aPh"/>
                                     <constraint firstItem="Z0Z-fO-hgE" firstAttribute="leading" secondItem="pbs-mu-qqc" secondAttribute="leading" constant="37" id="sPr-yd-k1W"/>
-                                    <constraint firstAttribute="trailing" secondItem="orR-nT-xj3" secondAttribute="trailing" id="wYb-S4-Z5q"/>
                                     <constraint firstItem="dWu-9m-f71" firstAttribute="leading" secondItem="pbs-mu-qqc" secondAttribute="leading" constant="42" id="wgV-la-mxK"/>
                                     <constraint firstItem="rbe-qh-i2w" firstAttribute="top" secondItem="LN8-4u-eXr" secondAttribute="bottom" id="zOT-jf-GuB"/>
                                 </constraints>
@@ -284,6 +281,5 @@
         <image name="heart.fill" catalog="system" width="64" height="54"/>
         <image name="paintbrush.fill" catalog="system" width="64" height="62"/>
         <image name="person.2.fill" catalog="system" width="64" height="40"/>
-        <image name="sideMenu" width="1000" height="1500"/>
     </resources>
 </document>
