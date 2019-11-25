@@ -26,12 +26,16 @@ class WorksEditingViewController: UIViewController {
     
     @IBOutlet weak var artwork_name: UITextField!
     @IBOutlet weak var canvas: GridView!
+    @IBOutlet weak var canvas_container: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupColorSlider()
         artwork_name.text = work_name
         canvas.loadCanvas(size: canvas_size, colors: colors)
+        
+        canvas_container.layer.borderWidth = 5
+        canvas_container.layer.borderColor = UIColor.black.cgColor
     }
     
     override func viewWillAppear(_ animated: Bool) {

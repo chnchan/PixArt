@@ -93,7 +93,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SVh-cf-Huy" userLabel="container">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SVh-cf-Huy" userLabel="container">
                                 <rect key="frame" x="12" y="137" width="390" height="390"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ETV-mm-RSU" customClass="GridView" customModule="Pixart" customModuleProvider="target">
@@ -133,6 +133,7 @@
                     <connections>
                         <outlet property="artwork_name" destination="62f-t1-3iH" id="vrQ-Al-aKe"/>
                         <outlet property="canvas" destination="ETV-mm-RSU" id="hIf-6S-6PN"/>
+                        <outlet property="canvas_container" destination="SVh-cf-Huy" id="Sco-Az-M1P"/>
                         <segue destination="4nU-gj-2iK" kind="unwind" identifier="work_edit_return" unwindAction="unwindToWorksDetail:" id="pLk-n3-uUC"/>
                     </connections>
                 </viewController>

@@ -10,7 +10,7 @@ import UIKit
 
 class GridView: UIView {
 
-    let BORDER_WIDTH: CGFloat = 0
+    let BORDER_WIDTH: CGFloat = 0.5
     let BORDER_COLOR = UIColor.black.cgColor
 
     let BACKGROUND_COLOR = UIColor.white
