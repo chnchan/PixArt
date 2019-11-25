@@ -13,40 +13,48 @@ class GridView: UIView {
     let BORDER_WIDTH: CGFloat = 0.5
     let BORDER_COLOR = UIColor.black.cgColor
     let BACKGROUND_COLOR = UIColor.white
+    let LIMIT_SIZE_OUT = 0.65
+    let LIMIT_SIZE_IN = 1.9
     
     var canvas_size: Int = 0
     var cells = [String: UIView]()
     var cellWidth: CGFloat = 0
     var drawingColor =  UIColor.red
+    
 
 
     override func draw(_ rect: CGRect) {
         self.addGestureRecognizer(UIPinchGestureRecognizer(target: self, action: #selector(pinchAction(gesture:))))
         self.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handleGesturePan)))
-        
-        let oneTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleGestureTap))
-        self.addGestureRecognizer(oneTapGesture)
+        self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleGestureTap)))
      }
     
 
     
-    // this function zooms in and out
-    @objc func pinchAction(gesture:UIPinchGestureRecognizer) {
+    // This function zooms in and out
+    @objc func pinchAction(gesture: UIPinchGestureRecognizer) {
    
-         if let view = gesture.view {
-              switch gesture.state {
-              case .changed:
-                  let pinchCenter = CGPoint(x: gesture.location(in: view).x - view.bounds.midX,
-                                            y: gesture.location(in: view).y - view.bounds.midY)
-                  let transform = view.transform.translatedBy(x: pinchCenter.x, y: pinchCenter.y)
-                                                  .scaledBy(x: gesture.scale, y: gesture.scale)
-                                                  .translatedBy(x: -pinchCenter.x, y: -pinchCenter.y)
-                  view.transform = transform
-                  gesture.scale = 1
-              default:
-                  return
-              }
-          }
+        if let view = gesture.view {
+            if gesture.state == .changed {
+                if CGFloat(view.transform.a) > 1.6 && gesture.scale > 1 {
+                    return
+                }
+                if CGFloat(view.transform.d) < 0.65 && gesture.scale < 1 {
+                    return
+                }
+                // Pinch offset relative to the center of the view
+                let pinchCenter = CGPoint(x: gesture.location(in: view).x - view.bounds.midX,
+                                              y: gesture.location(in: view).y - view.bounds.midY)
+                // Translate the pinch center to the origin
+                let transform = view.transform.translatedBy(x: pinchCenter.x, y: pinchCenter.y)
+                                                    .scaledBy(x: gesture.scale, y: gesture.scale)
+                                                    .translatedBy(x: -pinchCenter.x, y: -pinchCenter.y)
+                    
+                view.transform = transform
+                // Reset the gesture recognizer's scale
+                gesture.scale = 1
+            }
+        }
     }
     
     
