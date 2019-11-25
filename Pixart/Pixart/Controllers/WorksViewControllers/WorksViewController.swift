@@ -12,10 +12,11 @@ import Firebase
 class WorksViewController: UIViewController {
 
     @IBOutlet weak var options: UISegmentedControl!
-    @IBOutlet weak var publicTable: UITableView!
-    @IBOutlet weak var privateTable: UITableView!
     @IBOutlet weak var publishedView_X_constraint: NSLayoutConstraint!
     @IBOutlet weak var privateView_X_constraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var PrivateCollection: UICollectionView!
+    @IBOutlet weak var PublicCollection: UICollectionView!
     
     var privateWorks: [[String: Any]] = []
     var publicWorks: [[String: Any]] = []
@@ -26,11 +27,11 @@ class WorksViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        privateTable.dataSource = self
-        privateTable.delegate = self
-        publicTable.dataSource = self
-        publicTable.delegate = self
         publishedView_X_constraint.constant = 416
+        PublicCollection.dataSource = self
+        PublicCollection.delegate = self
+        PrivateCollection.dataSource = self
+        PrivateCollection.delegate = self
         fetch()
     }
     
@@ -112,9 +113,8 @@ class WorksViewController: UIViewController {
                             }
                         }
                     }
-                    
-                    self.privateTable.reloadData()
-                    self.publicTable.reloadData()
+                    self.PublicCollection.reloadData()
+                    self.PrivateCollection.reloadData()
                 }
             }
         }
@@ -126,57 +126,63 @@ class WorksViewController: UIViewController {
     }
 }
 
-extension WorksViewController: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if tableView == publicTable {
+extension WorksViewController : UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if collectionView == PublicCollection {
             return publicWorks.count
         }
-        if tableView == privateTable{
+        if collectionView == PrivateCollection {
             return privateWorks.count
         }
-        print("size 0")
         return 0
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if tableView == publicTable {
-            let cell = publicTable.dequeueReusableCell(withIdentifier: "published_post") as! PublishedTableViewCell
-            let gridSize = (publicWorks[indexPath.row])["gridSize"] as! Int
-            
-            let colors: [String:String] = (publicWorks[indexPath.row])["colors"] as! [String:String]
-            cell.preview.makeCells(size: gridSize, data: colors)
-            cell.title.text = (publicWorks[indexPath.row])["name"] as? String
-            cell.likes.text = "0"
-            cell.dislikes.text = "0"
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if collectionView == PublicCollection {
+            let cell = PublicCollection.dequeueReusableCell(withReuseIdentifier: "published_post", for: indexPath) as! PublicCollectionViewCell
+            let canvasSize = publicWorks[indexPath.row]["gridSize"] as! Int
+            let colors : [String:String] = publicWorks[indexPath.row]["colors"] as! [String:String]
+            cell.canvas.makeCells(size: canvasSize, data: colors)
             return cell
         }
-        
-        if tableView == privateTable {
-            let cell = privateTable.dequeueReusableCell(withIdentifier: "private_post") as! PrivateTableViewCell
-            let gridSize = (privateWorks[indexPath.row])["gridSize"] as! Int
-            let colors: [String:String] = (privateWorks[indexPath.row])["colors"] as! [String:String]
-            cell.preview.makeCells(size: gridSize, data: colors)
-            cell.title.text = (privateWorks[indexPath.row])["name"] as? String
+        if collectionView == PrivateCollection {
+            let cell = PrivateCollection.dequeueReusableCell(withReuseIdentifier: "private_post", for: indexPath) as! PrivateCollectionViewCell
+            let canvasSize = privateWorks[indexPath.row]["gridSize"] as! Int
+            let colors : [String:String] = privateWorks[indexPath.row]["colors"] as! [String:String]
+            cell.canvas.makeCells(size: canvasSize, data: colors)
             return cell
         }
-
-        return UITableViewCell()
+        return UICollectionViewCell()
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         view.endEditing(true)
-        tableView.deselectRow(at: indexPath, animated: true)
+        collectionView.deselectItem(at: indexPath, animated: true)
         index = indexPath.row
-        
-        if tableView == publicTable {
+        if collectionView == PublicCollection {
             performSegue(withIdentifier: "works_detail_published", sender: self)
         }
-        if tableView == privateTable {
+        if collectionView == PrivateCollection {
             performSegue(withIdentifier: "works_detail_private", sender: self)
         }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let NumberItemPerRow : CGFloat = 2
+        let padding : CGFloat = 10
+        let width = (collectionView.frame.width - (NumberItemPerRow - 1) * padding ) / NumberItemPerRow
+        return CGSize(width: width, height: width)
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 10
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 5
+    }
+    
+    
+    
 }
-
 extension WorksViewController: UIAdaptivePresentationControllerDelegate {
     func presentationControllerWillDismiss(_ presentationController: UIPresentationController) {
         print("will dismissed")

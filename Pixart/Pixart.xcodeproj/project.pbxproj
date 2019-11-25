@@ -56,6 +56,8 @@
 		B71BFABD238A1F8E0057E6DA /* TrashDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71BFABC238A1F8E0057E6DA /* TrashDetailViewController.swift */; };
 		B738F6012387D77D0077C679 /* WorksTrashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B738F6002387D77D0077C679 /* WorksTrashViewController.swift */; };
 		B738F6052387D7E60077C679 /* TrashTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B738F6042387D7E60077C679 /* TrashTableViewCell.swift */; };
+		B751748B238BE39800B4B959 /* PublicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B751748A238BE39800B4B959 /* PublicCollectionViewCell.swift */; };
+		B751748D238BE3A800B4B959 /* PrivateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B751748C238BE3A800B4B959 /* PrivateCollectionViewCell.swift */; };
 		F317AD72237D152300BF1F2F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F317AD71237D152300BF1F2F /* GoogleService-Info.plist */; };
 		F31FD413237D3B1400E2B0FF /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31FD412237D3B1400E2B0FF /* SignUpViewController.swift */; };
 		F3DEF75A23879FDC002822A5 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DEF75923879FDC002822A5 /* UIColorExtension.swift */; };
@@ -114,6 +116,8 @@
 		B71BFABC238A1F8E0057E6DA /* TrashDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashDetailViewController.swift; sourceTree = "<group>"; };
 		B738F6002387D77D0077C679 /* WorksTrashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorksTrashViewController.swift; sourceTree = "<group>"; };
 		B738F6042387D7E60077C679 /* TrashTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashTableViewCell.swift; sourceTree = "<group>"; };
+		B751748A238BE39800B4B959 /* PublicCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicCollectionViewCell.swift; sourceTree = "<group>"; };
+		B751748C238BE3A800B4B959 /* PrivateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateCollectionViewCell.swift; sourceTree = "<group>"; };
 		BC70609E9D45848D3A1BA3DB /* Pods-Pixart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pixart.release.xcconfig"; path = "Target Support Files/Pods-Pixart/Pods-Pixart.release.xcconfig"; sourceTree = "<group>"; };
 		F317AD71237D152300BF1F2F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F31FD412237D3B1400E2B0FF /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -326,6 +330,8 @@
 				32CC1944237E4ADF00810D77 /* PrivateTableViewCell.swift */,
 				32CC1946237E4AED00810D77 /* PublishedTableViewCell.swift */,
 				B738F6042387D7E60077C679 /* TrashTableViewCell.swift */,
+				B751748A238BE39800B4B959 /* PublicCollectionViewCell.swift */,
+				B751748C238BE3A800B4B959 /* PrivateCollectionViewCell.swift */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -521,6 +527,7 @@
 				32D5FA9C238A4A0500AA65CF /* LoginViewController.swift in Sources */,
 				32E0C60E238A5ACF005DD68F /* LaunchViewController.swift in Sources */,
 				32A162AE2382235B002FEAC4 /* SettingsPopupViewController.swift in Sources */,
+				B751748B238BE39800B4B959 /* PublicCollectionViewCell.swift in Sources */,
 				32C0F4392374F24D00612535 /* LoginViewController_.swift in Sources */,
 				326CD37C23761356008CEC07 /* LogoutConfirmationViewController.swift in Sources */,
 				B70C60592380BECD008C1C34 /* WorkDetailViewController.swift in Sources */,
@@ -549,6 +556,7 @@
 				B57EF8BA2377CE15009DE772 /* WorksTableViewCell.swift in Sources */,
 				B738F6012387D77D0077C679 /* WorksTrashViewController.swift in Sources */,
 				B738F6052387D7E60077C679 /* TrashTableViewCell.swift in Sources */,
+				B751748D238BE3A800B4B959 /* PrivateCollectionViewCell.swift in Sources */,
 				32A162C123876339002FEAC4 /* CanvasPreview.swift in Sources */,
 				32602BB623753C6E00FE7D31 /* old_WorksViewController.swift in Sources */,
 				3200289D237BD1670095CE03 /* LocalStorage.swift in Sources */,
