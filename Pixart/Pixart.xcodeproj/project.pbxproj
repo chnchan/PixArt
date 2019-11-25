@@ -708,13 +708,13 @@
 				CODE_SIGN_ENTITLEMENTS = Pixart/Pixart.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P5LBX5LJJ5;
+				DEVELOPMENT_TEAM = 24GPS5B9JA;
 				INFOPLIST_FILE = Pixart/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = UCD.Pixart;
+				PRODUCT_BUNDLE_IDENTIFIER = pixartaa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -730,13 +730,13 @@
 				CODE_SIGN_ENTITLEMENTS = Pixart/Pixart.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P5LBX5LJJ5;
+				DEVELOPMENT_TEAM = 24GPS5B9JA;
 				INFOPLIST_FILE = Pixart/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = UCD.Pixart;
+				PRODUCT_BUNDLE_IDENTIFIER = pixartaa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

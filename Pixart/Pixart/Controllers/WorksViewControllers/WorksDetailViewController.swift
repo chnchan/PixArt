@@ -150,22 +150,22 @@ class WorksDetailViewController: UIViewController {
     }
     
     @IBAction func deletebutton(_ sender: UIButton) {
-        self.db.collection(self.userID).document(self.work_UUID).delete(completion: {error in
+        /*self.db.collection(self.userID).document(self.work_UUID).delete(completion: {error in
             if error != nil {
                 print("error deleting")
             } else {
                 self.performSegue(withIdentifier: "unwind_works", sender: self)
             }
-        })
+        })*/
 
-        /* When we have trash can implemented
-        self.db.collection(self.userID).document(self.documentdata).updateData(["public" : -1], completion: {error in
+        //When we have trash can implemented
+        self.db.collection(self.userID).document(self.work_UUID).updateData(["public" : -1], completion: {error in
             if error != nil {
                 print("error updating data")
             } else {
-                self.dismiss(animated: true, completion: nil)
+                self.performSegue(withIdentifier: "unwind_works", sender: self)
             }
-        })*/
+        })
     }
     
     @IBAction func done(_ sender: Any) {

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wIq-C2-Ifd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wIq-C2-Ifd">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,7 +22,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="730"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="130" id="HzB-fg-DdK" customClass="TrashTableViewCell" customModule="Pixart" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="trash_post" rowHeight="130" id="HzB-fg-DdK" customClass="TrashTableViewCell" customModule="Pixart" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="414" height="130"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HzB-fg-DdK" id="cO8-Bl-IVP">
@@ -113,7 +113,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QMN-FS-Omw">
-                                <rect key="frame" x="17" y="88" width="380" height="380"/>
+                                <rect key="frame" x="17" y="80" width="380" height="380"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0LQ-fJ-TNc" customClass="CanvasPreview" customModule="Pixart" customModuleProvider="target">
                                         <rect key="frame" x="5" y="5" width="370" height="370"/>
@@ -130,13 +130,8 @@
                                     <constraint firstAttribute="bottom" secondItem="0LQ-fJ-TNc" secondAttribute="bottom" constant="5" id="zM4-3e-wEq"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="745-g6-qhH">
-                                <rect key="frame" x="20" y="20" width="65" height="48"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="Back"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8gw-fm-xAY">
-                                <rect key="frame" x="82" y="593" width="250" height="80"/>
+                                <rect key="frame" x="82" y="585" width="250" height="80"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="atx-ie-Pvr"/>
@@ -151,7 +146,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2cc-S9-PIl">
-                                <rect key="frame" x="82" y="723" width="250" height="80"/>
+                                <rect key="frame" x="82" y="715" width="250" height="80"/>
                                 <color key="backgroundColor" red="1" green="0.21929237900000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="7X0-T7-sJO"/>
@@ -166,7 +161,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="07Z-9P-qaF">
-                                <rect key="frame" x="30" y="488" width="354" height="35"/>
+                                <rect key="frame" x="30" y="480" width="354" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="qKP-h8-Wrf"/>
                                 </constraints>
@@ -180,24 +175,24 @@
                             <constraint firstItem="07Z-9P-qaF" firstAttribute="top" secondItem="QMN-FS-Omw" secondAttribute="bottom" constant="20" id="190-LP-xDR"/>
                             <constraint firstItem="2cc-S9-PIl" firstAttribute="top" secondItem="8gw-fm-xAY" secondAttribute="bottom" constant="50" id="C9D-ia-nt5"/>
                             <constraint firstItem="ZJA-22-9tz" firstAttribute="trailing" secondItem="07Z-9P-qaF" secondAttribute="trailing" constant="30" id="EAr-pT-emI"/>
-                            <constraint firstItem="745-g6-qhH" firstAttribute="leading" secondItem="ZJA-22-9tz" secondAttribute="leading" constant="20" id="Edp-bD-3eD"/>
                             <constraint firstItem="8gw-fm-xAY" firstAttribute="centerX" secondItem="hew-oS-Wyr" secondAttribute="centerX" id="EvG-oc-Lp0"/>
                             <constraint firstItem="2cc-S9-PIl" firstAttribute="centerX" secondItem="hew-oS-Wyr" secondAttribute="centerX" id="QbP-0O-FSt"/>
                             <constraint firstItem="07Z-9P-qaF" firstAttribute="centerX" secondItem="hew-oS-Wyr" secondAttribute="centerX" id="UIz-4O-HWT"/>
                             <constraint firstItem="07Z-9P-qaF" firstAttribute="leading" secondItem="ZJA-22-9tz" secondAttribute="leading" constant="30" id="VUG-eU-H3F"/>
                             <constraint firstItem="QMN-FS-Omw" firstAttribute="centerX" secondItem="hew-oS-Wyr" secondAttribute="centerX" id="XD7-f7-3Qu"/>
                             <constraint firstItem="8gw-fm-xAY" firstAttribute="top" secondItem="07Z-9P-qaF" secondAttribute="bottom" constant="70" id="cQU-mq-8hU"/>
-                            <constraint firstItem="QMN-FS-Omw" firstAttribute="top" secondItem="745-g6-qhH" secondAttribute="bottom" constant="20" id="cai-mK-RC3"/>
-                            <constraint firstItem="745-g6-qhH" firstAttribute="top" secondItem="ZJA-22-9tz" secondAttribute="top" constant="20" id="nas-6I-oJk"/>
+                            <constraint firstItem="QMN-FS-Omw" firstAttribute="top" secondItem="ZJA-22-9tz" secondAttribute="top" constant="80" id="pId-jz-7IJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZJA-22-9tz"/>
                     </view>
                     <connections>
                         <outlet property="preview" destination="0LQ-fJ-TNc" id="Ae3-sq-45d"/>
                         <outlet property="workname" destination="07Z-9P-qaF" id="Udr-5i-ojE"/>
+                        <segue destination="424-Kh-IQQ" kind="unwind" identifier="unwind_Trash" unwindAction="unwindToTrash:" id="lst-9T-HM6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wcm-eM-ic5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="424-Kh-IQQ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="900" y="94"/>
         </scene>

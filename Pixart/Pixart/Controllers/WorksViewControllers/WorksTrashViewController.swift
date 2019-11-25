@@ -39,12 +39,11 @@ class WorksTrashViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let dest = segue.destination as? WorksDetailViewController {
+        if let dest = segue.destination as? TrashDetailViewController {
             let work = works[chosenindex]
             dest.presentationController?.delegate = self
             dest.work_UUID = work["documentdata"] as? String ?? ""
             dest.work_name = work["name"] as? String ?? ""
-            dest.published = work["public"] as! Int
             dest.canvas_size = work["gridSize"] as! Int
             dest.colors = work["colors"] as! [String:String]
         }
@@ -86,6 +85,11 @@ class WorksTrashViewController: UIViewController {
         }
     }
     
+    @IBAction func unwindToTrash(_ unwindSegue: UIStoryboardSegue) {
+        fetch()
+    }
+    
+    
 }
 extension WorksTrashViewController: UIAdaptivePresentationControllerDelegate {
     func presentationControllerWillDismiss(_ presentationController: UIPresentationController) {
@@ -99,7 +103,7 @@ extension WorksTrashViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = worksTableView.dequeueReusableCell(withIdentifier: "trash_post") as! PrivateTableViewCell
+        let cell = worksTableView.dequeueReusableCell(withIdentifier: "trash_post") as! TrashTableViewCell
         let gridSize = (works[indexPath.row])["gridSize"] as! Int
         let colors: [String:String] = (works[indexPath.row])["colors"] as! [String:String]
         cell.preview.makeCells(size: gridSize, data: colors)

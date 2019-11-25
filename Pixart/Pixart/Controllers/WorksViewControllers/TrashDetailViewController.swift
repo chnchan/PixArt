@@ -52,7 +52,7 @@ class TrashDetailViewController: UIViewController {
             if error != nil {
                 print("error updating data")
             } else {
-                self.dismiss(animated: true, completion: nil)
+                self.performSegue(withIdentifier: "unwind_Trash", sender: self)
             }
         })
     }
@@ -63,7 +63,7 @@ class TrashDetailViewController: UIViewController {
             if error != nil {
                 print("error deleting")
             } else {
-                self.dismiss(animated: true, completion: nil)
+                self.performSegue(withIdentifier: "unwind_Trash", sender: self)
             }
         })
     }
