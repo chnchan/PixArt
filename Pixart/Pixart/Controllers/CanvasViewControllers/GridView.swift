@@ -10,12 +10,12 @@ import UIKit
 
 class GridView: UIView {
 
-    let BORDER_WIDTH: CGFloat = 0.5
+    let BORDER_WIDTH: CGFloat = 0
     let BORDER_COLOR = UIColor.black.cgColor
 
     let BACKGROUND_COLOR = UIColor.white
-    let LIMIT_SIZE_OUT = 0.65
-    let LIMIT_SIZE_IN = 1.9
+    let LIMIT_SIZE_OUT: CGFloat = 0.65
+    let LIMIT_SIZE_IN: CGFloat = 1.6
 
     
     var canvas_size: Int = 0
@@ -38,10 +38,10 @@ class GridView: UIView {
    
         if let view = gesture.view {
             if gesture.state == .changed {
-                if CGFloat(view.transform.a) > 1.6 && gesture.scale > 1 {
+                if CGFloat(view.transform.a) > LIMIT_SIZE_IN && gesture.scale > 1 {
                     return
                 }
-                if CGFloat(view.transform.d) < 0.65 && gesture.scale < 1 {
+                if CGFloat(view.transform.d) < LIMIT_SIZE_OUT && gesture.scale < 1 {
                     return
                 }
                 // Pinch offset relative to the center of the view
