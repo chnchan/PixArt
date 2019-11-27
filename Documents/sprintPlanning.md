@@ -87,3 +87,24 @@ Goals:
 - Hin: UI, Transition logics
 - Jiahao: debug, and help out
 
+
+### Discord meeting on Sat (11/23)
+
+Completed: 
+- Login redesigned. Card-looking style. 
+- Zoom restrained
+- Backend random fetching support
+
+Goals:
+- Zoom restrain should be different for different canvas size
+- Apply card-looking style to the rest of the views
+- Connect random fetching to feeds
+
+
+### In person meeting on Tues (11/26)
+
+Completed:
+- Redesigned profile view, Canvas view
+
+Goals:
+- (see previous, everyone was studying for quiz for the weekend)
