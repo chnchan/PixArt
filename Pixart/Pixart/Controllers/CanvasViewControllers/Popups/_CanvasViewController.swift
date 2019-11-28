@@ -1,48 +1,3 @@
-////
-////  CanvasViewController2.swift
-////  Pixart
-////
-////  Created by Hin Chan on 11/26/19.
-////  Copyright © 2019 UC Davis. All rights reserved.
-////
-//
-//import UIKit
-//import ColorSlider
-//
-//class CanvasViewController2: UIViewController {
-//
-//    let SLIDER_Y_POS = 50 // space from the canvas
-//    let SLIDER_HIGHT = 15
-//    let SLIDER_WIDTH = 300
-//    var canvas_size: Int = 8
-//
-//
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        canvas_size = LocalStorage.fetchCanvasSize()
-//        gridView.makeCells(size: canvas_size)
-//        setupColorSlider()
-//        card_view.addShadow()
-//        save_view.addShadow()
-//    }
-//
-//    @objc func changedColor(_ slider: ColorSlider) {
-//        let color = slider.color
-//        gridView.drawingColor = color
-//    }
-//
-//    private func setupColorSlider() {
-//        let y_pos = Application.safeArea_top + 48 + 45 + Int(view.frame.width) - 10 + SLIDER_Y_POS
-//
-//        let colorSlider = ColorSlider(orientation: .horizontal, previewSide: .top)
-//        colorSlider.frame = CGRect( x: Int((view.frame.width)/2) - Int(SLIDER_WIDTH/2), y: y_pos, width: SLIDER_WIDTH, height: SLIDER_HIGHT)
-//        view.addSubview(colorSlider)
-//
-//        colorSlider.addTarget(self, action: #selector(changedColor(_:)), for: .valueChanged)
-//        colorSlider.color = UIColor.black
-//    }
-//}
-
 //
 //  CanvasViewController.swift
 //  Pixart
@@ -56,7 +11,7 @@ import SideMenu
 import ColorSlider
 import Firebase
 
-class CanvasViewController: UIViewController, UITextFieldDelegate {
+class _CanvasViewController: UIViewController, UITextFieldDelegate {
     
     let SLIDER_Y_POS = 50 // space from the canvas
     let SLIDER_HIGHT = 15
@@ -65,24 +20,21 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
     let db = Firestore.firestore()
     var handle: AuthStateDidChangeListenerHandle?
     var userID = ""
-    
+
     var work_name: String = ""
     var canvas_size: Int = 8
+    var BACKGROUND_COLOR: UIColor = UIColor.white
     
-    @IBOutlet weak var card_view: UIView!
-    @IBOutlet weak var save_view: UIView!
-    @IBOutlet weak var save_view_top: NSLayoutConstraint!
     @IBOutlet weak var gridView: GridView!
     @IBOutlet weak var canvasContainer: UIView!
-    //    @IBOutlet weak var spinner: UIActivityIndicatorView!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         canvas_size = LocalStorage.fetchCanvasSize()
         gridView.makeCells(size: canvas_size)
         setupColorSlider()
-        card_view.addShadow()
-        save_view.addShadow()
+        
         canvasContainer.layer.borderWidth = 5
         canvasContainer.layer.borderColor = UIColor.black.cgColor
     }
@@ -113,24 +65,11 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
         gridView.resetZoom()
     }
     
-    @IBAction func save(_ sender: Any) {
-        self.performSegue(withIdentifier: "naming_prompt", sender: self)
-        
-        UIView.animate(withDuration: 0.3, animations: {
-            self.save_view_top.constant = -60
-            self.view.layoutIfNeeded()
-        })
-    }
-    
-    @objc func changedColor(_ slider: ColorSlider) {
-        let color = slider.color
-        gridView.drawingColor = color
-    }
-    
     private func savePixelArt() {
         let uuid = UUID().uuidString
         let gridColors: [String:String] = gridView.exportColors()
         self.view.isUserInteractionEnabled = false
+        self.spinner.startAnimating()
         
         self.db.collection(self.userID).document(uuid).setData([
             "documentdata": uuid,
@@ -140,15 +79,20 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
             "public" : 0
         ]) { err in
             self.view.isUserInteractionEnabled = true
+            self.spinner.stopAnimating()
             
             if let err = err {
                 print("Error adding document: \(err)")
-                self.unhideSave()
             } else {
                 print("Document added")
                 self.performSegue(withIdentifier: "canvas_to_works", sender: self)
             }
         }
+    }
+
+    @objc func changedColor(_ slider: ColorSlider) {
+        let color = slider.color
+        gridView.drawingColor = color
     }
     
     private func setupColorSlider() {
@@ -162,24 +106,13 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
         colorSlider.color = UIColor.black
     }
     
-    private func unhideSave() {
-        UIView.animate(withDuration: 0.3, animations: {
-            self.save_view_top.constant = -25
-            self.view.layoutIfNeeded()
-        })
-    }
-    
     // MARK: UNWIND
     @IBAction func unwindToCanvas(_ unwindSegue: UIStoryboardSegue) {
         gridView.resetZoom()
-        gridView.makeCells(size: canvas_size, color: Application.canvas_backgroundColor)
+        gridView.makeCells(size: canvas_size, color: BACKGROUND_COLOR)
     }
     
     @IBAction func unwindToCanvasAndSave(_ unwindSegue: UIStoryboardSegue) {
         savePixelArt()
-    }
-    
-    @IBAction func unwindToCanvasFromDismiss(_ unwindSegue: UIStoryboardSegue) {
-        unhideSave()
     }
 }

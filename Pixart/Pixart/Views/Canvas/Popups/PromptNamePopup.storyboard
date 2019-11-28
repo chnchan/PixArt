@@ -150,6 +150,7 @@
                         <outlet property="centerX" destination="6Q8-1i-M4y" id="wsx-Y9-qgc"/>
                         <outlet property="name" destination="nbU-PX-ceI" id="0rI-Iw-wv2"/>
                         <segue destination="yeN-x7-AAG" kind="unwind" identifier="unwind_canvas2" animates="NO" unwindAction="unwindToCanvasAndSave:" id="oZq-kW-Gx2"/>
+                        <segue destination="yeN-x7-AAG" kind="unwind" identifier="unwind_canvas2_dismiss" unwindAction="unwindToCanvasFromDismiss:" id="a9G-9B-S3a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UrY-qv-YRq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

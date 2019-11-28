@@ -33,7 +33,7 @@ class LoginViewController_: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        safeArea_top = Int(view.safeAreaInsets.top) // for color slider later
+        Application.safeArea_top = Int(view.safeAreaInsets.top) // for color slider later
     }
     
     private func setupSideMenu() {

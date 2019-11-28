@@ -62,8 +62,8 @@
                                         <segments>
                                             <segment title="8x8"/>
                                             <segment title="16x16"/>
+                                            <segment title="24x24"/>
                                             <segment title="32x32"/>
-                                            <segment title="64x64"/>
                                         </segments>
                                     </segmentedControl>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="NOTE: Canvas will be cleared to accommodate the new settings. Please save your work before proceeding." selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EUm-PL-EYX">
@@ -120,6 +120,14 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="roJ-RN-M8k" userLabel="color indicator">
+                                        <rect key="frame" x="298" y="165" width="75" height="24"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="75" id="Azh-0i-2Ob"/>
+                                            <constraint firstAttribute="height" constant="24" id="gYt-hF-YTj"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
@@ -128,11 +136,13 @@
                                     <constraint firstAttribute="trailing" secondItem="ZsZ-p1-tRM" secondAttribute="trailing" id="6iP-L6-T2G"/>
                                     <constraint firstItem="ZsZ-p1-tRM" firstAttribute="leading" secondItem="ACC-m7-nQf" secondAttribute="leading" id="7uy-R3-fPP"/>
                                     <constraint firstItem="mUA-5t-zKZ" firstAttribute="top" secondItem="EUm-PL-EYX" secondAttribute="bottom" constant="10" id="F6o-l2-FII"/>
+                                    <constraint firstItem="roJ-RN-M8k" firstAttribute="centerY" secondItem="lMc-Sj-bET" secondAttribute="centerY" id="GID-YJ-rCF"/>
                                     <constraint firstItem="B1R-jw-Gkw" firstAttribute="top" secondItem="ZsZ-p1-tRM" secondAttribute="bottom" constant="-1" id="Jrd-SM-IYa"/>
                                     <constraint firstItem="uTR-2I-bNO" firstAttribute="centerX" secondItem="ACC-m7-nQf" secondAttribute="centerX" id="KB2-pa-n5H"/>
                                     <constraint firstItem="mUA-5t-zKZ" firstAttribute="leading" secondItem="ACC-m7-nQf" secondAttribute="leading" id="MES-g1-0Ml"/>
                                     <constraint firstItem="Awr-DX-PG6" firstAttribute="centerX" secondItem="ACC-m7-nQf" secondAttribute="centerX" id="OG6-CH-ZXM"/>
                                     <constraint firstAttribute="width" constant="400" id="OU4-sh-JPP"/>
+                                    <constraint firstItem="roJ-RN-M8k" firstAttribute="trailing" secondItem="uTR-2I-bNO" secondAttribute="trailing" id="Ohs-9s-boV"/>
                                     <constraint firstItem="B1R-jw-Gkw" firstAttribute="centerX" secondItem="ACC-m7-nQf" secondAttribute="centerX" id="PsU-Rp-ZKc"/>
                                     <constraint firstItem="EUm-PL-EYX" firstAttribute="top" secondItem="lMc-Sj-bET" secondAttribute="bottom" constant="120" id="PvG-9U-cmQ"/>
                                     <constraint firstItem="lMc-Sj-bET" firstAttribute="top" secondItem="uTR-2I-bNO" secondAttribute="bottom" constant="33" id="RFm-2b-dBQ"/>
@@ -168,6 +178,7 @@
                     <connections>
                         <outlet property="background" destination="sAR-rO-SU5" id="dey-Qd-wkY"/>
                         <outlet property="centerX" destination="bZZ-Af-VYc" id="3eP-o3-MsP"/>
+                        <outlet property="color_indicator" destination="roJ-RN-M8k" id="m6I-pe-1TJ"/>
                         <outlet property="options" destination="uTR-2I-bNO" id="vMa-qb-jfb"/>
                         <outlet property="view_container" destination="ACC-m7-nQf" id="Vgg-D7-L6v"/>
                         <segue destination="dLw-pP-1f9" kind="unwind" identifier="unwind_canvas" animates="NO" unwindAction="unwindToCanvas:" id="zen-Oh-MeH"/>

@@ -79,7 +79,7 @@ class WorksEditingViewController: UIViewController {
     }
     
     private func setupColorSlider() {
-        let y_pos = safeArea_top + 48 + 45 + Int(view.frame.width) - 10 + SLIDER_Y_POS
+        let y_pos = Application.safeArea_top + 48 + 45 + Int(view.frame.width) - 10 + SLIDER_Y_POS
         
         let colorSlider = ColorSlider(orientation: .horizontal, previewSide: .top)
         colorSlider.frame = CGRect( x: Int((view.frame.width)/2) - Int(SLIDER_WIDTH/2), y: y_pos, width: SLIDER_WIDTH, height: SLIDER_HIGHT)

@@ -12,7 +12,6 @@ import SideMenu
 class ProfileViewController: UIViewController {
 
     let CORNER_RADIUS: CGFloat = 20
-    let canvas_sizes: [Int] = [8, 16, 32, 64]
     
     @IBOutlet weak var profile_image: UIImageView!
     @IBOutlet weak var email: UITextField!
@@ -37,7 +36,7 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func updateCanvasSize(_ sender: UISegmentedControl) {
-        LocalStorage.saveCanvasSize(size: canvas_sizes[options.selectedSegmentIndex])
+        LocalStorage.saveCanvasSize(size: Application.canvas_sizes[options.selectedSegmentIndex])
     }
     
     @IBAction func updateAlias(_ sender: Any) {
@@ -54,8 +53,8 @@ class ProfileViewController: UIViewController {
     }
     
     private func setupSideMenu() {
-        if sidemenu_initialized == false {
-            sidemenu_initialized = true
+        if Application.sidemenu_initialized == false {
+            Application.sidemenu_initialized = true
             let storyboard = UIStoryboard(name: "SideMenu", bundle: nil)
             SideMenuManager.default.leftMenuNavigationController = storyboard.instantiateViewController(withIdentifier: "LeftMenuNavigationController") as? SideMenuNavigationController
             SideMenuManager.default.addPanGestureToPresent(toView: self.navigationController!.navigationBar)
@@ -68,13 +67,13 @@ class ProfileViewController: UIViewController {
         email.text = LocalStorage.fetchEmail()
         alias.text = LocalStorage.fetchAlias()
         
-        if size == 8 {
+        if size == Application.canvas_sizes[0] {
             options.selectedSegmentIndex = 0
-        } else if size == 16 {
+        } else if size == Application.canvas_sizes[1] {
             options.selectedSegmentIndex = 1
-        } else if size == 32 {
+        } else if size == Application.canvas_sizes[2] {
             options.selectedSegmentIndex = 2
-        } else if size == 64 {
+        } else if size == Application.canvas_sizes[3] {
             options.selectedSegmentIndex = 3
         } else {
             print("Unknown canvas size!")

@@ -11,9 +11,6 @@ import SideMenu
 import GoogleSignIn
 import FirebaseAuth
 
-var safeArea_top: Int = 0
-var sidemenu_initialized: Bool = false
-
 class LoginViewController: UIViewController {
     
     let CORNER_RADIUS: CGFloat = 20
@@ -85,8 +82,8 @@ class LoginViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        safeArea_top = Int(view.safeAreaInsets.top) // for color slider later
-        sidemenu_initialized = false
+        Application.safeArea_top = Int(view.safeAreaInsets.top) // for color slider later
+        Application.sidemenu_initialized = false
         SideMenuManager.default.leftMenuNavigationController = nil
         SideMenuManager.default.rightMenuNavigationController = nil
     }

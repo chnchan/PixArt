@@ -64,7 +64,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="bbw-vb-pkU" firstAttribute="leading" secondItem="60x-aN-o9G" secondAttribute="leading" constant="5" id="CNL-Qc-AUT"/>
                                             <constraint firstAttribute="trailing" secondItem="bbw-vb-pkU" secondAttribute="trailing" constant="5" id="Jhw-Dq-h8X"/>
@@ -88,9 +88,9 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dCD-7a-TWB">
-                                        <rect key="frame" x="88.333333333333343" y="300" width="138" height="30"/>
+                                        <rect key="frame" x="131.33333333333334" y="300" width="52" height="30"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Delete My Account">
+                                        <state key="normal" title="Logout">
                                             <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
@@ -114,8 +114,8 @@
                                         <segments>
                                             <segment title="8x8"/>
                                             <segment title="16x16"/>
+                                            <segment title="24x24"/>
                                             <segment title="32x32"/>
-                                            <segment title="64x64"/>
                                         </segments>
                                         <connections>
                                             <action selector="updateCanvasSize:" destination="Ccl-4C-nNg" eventType="valueChanged" id="DRg-dn-4Rw"/>
@@ -147,7 +147,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="4PD-V3-abg" firstAttribute="leading" secondItem="zqX-iq-202" secondAttribute="leading" id="4lf-Ou-ZcD"/>
                             <constraint firstItem="4PD-V3-abg" firstAttribute="top" secondItem="zqX-iq-202" secondAttribute="top" id="Hqf-Gf-u86"/>

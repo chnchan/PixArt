@@ -48,7 +48,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="9sM-QJ-KsW" firstAttribute="centerX" secondItem="1Lp-zt-haL" secondAttribute="centerX" id="P2I-fG-wXV"/>
                             <constraint firstItem="gEb-lL-X63" firstAttribute="centerX" secondItem="1Lp-zt-haL" secondAttribute="centerX" id="TpG-tv-f1o"/>
@@ -164,7 +164,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qcq-h9-cPV">
                                                 <rect key="frame" x="75" y="260" width="125" height="36"/>
-                                                <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="36" id="d91-C9-XHm"/>
                                                     <constraint firstAttribute="width" constant="125" id="wsE-6Z-muc"/>
@@ -216,7 +216,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="6Sy-no-QcC" firstAttribute="centerX" secondItem="mSb-xB-cz7" secondAttribute="centerX" id="7Qv-2b-6Vh"/>
                                             <constraint firstItem="UEP-le-T2C" firstAttribute="top" secondItem="A1W-H4-55x" secondAttribute="bottom" constant="16" id="8K0-aD-djm"/>
@@ -242,7 +242,7 @@
                                         <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </activityIndicatorView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="3je-Zb-P5D" firstAttribute="top" secondItem="A1W-H4-55x" secondAttribute="top" id="3Gd-ly-TUf"/>
                                     <constraint firstItem="3je-Zb-P5D" firstAttribute="trailing" secondItem="A1W-H4-55x" secondAttribute="trailing" id="B1h-w2-XCe"/>
@@ -387,7 +387,7 @@
                                         <rect key="frame" x="237.5" y="440" width="40" height="40"/>
                                     </activityIndicatorView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="07U-vZ-ir1" firstAttribute="top" secondItem="hMv-9c-sCB" secondAttribute="bottom" constant="20" id="0ex-v5-sLz"/>
                                     <constraint firstItem="plL-0A-xh5" firstAttribute="leading" secondItem="TSP-7v-v16" secondAttribute="leading" id="1tG-c6-i5Q"/>
@@ -428,7 +428,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="0WC-rE-qLJ" firstAttribute="centerX" secondItem="fQF-6E-iQ9" secondAttribute="centerX" constant="416" id="BRE-h8-0K7"/>
                             <constraint firstItem="DPv-J2-4dL" firstAttribute="centerY" secondItem="O6j-9q-tj0" secondAttribute="centerY" constant="-220" id="Ffa-UK-N02"/>
@@ -464,10 +464,10 @@
             </objects>
             <point key="canvasLocation" x="4518.840579710145" y="112.5"/>
         </scene>
-        <!--Profile-->
+        <!--Canvas-->
         <scene sceneID="oHh-b8-1j1">
             <objects>
-                <viewControllerPlaceholder storyboardName="Profile" id="WB8-lQ-pit" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Canvas" id="WB8-lQ-pit" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="GOf-21-CJJ"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aff-QA-Hhe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

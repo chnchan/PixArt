@@ -58,7 +58,7 @@ class PromptNamePopupViewController: UIViewController, UITextFieldDelegate {
             self.view.layoutIfNeeded()
         }, completion: { finished in
             if finished == true {
-                self.dismiss(animated: false, completion: nil)
+                self.performSegue(withIdentifier: "unwind_canvas2_dismiss", sender: self)
             }
         })
     }
