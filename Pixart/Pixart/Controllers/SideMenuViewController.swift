@@ -33,6 +33,38 @@ class SideMenuViewController: UIViewController {
         profile_image.layer.cornerRadius = profile_image.bounds.width / 2
     }
     
+    @IBAction func profilePressed(_ sender: Any) {
+        if Application.current_VC is ProfileViewController {
+            dismiss(animated: true, completion: nil)
+        } else {
+            self.performSegue(withIdentifier: "profile", sender: nil)
+        }
+    }
+    
+    @IBAction func canvasPressed(_ sender: Any) {
+        if Application.current_VC is CanvasViewController {
+            dismiss(animated: true, completion: nil)
+        } else {
+            self.performSegue(withIdentifier: "canvas", sender: nil)
+        }
+    }
+    
+    @IBAction func worksPressed(_ sender: Any) {
+        if Application.current_VC is WorksViewController {
+            dismiss(animated: true, completion: nil)
+        } else {
+            self.performSegue(withIdentifier: "works", sender: nil)
+        }
+    }
+    
+    @IBAction func browsePressed(_ sender: Any) {
+        if Application.current_VC is FeedsViewController {
+            dismiss(animated: true, completion: nil)
+        } else {
+            self.performSegue(withIdentifier: "feeds", sender: nil)
+        }
+    }
+    
     @IBAction func logoutPressed(_ sender: Any) {
         self.performSegue(withIdentifier: "logout", sender: nil)
     }

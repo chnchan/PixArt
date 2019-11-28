@@ -86,6 +86,7 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
         gridView.makeCells(size: canvas_size)
         canvasContainer.layer.borderWidth = 5
         canvasContainer.layer.borderColor = UIColor.black.cgColor
+        Application.current_VC = self
     }
     
     override func viewWillAppear(_ animated: Bool) {

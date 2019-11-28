@@ -32,6 +32,7 @@ class FeedsViewController: UIViewController {
         card_view.addShadow(x: 0.5, y: 5)
         swipe_left_icon.addShadow()
         swipe_right_icon.addShadow()
+        Application.current_VC = self
         //fetch()
     }
     

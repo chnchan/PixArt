@@ -28,7 +28,7 @@
         <!--Canvas View Controller-->
         <scene sceneID="ubx-FI-qNa">
             <objects>
-                <viewController id="hzM-45-OH6" customClass="CanvasViewController" customModule="Pixart" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="hzM-45-OH6" customClass="CanvasViewController" customModule="Pixart" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Bwn-dd-ISe">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

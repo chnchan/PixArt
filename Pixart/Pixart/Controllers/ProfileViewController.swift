@@ -16,24 +16,37 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var profile_image: UIImageView!
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var alias: UITextField!
-    @IBOutlet weak var card_view: UIView!
     @IBOutlet weak var options: UISegmentedControl!
+    @IBOutlet weak var card_view: UIView!
+    @IBOutlet weak var card_view_centerY: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
         setupSideMenu()
         card_view.addShadow()
+//        card_view_centerY.constant = -800
+        
         email.setLeftImage(systemImage: "envelope", cornerRadius: CORNER_RADIUS)
         email.layer.borderColor = UIColor.lightGray.cgColor
         email.layer.borderWidth = 0.2
         email.layer.cornerRadius = CORNER_RADIUS
+        
         alias.setLeftImage(systemImage: "person", cornerRadius: CORNER_RADIUS)
         alias.layer.borderColor = UIColor.lightGray.cgColor
         alias.layer.borderWidth = 0.2
         alias.layer.cornerRadius = CORNER_RADIUS
+    
+        Application.current_VC = self
         alias.delegate = self
     }
+    
+//    override func viewDidAppear(_ animated: Bool) {
+//        UIView.animate(withDuration: 0.5, animations: {
+//            self.card_view_centerY.constant = 0
+//            self.view.layoutIfNeeded()
+//        })
+//    }
     
     @IBAction func updateCanvasSize(_ sender: UISegmentedControl) {
         LocalStorage.saveCanvasSize(size: Application.canvas_sizes[options.selectedSegmentIndex])

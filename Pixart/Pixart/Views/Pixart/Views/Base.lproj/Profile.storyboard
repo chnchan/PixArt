@@ -160,8 +160,9 @@
                     <connections>
                         <outlet property="alias" destination="Zet-dG-GOR" id="pzQ-pD-4Jv"/>
                         <outlet property="card_view" destination="58x-RR-AWC" id="1ge-DJ-Flq"/>
+                        <outlet property="card_view_centerY" destination="lMG-w3-o3B" id="4Ul-Vn-7QR"/>
                         <outlet property="email" destination="fd0-WL-EJi" id="uWN-w6-xFA"/>
-                        <outlet property="options" destination="XwR-h9-hEc" id="wkD-ba-But"/>
+                        <outlet property="options" destination="XwR-h9-hEc" id="CEC-YG-AKm"/>
                         <outlet property="profile_image" destination="bbw-vb-pkU" id="Dik-5s-5J3"/>
                         <segue destination="Nui-hB-J74" kind="show" identifier="profile_to_sidemenu" id="hhe-Dx-cfR"/>
                         <segue destination="KYz-qY-Ody" kind="unwind" identifier="unwind_profile_to_login" unwindAction="unwindToLogin:" id="1OU-gs-M7F"/>

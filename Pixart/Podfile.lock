@@ -143,7 +143,7 @@ PODS:
   - nanopb/decode (0.3.9011)
   - nanopb/encode (0.3.9011)
   - Protobuf (3.10.0)
-  - SideMenu (6.4.6)
+  - SideMenu (6.4.7)
 
 DEPENDENCIES:
   - ColorSlider (~> 4.4)
@@ -213,7 +213,7 @@ SPEC CHECKSUMS:
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   Protobuf: a4dc852ad69c027ca2166ed287b856697814375b
-  SideMenu: 43910eb6dc994dd59771f8e82573d04a9e776361
+  SideMenu: 928a015669c3afc201e1fe3a87f1b0bc8993a664
 
 PODFILE CHECKSUM: c484dcebe7377190b33e025c9934beb8cdb032da
 

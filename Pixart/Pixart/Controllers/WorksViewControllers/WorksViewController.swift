@@ -35,6 +35,7 @@ class WorksViewController: UIViewController {
         super.viewDidLoad()
         publishedView_X_constraint.constant = 416
         trashedView_X_constraint.constant = 416
+        Application.current_VC = self
         PublicCollection.dataSource = self
         PublicCollection.delegate = self
         PrivateCollection.dataSource = self

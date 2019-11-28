@@ -10,7 +10,7 @@
         <!--Side Menu View Controller-->
         <scene sceneID="omn-f3-8h8">
             <objects>
-                <viewController modalPresentationStyle="overCurrentContext" id="PLL-lV-fyY" customClass="SideMenuViewController" customModule="Pixart" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="PLL-lV-fyY" customClass="SideMenuViewController" customModule="Pixart" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1NK-UC-O2q">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -41,7 +41,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="izz-eH-EvJ">
                                                 <rect key="frame" x="0.0" y="0.0" width="126" height="132"/>
                                                 <connections>
-                                                    <segue destination="8bY-Pn-6Ek" kind="show" id="eig-a4-Kpi"/>
+                                                    <action selector="profilePressed:" destination="PLL-lV-fyY" eventType="touchUpInside" id="OsL-Hm-QrK"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -78,7 +78,7 @@
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="Rjr-2U-NMr" kind="show" id="Ip0-Kr-qlQ"/>
+                                            <action selector="canvasPressed:" destination="PLL-lV-fyY" eventType="touchUpInside" id="bgQ-mg-JRQ"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rbe-qh-i2w">
@@ -92,7 +92,7 @@
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="Ou6-YY-xh6" kind="show" id="3Yt-VV-Rzh"/>
+                                            <action selector="worksPressed:" destination="PLL-lV-fyY" eventType="touchUpInside" id="UBC-08-hw2"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rAh-09-G3s">
@@ -106,7 +106,7 @@
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="b6C-SQ-MBJ" kind="show" id="ptW-NZ-bQ9"/>
+                                            <action selector="browsePressed:" destination="PLL-lV-fyY" eventType="touchUpInside" id="Ttj-ah-ham"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dWu-9m-f71">
@@ -176,6 +176,10 @@
                         <outlet property="profile_image" destination="FeI-he-bgr" id="YBi-tt-AfK"/>
                         <outlet property="username" destination="6sN-MF-xw1" id="CcB-F4-t3t"/>
                         <segue destination="qTz-DE-qmq" kind="unwind" identifier="logout" unwindAction="unwindToLogin:" id="aGz-Dn-ZFc"/>
+                        <segue destination="8bY-Pn-6Ek" kind="show" identifier="profile" id="4CL-xo-FLW"/>
+                        <segue destination="Rjr-2U-NMr" kind="show" identifier="canvas" id="QlY-Vf-EEs"/>
+                        <segue destination="Ou6-YY-xh6" kind="show" identifier="works" id="P0Q-LJ-y5Q"/>
+                        <segue destination="b6C-SQ-MBJ" kind="show" identifier="feeds" id="zYv-UZ-Wyb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fx9-4K-pCy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
