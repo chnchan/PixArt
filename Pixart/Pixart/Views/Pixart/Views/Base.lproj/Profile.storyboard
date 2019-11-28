@@ -94,7 +94,7 @@
                                             <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="deleteAccount:" destination="Ccl-4C-nNg" eventType="touchUpInside" id="jdn-Us-s6A"/>
+                                            <action selector="logout:" destination="Ccl-4C-nNg" eventType="touchUpInside" id="DHq-LD-0nD"/>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Alias" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="Zet-dG-GOR">
@@ -164,9 +164,11 @@
                         <outlet property="options" destination="XwR-h9-hEc" id="wkD-ba-But"/>
                         <outlet property="profile_image" destination="bbw-vb-pkU" id="Dik-5s-5J3"/>
                         <segue destination="Nui-hB-J74" kind="show" identifier="profile_to_sidemenu" id="hhe-Dx-cfR"/>
+                        <segue destination="KYz-qY-Ody" kind="unwind" identifier="unwind_profile_to_login" unwindAction="unwindToLogin:" id="1OU-gs-M7F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f6g-qa-3Jh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="KYz-qY-Ody" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1802.8985507246377" y="112.5"/>
         </scene>

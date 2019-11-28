@@ -48,8 +48,8 @@ class ProfileViewController: UIViewController {
         performSegue(withIdentifier: "profile_to_sidemenu", sender: self)
     }
     
-    @IBAction func deleteAccount(_ sender: Any) {
-        
+    @IBAction func logout(_ sender: Any) {
+        performSegue(withIdentifier: "unwind_profile_to_login", sender: self)
     }
     
     private func setupSideMenu() {

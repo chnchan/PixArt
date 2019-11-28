@@ -103,7 +103,7 @@ extension WorksTrashViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = worksTableView.dequeueReusableCell(withIdentifier: "trash_post") as! TrashTableViewCell
+        let cell = worksTableView.dequeueReusableCell(withIdentifier: "trash_post") as! TrashedTableViewCell
         let gridSize = (works[indexPath.row])["gridSize"] as! Int
         let colors: [String:String] = (works[indexPath.row])["colors"] as! [String:String]
         cell.preview.makeCells(size: gridSize, data: colors)

@@ -78,11 +78,12 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        canvas_size = LocalStorage.fetchCanvasSize()
-        gridView.makeCells(size: canvas_size)
+        setupSideMenu()
         setupColorSlider()
         card_view.addShadow()
         save_view.addShadow()
+        canvas_size = LocalStorage.fetchCanvasSize()
+        gridView.makeCells(size: canvas_size)
         canvasContainer.layer.borderWidth = 5
         canvasContainer.layer.borderColor = UIColor.black.cgColor
     }
@@ -125,6 +126,16 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
     @objc func changedColor(_ slider: ColorSlider) {
         let color = slider.color
         gridView.drawingColor = color
+    }
+    
+    private func setupSideMenu() {
+        if Application.sidemenu_initialized == false {
+            Application.sidemenu_initialized = true
+            let storyboard = UIStoryboard(name: "SideMenu", bundle: nil)
+            SideMenuManager.default.leftMenuNavigationController = storyboard.instantiateViewController(withIdentifier: "LeftMenuNavigationController") as? SideMenuNavigationController
+            SideMenuManager.default.addPanGestureToPresent(toView: self.navigationController!.navigationBar)
+            SideMenuManager.default.addScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
+        }
     }
     
     private func savePixelArt() {

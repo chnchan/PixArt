@@ -10,28 +10,37 @@ import UIKit
 import Firebase
 
 class WorksViewController: UIViewController {
-
-    @IBOutlet weak var options: UISegmentedControl!
-    @IBOutlet weak var publishedView_X_constraint: NSLayoutConstraint!
-    @IBOutlet weak var privateView_X_constraint: NSLayoutConstraint!
     
-    @IBOutlet weak var PrivateCollection: UICollectionView!
-    @IBOutlet weak var PublicCollection: UICollectionView!
+    let CELL_PADDING: CGFloat = 5 // MARK: NOTE: canvas preview width x 2 + padding <= view width for there to be two columns. Make sure any size changes won't violate the above.
     
-    var privateWorks: [[String: Any]] = []
-    var publicWorks: [[String: Any]] = []
     let db = Firestore.firestore()
     var handle: AuthStateDidChangeListenerHandle?
+    var privateWorks: [[String: Any]] = []
+    var publicWorks: [[String: Any]] = []
+    var trashedWorks: [[String: Any]] = []
     var userID = ""
     var index: Int = 0
+    
+    @IBOutlet weak var options: UISegmentedControl!
+    @IBOutlet weak var error_view: UIView!
+    @IBOutlet weak var PrivateCollection: UICollectionView!
+    @IBOutlet weak var PublicCollection: UICollectionView!
+    @IBOutlet weak var TrashedTableView: UITableView!
+    @IBOutlet weak var publishedView_X_constraint: NSLayoutConstraint!
+    @IBOutlet weak var privateView_X_constraint: NSLayoutConstraint!
+    @IBOutlet weak var trashedView_X_constraint: NSLayoutConstraint!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         publishedView_X_constraint.constant = 416
+        trashedView_X_constraint.constant = 416
         PublicCollection.dataSource = self
         PublicCollection.delegate = self
         PrivateCollection.dataSource = self
         PrivateCollection.delegate = self
+        TrashedTableView.dataSource = self
+        TrashedTableView.delegate = self
         fetch()
     }
     
@@ -50,10 +59,28 @@ class WorksViewController: UIViewController {
     @IBAction func switchViews(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
-            showPrivateView()
+            UIView.animate(withDuration: 0.3, animations:{
+                self.privateView_X_constraint.constant = 0
+                self.publishedView_X_constraint.constant = 416
+                self.trashedView_X_constraint.constant = 416
+                self.view.layoutIfNeeded()
+            })
             break
         case 1:
-            showPublishedView()
+            UIView.animate(withDuration: 0.3, animations:{
+                self.privateView_X_constraint.constant = -416
+                self.publishedView_X_constraint.constant = 0
+                self.trashedView_X_constraint.constant = 416
+                self.view.layoutIfNeeded()
+            })
+            break
+        case 2:
+            UIView.animate(withDuration: 0.3, animations:{
+                self.privateView_X_constraint.constant = -416
+                self.publishedView_X_constraint.constant = -416
+                self.trashedView_X_constraint.constant = 0
+                self.view.layoutIfNeeded()
+            })
             break
         default:
             print("Unknown segment index.")
@@ -61,11 +88,11 @@ class WorksViewController: UIViewController {
     }
     
     @IBAction func swipeHandler(_ sender: UISwipeGestureRecognizer) {
-        if sender.direction == UISwipeGestureRecognizer.Direction.right {
-            options.selectedSegmentIndex = 0
+        if sender.direction == UISwipeGestureRecognizer.Direction.right && options.selectedSegmentIndex > 0 {
+            options.selectedSegmentIndex -= 1
             switchViews(options)
-        } else if sender.direction == UISwipeGestureRecognizer.Direction.left {
-            options.selectedSegmentIndex = 1
+        } else if sender.direction == UISwipeGestureRecognizer.Direction.left && options.selectedSegmentIndex < 2 {
+            options.selectedSegmentIndex += 1
             switchViews(options)
         }
         
@@ -76,22 +103,6 @@ class WorksViewController: UIViewController {
         performSegue(withIdentifier: "works_to_canvas", sender: self)
     }
     
-    private func showPrivateView() {
-        UIView.animate(withDuration: 0.3, animations:{
-            self.publishedView_X_constraint.constant = 416
-            self.privateView_X_constraint.constant = 0
-            self.view.layoutIfNeeded()
-        })
-    }
-    
-    private func showPublishedView() {
-        UIView.animate(withDuration: 0.3, animations:{
-            self.publishedView_X_constraint.constant = 0
-            self.privateView_X_constraint.constant = -416
-            self.view.layoutIfNeeded()
-        })
-    }
-    
     private func fetch() {
         self.privateWorks = []
         self.publicWorks = []
@@ -100,21 +111,22 @@ class WorksViewController: UIViewController {
             self.db.collection(self.userID).getDocuments() { (querySnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
+                    self.error_view.isHidden = false
                 } else {
-                    // this force unwrap is what is used in the
-                    // cloud firestore docs
                     for document in querySnapshot!.documents {
                         if(document.data()["colors"] as? [String:String] != nil) {
-                            if(document.data()["public"] as? Int == 0) {
+                            if (document.data()["public"] as? Int == 0) {
                                 self.privateWorks.append(document.data())
-                            }
-                            if(document.data()["public"] as? Int == 1) {
-                               self.publicWorks.append(document.data())
+                            } else if (document.data()["public"] as? Int == 1) {
+                                self.publicWorks.append(document.data())
+                            } else if (document.data()["public"] as? Int == -1) {
+                                self.trashedWorks.append(document.data())
                             }
                         }
                     }
                     self.PublicCollection.reloadData()
                     self.PrivateCollection.reloadData()
+                    self.TrashedTableView.reloadData()
                 }
             }
         }
@@ -126,6 +138,14 @@ class WorksViewController: UIViewController {
     }
 }
 
+extension WorksViewController: UIAdaptivePresentationControllerDelegate {
+    func presentationControllerWillDismiss(_ presentationController: UIPresentationController) {
+        print("will dismissed")
+        fetch()
+    }
+}
+
+// MARK: Collection View
 extension WorksViewController : UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == PublicCollection {
@@ -169,23 +189,35 @@ extension WorksViewController : UICollectionViewDataSource, UICollectionViewDele
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let NumberItemPerRow : CGFloat = 2
-        let padding : CGFloat = 10
-        let width = (collectionView.frame.width - (NumberItemPerRow - 1) * padding ) / NumberItemPerRow
+        let width = (collectionView.frame.width - (NumberItemPerRow - 1) * CELL_PADDING ) / NumberItemPerRow
         return CGSize(width: width, height: width)
     }
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
+        return CELL_PADDING
     }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 5
-    }
-    
-    
-    
 }
-extension WorksViewController: UIAdaptivePresentationControllerDelegate {
-    func presentationControllerWillDismiss(_ presentationController: UIPresentationController) {
-        print("will dismissed")
-        fetch()
+
+
+// MARK: Table View
+extension WorksViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return trashedWorks.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "trashed") as! TrashedTableViewCell
+        let gridSize = (trashedWorks[indexPath.row])["gridSize"] as! Int
+        let colors: [String:String] = (trashedWorks[indexPath.row])["colors"] as! [String:String]
+        cell.preview.makeCells(size: gridSize, data: colors)
+        cell.title.text = (trashedWorks[indexPath.row])["name"] as? String
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        view.endEditing(true)
+        tableView.deselectRow(at: indexPath, animated: true)
+//        index = indexPath.row
+//        performSegue(withIdentifier: "works_detail_published", sender: self)
     }
 }
