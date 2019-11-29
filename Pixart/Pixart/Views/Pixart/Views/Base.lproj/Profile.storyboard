@@ -23,6 +23,7 @@
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="txe-nX-daE">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <gestureRecognizers/>
                                 </view>
                                 <blurEffect style="regular"/>
                             </visualEffectView>
@@ -57,7 +58,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="58x-RR-AWC">
-                                <rect key="frame" x="49.666666666666657" y="273" width="315" height="350"/>
+                                <rect key="frame" x="49.666666666666657" y="248" width="315" height="400"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="60x-aN-o9G">
                                         <rect key="frame" x="88.333333333333343" y="-65" width="138" height="138"/>
@@ -99,7 +100,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dCD-7a-TWB">
-                                        <rect key="frame" x="82" y="300" width="151" height="30"/>
+                                        <rect key="frame" x="82" y="350" width="151" height="30"/>
                                         <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Logout">
@@ -123,11 +124,11 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
-                                            <action selector="updateAlias:" destination="Ccl-4C-nNg" eventType="editingDidEnd" id="ntX-ZG-qSO"/>
+                                            <action selector="updateLocalStorage:" destination="Ccl-4C-nNg" eventType="editingDidEnd" id="dvw-A4-aiO"/>
                                         </connections>
                                     </textField>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="XwR-h9-hEc">
-                                        <rect key="frame" x="20" y="209" width="275" height="32"/>
+                                        <rect key="frame" x="20" y="234" width="275" height="32"/>
                                         <segments>
                                             <segment title="8x8"/>
                                             <segment title="16x16"/>
@@ -135,7 +136,29 @@
                                             <segment title="32x32"/>
                                         </segments>
                                         <connections>
-                                            <action selector="updateCanvasSize:" destination="Ccl-4C-nNg" eventType="valueChanged" id="DRg-dn-4Rw"/>
+                                            <action selector="updateLocalStorage:" destination="Ccl-4C-nNg" eventType="valueChanged" id="xBH-Cy-8Dd"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Canvas Size:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ULM-hj-t4F">
+                                        <rect key="frame" x="20.000000000000007" y="209" width="84.333333333333343" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Launch Settings:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CRQ-nb-lsE">
+                                        <rect key="frame" x="20" y="288" width="112" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="aJd-p6-Vet">
+                                        <rect key="frame" x="166" y="281" width="129" height="32"/>
+                                        <segments>
+                                            <segment title="Canvas"/>
+                                            <segment title="Browse"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="updateLocalStorage:" destination="Ccl-4C-nNg" eventType="valueChanged" id="hxp-hj-8p7"/>
                                         </connections>
                                     </segmentedControl>
                                 </subviews>
@@ -144,19 +167,27 @@
                                     <constraint firstItem="Zet-dG-GOR" firstAttribute="top" secondItem="fd0-WL-EJi" secondAttribute="bottom" constant="16" id="0xz-Vy-uZ6"/>
                                     <constraint firstAttribute="width" constant="315" id="1CO-KB-uay"/>
                                     <constraint firstItem="fd0-WL-EJi" firstAttribute="top" secondItem="60x-aN-o9G" secondAttribute="bottom" constant="20" id="1H1-la-9qm"/>
+                                    <constraint firstItem="aJd-p6-Vet" firstAttribute="top" secondItem="XwR-h9-hEc" secondAttribute="bottom" constant="16" id="47M-3T-4hV"/>
                                     <constraint firstItem="Zet-dG-GOR" firstAttribute="leading" secondItem="58x-RR-AWC" secondAttribute="leading" constant="20" id="Dgo-xV-RpT"/>
                                     <constraint firstItem="dCD-7a-TWB" firstAttribute="centerX" secondItem="58x-RR-AWC" secondAttribute="centerX" id="HqJ-pe-wWi"/>
-                                    <constraint firstAttribute="height" constant="350" id="Ph6-X0-heo"/>
+                                    <constraint firstAttribute="height" constant="400" id="Ph6-X0-heo"/>
                                     <constraint firstItem="fd0-WL-EJi" firstAttribute="centerX" secondItem="58x-RR-AWC" secondAttribute="centerX" id="RbG-AL-LCZ"/>
                                     <constraint firstItem="fd0-WL-EJi" firstAttribute="leading" secondItem="58x-RR-AWC" secondAttribute="leading" constant="20" id="RrE-qU-DUE"/>
-                                    <constraint firstItem="XwR-h9-hEc" firstAttribute="top" secondItem="Zet-dG-GOR" secondAttribute="bottom" constant="20" id="UpO-vO-U8z"/>
+                                    <constraint firstAttribute="trailing" secondItem="aJd-p6-Vet" secondAttribute="trailing" constant="20" id="W19-BC-OgG"/>
+                                    <constraint firstItem="CRQ-nb-lsE" firstAttribute="leading" secondItem="XwR-h9-hEc" secondAttribute="leading" id="Yp5-8G-aZG"/>
+                                    <constraint firstItem="aJd-p6-Vet" firstAttribute="leading" secondItem="CRQ-nb-lsE" secondAttribute="trailing" priority="249" constant="42" id="bad-qm-FwO"/>
                                     <constraint firstItem="Zet-dG-GOR" firstAttribute="centerX" secondItem="58x-RR-AWC" secondAttribute="centerX" id="jn4-sz-bYl"/>
+                                    <constraint firstItem="CRQ-nb-lsE" firstAttribute="centerY" secondItem="aJd-p6-Vet" secondAttribute="centerY" id="lnJ-Nu-CMJ"/>
                                     <constraint firstItem="60x-aN-o9G" firstAttribute="top" secondItem="58x-RR-AWC" secondAttribute="top" constant="-65" id="nUq-3A-Jdd"/>
+                                    <constraint firstItem="ULM-hj-t4F" firstAttribute="leading" secondItem="Zet-dG-GOR" secondAttribute="leading" id="pYc-Hq-1K0"/>
                                     <constraint firstAttribute="bottom" secondItem="dCD-7a-TWB" secondAttribute="bottom" constant="20" id="phy-Jh-MGg"/>
                                     <constraint firstItem="dCD-7a-TWB" firstAttribute="leading" secondItem="58x-RR-AWC" secondAttribute="leading" constant="82" id="rPD-fo-rzt"/>
+                                    <constraint firstAttribute="trailing" secondItem="ULM-hj-t4F" secondAttribute="trailing" constant="210.66666666666666" id="tNg-lV-I4i"/>
                                     <constraint firstItem="XwR-h9-hEc" firstAttribute="leading" secondItem="58x-RR-AWC" secondAttribute="leading" constant="20" id="tnd-W3-6Td"/>
                                     <constraint firstItem="XwR-h9-hEc" firstAttribute="centerX" secondItem="58x-RR-AWC" secondAttribute="centerX" id="uCq-oG-Ub1"/>
+                                    <constraint firstItem="XwR-h9-hEc" firstAttribute="top" secondItem="ULM-hj-t4F" secondAttribute="bottom" constant="8" id="wIq-mP-age"/>
                                     <constraint firstItem="60x-aN-o9G" firstAttribute="centerX" secondItem="58x-RR-AWC" secondAttribute="centerX" id="xe1-mA-Z0j"/>
+                                    <constraint firstItem="ULM-hj-t4F" firstAttribute="top" secondItem="Zet-dG-GOR" secondAttribute="bottom" constant="20" id="xfh-py-egK"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -188,6 +219,7 @@
                         <outlet property="card_view" destination="58x-RR-AWC" id="1ge-DJ-Flq"/>
                         <outlet property="card_view_centerX" destination="tJY-qe-eaV" id="Li0-Ho-Xzi"/>
                         <outlet property="email" destination="fd0-WL-EJi" id="uWN-w6-xFA"/>
+                        <outlet property="launch_options" destination="aJd-p6-Vet" id="Gku-XL-a9s"/>
                         <outlet property="options" destination="XwR-h9-hEc" id="CEC-YG-AKm"/>
                         <outlet property="profile_image" destination="bbw-vb-pkU" id="Dik-5s-5J3"/>
                         <segue destination="Nui-hB-J74" kind="show" identifier="profile_to_sidemenu" id="hhe-Dx-cfR"/>

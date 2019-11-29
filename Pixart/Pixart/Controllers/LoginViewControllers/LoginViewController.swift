@@ -104,7 +104,12 @@ class LoginViewController: UIViewController {
             } else {
                 self.errorLabel.text = ""
                 LocalStorage.saveLogins(username: self.email.text ?? "", password: self.password.text ?? "", auto_signin: self.auto_signin.isSelected)
-                self.performSegue(withIdentifier: "login", sender: self)
+                
+                if LocalStorage.fetchLaunchOption() == 1 {
+                    self.performSegue(withIdentifier: "login_feeds", sender: self)
+                } else {
+                    self.performSegue(withIdentifier: "login_canvas", sender: self)
+                }
             }
         }
     }
@@ -143,7 +148,7 @@ class LoginViewController: UIViewController {
                 } else {
                     self.signup_errorLabel.text = ""
                     LocalStorage.saveLogins(username: self.signup_email.text ?? "", password: self.signup_password.text ?? "")
-                    self.performSegue(withIdentifier: "login", sender: self)
+                    self.performSegue(withIdentifier: "login_canvas", sender: self)
                 }
             }
         }

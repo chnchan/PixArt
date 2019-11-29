@@ -15,6 +15,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="113123141" translatesAutoresizingMaskIntoConstraints="NO" id="7um-0c-uvZ">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yM6-up-6Va">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="uCR-hH-fSw">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="regular"/>
+                            </visualEffectView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9sM-QJ-KsW">
                                 <rect key="frame" x="132" y="378" width="150" height="150"/>
                                 <subviews>
@@ -48,7 +61,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="9sM-QJ-KsW" firstAttribute="centerX" secondItem="1Lp-zt-haL" secondAttribute="centerX" id="P2I-fG-wXV"/>
                             <constraint firstItem="gEb-lL-X63" firstAttribute="centerX" secondItem="1Lp-zt-haL" secondAttribute="centerX" id="TpG-tv-f1o"/>
@@ -81,6 +94,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="113123141" translatesAutoresizingMaskIntoConstraints="NO" id="7eO-Ok-mTY">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9cV-eo-SdJ">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="bNb-bA-WIg">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="regular"/>
+                            </visualEffectView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fwt-ND-5de" userLabel="Login View">
                                 <rect key="frame" x="49.5" y="228" width="315" height="450"/>
                                 <subviews>
@@ -457,7 +483,8 @@
                         <outlet property="signup_spinner" destination="SQw-oV-DUZ" id="6gW-FW-tbl"/>
                         <outlet property="signup_view" destination="0WC-rE-qLJ" id="V56-s7-QK1"/>
                         <outlet property="spinner" destination="3je-Zb-P5D" id="O9a-Yf-kmk"/>
-                        <segue destination="WB8-lQ-pit" kind="show" identifier="login" id="uIy-7e-tGq"/>
+                        <segue destination="WB8-lQ-pit" kind="show" identifier="login_canvas" id="uIy-7e-tGq"/>
+                        <segue destination="DJv-Md-XS3" kind="show" identifier="login_feeds" id="AOp-gd-DMR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gyA-rO-P1p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -473,6 +500,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aff-QA-Hhe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5038" y="113"/>
+        </scene>
+        <!--Feeds-->
+        <scene sceneID="qp0-jQ-JFU">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Feeds" id="DJv-Md-XS3" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="u4c-c2-1EU"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DbC-Qf-gKO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5033" y="147"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="GFT-iL-ZPg">
@@ -494,6 +531,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="113123141" width="535" height="845"/>
         <image name="arrow.right" catalog="system" width="64" height="48"/>
         <image name="checkmark.square" catalog="system" width="64" height="56"/>
         <image name="logo_2" width="740" height="740"/>

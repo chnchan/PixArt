@@ -58,7 +58,7 @@ import Firebase
 
 class CanvasViewController: UIViewController, UITextFieldDelegate {
     
-    let SLIDER_Y_POS = 0 // space from the canvas
+    let SLIDER_Y_POS = 20 // space from the canvas
     let SLIDER_HIGHT = 15
     let SLIDER_WIDTH = 300
     
@@ -80,7 +80,7 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupSideMenu()
+//        setupSideMenu()
         setupColorSlider()
         card_view.addShadow()
         card_view_centerX.constant = 416
@@ -176,7 +176,7 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func setupColorSlider() {
-        let y_pos = Int(view.frame.width) - 10
+        let y_pos = Int(view.frame.width) + SLIDER_Y_POS
         
         let colorSlider = ColorSlider(orientation: .horizontal, previewSide: .top)
         colorSlider.frame = CGRect( x: Int((view.frame.width)/2) - Int(SLIDER_WIDTH/2), y: y_pos, width: SLIDER_WIDTH, height: SLIDER_HIGHT)

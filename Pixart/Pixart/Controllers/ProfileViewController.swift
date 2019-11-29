@@ -17,13 +17,13 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var alias: UITextField!
     @IBOutlet weak var options: UISegmentedControl!
+    @IBOutlet weak var launch_options: UISegmentedControl!
     @IBOutlet weak var card_view: UIView!
     @IBOutlet weak var card_view_centerX: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
-        setupSideMenu()
         card_view.addShadow()
         card_view_centerX.constant = 416
         
@@ -48,12 +48,8 @@ class ProfileViewController: UIViewController {
         })
     }
     
-    @IBAction func updateCanvasSize(_ sender: UISegmentedControl) {
-        LocalStorage.saveCanvasSize(size: Application.canvas_sizes[options.selectedSegmentIndex])
-    }
-    
-    @IBAction func updateAlias(_ sender: Any) {
-        LocalStorage.saveAlias(alias: alias.text ?? "")
+    @IBAction func updateLocalStorage(_ sender: Any) {
+        LocalStorage.saveProfileSettings(alias: alias.text ?? "", size: Application.canvas_sizes[options.selectedSegmentIndex], option: launch_options.selectedSegmentIndex)
     }
     
     @IBAction func openSideMenu(_ sender: Any) {
@@ -63,16 +59,6 @@ class ProfileViewController: UIViewController {
     
     @IBAction func logout(_ sender: Any) {
         performSegue(withIdentifier: "unwind_profile_to_login", sender: self)
-    }
-    
-    private func setupSideMenu() {
-        if Application.sidemenu_initialized == false {
-            Application.sidemenu_initialized = true
-            let storyboard = UIStoryboard(name: "SideMenu", bundle: nil)
-            SideMenuManager.default.leftMenuNavigationController = storyboard.instantiateViewController(withIdentifier: "LeftMenuNavigationController") as? SideMenuNavigationController
-            SideMenuManager.default.addPanGestureToPresent(toView: self.navigationController!.navigationBar)
-            SideMenuManager.default.addScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
-        }
     }
     
     private func loadData() {
@@ -90,6 +76,12 @@ class ProfileViewController: UIViewController {
             options.selectedSegmentIndex = 3
         } else {
             print("Unknown canvas size!")
+        }
+        
+        if LocalStorage.fetchLaunchOption() == 1 {
+            launch_options.selectedSegmentIndex = 1
+        } else {
+            launch_options.selectedSegmentIndex = 0
         }
     }
 }

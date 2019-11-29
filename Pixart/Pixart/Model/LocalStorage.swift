@@ -31,6 +31,8 @@ struct LocalStorage {
                 user.setValue(password, forKey: "password")
                 user.setValue(auto_signin, forKey: "auto_signin")
                 user.setValue("", forKey: "alias")
+                user.setValue(8, forKey: "canvas_size")
+                user.setValue(0, forKey: "launch_option")
             }
         }
         catch {
@@ -59,7 +61,7 @@ struct LocalStorage {
         return userInfo
     }
     
-    static func saveAlias(alias: String) {
+    static func saveProfileSettings(alias: String, size: Int, option: Int) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedContext = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "User")
@@ -69,6 +71,31 @@ struct LocalStorage {
             
             if let user = user.first {
                 user.setValue(alias, forKey: "alias")
+                user.setValue(size, forKey: "canvas_size")
+                user.setValue(option, forKey: "launch_option")
+            }
+        }
+        catch {
+            print("Failed to fetch alias:", error)
+        }
+
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
+    
+    static func saveCanvasSize(size: Int = 8) { // 8x8 canvas size by default
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "User")
+        
+        do {
+            let user = try managedContext.fetch(fetchRequest)
+            
+            if let user = user.first {
+                user.setValue(size, forKey: "canvas_size")
             }
         }
         catch {
@@ -112,48 +139,39 @@ struct LocalStorage {
         return userInfo[0].value(forKey: "username") as! String
     }
     
-    static func saveCanvasSize(size: Int = 8) { // 8x8 canvas size by default
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        let managedContext = appDelegate.persistentContainer.viewContext
-        guard let entity = NSEntityDescription.entity(forEntityName: "Settings", in: managedContext) else { return }
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Settings")
-        
-        do {
-            let settings = try managedContext.fetch(fetchRequest)
-            
-            if let settings = settings.first {
-                settings.setValue(size, forKey: "canvas_size")
-            } else {
-                let settings = NSManagedObject(entity: entity, insertInto: managedContext)
-                settings.setValue(size, forKey: "canvas_size")
-            }
-        }
-        catch {
-            print("Failed to fetch Settings:", error)
-        }
-
-        do {
-            try managedContext.save()
-        } catch let error as NSError {
-            print("Could not save. \(error), \(error.userInfo)")
-        }
-    }
-    
-    static func fetchCanvasSize() -> Int {
+    static func fetchLaunchOption() -> Int {
+        var userInfo: [NSManagedObject] = []
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return -1 }
         let managedContext = appDelegate.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Settings")
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "User")
         
         do {
-            let settings = try managedContext.fetch(fetchRequest)
-            
-            if let settings = settings.first {
-                return settings.value(forKey: "canvas_size") as! Int
-            }
+            userInfo = try managedContext.fetch(fetchRequest)
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
         
-        return 8 // 8x8 canvas size by default
+        return userInfo[0].value(forKey: "launch_option") as? Int ?? 0
+    }
+    
+    static func fetchCanvasSize() -> Int {
+        var userInfo: [NSManagedObject] = []
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return -1 }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "User")
+        
+        do {
+            userInfo = try managedContext.fetch(fetchRequest)
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        
+        let size = userInfo[0].value(forKey: "canvas_size") as? Int ?? 8
+
+        if size != 8 && size != 16 && size != 24 && size != 32 {
+            return 8
+        } else {
+            return size
+        }
     }
 }
