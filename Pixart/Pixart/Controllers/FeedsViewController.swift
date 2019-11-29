@@ -17,9 +17,14 @@ class FeedsViewController: UIViewController {
     var publicWorks: [[String: Any]] = []
     
     @IBOutlet weak var card_view: UIView!
+    @IBOutlet weak var card_view_top: NSLayoutConstraint!
     @IBOutlet weak var swipe_view: UIView!
     @IBOutlet weak var swipe_left_icon: UIView!
     @IBOutlet weak var swipe_right_icon: UIView!
+    @IBOutlet weak var preview: CanvasPreview!
+    @IBOutlet weak var work_name: UILabel!
+    @IBOutlet weak var author_name: UILabel!
+    @IBOutlet weak var publish_date: UILabel! // MARK: READ ME!! This should be the first publish date. To prevent exploit like refreshing the timestamp
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,10 +35,18 @@ class FeedsViewController: UIViewController {
         swipe_view.addGestureRecognizer(left_swipe)
         swipe_view.addGestureRecognizer(right_swipe)
         card_view.addShadow(x: 0.5, y: 5)
+        card_view_top.constant = -600
         swipe_left_icon.addShadow()
         swipe_right_icon.addShadow()
         Application.current_VC = self
-        //fetch()
+//        fetch()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        UIView.animate(withDuration: Application.transition_speed + 0.2, animations: {
+            self.card_view_top.constant = 61
+            self.view.layoutIfNeeded()
+        })
     }
     
     @IBAction func like(_ sender: Any) {
@@ -87,7 +100,7 @@ class FeedsViewController: UIViewController {
                 } else {
                     let gridColors = document!["colors"] as! [String:String]
                     let gridSize = document!["gridSize"] as! Int
-//                    self.preview.makeCells(size: gridSize, data: gridColors)
+                    self.preview.makeCells(size: gridSize, data: gridColors)
                     print("hello")
                 }
             }

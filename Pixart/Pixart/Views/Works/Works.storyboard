@@ -11,7 +11,7 @@
         <!--Works View Controller-->
         <scene sceneID="ZBZ-M5-wgz">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="p9p-gi-iaX" customClass="WorksViewController" customModule="Pixart" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="p9p-gi-iaX" customClass="WorksViewController" customModule="Pixart" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fod-N1-yYd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

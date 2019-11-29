@@ -15,12 +15,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="113123141" translatesAutoresizingMaskIntoConstraints="NO" id="gq0-cv-1YE">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bDw-gq-uvC">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ytD-t6-UwL">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="regular"/>
+                            </visualEffectView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HZM-4h-gDY" userLabel="SideMenu">
                                 <rect key="frame" x="0.0" y="44" width="56" height="48"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line.horizontal.3" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Auj-8J-ISF" userLabel="Menu Icon">
                                         <rect key="frame" x="9.6666666666666643" y="13.999999999999996" width="37" height="20.333333333333339"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="29.670000000000002" id="XIO-Jh-lcb"/>
                                             <constraint firstAttribute="width" constant="37" id="gpU-Tc-Y0k"/>
@@ -221,23 +232,36 @@
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="kLZ-T9-aVb" firstAttribute="top" secondItem="f3G-YN-baA" secondAttribute="top" constant="558" id="36m-tv-905"/>
                             <constraint firstItem="HZM-4h-gDY" firstAttribute="leading" secondItem="f3G-YN-baA" secondAttribute="leading" id="5Le-qd-D4F"/>
+                            <constraint firstItem="bDw-gq-uvC" firstAttribute="trailing" secondItem="f3G-YN-baA" secondAttribute="trailing" id="6yT-Fk-Zmd"/>
                             <constraint firstItem="HZM-4h-gDY" firstAttribute="top" secondItem="f3G-YN-baA" secondAttribute="top" id="8BE-vu-feB"/>
                             <constraint firstItem="XxM-wD-3XL" firstAttribute="top" secondItem="f3G-YN-baA" secondAttribute="top" constant="61" id="8nZ-U2-sLA"/>
+                            <constraint firstItem="gq0-cv-1YE" firstAttribute="trailing" secondItem="f3G-YN-baA" secondAttribute="trailing" id="HHO-ZZ-fm7"/>
+                            <constraint firstItem="bDw-gq-uvC" firstAttribute="leading" secondItem="f3G-YN-baA" secondAttribute="leading" id="JNf-n0-UJu"/>
+                            <constraint firstAttribute="bottom" secondItem="gq0-cv-1YE" secondAttribute="bottom" id="MiH-6E-6Ru"/>
                             <constraint firstItem="XxM-wD-3XL" firstAttribute="leading" secondItem="f3G-YN-baA" secondAttribute="leading" constant="20" id="RDj-QC-s8h"/>
                             <constraint firstAttribute="bottom" secondItem="kLZ-T9-aVb" secondAttribute="bottom" id="XZM-za-Aa1"/>
+                            <constraint firstItem="bDw-gq-uvC" firstAttribute="top" secondItem="rLO-dY-e9K" secondAttribute="top" id="bvS-Ze-hhs"/>
+                            <constraint firstItem="gq0-cv-1YE" firstAttribute="leading" secondItem="f3G-YN-baA" secondAttribute="leading" id="dI6-WU-vFG"/>
                             <constraint firstItem="XxM-wD-3XL" firstAttribute="centerX" secondItem="rLO-dY-e9K" secondAttribute="centerX" id="gMw-un-6c4"/>
-                            <constraint firstItem="kLZ-T9-aVb" firstAttribute="top" secondItem="XxM-wD-3XL" secondAttribute="bottom" id="ldj-lD-87g"/>
+                            <constraint firstItem="gq0-cv-1YE" firstAttribute="top" secondItem="rLO-dY-e9K" secondAttribute="top" id="nWX-6G-ppx"/>
                             <constraint firstItem="f3G-YN-baA" firstAttribute="trailing" secondItem="kLZ-T9-aVb" secondAttribute="trailing" id="szq-Im-DmI"/>
+                            <constraint firstAttribute="bottom" secondItem="bDw-gq-uvC" secondAttribute="bottom" id="xfj-9i-y4F"/>
                             <constraint firstItem="kLZ-T9-aVb" firstAttribute="leading" secondItem="f3G-YN-baA" secondAttribute="leading" id="yug-Hn-QFZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="f3G-YN-baA"/>
                     </view>
                     <connections>
+                        <outlet property="author_name" destination="P9L-qG-akE" id="BHF-Vf-9re"/>
                         <outlet property="card_view" destination="XxM-wD-3XL" id="Z7a-4B-3h3"/>
+                        <outlet property="card_view_top" destination="8nZ-U2-sLA" id="CQw-dM-ZWo"/>
+                        <outlet property="preview" destination="CBO-UU-LRJ" id="z13-ib-yqX"/>
+                        <outlet property="publish_date" destination="h6P-4k-UtN" id="Cah-Ya-KZM"/>
                         <outlet property="swipe_left_icon" destination="xbf-Vk-saT" id="Cga-hz-FbN"/>
                         <outlet property="swipe_right_icon" destination="oLn-o1-d9T" id="gIN-hV-oik"/>
                         <outlet property="swipe_view" destination="kLZ-T9-aVb" id="HxT-hU-eBF"/>
+                        <outlet property="work_name" destination="2Yy-zM-r5A" id="QCV-r6-4Ss"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BUu-Q8-H0V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -256,6 +280,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="113123141" width="535" height="845"/>
         <image name="arrow.right.arrow.left" catalog="system" width="58" height="64"/>
         <image name="heart" catalog="system" width="64" height="54"/>
         <image name="line.horizontal.3" catalog="system" width="64" height="32"/>

@@ -176,10 +176,10 @@
                         <outlet property="profile_image" destination="FeI-he-bgr" id="YBi-tt-AfK"/>
                         <outlet property="username" destination="6sN-MF-xw1" id="CcB-F4-t3t"/>
                         <segue destination="qTz-DE-qmq" kind="unwind" identifier="logout" unwindAction="unwindToLogin:" id="aGz-Dn-ZFc"/>
-                        <segue destination="8bY-Pn-6Ek" kind="show" identifier="profile" id="4CL-xo-FLW"/>
-                        <segue destination="Rjr-2U-NMr" kind="show" identifier="canvas" id="QlY-Vf-EEs"/>
-                        <segue destination="Ou6-YY-xh6" kind="show" identifier="works" id="P0Q-LJ-y5Q"/>
-                        <segue destination="b6C-SQ-MBJ" kind="show" identifier="feeds" id="zYv-UZ-Wyb"/>
+                        <segue destination="8bY-Pn-6Ek" kind="presentation" identifier="profile" id="4CL-xo-FLW"/>
+                        <segue destination="Rjr-2U-NMr" kind="presentation" identifier="canvas" id="QlY-Vf-EEs"/>
+                        <segue destination="Ou6-YY-xh6" kind="presentation" identifier="works" id="P0Q-LJ-y5Q"/>
+                        <segue destination="b6C-SQ-MBJ" kind="presentation" identifier="feeds" id="zYv-UZ-Wyb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fx9-4K-pCy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

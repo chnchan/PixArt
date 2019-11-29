@@ -58,7 +58,7 @@ import Firebase
 
 class CanvasViewController: UIViewController, UITextFieldDelegate {
     
-    let SLIDER_Y_POS = 50 // space from the canvas
+    let SLIDER_Y_POS = 0 // space from the canvas
     let SLIDER_HIGHT = 15
     let SLIDER_WIDTH = 300
     
@@ -70,8 +70,10 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
     var canvas_size: Int = 8
     
     @IBOutlet weak var card_view: UIView!
+    @IBOutlet weak var card_view_centerX: NSLayoutConstraint!
     @IBOutlet weak var save_view: UIView!
     @IBOutlet weak var save_view_top: NSLayoutConstraint!
+    @IBOutlet weak var save_view_centerX: NSLayoutConstraint!
     @IBOutlet weak var gridView: GridView!
     @IBOutlet weak var canvasContainer: UIView!
     //    @IBOutlet weak var spinner: UIActivityIndicatorView!
@@ -81,6 +83,8 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
         setupSideMenu()
         setupColorSlider()
         card_view.addShadow()
+        card_view_centerX.constant = 416
+        save_view_centerX.constant = 416
         save_view.addShadow()
         canvas_size = LocalStorage.fetchCanvasSize()
         gridView.makeCells(size: canvas_size)
@@ -95,6 +99,14 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
         handle = Auth.auth().addStateDidChangeListener { (auth, user) in
             self.userID = user?.uid ?? ""
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        UIView.animate(withDuration: Application.transition_speed, animations: {
+            self.card_view_centerX.constant = 0
+            self.save_view_centerX.constant = 0
+            self.view.layoutIfNeeded()
+        })
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -164,11 +176,11 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func setupColorSlider() {
-        let y_pos = Application.safeArea_top + 48 + 45 + Int(view.frame.width) - 10 + SLIDER_Y_POS
+        let y_pos = Int(view.frame.width) - 10
         
         let colorSlider = ColorSlider(orientation: .horizontal, previewSide: .top)
         colorSlider.frame = CGRect( x: Int((view.frame.width)/2) - Int(SLIDER_WIDTH/2), y: y_pos, width: SLIDER_WIDTH, height: SLIDER_HIGHT)
-        view.addSubview(colorSlider)
+        card_view.addSubview(colorSlider)
         
         colorSlider.addTarget(self, action: #selector(changedColor(_:)), for: .valueChanged)
         colorSlider.color = UIColor.black

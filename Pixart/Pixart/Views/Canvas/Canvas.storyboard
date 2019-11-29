@@ -28,17 +28,28 @@
         <!--Canvas View Controller-->
         <scene sceneID="ubx-FI-qNa">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="hzM-45-OH6" customClass="CanvasViewController" customModule="Pixart" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="hzM-45-OH6" customClass="CanvasViewController" customModule="Pixart" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Bwn-dd-ISe">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="113123141" translatesAutoresizingMaskIntoConstraints="NO" id="ssY-Vk-lkx">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xWM-hk-mDs">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Jot-pz-72D">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="regular"/>
+                            </visualEffectView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gCD-DZ-Rn0" userLabel="SideMenu">
                                 <rect key="frame" x="0.0" y="44" width="56" height="48"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line.horizontal.3" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="649-Oq-Wzi" userLabel="Menu Icon">
                                         <rect key="frame" x="9.6666666666666643" y="13.999999999999996" width="37" height="20.333333333333339"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="37" id="L2U-Ax-wwG"/>
                                             <constraint firstAttribute="height" constant="29.670000000000002" id="Lt3-M9-DnS"/>
@@ -68,7 +79,7 @@
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gear" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="aZ1-KA-b51" userLabel="Menu Icon">
                                         <rect key="frame" x="11.666666666666686" y="11.666666666666661" width="25" height="25.333333333333339"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="aZ1-KA-b51" secondAttribute="height" multiplier="1:1" id="7Ed-NC-h4y"/>
                                             <constraint firstAttribute="height" constant="25" id="l3w-fN-28w"/>
@@ -179,6 +190,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstItem="Fce-pS-a8x" firstAttribute="leading" secondItem="dGp-iS-a2D" secondAttribute="leading" constant="15" id="AOA-SE-8Dv"/>
+                                    <constraint firstAttribute="width" constant="390" id="AXv-ep-MpJ"/>
                                     <constraint firstAttribute="bottom" secondItem="Fce-pS-a8x" secondAttribute="bottom" constant="120" id="Jmb-zJ-yEo"/>
                                     <constraint firstItem="Fce-pS-a8x" firstAttribute="centerX" secondItem="dGp-iS-a2D" secondAttribute="centerX" id="Jzy-Qd-v6C"/>
                                     <constraint firstItem="pF1-jq-ARu" firstAttribute="top" secondItem="Fce-pS-a8x" secondAttribute="bottom" constant="-11" id="SEq-E9-SpY"/>
@@ -196,21 +208,30 @@
                         <constraints>
                             <constraint firstItem="kOS-Ma-x95" firstAttribute="trailing" secondItem="9h4-KI-rZ2" secondAttribute="trailing" id="4AH-J9-tTM"/>
                             <constraint firstItem="9h4-KI-rZ2" firstAttribute="top" secondItem="kOS-Ma-x95" secondAttribute="top" id="EQw-gy-P7q"/>
-                            <constraint firstItem="kOS-Ma-x95" firstAttribute="trailing" secondItem="dGp-iS-a2D" secondAttribute="trailing" constant="12" id="N4u-11-XHh"/>
+                            <constraint firstItem="xWM-hk-mDs" firstAttribute="top" secondItem="Bwn-dd-ISe" secondAttribute="top" id="GQe-Ww-yNr"/>
+                            <constraint firstItem="xWM-hk-mDs" firstAttribute="leading" secondItem="kOS-Ma-x95" secondAttribute="leading" id="L8w-Ea-dEe"/>
                             <constraint firstItem="bPm-1c-Lxw" firstAttribute="centerX" secondItem="Bwn-dd-ISe" secondAttribute="centerX" id="NJ6-fG-CrS"/>
                             <constraint firstItem="gCD-DZ-Rn0" firstAttribute="top" secondItem="kOS-Ma-x95" secondAttribute="top" id="UMJ-QX-BeR"/>
-                            <constraint firstItem="dGp-iS-a2D" firstAttribute="leading" secondItem="kOS-Ma-x95" secondAttribute="leading" constant="12" id="Ztw-sv-QEf"/>
+                            <constraint firstAttribute="bottom" secondItem="xWM-hk-mDs" secondAttribute="bottom" id="YGb-or-mcf"/>
+                            <constraint firstItem="ssY-Vk-lkx" firstAttribute="leading" secondItem="kOS-Ma-x95" secondAttribute="leading" id="b9o-nC-Our"/>
                             <constraint firstItem="gCD-DZ-Rn0" firstAttribute="leading" secondItem="Bwn-dd-ISe" secondAttribute="leading" id="bUr-Js-wuR"/>
                             <constraint firstItem="bPm-1c-Lxw" firstAttribute="top" secondItem="dGp-iS-a2D" secondAttribute="bottom" constant="-25" id="eN7-Ci-oRO"/>
+                            <constraint firstItem="ssY-Vk-lkx" firstAttribute="top" secondItem="Bwn-dd-ISe" secondAttribute="top" id="mL3-nN-LQs"/>
+                            <constraint firstItem="dGp-iS-a2D" firstAttribute="centerX" secondItem="Bwn-dd-ISe" secondAttribute="centerX" id="mQD-vC-Gpt"/>
+                            <constraint firstAttribute="bottom" secondItem="ssY-Vk-lkx" secondAttribute="bottom" id="mWf-DR-KbK"/>
                             <constraint firstItem="dGp-iS-a2D" firstAttribute="top" secondItem="kOS-Ma-x95" secondAttribute="top" constant="100" id="nw3-Yn-Hnq"/>
+                            <constraint firstItem="ssY-Vk-lkx" firstAttribute="trailing" secondItem="kOS-Ma-x95" secondAttribute="trailing" id="zNq-Dz-Wd7"/>
+                            <constraint firstItem="xWM-hk-mDs" firstAttribute="trailing" secondItem="kOS-Ma-x95" secondAttribute="trailing" id="zl9-fe-NMZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kOS-Ma-x95"/>
                     </view>
                     <connections>
                         <outlet property="canvasContainer" destination="Fce-pS-a8x" id="9cp-wf-CaP"/>
                         <outlet property="card_view" destination="dGp-iS-a2D" id="dfC-lu-9oU"/>
+                        <outlet property="card_view_centerX" destination="mQD-vC-Gpt" id="lg1-2I-4GV"/>
                         <outlet property="gridView" destination="DpW-k0-QLD" id="aL5-5D-XeA"/>
                         <outlet property="save_view" destination="bPm-1c-Lxw" id="FzL-FW-cXR"/>
+                        <outlet property="save_view_centerX" destination="NJ6-fG-CrS" id="Qij-2O-O2R"/>
                         <outlet property="save_view_top" destination="eN7-Ci-oRO" id="C5B-3w-Ibf"/>
                         <segue destination="20m-TV-b0U" kind="show" identifier="canvas_to_works" id="yHK-v9-uyk"/>
                         <segue destination="TQm-E1-vnu" kind="presentation" identifier="naming_prompt" animates="NO" id="kdG-Z6-cZc"/>
@@ -240,6 +261,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="113123141" width="535" height="845"/>
         <image name="gear" catalog="system" width="64" height="58"/>
         <image name="line.horizontal.3" catalog="system" width="64" height="32"/>
         <image name="minus.magnifyingglass" catalog="system" width="64" height="56"/>
