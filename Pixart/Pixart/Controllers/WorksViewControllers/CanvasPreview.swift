@@ -12,6 +12,10 @@ import UIKit
 class CanvasPreview: UIView {
     
     public func makeCells(size: Int, data: [String:String]){
+        for v in self.subviews
+        {
+            v.removeFromSuperview()
+        }
         let cellWidth = self.frame.width / CGFloat(size)
         for j in 0...size - 1 {
             for i in 0...size - 1 {

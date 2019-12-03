@@ -33,7 +33,8 @@ class WorksViewController: UIViewController {
     @IBOutlet weak var privateView_X_constraint: NSLayoutConstraint!
     @IBOutlet weak var trashedView_X_constraint: NSLayoutConstraint!
 
-    
+    var backfromdetail = false
+    var movetotrash = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -149,9 +150,24 @@ class WorksViewController: UIViewController {
                             }
                         }
                     }
-                    self.PublicCollection.reloadData()
-                    self.PrivateCollection.reloadData()
-                    self.TrashedTableView.reloadData()
+                    if self.backfromdetail
+                    {
+                        if self.movetotrash
+                        {
+                            self.TrashedTableView.reloadData()
+                            self.movetotrash = false
+                        }
+                        self.PublicCollection.reloadData()
+                        self.PrivateCollection.reloadData()
+                        self.backfromdetail = false
+                    }
+                    else
+                    {
+                        self.PublicCollection.reloadData()
+                        self.PrivateCollection.reloadData()
+                        self.TrashedTableView.reloadData()
+                    }
+                    
                 }
             }
         }
@@ -159,6 +175,8 @@ class WorksViewController: UIViewController {
     
     // MARK: Unwind
     @IBAction func unwindToWorks(_ unwindSegue: UIStoryboardSegue) {
+        backfromdetail = true
+        movetotrash = true
         fetch()
     }
 }
@@ -166,6 +184,7 @@ class WorksViewController: UIViewController {
 extension WorksViewController: UIAdaptivePresentationControllerDelegate {
     func presentationControllerWillDismiss(_ presentationController: UIPresentationController) {
         print("will dismissed")
+        backfromdetail = true
         fetch()
     }
 }
