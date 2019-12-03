@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hzM-45-OH6">
-    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -48,7 +48,7 @@
                                 <rect key="frame" x="0.0" y="44" width="56" height="48"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line.horizontal.3" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="649-Oq-Wzi" userLabel="Menu Icon">
-                                        <rect key="frame" x="9.6666666666666643" y="13.999999999999996" width="37" height="20.333333333333339"/>
+                                        <rect key="frame" x="9.5" y="14" width="37" height="20.5"/>
                                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="37" id="L2U-Ax-wwG"/>
@@ -78,7 +78,7 @@
                                 <rect key="frame" x="366" y="44" width="48" height="48"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gear" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="aZ1-KA-b51" userLabel="Menu Icon">
-                                        <rect key="frame" x="11.666666666666686" y="11.666666666666661" width="25" height="25.333333333333339"/>
+                                        <rect key="frame" x="11.5" y="11.5" width="25" height="25.5"/>
                                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="aZ1-KA-b51" secondAttribute="height" multiplier="1:1" id="7Ed-NC-h4y"/>
@@ -108,7 +108,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bPm-1c-Lxw">
-                                <rect key="frame" x="97" y="614" width="220" height="70"/>
+                                <rect key="frame" x="97" y="564" width="220" height="70"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nf1-GX-4Mx">
                                         <rect key="frame" x="10" y="29" width="200" height="36"/>
@@ -138,13 +138,13 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dGp-iS-a2D" userLabel="Card View">
-                                <rect key="frame" x="12" y="144" width="390" height="495"/>
+                                <rect key="frame" x="37" y="144" width="340" height="445"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pF1-jq-ARu" userLabel="Zoom out button">
-                                        <rect key="frame" x="264.33333333333331" y="364" width="110.66666666666669" height="36"/>
+                                        <rect key="frame" x="214" y="314" width="111" height="36"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j4A-j8-PeV">
-                                                <rect key="frame" x="8" y="12" width="94.666666666666671" height="20"/>
+                                                <rect key="frame" x="8" y="12" width="95" height="20"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title=" Zoom out" image="minus.magnifyingglass" catalog="system">
@@ -169,10 +169,10 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fce-pS-a8x" userLabel="Canvas container">
-                                        <rect key="frame" x="15" y="15" width="360" height="360"/>
+                                        <rect key="frame" x="15" y="15" width="310" height="310"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DpW-k0-QLD" customClass="GridView" customModule="Pixart" customModuleProvider="target">
-                                                <rect key="frame" x="5" y="5" width="350" height="350"/>
+                                                <rect key="frame" x="5" y="5" width="300" height="300"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                         </subviews>
@@ -190,11 +190,11 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstItem="Fce-pS-a8x" firstAttribute="leading" secondItem="dGp-iS-a2D" secondAttribute="leading" constant="15" id="AOA-SE-8Dv"/>
-                                    <constraint firstAttribute="width" constant="390" id="AXv-ep-MpJ"/>
                                     <constraint firstAttribute="bottom" secondItem="Fce-pS-a8x" secondAttribute="bottom" constant="120" id="Jmb-zJ-yEo"/>
                                     <constraint firstItem="Fce-pS-a8x" firstAttribute="centerX" secondItem="dGp-iS-a2D" secondAttribute="centerX" id="Jzy-Qd-v6C"/>
                                     <constraint firstItem="pF1-jq-ARu" firstAttribute="top" secondItem="Fce-pS-a8x" secondAttribute="bottom" constant="-11" id="SEq-E9-SpY"/>
                                     <constraint firstItem="Fce-pS-a8x" firstAttribute="top" secondItem="dGp-iS-a2D" secondAttribute="top" constant="15" id="cqE-YB-2E2"/>
+                                    <constraint firstAttribute="width" constant="340" id="h1Z-Ob-TJK"/>
                                     <constraint firstItem="pF1-jq-ARu" firstAttribute="trailing" secondItem="Fce-pS-a8x" secondAttribute="trailing" id="hog-Rc-fjF"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -229,6 +229,7 @@
                         <outlet property="canvasContainer" destination="Fce-pS-a8x" id="9cp-wf-CaP"/>
                         <outlet property="card_view" destination="dGp-iS-a2D" id="dfC-lu-9oU"/>
                         <outlet property="card_view_centerX" destination="mQD-vC-Gpt" id="lg1-2I-4GV"/>
+                        <outlet property="card_view_width" destination="h1Z-Ob-TJK" id="bx1-D2-qoz"/>
                         <outlet property="gridView" destination="DpW-k0-QLD" id="aL5-5D-XeA"/>
                         <outlet property="save_view" destination="bPm-1c-Lxw" id="FzL-FW-cXR"/>
                         <outlet property="save_view_centerX" destination="NJ6-fG-CrS" id="Qij-2O-O2R"/>

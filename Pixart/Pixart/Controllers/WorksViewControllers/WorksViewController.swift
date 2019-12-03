@@ -20,16 +20,20 @@ class WorksViewController: UIViewController {
     var trashedWorks: [[String: Any]] = []
     var userID = ""
     var index: Int = 0
+    var queue = DispatchQueue(label: "")
     
     @IBOutlet weak var options: UISegmentedControl!
     @IBOutlet weak var error_view: UIView!
     @IBOutlet weak var PrivateCollection: UICollectionView!
     @IBOutlet weak var PublicCollection: UICollectionView!
+    @IBOutlet weak var privateView: UIView!
+    @IBOutlet weak var publishedView: UIView!
     @IBOutlet weak var TrashedTableView: UITableView!
     @IBOutlet weak var publishedView_X_constraint: NSLayoutConstraint!
     @IBOutlet weak var privateView_X_constraint: NSLayoutConstraint!
     @IBOutlet weak var trashedView_X_constraint: NSLayoutConstraint!
 
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,27 +64,45 @@ class WorksViewController: UIViewController {
     @IBAction func switchViews(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
+            privateView.isHidden = false
             UIView.animate(withDuration: 0.3, animations:{
                 self.privateView_X_constraint.constant = 0
                 self.publishedView_X_constraint.constant = 416
                 self.trashedView_X_constraint.constant = 416
                 self.view.layoutIfNeeded()
+            }, completion: { finished in
+                if finished {
+                    self.publishedView.isHidden = true
+                    self.TrashedTableView.isHidden = true
+                }
             })
             break
         case 1:
+            self.publishedView.isHidden = false
             UIView.animate(withDuration: 0.3, animations:{
                 self.privateView_X_constraint.constant = -416
                 self.publishedView_X_constraint.constant = 0
                 self.trashedView_X_constraint.constant = 416
                 self.view.layoutIfNeeded()
+            }, completion: { finished in
+                if finished {
+                    self.privateView.isHidden = true
+                    self.TrashedTableView.isHidden = true
+                }
             })
             break
         case 2:
+            self.TrashedTableView.isHidden = false
             UIView.animate(withDuration: 0.3, animations:{
                 self.privateView_X_constraint.constant = -416
                 self.publishedView_X_constraint.constant = -416
                 self.trashedView_X_constraint.constant = 0
                 self.view.layoutIfNeeded()
+            }, completion: { finished in
+                if finished {
+                    self.privateView.isHidden = true
+                    self.publishedView.isHidden = true
+                }
             })
             break
         default:
@@ -107,6 +129,8 @@ class WorksViewController: UIViewController {
     private func fetch() {
         self.privateWorks = []
         self.publicWorks = []
+        self.trashedWorks = []
+        
         handle = Auth.auth().addStateDidChangeListener { (auth, user) in
             self.userID = user?.uid ?? ""
             self.db.collection(self.userID).getDocuments() { (querySnapshot, err) in

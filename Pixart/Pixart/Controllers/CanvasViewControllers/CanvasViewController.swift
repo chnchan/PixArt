@@ -58,7 +58,7 @@ import Firebase
 
 class CanvasViewController: UIViewController, UITextFieldDelegate {
     
-    let SLIDER_Y_POS = 20 // space from the canvas
+    let SLIDER_Y_POS = 50 // space from the canvas
     let SLIDER_HIGHT = 15
     let SLIDER_WIDTH = 300
     
@@ -76,12 +76,14 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var save_view_centerX: NSLayoutConstraint!
     @IBOutlet weak var gridView: GridView!
     @IBOutlet weak var canvasContainer: UIView!
+    @IBOutlet weak var card_view_width: NSLayoutConstraint!
     //    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 //        setupSideMenu()
         setupColorSlider()
+//        card_view_width.constant = CGFloat(view.frame.width) - 17 - 17
         card_view.addShadow()
         card_view_centerX.constant = 416
         save_view_centerX.constant = 416
@@ -176,10 +178,10 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func setupColorSlider() {
-        let y_pos = Int(view.frame.width) + SLIDER_Y_POS
+        let y_pos = Int(canvasContainer.frame.width) + 25 + SLIDER_Y_POS
         
         let colorSlider = ColorSlider(orientation: .horizontal, previewSide: .top)
-        colorSlider.frame = CGRect( x: Int((view.frame.width)/2) - Int(SLIDER_WIDTH/2), y: y_pos, width: SLIDER_WIDTH, height: SLIDER_HIGHT)
+        colorSlider.frame = CGRect( x: Int((card_view.frame.width)/2) - Int(SLIDER_WIDTH/2), y: y_pos, width: SLIDER_WIDTH, height: SLIDER_HIGHT)
         card_view.addSubview(colorSlider)
         
         colorSlider.addTarget(self, action: #selector(changedColor(_:)), for: .valueChanged)

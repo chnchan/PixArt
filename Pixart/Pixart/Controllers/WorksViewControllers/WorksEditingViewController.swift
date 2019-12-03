@@ -24,6 +24,9 @@ class WorksEditingViewController: UIViewController {
     var canvas_size: Int = 8
     var colors: [String : String] = [:]
     
+    @IBOutlet weak var card_view: UIView!
+    @IBOutlet weak var save_view: UIView!
+    @IBOutlet weak var save_top: NSLayoutConstraint!
     @IBOutlet weak var artwork_name: UITextField!
     @IBOutlet weak var canvas: GridView!
     @IBOutlet weak var canvas_container: UIView!
@@ -31,9 +34,10 @@ class WorksEditingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupColorSlider()
+        card_view.addShadow()
+        save_view.addShadow()
         artwork_name.text = work_name
         canvas.loadCanvas(size: canvas_size, colors: colors)
-        
         canvas_container.layer.borderWidth = 5
         canvas_container.layer.borderColor = UIColor.black.cgColor
     }
@@ -62,8 +66,24 @@ class WorksEditingViewController: UIViewController {
     }
     
     @IBAction func saveEdits(_ sender: Any) {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.save_top.constant = -60
+            self.view.layoutIfNeeded()
+        })
+        
+        view.isUserInteractionEnabled = false
         savePixelArt()
     }
+    
+//    @IBAction func saveEditsAs(_ sender: Any) {
+//        UIView.animate(withDuration: 0.3, animations: {
+//            self.saveAs_top.constant = -60
+//            self.view.layoutIfNeeded()
+//        })
+//        
+//        view.isUserInteractionEnabled = false
+//        saveNewPixelArt()
+//    }
     
     @IBAction func back(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -79,11 +99,11 @@ class WorksEditingViewController: UIViewController {
     }
     
     private func setupColorSlider() {
-        let y_pos = Application.safeArea_top + 48 + 45 + Int(view.frame.width) - 10 + SLIDER_Y_POS
+        let y_pos = 16 + 32 + Int(canvas_container.frame.width) + 20 + SLIDER_Y_POS
         
         let colorSlider = ColorSlider(orientation: .horizontal, previewSide: .top)
-        colorSlider.frame = CGRect( x: Int((view.frame.width)/2) - Int(SLIDER_WIDTH/2), y: y_pos, width: SLIDER_WIDTH, height: SLIDER_HIGHT)
-        view.addSubview(colorSlider)
+        colorSlider.frame = CGRect( x: Int((card_view.frame.width)/2) - Int(SLIDER_WIDTH/2), y: y_pos, width: SLIDER_WIDTH, height: SLIDER_HIGHT)
+        card_view.addSubview(colorSlider)
         
         colorSlider.addTarget(self, action: #selector(changedColor(_:)), for: .valueChanged)
         colorSlider.color = UIColor.black
@@ -93,13 +113,55 @@ class WorksEditingViewController: UIViewController {
         colors = canvas.exportColors()
         
         self.db.collection(self.userID).document(self.work_UUID).updateData(["colors": colors], completion: {error in
-            if error != nil
-            {
+            if error != nil {
                 print("error updating data")
+                self.unhideSave()
             }
             else{
                 self.performSegue(withIdentifier: "work_edit_return", sender: self)
             }
         })
     }
+    
+//    private func saveNewPixelArt() {
+//        let uuid = UUID().uuidString
+//        let gridColors: [String:String] = canvas.exportColors()
+//        self.view.isUserInteractionEnabled = false
+//
+//        self.db.collection(self.userID).document(uuid).setData([
+//            "documentdata": uuid,
+//            "name": self.work_name,
+//            "colors": gridColors,
+//            "gridSize": self.canvas_size,
+//            "public" : 0
+//        ]) { err in
+//            self.view.isUserInteractionEnabled = true
+//
+//            if let err = err {
+//                print("Error adding document: \(err)")
+//                self.unhideSaveAs()
+//            } else {
+//                print("Document added")
+//                self.performSegue(withIdentifier: "canvas_to_works", sender: self)
+//            }
+//        }
+//    }
+    
+    private func unhideSave() {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.save_top.constant = -25
+            self.view.layoutIfNeeded()
+        })
+        
+        view.isUserInteractionEnabled = true
+    }
+    
+//    private func unhideSaveAs() {
+//        UIView.animate(withDuration: 0.3, animations: {
+//            self.saveAs_top.constant = -25
+//            self.view.layoutIfNeeded()
+//        })
+//
+//        view.isUserInteractionEnabled = true
+//    }
 }
