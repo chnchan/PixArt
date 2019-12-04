@@ -76,6 +76,7 @@ Goal for next meeting:
 
 ### Discord meeting on Tues (11/19) at night
 Completed Written Plan
+---
 
 
 ### In person meeting on Thurs (11/21) after milestones 2
@@ -86,6 +87,7 @@ Goals:
 - Pavit: backend support for social media
 - Hin: UI, Transition logics
 - Jiahao: debug, and help out
+---
 
 
 ### Discord meeting on Sat (11/23)
@@ -99,6 +101,7 @@ Goals:
 - Zoom restrain should be different for different canvas size
 - Apply card-looking style to the rest of the views
 - Connect random fetching to feeds
+---
 
 
 ### In person meeting on Tues (11/26)
@@ -108,3 +111,27 @@ Completed:
 
 Goals:
 - (see previous, everyone was studying for quiz for the weekend)
+---
+
+
+### Discord meeting on Wed (11/27)
+
+Completed: 
+- UI design done
+
+For Thanksgiving:
+- Test app and find bugs
+---
+
+
+### In-person meeting on Tues (12/3)
+
+Bugs found:
+- Works view showing in side menu. **FIXED**
+- Feeds view crashes on fetch. **IN PROGRESS** (b/c art was not inserted in the database with UUID. Should be fixed after wiping database)
+- Collection view (Works view) lag as user scroll. **IN PROGRESS**
+
+Goals:
+- Fix bug and optimize.
+
+---
