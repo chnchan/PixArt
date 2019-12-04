@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="p9p-gi-iaX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="p9p-gi-iaX">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -259,12 +259,17 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="ZkL-Uj-oUx">
+                                <rect key="frame" x="169" y="387.66666666666669" width="37" height="37"/>
+                                <color key="color" red="1" green="0.21929237900000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="bZL-xe-QRS" firstAttribute="top" secondItem="KeE-wG-Jbe" secondAttribute="top" id="2xY-zk-9Df"/>
                             <constraint firstItem="FAd-iz-whM" firstAttribute="centerX" secondItem="fod-N1-yYd" secondAttribute="centerX" id="4eY-b9-udX"/>
+                            <constraint firstItem="ZkL-Uj-oUx" firstAttribute="centerY" secondItem="fod-N1-yYd" secondAttribute="centerY" id="6Fa-o2-GFd"/>
                             <constraint firstItem="bZL-xe-QRS" firstAttribute="trailing" secondItem="Vbm-96-Red" secondAttribute="trailing" id="8gB-jU-380"/>
                             <constraint firstItem="YN9-xI-SGi" firstAttribute="centerY" secondItem="fod-N1-yYd" secondAttribute="centerY" id="Bp8-hj-sKb"/>
                             <constraint firstItem="FyW-42-TnX" firstAttribute="top" secondItem="KeE-wG-Jbe" secondAttribute="bottom" constant="8" id="HZl-Ju-dzN"/>
@@ -274,6 +279,7 @@
                             <constraint firstItem="Bjd-rB-Dqi" firstAttribute="centerX" secondItem="fod-N1-yYd" secondAttribute="centerX" id="a9x-BQ-Y1C"/>
                             <constraint firstItem="c1f-gv-nZ9" firstAttribute="centerX" secondItem="fod-N1-yYd" secondAttribute="centerX" id="cWA-Bg-yk7"/>
                             <constraint firstItem="Vbm-96-Red" firstAttribute="bottom" secondItem="FyW-42-TnX" secondAttribute="bottom" id="cXR-e7-2MM"/>
+                            <constraint firstItem="ZkL-Uj-oUx" firstAttribute="centerX" secondItem="fod-N1-yYd" secondAttribute="centerX" id="cmY-DV-Jhn"/>
                             <constraint firstItem="KeE-wG-Jbe" firstAttribute="leading" secondItem="Vbm-96-Red" secondAttribute="leading" id="ehi-59-XrW"/>
                             <constraint firstItem="YN9-xI-SGi" firstAttribute="centerX" secondItem="fod-N1-yYd" secondAttribute="centerX" id="k9L-LO-mvd"/>
                             <constraint firstItem="Bjd-rB-Dqi" firstAttribute="bottom" secondItem="Vbm-96-Red" secondAttribute="bottom" id="l5Z-Xe-Mrm"/>
@@ -300,6 +306,7 @@
                         <outlet property="privateView_X_constraint" destination="cWA-Bg-yk7" id="eay-AQ-eQX"/>
                         <outlet property="publishedView" destination="Bjd-rB-Dqi" id="1X4-Bz-HUu"/>
                         <outlet property="publishedView_X_constraint" destination="a9x-BQ-Y1C" id="b5c-i4-Wh1"/>
+                        <outlet property="spinner" destination="ZkL-Uj-oUx" id="J2N-Ih-gHk"/>
                         <outlet property="trashedView_X_constraint" destination="ZDs-5E-2Z6" id="AFg-JP-Iug"/>
                         <segue destination="PGV-vr-Z5e" kind="presentation" identifier="works_detail_published" id="Kaa-N1-R9r"/>
                         <segue destination="PGV-vr-Z5e" kind="presentation" identifier="works_detail_private" id="rZ1-Ba-L2v"/>

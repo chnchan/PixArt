@@ -22,6 +22,7 @@ class WorksViewController: UIViewController {
     var index: Int = 0
     var queue = DispatchQueue(label: "")
     
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var options: UISegmentedControl!
     @IBOutlet weak var error_view: UIView!
     @IBOutlet weak var PrivateCollection: UICollectionView!
@@ -35,6 +36,8 @@ class WorksViewController: UIViewController {
 
     var backfromdetail = false
     var movetotrash = false
+    var restoretrash = false
+    var removetrash = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -134,6 +137,8 @@ class WorksViewController: UIViewController {
         
         handle = Auth.auth().addStateDidChangeListener { (auth, user) in
             self.userID = user?.uid ?? ""
+            self.spinner.startAnimating()
+            self.view.isUserInteractionEnabled = false
             self.db.collection(self.userID).getDocuments() { (querySnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
@@ -151,23 +156,33 @@ class WorksViewController: UIViewController {
                         }
                     }
                     if self.backfromdetail
-                    {
+                    {   //come back from workdetail view
                         if self.movetotrash
                         {
+                            //deleted a work
                             self.TrashedTableView.reloadData()
                             self.movetotrash = false
                         }
                         self.PublicCollection.reloadData()
                         self.PrivateCollection.reloadData()
                         self.backfromdetail = false
-                    }
-                    else
-                    {
+                    } else if self.restoretrash {
+                        //restored a trash
+                        self.TrashedTableView.reloadData()
+                        self.PrivateCollection.reloadData()
+                        self.restoretrash = false
+                    } else if self.removetrash {
+                        //removed a trash
+                        self.TrashedTableView.reloadData()
+                        self.removetrash = false
+                    } else {
+                        //first time load(come from other views)
                         self.PublicCollection.reloadData()
                         self.PrivateCollection.reloadData()
                         self.TrashedTableView.reloadData()
                     }
-                    
+                    self.spinner.stopAnimating()
+                    self.view.isUserInteractionEnabled = true
                 }
             }
         }
@@ -261,7 +276,49 @@ extension WorksViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         view.endEditing(true)
         tableView.deselectRow(at: indexPath, animated: true)
+        index = indexPath.row
+        let alert = UIAlertController(title: "Action:", message: "Resore or Permanently Remove the work?", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let restoreAction = UIAlertAction(title: "Restore", style: .default, handler: restore_handle)
+        let deleteAction = UIAlertAction(title: "Remove It", style: .destructive, handler: delete_handle)
+        alert.addAction(cancelAction)
+        alert.addAction(restoreAction)
+        alert.addAction(deleteAction)
+        self.present(alert, animated: true, completion: nil)
 //        index = indexPath.row
 //        performSegue(withIdentifier: "works_detail_published", sender: self)
+    }
+    
+    func restore_handle(alert: UIAlertAction)
+    {
+        let work_UUID = trashedWorks[self.index]["documentdata"] as? String ?? ""
+        self.db.collection(self.userID).document(work_UUID).updateData(["public" : 0], completion: {error in
+            if error != nil {
+                print("error updating data")
+            } else {
+                self.restoretrash = true
+                self.fetch()
+            }
+        })
+    }
+    
+    func delete_handle(alert: UIAlertAction)
+    {
+        let alert = UIAlertController(title: "Are You Sure?", message: "You won't be able to restore this work. You really want to remove it from the trashcan?", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let removeAction = UIAlertAction(title: "Remove It!", style: .destructive, handler: {alert in
+            let work_UUID = self.trashedWorks[self.index]["documentdata"] as? String ?? ""
+            self.db.collection(self.userID).document(work_UUID).delete(completion: {error in
+                if error != nil {
+                    print("error deleting")
+                } else {
+                    self.removetrash = true
+                    self.fetch()
+                }
+            })
+        })
+        alert.addAction(cancelAction)
+        alert.addAction(removeAction)
+        self.present(alert, animated: true, completion: nil)
     }
 }
