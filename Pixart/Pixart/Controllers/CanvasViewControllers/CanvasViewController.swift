@@ -163,7 +163,8 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
             "name": self.work_name,
             "colors": gridColors,
             "gridSize": self.canvas_size,
-            "public" : 0
+            "public" : 0,
+            "likes" : 0
         ]) { err in
             self.view.isUserInteractionEnabled = true
             

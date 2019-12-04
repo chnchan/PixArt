@@ -700,7 +700,7 @@
 				CODE_SIGN_ENTITLEMENTS = Pixart/Pixart.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P5LBX5LJJ5;
+				DEVELOPMENT_TEAM = J6522LJSM9;
 				INFOPLIST_FILE = Pixart/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -722,7 +722,7 @@
 				CODE_SIGN_ENTITLEMENTS = Pixart/Pixart.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P5LBX5LJJ5;
+				DEVELOPMENT_TEAM = J6522LJSM9;
 				INFOPLIST_FILE = Pixart/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

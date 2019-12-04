@@ -39,7 +39,7 @@ class FeedsViewController: UIViewController {
         swipe_left_icon.addShadow()
         swipe_right_icon.addShadow()
         Application.current_VC = self
-//        fetch()
+        fetch()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -53,13 +53,14 @@ class FeedsViewController: UIViewController {
         print("like!")
         // MARK: TODO
         //like
-        //fetch next
+        fetch()
     }
     
     @IBAction func pass(_ sender: Any) {
         print("pass!")
         // MARK: TODO
         //fetch next
+        fetch()
     }
     
     @objc func gestureHandler(gesture: UISwipeGestureRecognizer) {
@@ -91,17 +92,57 @@ class FeedsViewController: UIViewController {
     }
     
     private func getDrawing() {
-        for work in publicWorks {
-            let workAuthor = work["userID"] as! String
-            let workID = work["workID"] as! String
-            self.db.collection(workAuthor).document(workID).getDocument() { (document, err) in
-                if let err = err {
-                    print("Error getting documents: \(err)")
-                } else {
-                    let gridColors = document!["colors"] as! [String:String]
-                    let gridSize = document!["gridSize"] as! Int
+        
+        if publicWorks.count <= 2{
+            return
+        }
+      
+        let workAuthor = publicWorks[0]["userID"] as! String
+        let workID = publicWorks[0]["workID"] as! String
+        print(workID)
+        print(workAuthor)
+
+        db.collection(workAuthor).document(workID).getDocument() { (document, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                     
+                let name = document!["name"] as? String
+                print(name)
+                let gridColors = document!["colors"] as? [String:String]
+                let gridSize = document!["gridSize"] as? Int
+                
+                if let name = name,  let gridColors = gridColors, let gridSize = gridSize {
+                    if self.work_name.text != name {
+                        self.preview.makeCells(size: gridSize, data: gridColors)
+                        self.work_name.text = name
+                        self.author_name.text = "Anonymous"
+                        
+                    }else{
+                        self.requestExtra()
+                    }
+                }
+            }
+        }
+        
+    }
+    
+    private func requestExtra() {
+        let workAuthor = publicWorks[1]["userID"] as! String
+        let workID = publicWorks[1]["workID"] as! String
+        db.collection(workAuthor).document(workID).getDocument() { (document, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                let name = document!["name"] as? String
+                let gridColors = document!["colors"] as? [String:String]
+                let gridSize = document!["gridSize"] as? Int
+                
+                if let name = name,  let gridColors = gridColors, let gridSize = gridSize {
+    
                     self.preview.makeCells(size: gridSize, data: gridColors)
-                    print("hello")
+                    self.work_name.text = name
+                    self.author_name.text = "Anonymous"
                 }
             }
         }
