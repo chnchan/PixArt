@@ -88,10 +88,6 @@ class WorksDetailViewController: UIViewController {
     
     @IBAction func updateName(_ sender: Any) {
         performSegue(withIdentifier: "rename_popup", sender: self)
-//        guard let newname = self.work_name else{
-//            return
-//        }
-//        self.db.collection(self.userID).document(self.work_UUID).setData(["name" : newname], mergeFields: ["name"])
     }
     
     @IBAction func publish(_ sender: Any) {
@@ -99,7 +95,16 @@ class WorksDetailViewController: UIViewController {
         "public" : 1], mergeFields: ["public"])
         showPublishedIcon()
         showPublishedView()*/
-        self.db.collection(self.userID).document(self.work_UUID).updateData(["public":1], completion: {error in
+        let alias = LocalStorage.fetchAlias()
+        let date = Date()
+        let dateFormat = DateFormatter()
+        dateFormat.dateFormat = "MMMM dd, yyyy"
+        print(dateFormat.string(from: date))
+        self.db.collection(self.userID).document(self.work_UUID).setData([
+            "author": alias.isEmpty ? "Anonymous" : alias,
+            "date": dateFormat.string(from:date),
+            "public": 1
+        ], mergeFields: ["public", "author", "date"], completion: { error in
             if error != nil {
                 print("error updating data")
             } else {
@@ -107,6 +112,14 @@ class WorksDetailViewController: UIViewController {
                 self.showPublishedView()
             }
         })
+//        self.db.collection(self.userID).document(self.work_UUID).updateData(["public": 1], completion: {error in
+//            if error != nil {
+//                print("error updating data")
+//            } else {
+//                print("updated")
+//                self.showPublishedView()
+//            }
+//        })
         self.db.collection("PublishedWorks").document(self.work_UUID).setData([
             "userID": self.userID,
             "workID": self.work_UUID,
