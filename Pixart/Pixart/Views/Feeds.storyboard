@@ -56,7 +56,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XxM-wD-3XL" userLabel="Card View">
-                                <rect key="frame" x="20" y="105" width="374" height="497"/>
+                                <rect key="frame" x="20" y="105" width="374" height="500"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nk0-WC-Ntj" userLabel="image_container">
                                         <rect key="frame" x="17" y="17" width="340" height="340"/>
@@ -76,33 +76,33 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artwork Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Yy-zM-r5A">
-                                        <rect key="frame" x="102.66666666666669" y="372" width="169" height="30"/>
+                                        <rect key="frame" x="102.66666666666669" y="375" width="169" height="30"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P9L-qG-akE">
-                                        <rect key="frame" x="136.66666666666666" y="420" width="101" height="21"/>
+                                        <rect key="frame" x="136.66666666666666" y="423" width="101" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Published on: 11/23/2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h6P-4k-UtN">
-                                        <rect key="frame" x="112" y="451" width="150" height="16"/>
+                                        <rect key="frame" x="112" y="454" width="150" height="16"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="glP-Sh-pd3">
-                                        <rect key="frame" x="102.66666666666669" y="403" width="169" height="2"/>
+                                        <rect key="frame" x="102.66666666666669" y="406" width="169" height="2"/>
                                     </progressView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="nk0-WC-Ntj" firstAttribute="centerX" secondItem="XxM-wD-3XL" secondAttribute="centerX" id="28b-iz-cB8"/>
                                     <constraint firstItem="nk0-WC-Ntj" firstAttribute="leading" secondItem="XxM-wD-3XL" secondAttribute="leading" constant="17" id="Bnt-bL-va2"/>
-                                    <constraint firstItem="P9L-qG-akE" firstAttribute="top" secondItem="glP-Sh-pd3" secondAttribute="bottom" constant="15" id="NBR-ag-qDD"/>
-                                    <constraint firstItem="2Yy-zM-r5A" firstAttribute="top" secondItem="nk0-WC-Ntj" secondAttribute="bottom" constant="15" id="Qef-o7-JCl"/>
+                                    <constraint firstItem="P9L-qG-akE" firstAttribute="top" secondItem="2Yy-zM-r5A" secondAttribute="bottom" constant="18" id="C16-nG-9WR"/>
+                                    <constraint firstAttribute="height" constant="500" id="Mdb-1B-RyC"/>
                                     <constraint firstItem="glP-Sh-pd3" firstAttribute="width" secondItem="2Yy-zM-r5A" secondAttribute="width" id="U1p-S7-MYx"/>
                                     <constraint firstItem="2Yy-zM-r5A" firstAttribute="centerX" secondItem="XxM-wD-3XL" secondAttribute="centerX" id="V7n-qL-c5Q"/>
                                     <constraint firstItem="nk0-WC-Ntj" firstAttribute="top" secondItem="XxM-wD-3XL" secondAttribute="top" constant="17" id="ZYN-8y-XGu"/>
@@ -241,10 +241,10 @@
                             <constraint firstItem="bDw-gq-uvC" firstAttribute="leading" secondItem="f3G-YN-baA" secondAttribute="leading" id="JNf-n0-UJu"/>
                             <constraint firstAttribute="bottom" secondItem="gq0-cv-1YE" secondAttribute="bottom" id="MiH-6E-6Ru"/>
                             <constraint firstItem="XxM-wD-3XL" firstAttribute="leading" secondItem="f3G-YN-baA" secondAttribute="leading" constant="20" id="RDj-QC-s8h"/>
+                            <constraint firstItem="f3G-YN-baA" firstAttribute="trailing" secondItem="XxM-wD-3XL" secondAttribute="trailing" constant="20" id="UbL-mj-5He"/>
                             <constraint firstAttribute="bottom" secondItem="kLZ-T9-aVb" secondAttribute="bottom" id="XZM-za-Aa1"/>
                             <constraint firstItem="bDw-gq-uvC" firstAttribute="top" secondItem="rLO-dY-e9K" secondAttribute="top" id="bvS-Ze-hhs"/>
                             <constraint firstItem="gq0-cv-1YE" firstAttribute="leading" secondItem="f3G-YN-baA" secondAttribute="leading" id="dI6-WU-vFG"/>
-                            <constraint firstItem="XxM-wD-3XL" firstAttribute="centerX" secondItem="rLO-dY-e9K" secondAttribute="centerX" id="gMw-un-6c4"/>
                             <constraint firstItem="gq0-cv-1YE" firstAttribute="top" secondItem="rLO-dY-e9K" secondAttribute="top" id="nWX-6G-ppx"/>
                             <constraint firstItem="f3G-YN-baA" firstAttribute="trailing" secondItem="kLZ-T9-aVb" secondAttribute="trailing" id="szq-Im-DmI"/>
                             <constraint firstAttribute="bottom" secondItem="bDw-gq-uvC" secondAttribute="bottom" id="xfj-9i-y4F"/>
@@ -255,6 +255,8 @@
                     <connections>
                         <outlet property="author_name" destination="P9L-qG-akE" id="BHF-Vf-9re"/>
                         <outlet property="card_view" destination="XxM-wD-3XL" id="Z7a-4B-3h3"/>
+                        <outlet property="card_view_left" destination="RDj-QC-s8h" id="zOx-vI-kbH"/>
+                        <outlet property="card_view_right" destination="UbL-mj-5He" id="DV8-7X-KmT"/>
                         <outlet property="card_view_top" destination="8nZ-U2-sLA" id="CQw-dM-ZWo"/>
                         <outlet property="preview" destination="CBO-UU-LRJ" id="z13-ib-yqX"/>
                         <outlet property="publish_date" destination="h6P-4k-UtN" id="Cah-Ya-KZM"/>

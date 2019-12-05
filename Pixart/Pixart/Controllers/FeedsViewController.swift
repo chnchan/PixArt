@@ -15,9 +15,11 @@ class FeedsViewController: UIViewController {
     let db = Firestore.firestore()
     var handle: AuthStateDidChangeListenerHandle?
     var publicWorks: [[String: Any]] = []
-    
+
     @IBOutlet weak var card_view: UIView!
     @IBOutlet weak var card_view_top: NSLayoutConstraint!
+    @IBOutlet weak var card_view_left: NSLayoutConstraint!
+    @IBOutlet weak var card_view_right: NSLayoutConstraint!
     @IBOutlet weak var swipe_view: UIView!
     @IBOutlet weak var swipe_left_icon: UIView!
     @IBOutlet weak var swipe_right_icon: UIView!
@@ -25,6 +27,7 @@ class FeedsViewController: UIViewController {
     @IBOutlet weak var work_name: UILabel!
     @IBOutlet weak var author_name: UILabel!
     @IBOutlet weak var publish_date: UILabel! // MARK: READ ME!! This should be the first publish date. To prevent exploit like refreshing the timestamp
+
     
     var currentWorkAuthor = String()
     var currentWorkID = String()
@@ -44,28 +47,35 @@ class FeedsViewController: UIViewController {
         Application.current_VC = self
         fetch()
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         UIView.animate(withDuration: Application.transition_speed + 0.2, animations: {
             self.card_view_top.constant = 61
             self.view.layoutIfNeeded()
         })
     }
-    
+
     @IBAction func like(_ sender: Any) {
         print("like!")
-        // MARK: TODO
-        //like
-        fetch()
+        UIView.animate(withDuration: Application.transition_speed, animations: {
+            self.card_view_left.constant = 420
+            self.card_view_right.constant = -380
+            self.view.layoutIfNeeded()
+        })
+        //fetch next
     }
-    
+
     @IBAction func pass(_ sender: Any) {
         print("pass!")
-        // MARK: TODO
+        UIView.animate(withDuration: Application.transition_speed, animations: {
+            self.card_view_left.constant = -380
+            self.card_view_right.constant = 420
+            self.view.layoutIfNeeded()
+        })
         //fetch next
         fetch()
     }
-    
+
     @objc func gestureHandler(gesture: UISwipeGestureRecognizer) {
         if gesture.state == .ended {
             if gesture.direction == UISwipeGestureRecognizer.Direction.right {
@@ -75,7 +85,7 @@ class FeedsViewController: UIViewController {
             }
         }
     }
-    
+
     private func fetch() {
         self.db.collection("PublishedWorks").getDocuments() { (querySnapshot, err) in
             if let err = err {
@@ -93,9 +103,9 @@ class FeedsViewController: UIViewController {
             }
         }
     }
-    
+
     private func getDrawing() {
-        
+
         if publicWorks.count <= 2{
             return
         }
@@ -105,31 +115,32 @@ class FeedsViewController: UIViewController {
         print(currentWorkID)
         print(currentWorkID)
 
+
         db.collection(currentWorkAuthor).document(currentWorkID).getDocument() { (document, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
-                     
+
                 let name = document!["name"] as? String
                 print(name)
                 let gridColors = document!["colors"] as? [String:String]
                 let gridSize = document!["gridSize"] as? Int
-                
+
                 if let name = name,  let gridColors = gridColors, let gridSize = gridSize {
                     if self.work_name.text != name {
                         self.preview.makeCells(size: gridSize, data: gridColors)
                         self.work_name.text = name
                         self.author_name.text = "Anonymous"
-                        
+
                     }else{
                         self.requestExtra()
                     }
                 }
             }
         }
-        
+
     }
-    
+
     private func requestExtra() {
         currentWorkAuthor = publicWorks[1]["userID"] as! String
         currentWorkID = publicWorks[1]["workID"] as! String
@@ -140,9 +151,9 @@ class FeedsViewController: UIViewController {
                 let name = document!["name"] as? String
                 let gridColors = document!["colors"] as? [String:String]
                 let gridSize = document!["gridSize"] as? Int
-                
+
                 if let name = name,  let gridColors = gridColors, let gridSize = gridSize {
-    
+
                     self.preview.makeCells(size: gridSize, data: gridColors)
                     self.work_name.text = name
                     self.author_name.text = "Anonymous"
