@@ -85,13 +85,12 @@ class FeedsViewController: UIViewController {
         self.card_view_top.constant = -600
         self.card_view_left.constant = 20
         self.card_view_right.constant = 20
+        self.publicWorks = []
         
         self.db.collection("PublishedWorks").getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
-                // this force unwrap is what is used in the
-                // cloud firestore docs
                 for document in querySnapshot!.documents {
                     if(document.data()["userID"] as? String != nil) {
                         self.publicWorks.append(document.data())
@@ -112,6 +111,7 @@ class FeedsViewController: UIViewController {
         let authorID = publicWorks[0]["userID"] as! String
         let workID = publicWorks[0]["workID"] as! String
         print(workID)
+        print(publicWorks.count)
         
         db.collection(authorID).document(workID).getDocument() { (document, err) in
             if let err = err {
@@ -123,7 +123,7 @@ class FeedsViewController: UIViewController {
                 let author = document!["author"] as! String
                 let date = document!["date"] as! String
 
-                if (workID != self.curr_workID) {
+                if (self.publicWorks.count == 1 || workID != self.curr_workID) {
                     self.curr_workID = workID
                     self.preview.makeCells(size: gridSize, data: gridColors)
                     self.work_name.text = name
