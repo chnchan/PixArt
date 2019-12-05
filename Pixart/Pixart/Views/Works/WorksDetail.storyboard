@@ -299,6 +299,7 @@
                     <connections>
                         <outlet property="editButton_Y_top" destination="Dc3-OW-Qus" id="59q-fr-UIr"/>
                         <outlet property="edit_button" destination="iEB-vT-vuH" id="29w-n9-eBu"/>
+                        <outlet property="likesField" destination="PBv-gl-rrh" id="mzE-Gj-gx7"/>
                         <outlet property="likes_Y_top" destination="Ym9-Xw-Grg" id="3x9-jx-eip"/>
                         <outlet property="preview" destination="Cqz-3C-1eo" id="LWP-PB-gYN"/>
                         <outlet property="privateView_X_constraint" destination="4cW-lT-mDa" id="7DA-Dj-gDJ"/>

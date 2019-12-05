@@ -25,6 +25,7 @@ class WorksDetailViewController: UIViewController {
     @IBOutlet weak var workname: UIButton!
     @IBOutlet weak var edit_button: UIButton!
     @IBOutlet weak var editButton_Y_top: NSLayoutConstraint!
+    @IBOutlet weak var likesField: UILabel!
     @IBOutlet weak var likes_Y_top: NSLayoutConstraint!
     @IBOutlet weak var preview: CanvasPreview!
     @IBOutlet weak var private_icon: UIView!
@@ -37,6 +38,7 @@ class WorksDetailViewController: UIViewController {
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
         self.view.addGestureRecognizer(tap)
         self.workname.setTitle(self.work_name, for: .normal)
+        self.likesField.text = "\(likes)"
         self.preview.makeCells(size: canvas_size, data: colors)
         
         if (self.published == 0) {

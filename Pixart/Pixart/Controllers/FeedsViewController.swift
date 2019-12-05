@@ -55,8 +55,8 @@ class FeedsViewController: UIViewController {
             self.view.layoutIfNeeded()
         }, completion: { finished in
             if finished {
-                self.giveALike()
-               
+                self.db.collection(self.authorID).document(self.workID).updateData(["likes" : FieldValue.increment(Int64(1))])
+                self.fetch()
             }
         })
     }
@@ -146,30 +146,4 @@ class FeedsViewController: UIViewController {
             self.view.layoutIfNeeded()
         })
     }
-    
-    private func giveALike(){
-        
-        var currentLikes = 0
-        // Get how many likes a user has
-        db.collection(authorID).document(workID).getDocument() { (document, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-                return
-            }
-            let likes = document!["likes"] as? Int
-            if let likes = likes {
-                currentLikes = likes + 1
-                // update likes
-                self.db.collection(self.authorID).document(self.workID).updateData(["likes": currentLikes]) {err in
-                    if let err = err {
-                           print("Error updating likes: \(err)")
-                           return
-                    }
-                    self.fetch()
-                }
-            }
-        }
-    }
-    
-    
 }
