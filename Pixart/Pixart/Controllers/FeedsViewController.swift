@@ -27,6 +27,9 @@ class FeedsViewController: UIViewController {
     @IBOutlet weak var work_name: UILabel!
     @IBOutlet weak var author_name: UILabel!
     @IBOutlet weak var publish_date: UILabel!
+    
+    var authorID = String()
+    var workID = String()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +55,7 @@ class FeedsViewController: UIViewController {
             self.view.layoutIfNeeded()
         }, completion: { finished in
             if finished {
+                self.giveALike()
                 self.fetch()
             }
         })
@@ -107,10 +111,10 @@ class FeedsViewController: UIViewController {
         }
         
         self.publicWorks.shuffle()
-        let authorID = publicWorks[0]["userID"] as! String
-        let workID = publicWorks[0]["workID"] as! String
-        print(workID)
-        print(publicWorks.count)
+        authorID = publicWorks[0]["userID"] as! String
+        workID = publicWorks[0]["workID"] as! String
+        //print(workID)
+        //print(publicWorks.count)
         
         db.collection(authorID).document(workID).getDocument() { (document, err) in
             if let err = err {
@@ -122,8 +126,8 @@ class FeedsViewController: UIViewController {
                 let author = document!["author"] as! String
                 let date = document!["date"] as! String
 
-                if (self.publicWorks.count == 1 || workID != self.curr_workID) {
-                    self.curr_workID = workID
+                if (self.publicWorks.count == 1 || self.workID != self.curr_workID) {
+                    self.curr_workID = self.workID
                     self.preview.makeCells(size: gridSize, data: gridColors)
                     self.work_name.text = name
                     self.author_name.text = author
@@ -142,4 +146,29 @@ class FeedsViewController: UIViewController {
             self.view.layoutIfNeeded()
         })
     }
+    
+    private func giveALike(){
+        
+        var currentLikes = 0
+        // Get how many likes a user has
+        db.collection(authorID).document(workID).getDocument() { (document, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+                return
+            }
+            let likes = document!["likes"] as? Int
+            if let likes = likes {
+                currentLikes = likes + 1
+                // update likes
+                self.db.collection(self.authorID).document(self.workID).updateData(["likes": currentLikes]) {err in
+                    if let err = err {
+                           print("Error updating likes: \(err)")
+                           return
+                    }
+                }
+            }
+        }
+    }
+    
+    
 }
