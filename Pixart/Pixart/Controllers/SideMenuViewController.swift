@@ -60,6 +60,16 @@ class SideMenuViewController: UIViewController {
         }
     }
     
+    @IBAction func popularPressed(_ sender: Any) {
+       
+        if Application.current_VC is PopularViewController {
+                  dismiss(animated: true, completion: nil)
+              } else {
+                  self.performSegue(withIdentifier: "popular", sender: nil)
+        }
+        
+    }
+    
     @IBAction func logoutPressed(_ sender: Any) {
         self.performSegue(withIdentifier: "logout", sender: nil)
     }

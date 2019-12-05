@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BaW-vu-kee">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BaW-vu-kee">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -130,7 +130,7 @@
                                             <action selector="logoutPressed:" destination="PLL-lV-fyY" eventType="touchUpInside" id="e6W-Tm-0Ec"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x7s-aD-nUG">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x7s-aD-nUG">
                                         <rect key="frame" x="39" y="389.66666666666669" width="154" height="42"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="42" id="G1S-Z2-xyK"/>
@@ -140,6 +140,9 @@
                                         <state key="normal" title="  Popular" image="heart.fill" catalog="system">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="popularPressed:" destination="PLL-lV-fyY" eventType="touchUpInside" id="abW-bc-Sih"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -180,6 +183,7 @@
                         <segue destination="Rjr-2U-NMr" kind="presentation" identifier="canvas" id="QlY-Vf-EEs"/>
                         <segue destination="Ou6-YY-xh6" kind="presentation" identifier="works" id="P0Q-LJ-y5Q"/>
                         <segue destination="b6C-SQ-MBJ" kind="presentation" identifier="feeds" id="zYv-UZ-Wyb"/>
+                        <segue destination="asq-Gq-tvZ" kind="presentation" identifier="popular" id="PBd-O2-SZu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fx9-4K-pCy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -235,6 +239,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gtn-Vg-HeW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1291" y="171"/>
+        </scene>
+        <!--Popular-->
+        <scene sceneID="KlB-5J-shs">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Popular" id="asq-Gq-tvZ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wII-hg-Cu4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1298" y="208"/>
         </scene>
         <!--Canvas-->
         <scene sceneID="to5-K2-RBa">

@@ -50,6 +50,8 @@
 		32E0C616238B35B8005DD68F /* RenamePopup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32E0C615238B35B8005DD68F /* RenamePopup.storyboard */; };
 		32E0C619238B38C3005DD68F /* RenamePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E0C618238B38C3005DD68F /* RenamePopupViewController.swift */; };
 		90832A7785AFB42F2D75E7B9 /* Pods_Pixart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 139F0A8BC80429260D62ED46 /* Pods_Pixart.framework */; };
+		B511931123989DA800A0005D /* Popular.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B511931023989DA800A0005D /* Popular.storyboard */; };
+		B511931323989EDC00A0005D /* PopularViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B511931223989EDC00A0005D /* PopularViewController.swift */; };
 		B57EF8BA2377CE15009DE772 /* WorksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57EF8B92377CE15009DE772 /* WorksTableViewCell.swift */; };
 		B57EF8BC2377EF05009DE772 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57EF8BB2377EF05009DE772 /* GridView.swift */; };
 		B70C60592380BECD008C1C34 /* WorkDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70C60582380BECD008C1C34 /* WorkDetailViewController.swift */; };
@@ -110,6 +112,8 @@
 		32E0C615238B35B8005DD68F /* RenamePopup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RenamePopup.storyboard; sourceTree = "<group>"; };
 		32E0C618238B38C3005DD68F /* RenamePopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenamePopupViewController.swift; sourceTree = "<group>"; };
 		4F67732EF58E34752E9602F7 /* Pods-Pixart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pixart.debug.xcconfig"; path = "Target Support Files/Pods-Pixart/Pods-Pixart.debug.xcconfig"; sourceTree = "<group>"; };
+		B511931023989DA800A0005D /* Popular.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Popular.storyboard; sourceTree = "<group>"; };
+		B511931223989EDC00A0005D /* PopularViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularViewController.swift; sourceTree = "<group>"; };
 		B57EF8B92377CE15009DE772 /* WorksTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorksTableViewCell.swift; sourceTree = "<group>"; };
 		B57EF8BB2377EF05009DE772 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		B70C60582380BECD008C1C34 /* WorkDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkDetailViewController.swift; sourceTree = "<group>"; };
@@ -273,6 +277,7 @@
 				32A162AB23821824002FEAC4 /* Canvas */,
 				32A162A7238214D3002FEAC4 /* Works */,
 				32C0F43223749F4600612535 /* Main.storyboard */,
+				B511931023989DA800A0005D /* Popular.storyboard */,
 				32C0F4302374956200612535 /* SideMenu.storyboard */,
 				32C0F42A2374851200612535 /* Profile.storyboard */,
 				32C0F42D2374856F00612535 /* Feeds.storyboard */,
@@ -300,6 +305,7 @@
 				32C0F414237414BD00612535 /* SideMenuViewController.swift */,
 				32C0F43E237503E100612535 /* ProfileViewController.swift */,
 				32602BB9237553EF00FE7D31 /* FeedsViewController.swift */,
+				B511931223989EDC00A0005D /* PopularViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -443,6 +449,7 @@
 				3200289F237BDCD50095CE03 /* Assets.xcassets in Resources */,
 				32C0F43323749F4600612535 /* Main.storyboard in Resources */,
 				32C0F41D237414BF00612535 /* LaunchScreen.storyboard in Resources */,
+				B511931123989DA800A0005D /* Popular.storyboard in Resources */,
 				F317AD72237D152300BF1F2F /* GoogleService-Info.plist in Resources */,
 				32C0F42C2374851200612535 /* Profile.storyboard in Resources */,
 				32A162B02382244D002FEAC4 /* Canvas.storyboard in Resources */,
@@ -515,6 +522,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B511931323989EDC00A0005D /* PopularViewController.swift in Sources */,
 				32D5FA9C238A4A0500AA65CF /* LoginViewController.swift in Sources */,
 				32E0C60E238A5ACF005DD68F /* LaunchViewController.swift in Sources */,
 				32A162AE2382235B002FEAC4 /* SettingsPopupViewController.swift in Sources */,

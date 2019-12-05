@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GwF-4V-wmR">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Popular View Controller-->
+        <scene sceneID="smb-cP-RZX">
+            <objects>
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="GwF-4V-wmR" customClass="PopularViewController" customModule="Pixart" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hxO-ny-wqm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K9d-0i-9x1" userLabel="SideMenu">
+                                <rect key="frame" x="20" y="44" width="56" height="48"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line.horizontal.3" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="q2l-Gf-6TZ" userLabel="Menu Icon">
+                                        <rect key="frame" x="9.5" y="14" width="37" height="20.5"/>
+                                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="37" id="brb-fq-K33"/>
+                                            <constraint firstAttribute="height" constant="29.670000000000002" id="hKe-k3-jpP"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KXM-1m-8bg">
+                                        <rect key="frame" x="0.0" y="0.0" width="56" height="48"/>
+                                        <connections>
+                                            <segue destination="mJi-Jf-3WB" kind="show" id="LSo-JK-YIi"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="KXM-1m-8bg" secondAttribute="trailing" id="4Nk-7r-BDA"/>
+                                    <constraint firstItem="q2l-Gf-6TZ" firstAttribute="centerX" secondItem="K9d-0i-9x1" secondAttribute="centerX" id="4dn-wx-GUe"/>
+                                    <constraint firstAttribute="trailing" secondItem="KXM-1m-8bg" secondAttribute="trailing" id="7Ax-tE-oZr"/>
+                                    <constraint firstItem="KXM-1m-8bg" firstAttribute="leading" secondItem="K9d-0i-9x1" secondAttribute="leading" id="9Xo-vx-qn9"/>
+                                    <constraint firstItem="KXM-1m-8bg" firstAttribute="top" secondItem="K9d-0i-9x1" secondAttribute="top" id="BJR-PP-XfW"/>
+                                    <constraint firstItem="q2l-Gf-6TZ" firstAttribute="centerY" secondItem="K9d-0i-9x1" secondAttribute="centerY" id="CHh-0x-ax8"/>
+                                    <constraint firstAttribute="bottom" secondItem="KXM-1m-8bg" secondAttribute="bottom" id="CSe-Cl-bZ0"/>
+                                    <constraint firstAttribute="width" constant="56" id="RJW-RC-7mD"/>
+                                    <constraint firstItem="KXM-1m-8bg" firstAttribute="top" secondItem="K9d-0i-9x1" secondAttribute="top" id="S4G-o0-Xg9"/>
+                                    <constraint firstAttribute="bottom" secondItem="KXM-1m-8bg" secondAttribute="bottom" id="SWo-JR-z0U"/>
+                                    <constraint firstItem="KXM-1m-8bg" firstAttribute="leading" secondItem="K9d-0i-9x1" secondAttribute="leading" id="Zq2-uN-R73"/>
+                                    <constraint firstAttribute="height" constant="48" id="xwq-VX-IO1"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="K9d-0i-9x1" firstAttribute="top" secondItem="HNd-sJ-k2O" secondAttribute="top" id="4UH-uP-aHp"/>
+                            <constraint firstItem="K9d-0i-9x1" firstAttribute="leading" secondItem="HNd-sJ-k2O" secondAttribute="leading" constant="20" id="YZc-5L-kRb"/>
+                            <constraint firstItem="HNd-sJ-k2O" firstAttribute="bottom" secondItem="K9d-0i-9x1" secondAttribute="bottom" constant="770" id="hAp-cI-qJ1"/>
+                            <constraint firstItem="HNd-sJ-k2O" firstAttribute="trailing" secondItem="K9d-0i-9x1" secondAttribute="trailing" constant="338" id="ue4-8h-X4x"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="HNd-sJ-k2O"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HVg-B0-WjR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="234.78260869565219" y="-156.02678571428569"/>
+        </scene>
+        <!--SideMenu-->
+        <scene sceneID="rTu-cI-5Dn">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SideMenu" id="mJi-Jf-3WB" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="LyJ-BI-cec"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SGM-7h-s8g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="771" y="-156"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="line.horizontal.3" catalog="system" width="64" height="32"/>
+    </resources>
+</document>
