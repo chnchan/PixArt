@@ -85,7 +85,7 @@ class PopularViewController: UIViewController {
                     count += 1
                 }
                 //print(self.popularworks)
-                if (count >= 2) {
+                if (count >= 2) { // when there is only one object, it wont cause a flicker. Won't be an issue when there is more than 1 published art
                     self.popularCollection.reloadData()
                 }
               }
