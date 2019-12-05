@@ -85,7 +85,12 @@ class WorksEditingViewController: UIViewController {
         })
         alert.addAction(cancelAction)
         alert.addAction(okAction)
-        self.present(alert, animated: true, completion: nil)
+        if self.likes > 0 {
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            self.view.isUserInteractionEnabled = false
+            self.savePixelArt()
+        }
         
     }
     
