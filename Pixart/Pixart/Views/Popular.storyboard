@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GwF-4V-wmR">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="44" width="56" height="48"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line.horizontal.3" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="9mQ-Jd-0rr" userLabel="Menu Icon">
-                                        <rect key="frame" x="9.5" y="14" width="37" height="20.5"/>
+                                        <rect key="frame" x="9.6666666666666643" y="13.999999999999996" width="37" height="20.333333333333339"/>
                                         <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="37" id="Rg4-bA-6oQ"/>
@@ -52,27 +52,31 @@
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="EzA-Wy-uKh">
                                         <rect key="frame" x="0.0" y="0.0" width="380" height="762"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="5" id="4Fc-HB-gsS">
-                                            <size key="itemSize" width="180" height="180"/>
-                                            <size key="estimatedItemSize" width="180" height="180"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="4Fc-HB-gsS">
+                                            <size key="itemSize" width="190" height="190"/>
+                                            <size key="estimatedItemSize" width="200" height="200"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="popular_post" id="hRR-eT-IEw" customClass="PopularCollectionViewCell" customModule="Pixart" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="186" height="186"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ivk-6W-Pfk">
-                                                    <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="186" height="186"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="44C-KZ-C5V" customClass="CanvasPreview" customModule="Pixart" customModuleProvider="target">
-                                                            <rect key="frame" x="1" y="1" width="178" height="178"/>
-                                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                            <rect key="frame" x="1" y="1" width="184" height="184"/>
+                                                            <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="184" id="3ax-h0-opC"/>
+                                                                <constraint firstAttribute="width" constant="184" id="RMw-Xw-w8Q"/>
+                                                            </constraints>
                                                         </view>
                                                     </subviews>
-                                                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="44C-KZ-C5V" secondAttribute="bottom" constant="1" id="0ru-cs-dJt"/>
                                                         <constraint firstItem="44C-KZ-C5V" firstAttribute="leading" secondItem="ivk-6W-Pfk" secondAttribute="leading" constant="1" id="een-ef-k2S"/>
@@ -129,7 +133,7 @@
         <!--Image View Controller-->
         <scene sceneID="MoO-Wl-4UR">
             <objects>
-                <viewController modalPresentationStyle="overCurrentContext" id="Aui-Jq-tKe" customClass="ImageViewController" customModule="Pixart" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="Aui-Jq-tKe" customClass="ImageViewController" customModule="Pixart" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ySF-Rr-Pwb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -200,7 +204,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artwork name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="skk-TI-ne7">
-                                <rect key="frame" x="85" y="57.5" width="244" height="21.5"/>
+                                <rect key="frame" x="85" y="57.333333333333336" width="244" height="21.333333333333336"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>

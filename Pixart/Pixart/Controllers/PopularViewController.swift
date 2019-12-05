@@ -119,11 +119,10 @@ extension PopularViewController: UICollectionViewDataSource, UICollectionViewDel
         let width = (collectionView.frame.width - (NumberItemPerRow - 1) * CELL_PADDING ) / NumberItemPerRow
         return CGSize(width: width, height: width)
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return CELL_PADDING
     }
-    
 }
 
 
