@@ -56,7 +56,7 @@ class FeedsViewController: UIViewController {
         }, completion: { finished in
             if finished {
                 self.giveALike()
-                self.fetch()
+               
             }
         })
     }
@@ -165,6 +165,7 @@ class FeedsViewController: UIViewController {
                            print("Error updating likes: \(err)")
                            return
                     }
+                    self.fetch()
                 }
             }
         }
