@@ -23,6 +23,7 @@ class WorksEditingViewController: UIViewController {
     var work_name: String = ""
     var canvas_size: Int = 8
     var colors: [String : String] = [:]
+    var likes : Int = 0
     
     @IBOutlet weak var card_view: UIView!
     @IBOutlet weak var save_view: UIView!
@@ -62,6 +63,7 @@ class WorksEditingViewController: UIViewController {
         if let dest = segue.destination as? WorksDetailViewController {
             dest.work_name = self.work_name
             dest.colors = self.colors
+            dest.likes = self.likes
         }
     }
     
@@ -70,9 +72,21 @@ class WorksEditingViewController: UIViewController {
             self.save_top.constant = -60
             self.view.layoutIfNeeded()
         })
+
+        let alert = UIAlertController(title: "Are you sure?", message: "If you save the edit, likes of the work will be reset to 0", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let okAction = UIAlertAction(title: "Save the edit", style: .default, handler: {alert in
+            if self.likes > 0 {
+                self.db.collection(self.userID).document(self.work_UUID).updateData(["likes":0])
+                self.likes = 0
+            }
+            self.view.isUserInteractionEnabled = false
+            self.savePixelArt()
+        })
+        alert.addAction(cancelAction)
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
         
-        view.isUserInteractionEnabled = false
-        savePixelArt()
     }
     
 //    @IBAction func saveEditsAs(_ sender: Any) {

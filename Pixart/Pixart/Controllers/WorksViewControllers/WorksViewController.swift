@@ -62,6 +62,7 @@ class WorksViewController: UIViewController {
             dest.published = work["public"] as! Int
             dest.canvas_size = work["gridSize"] as! Int
             dest.colors = work["colors"] as! [String:String]
+            dest.likes = work["likes"] as? Int ?? 0
         }
     }
     
@@ -285,8 +286,6 @@ extension WorksViewController: UITableViewDataSource, UITableViewDelegate {
         alert.addAction(restoreAction)
         alert.addAction(deleteAction)
         self.present(alert, animated: true, completion: nil)
-//        index = indexPath.row
-//        performSegue(withIdentifier: "works_detail_published", sender: self)
     }
     
     func restore_handle(alert: UIAlertAction)

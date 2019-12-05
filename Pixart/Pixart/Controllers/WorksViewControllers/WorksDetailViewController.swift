@@ -20,6 +20,7 @@ class WorksDetailViewController: UIViewController {
     var published: Int = 0
     var canvas_size: Int = 8
     var colors: [String : String] = [:]
+    var likes : Int = 0
     
     @IBOutlet weak var workname: UIButton!
     @IBOutlet weak var edit_button: UIButton!
@@ -69,6 +70,7 @@ class WorksDetailViewController: UIViewController {
             dest.work_name = self.work_name
             dest.canvas_size = self.canvas_size
             dest.colors = self.colors
+            dest.likes = self.likes
         }
         
         if let dest = segue.destination as? RenamePopupViewController {
@@ -122,10 +124,6 @@ class WorksDetailViewController: UIViewController {
             if error != nil {
                 print("error updating data")
             } else {
-//                let alert = UIAlertController(title: "Important:", message: "To prevent possible exploit, likes will reset to 0 if you edit the artwork.", preferredStyle: .alert)
-//                let okAction = UIAlertAction(title: "Yes, I Understand.", style: .default, handler: nil)
-//                alert.addAction(okAction)
-//                self.present(alert, animated: true, completion: nil)
                 self.showPrivateView()
             }
         })
