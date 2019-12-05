@@ -26,6 +26,9 @@ class FeedsViewController: UIViewController {
     @IBOutlet weak var author_name: UILabel!
     @IBOutlet weak var publish_date: UILabel! // MARK: READ ME!! This should be the first publish date. To prevent exploit like refreshing the timestamp
     
+    var currentWorkAuthor = String()
+    var currentWorkID = String()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let left_swipe = UISwipeGestureRecognizer(target: self, action: #selector(gestureHandler(gesture:)))
@@ -97,12 +100,12 @@ class FeedsViewController: UIViewController {
             return
         }
       
-        let workAuthor = publicWorks[0]["userID"] as! String
-        let workID = publicWorks[0]["workID"] as! String
-        print(workID)
-        print(workAuthor)
+        currentWorkAuthor = publicWorks[0]["userID"] as! String
+        currentWorkID = publicWorks[0]["workID"] as! String
+        print(currentWorkID)
+        print(currentWorkID)
 
-        db.collection(workAuthor).document(workID).getDocument() { (document, err) in
+        db.collection(currentWorkAuthor).document(currentWorkID).getDocument() { (document, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
@@ -128,9 +131,9 @@ class FeedsViewController: UIViewController {
     }
     
     private func requestExtra() {
-        let workAuthor = publicWorks[1]["userID"] as! String
-        let workID = publicWorks[1]["workID"] as! String
-        db.collection(workAuthor).document(workID).getDocument() { (document, err) in
+        currentWorkAuthor = publicWorks[1]["userID"] as! String
+        currentWorkID = publicWorks[1]["workID"] as! String
+        db.collection(currentWorkAuthor).document(currentWorkID).getDocument() { (document, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
@@ -146,5 +149,12 @@ class FeedsViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    private func like(){
+        
+        db.collection(currentWorkAuthor).document(currentWorkID).updateData([ "likes" : 1] , completion: { err in
+            
+        })
     }
 }
