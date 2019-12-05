@@ -156,11 +156,14 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
     private func savePixelArt() {
         let uuid = UUID().uuidString
         let gridColors: [String:String] = gridView.exportColors()
+        let alias = LocalStorage.fetchAlias()
         self.view.isUserInteractionEnabled = false
         
         self.db.collection(self.userID).document(uuid).setData([
             "documentdata": uuid,
             "name": self.work_name,
+            "author": alias.isEmpty ? "Anonymous": alias,
+            "date": "",
             "colors": gridColors,
             "gridSize": self.canvas_size,
             "public" : 0,

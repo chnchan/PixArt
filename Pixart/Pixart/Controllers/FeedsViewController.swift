@@ -5,7 +5,6 @@
 //  Created by Hin Chan on 11/7/19.
 //  Copyright © 2019 UC Davis. All rights reserved.
 //
-
 import UIKit
 import SideMenu
 import Firebase
@@ -14,6 +13,7 @@ class FeedsViewController: UIViewController {
 
     let db = Firestore.firestore()
     var handle: AuthStateDidChangeListenerHandle?
+    var curr_workID: String = ""
     var publicWorks: [[String: Any]] = []
 
     @IBOutlet weak var card_view: UIView!
@@ -26,12 +26,8 @@ class FeedsViewController: UIViewController {
     @IBOutlet weak var preview: CanvasPreview!
     @IBOutlet weak var work_name: UILabel!
     @IBOutlet weak var author_name: UILabel!
-    @IBOutlet weak var publish_date: UILabel! // MARK: READ ME!! This should be the first publish date. To prevent exploit like refreshing the timestamp
+    @IBOutlet weak var publish_date: UILabel!
 
-    
-    var currentWorkAuthor = String()
-    var currentWorkID = String()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         let left_swipe = UISwipeGestureRecognizer(target: self, action: #selector(gestureHandler(gesture:)))
@@ -47,22 +43,18 @@ class FeedsViewController: UIViewController {
         Application.current_VC = self
         fetch()
     }
-
-    override func viewDidAppear(_ animated: Bool) {
-        UIView.animate(withDuration: Application.transition_speed + 0.2, animations: {
-            self.card_view_top.constant = 61
-            self.view.layoutIfNeeded()
-        })
-    }
-
+    
     @IBAction func like(_ sender: Any) {
         print("like!")
         UIView.animate(withDuration: Application.transition_speed, animations: {
             self.card_view_left.constant = 420
             self.card_view_right.constant = -380
             self.view.layoutIfNeeded()
+        }, completion: { finished in
+            if finished {
+                self.fetch()
+            }
         })
-        //fetch next
     }
 
     @IBAction func pass(_ sender: Any) {
@@ -71,9 +63,11 @@ class FeedsViewController: UIViewController {
             self.card_view_left.constant = -380
             self.card_view_right.constant = 420
             self.view.layoutIfNeeded()
+        }, completion: { finished in
+            if finished {
+                self.fetch()
+            }
         })
-        //fetch next
-        fetch()
     }
 
     @objc func gestureHandler(gesture: UISwipeGestureRecognizer) {
@@ -87,85 +81,65 @@ class FeedsViewController: UIViewController {
     }
 
     private func fetch() {
+        self.card_view_top.constant = -600
+        self.card_view_left.constant = 20
+        self.card_view_right.constant = 20
+        self.publicWorks = []
+        
         self.db.collection("PublishedWorks").getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
-                // this force unwrap is what is used in the
-                // cloud firestore docs
                 for document in querySnapshot!.documents {
                     if(document.data()["userID"] as? String != nil) {
                         self.publicWorks.append(document.data())
                     }
                 }
-                self.publicWorks.shuffle()
-                self.getDrawing()
+                
+                self.updateData()
             }
         }
     }
 
-    private func getDrawing() {
-
-        if publicWorks.count <= 2{
+    private func updateData() {
+        if (publicWorks.count == 0) {
             return
         }
-      
-        currentWorkAuthor = publicWorks[0]["userID"] as! String
-        currentWorkID = publicWorks[0]["workID"] as! String
-        print(currentWorkID)
-        print(currentWorkID)
-
-
-        db.collection(currentWorkAuthor).document(currentWorkID).getDocument() { (document, err) in
+        
+        self.publicWorks.shuffle()
+        let authorID = publicWorks[0]["userID"] as! String
+        let workID = publicWorks[0]["workID"] as! String
+        print(workID)
+        print(publicWorks.count)
+        
+        db.collection(authorID).document(workID).getDocument() { (document, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
+                let name = document!["name"] as! String
+                let gridColors = document!["colors"] as! [String:String]
+                let gridSize = document!["gridSize"] as! Int
+                let author = document!["author"] as! String
+                let date = document!["date"] as! String
 
-                let name = document!["name"] as? String
-                print(name)
-                let gridColors = document!["colors"] as? [String:String]
-                let gridSize = document!["gridSize"] as? Int
-
-                if let name = name,  let gridColors = gridColors, let gridSize = gridSize {
-                    if self.work_name.text != name {
-                        self.preview.makeCells(size: gridSize, data: gridColors)
-                        self.work_name.text = name
-                        self.author_name.text = "Anonymous"
-
-                    }else{
-                        self.requestExtra()
-                    }
-                }
-            }
-        }
-
-    }
-
-    private func requestExtra() {
-        currentWorkAuthor = publicWorks[1]["userID"] as! String
-        currentWorkID = publicWorks[1]["workID"] as! String
-        db.collection(currentWorkAuthor).document(currentWorkID).getDocument() { (document, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                let name = document!["name"] as? String
-                let gridColors = document!["colors"] as? [String:String]
-                let gridSize = document!["gridSize"] as? Int
-
-                if let name = name,  let gridColors = gridColors, let gridSize = gridSize {
-
+                if (self.publicWorks.count == 1 || workID != self.curr_workID) {
+                    self.curr_workID = workID
                     self.preview.makeCells(size: gridSize, data: gridColors)
                     self.work_name.text = name
-                    self.author_name.text = "Anonymous"
+                    self.author_name.text = author
+                    self.publish_date.text = "Published on " + date
+                    self.showCard()
+                } else {
+                    self.updateData() // same art recieved. Try to get another one.
                 }
             }
         }
     }
     
-    private func like(){
-        
-        db.collection(currentWorkAuthor).document(currentWorkID).updateData([ "likes" : 1] , completion: { err in
-            
+    private func showCard() {
+        UIView.animate(withDuration: Application.transition_speed + 0.2, animations: {
+            self.card_view_top.constant = 61
+            self.view.layoutIfNeeded()
         })
     }
 }

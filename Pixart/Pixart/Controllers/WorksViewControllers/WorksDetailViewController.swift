@@ -53,7 +53,6 @@ class WorksDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        // [START auth_listener]
         handle = Auth.auth().addStateDidChangeListener { (auth, user) in
             self.userID = user?.uid ?? ""
         }
@@ -61,9 +60,6 @@ class WorksDetailViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        // force unwrap justified since handle will never be nil after
-        // viewWillAppear called  (can only get to this view with authenticated
-        // user)
         Auth.auth().removeStateDidChangeListener(handle!)
     }
     
@@ -88,18 +84,19 @@ class WorksDetailViewController: UIViewController {
     
     @IBAction func updateName(_ sender: Any) {
         performSegue(withIdentifier: "rename_popup", sender: self)
-//        guard let newname = self.work_name else{
-//            return
-//        }
-//        self.db.collection(self.userID).document(self.work_UUID).setData(["name" : newname], mergeFields: ["name"])
     }
     
     @IBAction func publish(_ sender: Any) {
-        /*self.db.collection(self.userID).document(self.work_UUID).setData([
-        "public" : 1], mergeFields: ["public"])
-        showPublishedIcon()
-        showPublishedView()*/
-        self.db.collection(self.userID).document(self.work_UUID).updateData(["public":1], completion: {error in
+        let alias = LocalStorage.fetchAlias()
+        let date = Date()
+        let dateFormat = DateFormatter()
+        dateFormat.dateFormat = "MMMM dd, yyyy"
+        print(dateFormat.string(from: date))
+        self.db.collection(self.userID).document(self.work_UUID).setData([
+            "author": alias.isEmpty ? "Anonymous" : alias,
+            "date": dateFormat.string(from:date),
+            "public": 1
+        ], mergeFields: ["public", "author", "date"], completion: { error in
             if error != nil {
                 print("error updating data")
             } else {
@@ -107,6 +104,7 @@ class WorksDetailViewController: UIViewController {
                 self.showPublishedView()
             }
         })
+
         self.db.collection("PublishedWorks").document(self.work_UUID).setData([
             "userID": self.userID,
             "workID": self.work_UUID,
@@ -120,18 +118,14 @@ class WorksDetailViewController: UIViewController {
     }
     
     @IBAction func removePublished(_ sender: Any) {
-        /*self.db.collection(self.userID).document(self.work_UUID).setData([
-        "public" : 0], mergeFields: ["public"])
-        showPrivateIcon()
-        showPrivateView()*/
         self.db.collection(self.userID).document(self.work_UUID).updateData(["public":0], completion: {error in
             if error != nil {
                 print("error updating data")
             } else {
-                let alert = UIAlertController(title: "Important:", message: "To prevent possible exploit, likes and dislikes will reset to 0 if you edit the artwork.", preferredStyle: .alert)
-                let okAction = UIAlertAction(title: "Yes, I Understand.", style: .default, handler: nil)
-                alert.addAction(okAction)
-                self.present(alert, animated: true, completion: nil)
+//                let alert = UIAlertController(title: "Important:", message: "To prevent possible exploit, likes will reset to 0 if you edit the artwork.", preferredStyle: .alert)
+//                let okAction = UIAlertAction(title: "Yes, I Understand.", style: .default, handler: nil)
+//                alert.addAction(okAction)
+//                self.present(alert, animated: true, completion: nil)
                 self.showPrivateView()
             }
         })
@@ -150,15 +144,6 @@ class WorksDetailViewController: UIViewController {
     }
     
     @IBAction func deletebutton(_ sender: UIButton) {
-        /*self.db.collection(self.userID).document(self.work_UUID).delete(completion: {error in
-            if error != nil {
-                print("error deleting")
-            } else {
-                self.performSegue(withIdentifier: "unwind_works", sender: self)
-            }
-        })*/
-
-        //When we have trash can implemented
         self.db.collection(self.userID).document(self.work_UUID).updateData(["public" : -1], completion: {error in
             if error != nil {
                 print("error updating data")
@@ -166,6 +151,7 @@ class WorksDetailViewController: UIViewController {
                 self.performSegue(withIdentifier: "unwind_works", sender: self)
             }
         })
+        self.db.collection("PublishedWorks").document(self.work_UUID).delete()
     }
     
     @IBAction func done(_ sender: Any) {
