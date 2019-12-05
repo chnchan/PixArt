@@ -56,6 +56,7 @@ class FeedsViewController: UIViewController {
         }, completion: { finished in
             if finished {
                 self.db.collection(self.authorID).document(self.workID).updateData(["likes" : FieldValue.increment(Int64(1))])
+                self.db.collection("PublishedWorks").document(self.workID).updateData(["likes" : FieldValue.increment(Int64(1))])
                 self.fetch()
             }
         })

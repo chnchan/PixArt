@@ -112,6 +112,7 @@ class WorksDetailViewController: UIViewController {
         self.db.collection("PublishedWorks").document(self.work_UUID).setData([
             "userID": self.userID,
             "workID": self.work_UUID,
+            "likes": self.likes
         ]) { err in
             if let err = err {
                 print("Error adding document: \(err)")
@@ -189,6 +190,7 @@ class WorksDetailViewController: UIViewController {
     // MARK: Unwind
     @IBAction func unwindToWorksDetail(_ unwindSegue: UIStoryboardSegue) {
         workname.setTitle(work_name, for: .normal)
+        self.likesField.text = "\(likes)"
         preview.makeCells(size: canvas_size, data: colors)
     }
 }
