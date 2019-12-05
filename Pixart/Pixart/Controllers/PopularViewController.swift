@@ -12,25 +12,24 @@ import Firebase
 class PopularViewController: UIViewController {
 
     let CELL_PADDING: CGFloat = 6 // MARK: NOTE: canvas preview width x 2 + padding <= view width for there to be two columns. Make sure any size changes won't violate the above.
-    
-    
-    @IBOutlet weak var popularCollection: UICollectionView!
-    
     let db = Firestore.firestore()
     var handle: AuthStateDidChangeListenerHandle?
-    
     var popularlist: [[String:Any]] = []
     var popularworks : [[String: Any]] = []
     var index : Int = 0
+    
+    @IBOutlet weak var popularCollection: UICollectionView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchPopulars(num: 30)
         popularCollection.dataSource = self
         popularCollection.delegate = self
+        Application.current_VC = self
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let dest = segue.destination as? PopularDetailViewController {
+        if let dest = segue.destination as? ImageViewController {
             let work = popularworks[index]
             dest.presentationController?.delegate = self
             dest.work_UUID = work["documentdata"] as? String ?? ""
@@ -60,9 +59,12 @@ class PopularViewController: UIViewController {
                 self.getPictures()
             }
         }
-      }
+    }
+    
     private func getPictures() {
         self.popularworks = []
+        var count = 0
+        
         for works in popularlist {
             let authorID = works["userID"] as! String
             let workID = works["workID"] as! String
@@ -80,10 +82,12 @@ class PopularViewController: UIViewController {
                     print(gridSize)
                     print(date)*/
                     self.popularworks.append(document!.data()!)
-                
+                    count += 1
                 }
                 //print(self.popularworks)
-                self.popularCollection.reloadData()
+                if (count >= 2) {
+                    self.popularCollection.reloadData()
+                }
               }
           }
       }
@@ -125,6 +129,6 @@ extension PopularViewController: UICollectionViewDataSource, UICollectionViewDel
 
 extension PopularViewController: UIAdaptivePresentationControllerDelegate {
     func presentationControllerWillDismiss(_ presentationController: UIPresentationController) {
-        fetchPopulars(num: 30)
+        //fetchPopulars(num: 30)
     }
 }

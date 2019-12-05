@@ -61,7 +61,6 @@ class SideMenuViewController: UIViewController {
     }
     
     @IBAction func popularPressed(_ sender: Any) {
-       
         if Application.current_VC is PopularViewController {
                   dismiss(animated: true, completion: nil)
               } else {
