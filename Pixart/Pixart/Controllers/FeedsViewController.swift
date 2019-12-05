@@ -15,7 +15,7 @@ class FeedsViewController: UIViewController {
     let db = Firestore.firestore()
     var handle: AuthStateDidChangeListenerHandle?
     var publicWorks: [[String: Any]] = []
-    
+
     @IBOutlet weak var card_view: UIView!
     @IBOutlet weak var card_view_top: NSLayoutConstraint!
     @IBOutlet weak var card_view_left: NSLayoutConstraint!
@@ -27,7 +27,7 @@ class FeedsViewController: UIViewController {
     @IBOutlet weak var work_name: UILabel!
     @IBOutlet weak var author_name: UILabel!
     @IBOutlet weak var publish_date: UILabel! // MARK: READ ME!! This should be the first publish date. To prevent exploit like refreshing the timestamp
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         let left_swipe = UISwipeGestureRecognizer(target: self, action: #selector(gestureHandler(gesture:)))
@@ -41,16 +41,16 @@ class FeedsViewController: UIViewController {
         swipe_left_icon.addShadow()
         swipe_right_icon.addShadow()
         Application.current_VC = self
-//        fetch()
+        fetch()
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         UIView.animate(withDuration: Application.transition_speed + 0.2, animations: {
             self.card_view_top.constant = 61
             self.view.layoutIfNeeded()
         })
     }
-    
+
     @IBAction func like(_ sender: Any) {
         print("like!")
         UIView.animate(withDuration: Application.transition_speed, animations: {
@@ -60,7 +60,7 @@ class FeedsViewController: UIViewController {
         })
         //fetch next
     }
-    
+
     @IBAction func pass(_ sender: Any) {
         print("pass!")
         UIView.animate(withDuration: Application.transition_speed, animations: {
@@ -69,8 +69,9 @@ class FeedsViewController: UIViewController {
             self.view.layoutIfNeeded()
         })
         //fetch next
+        fetch()
     }
-    
+
     @objc func gestureHandler(gesture: UISwipeGestureRecognizer) {
         if gesture.state == .ended {
             if gesture.direction == UISwipeGestureRecognizer.Direction.right {
@@ -80,7 +81,7 @@ class FeedsViewController: UIViewController {
             }
         }
     }
-    
+
     private func fetch() {
         self.db.collection("PublishedWorks").getDocuments() { (querySnapshot, err) in
             if let err = err {
@@ -98,19 +99,59 @@ class FeedsViewController: UIViewController {
             }
         }
     }
-    
+
     private func getDrawing() {
-        for work in publicWorks {
-            let workAuthor = work["userID"] as! String
-            let workID = work["workID"] as! String
-            self.db.collection(workAuthor).document(workID).getDocument() { (document, err) in
-                if let err = err {
-                    print("Error getting documents: \(err)")
-                } else {
-                    let gridColors = document!["colors"] as! [String:String]
-                    let gridSize = document!["gridSize"] as! Int
+
+        if publicWorks.count <= 2{
+            return
+        }
+
+        let workAuthor = publicWorks[0]["userID"] as! String
+        let workID = publicWorks[0]["workID"] as! String
+        print(workID)
+        print(workAuthor)
+
+        db.collection(workAuthor).document(workID).getDocument() { (document, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+
+                let name = document!["name"] as? String
+                print(name)
+                let gridColors = document!["colors"] as? [String:String]
+                let gridSize = document!["gridSize"] as? Int
+
+                if let name = name,  let gridColors = gridColors, let gridSize = gridSize {
+                    if self.work_name.text != name {
+                        self.preview.makeCells(size: gridSize, data: gridColors)
+                        self.work_name.text = name
+                        self.author_name.text = "Anonymous"
+
+                    }else{
+                        self.requestExtra()
+                    }
+                }
+            }
+        }
+
+    }
+
+    private func requestExtra() {
+        let workAuthor = publicWorks[1]["userID"] as! String
+        let workID = publicWorks[1]["workID"] as! String
+        db.collection(workAuthor).document(workID).getDocument() { (document, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                let name = document!["name"] as? String
+                let gridColors = document!["colors"] as? [String:String]
+                let gridSize = document!["gridSize"] as? Int
+
+                if let name = name,  let gridColors = gridColors, let gridSize = gridSize {
+
                     self.preview.makeCells(size: gridSize, data: gridColors)
-                    print("hello")
+                    self.work_name.text = name
+                    self.author_name.text = "Anonymous"
                 }
             }
         }
