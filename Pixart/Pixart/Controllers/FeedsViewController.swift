@@ -18,6 +18,8 @@ class FeedsViewController: UIViewController {
     
     @IBOutlet weak var card_view: UIView!
     @IBOutlet weak var card_view_top: NSLayoutConstraint!
+    @IBOutlet weak var card_view_left: NSLayoutConstraint!
+    @IBOutlet weak var card_view_right: NSLayoutConstraint!
     @IBOutlet weak var swipe_view: UIView!
     @IBOutlet weak var swipe_left_icon: UIView!
     @IBOutlet weak var swipe_right_icon: UIView!
@@ -51,14 +53,21 @@ class FeedsViewController: UIViewController {
     
     @IBAction func like(_ sender: Any) {
         print("like!")
-        // MARK: TODO
-        //like
+        UIView.animate(withDuration: Application.transition_speed, animations: {
+            self.card_view_left.constant = 420
+            self.card_view_right.constant = -380
+            self.view.layoutIfNeeded()
+        })
         //fetch next
     }
     
     @IBAction func pass(_ sender: Any) {
         print("pass!")
-        // MARK: TODO
+        UIView.animate(withDuration: Application.transition_speed, animations: {
+            self.card_view_left.constant = -380
+            self.card_view_right.constant = 420
+            self.view.layoutIfNeeded()
+        })
         //fetch next
     }
     
