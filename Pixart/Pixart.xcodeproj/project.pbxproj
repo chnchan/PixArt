@@ -55,6 +55,8 @@
 		B57EF8BA2377CE15009DE772 /* WorksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57EF8B92377CE15009DE772 /* WorksTableViewCell.swift */; };
 		B57EF8BC2377EF05009DE772 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57EF8BB2377EF05009DE772 /* GridView.swift */; };
 		B70C60592380BECD008C1C34 /* WorkDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70C60582380BECD008C1C34 /* WorkDetailViewController.swift */; };
+		B717840123992E5D00B84879 /* PopularCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B717840023992E5D00B84879 /* PopularCollectionViewCell.swift */; };
+		B717840323992E9800B84879 /* PopularDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B717840223992E9800B84879 /* PopularDetailViewController.swift */; };
 		B71BFABD238A1F8E0057E6DA /* TrashDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71BFABC238A1F8E0057E6DA /* TrashDetailViewController.swift */; };
 		B738F6012387D77D0077C679 /* WorksTrashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B738F6002387D77D0077C679 /* WorksTrashViewController.swift */; };
 		B738F6052387D7E60077C679 /* TrashedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B738F6042387D7E60077C679 /* TrashedTableViewCell.swift */; };
@@ -117,6 +119,8 @@
 		B57EF8B92377CE15009DE772 /* WorksTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorksTableViewCell.swift; sourceTree = "<group>"; };
 		B57EF8BB2377EF05009DE772 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		B70C60582380BECD008C1C34 /* WorkDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkDetailViewController.swift; sourceTree = "<group>"; };
+		B717840023992E5D00B84879 /* PopularCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularCollectionViewCell.swift; sourceTree = "<group>"; };
+		B717840223992E9800B84879 /* PopularDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularDetailViewController.swift; sourceTree = "<group>"; };
 		B71BFABC238A1F8E0057E6DA /* TrashDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashDetailViewController.swift; sourceTree = "<group>"; };
 		B738F6002387D77D0077C679 /* WorksTrashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorksTrashViewController.swift; sourceTree = "<group>"; };
 		B738F6042387D7E60077C679 /* TrashedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashedTableViewCell.swift; sourceTree = "<group>"; };
@@ -306,6 +310,7 @@
 				32C0F43E237503E100612535 /* ProfileViewController.swift */,
 				32602BB9237553EF00FE7D31 /* FeedsViewController.swift */,
 				B511931223989EDC00A0005D /* PopularViewController.swift */,
+				B717840223992E9800B84879 /* PopularDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -330,6 +335,7 @@
 				B738F6042387D7E60077C679 /* TrashedTableViewCell.swift */,
 				B751748A238BE39800B4B959 /* PublicCollectionViewCell.swift */,
 				B751748C238BE3A800B4B959 /* PrivateCollectionViewCell.swift */,
+				B717840023992E5D00B84879 /* PopularCollectionViewCell.swift */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -525,6 +531,7 @@
 				B511931323989EDC00A0005D /* PopularViewController.swift in Sources */,
 				32D5FA9C238A4A0500AA65CF /* LoginViewController.swift in Sources */,
 				32E0C60E238A5ACF005DD68F /* LaunchViewController.swift in Sources */,
+				B717840323992E9800B84879 /* PopularDetailViewController.swift in Sources */,
 				32A162AE2382235B002FEAC4 /* SettingsPopupViewController.swift in Sources */,
 				B751748B238BE39800B4B959 /* PublicCollectionViewCell.swift in Sources */,
 				32C0F4392374F24D00612535 /* LoginViewController_.swift in Sources */,
@@ -534,6 +541,7 @@
 				B57EF8BC2377EF05009DE772 /* GridView.swift in Sources */,
 				32CC1942237E33DF00810D77 /* WorksPublishedViewController.swift in Sources */,
 				32CC1945237E4ADF00810D77 /* PrivateTableViewCell.swift in Sources */,
+				B717840123992E5D00B84879 /* PopularCollectionViewCell.swift in Sources */,
 				32602BBA237553EF00FE7D31 /* FeedsViewController.swift in Sources */,
 				32E0C619238B38C3005DD68F /* RenamePopupViewController.swift in Sources */,
 				32A162BD2384FC82002FEAC4 /* WorksDetailViewController.swift in Sources */,
