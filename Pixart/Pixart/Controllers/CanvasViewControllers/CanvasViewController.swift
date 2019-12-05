@@ -1,48 +1,3 @@
-////
-////  CanvasViewController2.swift
-////  Pixart
-////
-////  Created by Hin Chan on 11/26/19.
-////  Copyright © 2019 UC Davis. All rights reserved.
-////
-//
-//import UIKit
-//import ColorSlider
-//
-//class CanvasViewController2: UIViewController {
-//
-//    let SLIDER_Y_POS = 50 // space from the canvas
-//    let SLIDER_HIGHT = 15
-//    let SLIDER_WIDTH = 300
-//    var canvas_size: Int = 8
-//
-//
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        canvas_size = LocalStorage.fetchCanvasSize()
-//        gridView.makeCells(size: canvas_size)
-//        setupColorSlider()
-//        card_view.addShadow()
-//        save_view.addShadow()
-//    }
-//
-//    @objc func changedColor(_ slider: ColorSlider) {
-//        let color = slider.color
-//        gridView.drawingColor = color
-//    }
-//
-//    private func setupColorSlider() {
-//        let y_pos = Application.safeArea_top + 48 + 45 + Int(view.frame.width) - 10 + SLIDER_Y_POS
-//
-//        let colorSlider = ColorSlider(orientation: .horizontal, previewSide: .top)
-//        colorSlider.frame = CGRect( x: Int((view.frame.width)/2) - Int(SLIDER_WIDTH/2), y: y_pos, width: SLIDER_WIDTH, height: SLIDER_HIGHT)
-//        view.addSubview(colorSlider)
-//
-//        colorSlider.addTarget(self, action: #selector(changedColor(_:)), for: .valueChanged)
-//        colorSlider.color = UIColor.black
-//    }
-//}
-
 //
 //  CanvasViewController.swift
 //  Pixart
@@ -76,7 +31,8 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var save_view_centerX: NSLayoutConstraint!
     @IBOutlet weak var gridView: GridView!
     @IBOutlet weak var canvasContainer: UIView!
-    @IBOutlet weak var card_view_width: NSLayoutConstraint!
+    @IBOutlet weak var card_view_left: NSLayoutConstraint!
+    @IBOutlet weak var card_view_right: NSLayoutConstraint!
     //    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     override func viewDidLoad() {
@@ -85,7 +41,8 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
         setupColorSlider()
 //        card_view_width.constant = CGFloat(view.frame.width) - 17 - 17
         card_view.addShadow()
-        card_view_centerX.constant = 416
+        card_view_left.constant = 448
+        card_view_right.constant = -432
         save_view_centerX.constant = 416
         save_view.addShadow()
         canvas_size = LocalStorage.fetchCanvasSize()
@@ -105,7 +62,8 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         UIView.animate(withDuration: Application.transition_speed, animations: {
-            self.card_view_centerX.constant = 0
+            self.card_view_left.constant = 8
+            self.card_view_right.constant = 8
             self.save_view_centerX.constant = 0
             self.view.layoutIfNeeded()
         })

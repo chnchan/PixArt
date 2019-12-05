@@ -74,8 +74,10 @@ class WorksEditingViewController: UIViewController {
         })
 
         let alert = UIAlertController(title: "Are you sure?", message: "If you save the edit, likes of the work will be reset to 0", preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        let okAction = UIAlertAction(title: "Save the edit", style: .default, handler: {alert in
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
+            self.unhideSave()
+        })
+        let okAction = UIAlertAction(title: "Save Edits", style: .destructive, handler: { _ in
             if self.likes > 0 {
                 self.db.collection(self.userID).document(self.work_UUID).updateData(["likes":0])
                 self.likes = 0
@@ -91,7 +93,6 @@ class WorksEditingViewController: UIViewController {
             self.view.isUserInteractionEnabled = false
             self.savePixelArt()
         }
-        
     }
     
 //    @IBAction func saveEditsAs(_ sender: Any) {
@@ -167,7 +168,7 @@ class WorksEditingViewController: UIViewController {
 //    }
     
     private func unhideSave() {
-        UIView.animate(withDuration: 0.3, animations: {
+        UIView.animate(withDuration: Application.transition_speed, animations: {
             self.save_top.constant = -25
             self.view.layoutIfNeeded()
         })

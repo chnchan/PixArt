@@ -18,15 +18,16 @@ class SettingsPopupViewController: UIViewController {
     
     @IBOutlet weak var options: UISegmentedControl!
     @IBOutlet var background: UIView!
-    @IBOutlet weak var centerX: NSLayoutConstraint!
+    @IBOutlet weak var view_left: NSLayoutConstraint!
+    @IBOutlet weak var view_right: NSLayoutConstraint!
     @IBOutlet weak var view_container: UIView!
     @IBOutlet weak var color_indicator: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupColorSlider()
-        centerX.constant = -416
-        background.addShadow(radius: 0.5)
+        self.view_left.constant = -408
+        self.view_right.constant = 392
         color_indicator.layer.borderColor = UIColor.black.cgColor
         color_indicator.layer.borderWidth = 0.5
         color_indicator.layer.cornerRadius = 12
@@ -47,7 +48,8 @@ class SettingsPopupViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         UIView.animate(withDuration: 0.2, animations: {
-            self.centerX.constant = 0
+            self.view_left.constant = 8
+            self.view_right.constant = 8
             self.background.backgroundColor = UIColor.black.withAlphaComponent(0.30)
             self.view.layoutIfNeeded()
         })
@@ -77,7 +79,8 @@ class SettingsPopupViewController: UIViewController {
     
     @IBAction func cancel(_ sender: Any) {
         UIView.animate(withDuration: 0.2, animations: {
-            self.centerX.constant = 416
+            self.view_left.constant = -408
+            self.view_right.constant = 392
             self.background.backgroundColor = UIColor.clear
             self.view.layoutIfNeeded()
         }, completion: { finished in
@@ -92,7 +95,8 @@ class SettingsPopupViewController: UIViewController {
         LocalStorage.saveCanvasSize(size: Application.canvas_sizes[options.selectedSegmentIndex])
         
         UIView.animate(withDuration: 0.2, animations: {
-            self.centerX.constant = 416
+            self.view_left.constant = -408
+            self.view_right.constant = 392
             self.background.backgroundColor = UIColor.clear
             self.view.layoutIfNeeded()
         }, completion: { finished in

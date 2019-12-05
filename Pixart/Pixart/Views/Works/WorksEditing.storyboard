@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KaF-3S-E2q">
-    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,7 +12,7 @@
             <objects>
                 <viewController storyboardIdentifier="work_edit" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="KaF-3S-E2q" customClass="WorksEditingViewController" customModule="Pixart" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZV3-HP-7f2">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="113123141" translatesAutoresizingMaskIntoConstraints="NO" id="o6k-Lg-7g0">
@@ -29,7 +29,7 @@
                                 <blurEffect style="regular"/>
                             </visualEffectView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qv5-Oa-cYz" userLabel="Save">
-                                <rect key="frame" x="82.666666666666686" y="597" width="210" height="70"/>
+                                <rect key="frame" x="102" y="655" width="210" height="70"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="68S-lz-IB4">
                                         <rect key="frame" x="5" y="29" width="200" height="36"/>
@@ -87,10 +87,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4jS-e1-Jlb" userLabel="Card View">
-                                <rect key="frame" x="17.666666666666657" y="124" width="340" height="498"/>
+                                <rect key="frame" x="8" y="124" width="398" height="556"/>
                                 <subviews>
                                     <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Artwork Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="62f-t1-3iH">
-                                        <rect key="frame" x="8" y="16" width="324" height="32"/>
+                                        <rect key="frame" x="8" y="16" width="382" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32" id="zdl-tD-0bf"/>
                                         </constraints>
@@ -98,13 +98,13 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="He6-3s-j4K">
-                                        <rect key="frame" x="107.33333333333331" y="52.666666666666657" width="125" height="2"/>
+                                        <rect key="frame" x="136.66666666666666" y="52.666666666666657" width="124.99999999999997" height="2"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="125" id="Rwa-j1-CuO"/>
                                         </constraints>
                                     </progressView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E9I-VK-t5p" userLabel="Zoom out button">
-                                        <rect key="frame" x="214" y="367" width="111" height="36"/>
+                                        <rect key="frame" x="272" y="425" width="111" height="36"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GV2-zf-SOb">
                                                 <rect key="frame" x="8" y="12" width="95" height="20"/>
@@ -132,10 +132,10 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aif-qG-Lcn" userLabel="Canvas container">
-                                        <rect key="frame" x="15" y="68" width="310" height="310"/>
+                                        <rect key="frame" x="15" y="68" width="368" height="368"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AV9-N5-e6t" customClass="GridView" customModule="Pixart" customModuleProvider="target">
-                                                <rect key="frame" x="5" y="5" width="300" height="300"/>
+                                                <rect key="frame" x="5" y="5" width="358" height="358"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                         </subviews>
@@ -155,7 +155,6 @@
                                     <constraint firstAttribute="trailing" secondItem="62f-t1-3iH" secondAttribute="trailing" constant="8" id="04l-zc-gZB"/>
                                     <constraint firstItem="E9I-VK-t5p" firstAttribute="trailing" secondItem="aif-qG-Lcn" secondAttribute="trailing" id="3ku-Ux-A81"/>
                                     <constraint firstItem="He6-3s-j4K" firstAttribute="centerX" secondItem="4jS-e1-Jlb" secondAttribute="centerX" id="5sS-oB-jcj"/>
-                                    <constraint firstAttribute="width" constant="340" id="Inc-I3-LsE"/>
                                     <constraint firstItem="E9I-VK-t5p" firstAttribute="top" secondItem="aif-qG-Lcn" secondAttribute="bottom" constant="-11" id="MJo-2O-du0"/>
                                     <constraint firstItem="aif-qG-Lcn" firstAttribute="leading" secondItem="4jS-e1-Jlb" secondAttribute="leading" constant="15" id="Sf5-ZG-csW"/>
                                     <constraint firstItem="62f-t1-3iH" firstAttribute="top" secondItem="4jS-e1-Jlb" secondAttribute="top" constant="16" id="T9B-9l-cGx"/>
@@ -181,6 +180,8 @@
                             <constraint firstItem="Jfs-ja-ghO" firstAttribute="top" secondItem="1lK-og-bdj" secondAttribute="top" id="XlE-JG-NVG"/>
                             <constraint firstItem="4jS-e1-Jlb" firstAttribute="centerX" secondItem="ZV3-HP-7f2" secondAttribute="centerX" id="gHK-sF-LAO"/>
                             <constraint firstItem="4jS-e1-Jlb" firstAttribute="top" secondItem="1lK-og-bdj" secondAttribute="top" constant="80" id="ltO-Qv-5tn"/>
+                            <constraint firstItem="4jS-e1-Jlb" firstAttribute="leading" secondItem="1lK-og-bdj" secondAttribute="leading" constant="8" id="sxy-7b-hrW"/>
+                            <constraint firstItem="1lK-og-bdj" firstAttribute="trailing" secondItem="4jS-e1-Jlb" secondAttribute="trailing" constant="8" id="x7a-pT-Uo0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1lK-og-bdj"/>
                     </view>

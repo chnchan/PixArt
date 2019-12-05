@@ -278,7 +278,7 @@ extension WorksViewController: UITableViewDataSource, UITableViewDelegate {
         view.endEditing(true)
         tableView.deselectRow(at: indexPath, animated: true)
         index = indexPath.row
-        let alert = UIAlertController(title: "Action:", message: "Resore or Permanently Remove the work?", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Actions:", message: nil, preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let restoreAction = UIAlertAction(title: "Restore", style: .default, handler: restore_handle)
         let deleteAction = UIAlertAction(title: "Remove It", style: .destructive, handler: delete_handle)
@@ -288,8 +288,7 @@ extension WorksViewController: UITableViewDataSource, UITableViewDelegate {
         self.present(alert, animated: true, completion: nil)
     }
     
-    func restore_handle(alert: UIAlertAction)
-    {
+    func restore_handle(alert: UIAlertAction) {
         let work_UUID = trashedWorks[self.index]["documentdata"] as? String ?? ""
         self.db.collection(self.userID).document(work_UUID).updateData(["public" : 0], completion: {error in
             if error != nil {
@@ -301,9 +300,8 @@ extension WorksViewController: UITableViewDataSource, UITableViewDelegate {
         })
     }
     
-    func delete_handle(alert: UIAlertAction)
-    {
-        let alert = UIAlertController(title: "Are You Sure?", message: "You won't be able to restore this work. You really want to remove it from the trashcan?", preferredStyle: .alert)
+    func delete_handle(alert: UIAlertAction) {
+        let alert = UIAlertController(title: "Are You Sure?", message: "You won't be able to restore this work. Do you really want to remove it permanently?", preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let removeAction = UIAlertAction(title: "Remove It!", style: .destructive, handler: {alert in
             let work_UUID = self.trashedWorks[self.index]["documentdata"] as? String ?? ""
@@ -316,6 +314,7 @@ extension WorksViewController: UITableViewDataSource, UITableViewDelegate {
                 }
             })
         })
+        
         alert.addAction(cancelAction)
         alert.addAction(removeAction)
         self.present(alert, animated: true, completion: nil)

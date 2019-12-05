@@ -37,8 +37,8 @@ class FeedsViewController: UIViewController {
         let right_swipe = UISwipeGestureRecognizer(target: self, action: #selector(gestureHandler(gesture:)))
         left_swipe.direction = .left
         right_swipe.direction = .right
-        swipe_view.addGestureRecognizer(left_swipe)
-        swipe_view.addGestureRecognizer(right_swipe)
+        view.addGestureRecognizer(left_swipe)
+        view.addGestureRecognizer(right_swipe)
         card_view.addShadow(x: 0.5, y: 5)
         card_view_top.constant = -600
         swipe_left_icon.addShadow()
@@ -49,6 +49,7 @@ class FeedsViewController: UIViewController {
     
     @IBAction func like(_ sender: Any) {
         print("like!")
+        view.isUserInteractionEnabled = false
         UIView.animate(withDuration: Application.transition_speed, animations: {
             self.card_view_left.constant = 420
             self.card_view_right.constant = -380
@@ -64,6 +65,7 @@ class FeedsViewController: UIViewController {
 
     @IBAction func pass(_ sender: Any) {
         print("pass!")
+        view.isUserInteractionEnabled = false
         UIView.animate(withDuration: Application.transition_speed, animations: {
             self.card_view_left.constant = -380
             self.card_view_right.constant = 420
@@ -145,6 +147,8 @@ class FeedsViewController: UIViewController {
         UIView.animate(withDuration: Application.transition_speed + 0.2, animations: {
             self.card_view_top.constant = 61
             self.view.layoutIfNeeded()
+        }, completion: { _ in
+            self.view.isUserInteractionEnabled = true
         })
     }
 }
