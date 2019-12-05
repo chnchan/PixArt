@@ -89,7 +89,7 @@
         <!--Login View Controller-->
         <scene sceneID="TDU-nO-s6Z">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="HqM-Ct-jdq" customClass="LoginViewController" customModule="Pixart" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="login_screen" modalPresentationStyle="fullScreen" id="HqM-Ct-jdq" customClass="LoginViewController" customModule="Pixart" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fQF-6E-iQ9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

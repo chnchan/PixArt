@@ -58,7 +58,8 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func logout(_ sender: Any) {
-        performSegue(withIdentifier: "unwind_profile_to_login", sender: self)
+        performSegue(withIdentifier: "logout_present_profile", sender: self)
+//        performSegue(withIdentifier: "unwind_profile_to_login", sender: self)
     }
     
     private func loadData() {

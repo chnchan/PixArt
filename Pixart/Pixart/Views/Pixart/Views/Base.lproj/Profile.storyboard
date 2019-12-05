@@ -224,6 +224,7 @@
                         <outlet property="profile_image" destination="bbw-vb-pkU" id="Dik-5s-5J3"/>
                         <segue destination="Nui-hB-J74" kind="show" identifier="profile_to_sidemenu" id="hhe-Dx-cfR"/>
                         <segue destination="KYz-qY-Ody" kind="unwind" identifier="unwind_profile_to_login" unwindAction="unwindToLogin:" id="1OU-gs-M7F"/>
+                        <segue destination="KHu-Ki-QFb" kind="presentation" identifier="logout_present_profile" id="4MR-d7-N5N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f6g-qa-3Jh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -240,6 +241,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cdZ-5x-uac" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2310.144927536232" y="112.5"/>
+        </scene>
+        <!--login_screen-->
+        <scene sceneID="6tN-ep-Je1">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="login_screen" id="KHu-Ki-QFb" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rmy-5Q-e92" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2322" y="143"/>
         </scene>
     </scenes>
     <resources>

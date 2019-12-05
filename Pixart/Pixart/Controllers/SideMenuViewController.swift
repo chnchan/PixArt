@@ -70,7 +70,8 @@ class SideMenuViewController: UIViewController {
     }
     
     @IBAction func logoutPressed(_ sender: Any) {
-        self.performSegue(withIdentifier: "logout", sender: nil)
+        self.performSegue(withIdentifier: "logout_present_sidemenu", sender: nil)
+//        self.performSegue(withIdentifier: "logout", sender: nil)
     }
 }
 
