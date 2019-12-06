@@ -147,6 +147,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		32030328239A20C9005B0A7F /* PopularViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B511931223989EDC00A0005D /* PopularViewController.swift */,
+				3203032623996A4B005B0A7F /* ImageViewController.swift */,
+			);
+			path = PopularViewControllers;
+			sourceTree = "<group>";
+		};
 		326CD3792376106B008CEC07 /* Popups */ = {
 			isa = PBXGroup;
 			children = (
@@ -306,14 +315,13 @@
 			isa = PBXGroup;
 			children = (
 				32A162AA23821512002FEAC4 /* Old_Codes */,
+				32D5FA9D238A59E300AA65CF /* LoginViewControllers */,
 				32A162A62382090B002FEAC4 /* CanvasViewControllers */,
 				32CC193E237E33BA00810D77 /* WorksViewControllers */,
-				32D5FA9D238A59E300AA65CF /* LoginViewControllers */,
+				32030328239A20C9005B0A7F /* PopularViewControllers */,
 				32C0F414237414BD00612535 /* SideMenuViewController.swift */,
 				32C0F43E237503E100612535 /* ProfileViewController.swift */,
 				32602BB9237553EF00FE7D31 /* FeedsViewController.swift */,
-				B511931223989EDC00A0005D /* PopularViewController.swift */,
-				3203032623996A4B005B0A7F /* ImageViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";

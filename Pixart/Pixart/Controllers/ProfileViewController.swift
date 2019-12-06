@@ -58,6 +58,7 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func logout(_ sender: Any) {
+        LocalStorage.disableAutoLogin()
         performSegue(withIdentifier: "logout_present_profile", sender: self)
 //        performSegue(withIdentifier: "unwind_profile_to_login", sender: self)
     }

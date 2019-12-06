@@ -109,6 +109,29 @@ struct LocalStorage {
         }
     }
     
+    static func disableAutoLogin() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "User")
+        
+        do {
+            let user = try managedContext.fetch(fetchRequest)
+            
+            if let user = user.first {
+                user.setValue(false, forKey: "auto_signin")
+            }
+        }
+        catch {
+            print("Failed to fetch alias:", error)
+        }
+
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
+    
     static func fetchAlias() -> String {
         var userInfo: [NSManagedObject] = []
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return "" }
