@@ -29,7 +29,8 @@ class ImageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.preview.makeCells(size: self.canvas_size, data: self.colors)
+        overrideUserInterfaceStyle = .light
+        self.preview.makeCells(size: self.canvas_size, data: self.colors, canvasWidth: CGFloat(Application.device_width))
         self.workname.text = self.work_name
 //        self.authorname.text = self.author
 //        self.publishdate.text = "Published on " + self.date

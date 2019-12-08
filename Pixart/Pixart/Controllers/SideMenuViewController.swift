@@ -16,6 +16,7 @@ class SideMenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .light
         let alias = LocalStorage.fetchAlias()
         
         if alias.isEmpty {

@@ -34,6 +34,7 @@ class WorksEditingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .light
         setupColorSlider()
         card_view.addShadow()
         save_view.addShadow()
@@ -119,10 +120,11 @@ class WorksEditingViewController: UIViewController {
     }
     
     private func setupColorSlider() {
-        let y_pos = 16 + 32 + Int(canvas_container.frame.width) + 20 + SLIDER_Y_POS
+        let card_view_width = Application.device_width - 8 - 8
+        let y_pos = 16 + 32 + Int(canvas_container.frame.width) + 45
         
         let colorSlider = ColorSlider(orientation: .horizontal, previewSide: .top)
-        colorSlider.frame = CGRect( x: Int((card_view.frame.width)/2) - Int(SLIDER_WIDTH/2), y: y_pos, width: SLIDER_WIDTH, height: SLIDER_HIGHT)
+        colorSlider.frame = CGRect( x: Int(card_view_width/2) - Int(SLIDER_WIDTH/2), y: y_pos, width: SLIDER_WIDTH, height: SLIDER_HIGHT)
         card_view.addSubview(colorSlider)
         
         colorSlider.addTarget(self, action: #selector(changedColor(_:)), for: .valueChanged)

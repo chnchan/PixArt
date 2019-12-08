@@ -16,6 +16,7 @@ struct Application {
     static let transition_speed: TimeInterval = 0.2
     
     static var safeArea_top: Int = 0
+    static var device_width: Int = 0
     static var sidemenu_initialized: Bool = false
     static var current_VC: UIViewController?
     static var canvas_backgroundColor: UIColor = UIColor.white

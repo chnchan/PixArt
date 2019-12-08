@@ -22,6 +22,7 @@ class PopularViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .light
         fetchPopulars(num: 30)
         popularCollection.dataSource = self
         popularCollection.delegate = self
@@ -91,7 +92,6 @@ class PopularViewController: UIViewController {
               }
           }
       }
-
 }
 
 extension PopularViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
@@ -103,7 +103,9 @@ extension PopularViewController: UICollectionViewDataSource, UICollectionViewDel
         let cell = popularCollection.dequeueReusableCell(withReuseIdentifier: "popular_post", for: indexPath) as! PopularCollectionViewCell
         let canvasSize = popularworks[indexPath.row]["gridSize"] as! Int
         let colors : [String:String] = popularworks[indexPath.row]["colors"] as! [String:String]
-        cell.canvas.makeCells(size: canvasSize, data: colors)
+        let canvas_width = floor((CGFloat(Application.device_width) - 17 - 17 - 2 - 2 - CELL_PADDING - CELL_PADDING) / 2)
+        cell.width.constant = canvas_width
+        cell.canvas.makeCells(size: canvasSize, data: colors, canvasWidth: canvas_width)
         return cell
     }
     

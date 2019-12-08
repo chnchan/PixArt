@@ -12,6 +12,7 @@ import Firebase
 class FeedsViewController: UIViewController {
 
     let db = Firestore.firestore()
+    let canvas_width = CGFloat(Application.device_width) - 20 - 20 - 17 - 17 - 5 - 5
     var handle: AuthStateDidChangeListenerHandle?
     var curr_workID: String = ""
     var publicWorks: [[String: Any]] = []
@@ -33,6 +34,7 @@ class FeedsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .light
         let left_swipe = UISwipeGestureRecognizer(target: self, action: #selector(gestureHandler(gesture:)))
         let right_swipe = UISwipeGestureRecognizer(target: self, action: #selector(gestureHandler(gesture:)))
         left_swipe.direction = .left
@@ -131,7 +133,7 @@ class FeedsViewController: UIViewController {
 
                 if (self.publicWorks.count == 1 || self.workID != self.curr_workID) {
                     self.curr_workID = self.workID
-                    self.preview.makeCells(size: gridSize, data: gridColors)
+                    self.preview.makeCells(size: gridSize, data: gridColors, canvasWidth: self.canvas_width)
                     self.work_name.text = name
                     self.author_name.text = author
                     self.publish_date.text = "Published on " + date

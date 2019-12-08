@@ -30,9 +30,12 @@ class WorksViewController: UIViewController {
     @IBOutlet weak var privateView: UIView!
     @IBOutlet weak var publishedView: UIView!
     @IBOutlet weak var TrashedTableView: UITableView!
-    @IBOutlet weak var publishedView_X_constraint: NSLayoutConstraint!
-    @IBOutlet weak var privateView_X_constraint: NSLayoutConstraint!
-    @IBOutlet weak var trashedView_X_constraint: NSLayoutConstraint!
+    @IBOutlet weak var publishedView_left: NSLayoutConstraint!
+    @IBOutlet weak var publishedView_right: NSLayoutConstraint!
+    @IBOutlet weak var privateView_left: NSLayoutConstraint!
+    @IBOutlet weak var privateView_right: NSLayoutConstraint!
+    @IBOutlet weak var trashedView_left: NSLayoutConstraint!
+    @IBOutlet weak var trashedView_right: NSLayoutConstraint!
 
     var backfromdetail = false
     var movetotrash = false
@@ -41,8 +44,11 @@ class WorksViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        publishedView_X_constraint.constant = 416
-        trashedView_X_constraint.constant = 416
+        overrideUserInterfaceStyle = .light
+        publishedView_left.constant = 467
+        publishedView_right.constant = -433
+        trashedView_left.constant = 467
+        trashedView_right.constant = -433
         Application.current_VC = self
         PublicCollection.dataSource = self
         PublicCollection.delegate = self
@@ -71,9 +77,12 @@ class WorksViewController: UIViewController {
         case 0:
             privateView.isHidden = false
             UIView.animate(withDuration: 0.3, animations:{
-                self.privateView_X_constraint.constant = 0
-                self.publishedView_X_constraint.constant = 416
-                self.trashedView_X_constraint.constant = 416
+                self.privateView_left.constant = 17
+                self.privateView_right.constant = 17
+                self.publishedView_left.constant = 467
+                self.publishedView_right.constant = -433
+                self.trashedView_left.constant = 467
+                self.trashedView_right.constant = -433
                 self.view.layoutIfNeeded()
             }, completion: { finished in
                 if finished {
@@ -85,9 +94,12 @@ class WorksViewController: UIViewController {
         case 1:
             self.publishedView.isHidden = false
             UIView.animate(withDuration: 0.3, animations:{
-                self.privateView_X_constraint.constant = -416
-                self.publishedView_X_constraint.constant = 0
-                self.trashedView_X_constraint.constant = 416
+                self.privateView_left.constant = -433
+                self.privateView_right.constant = 467
+                self.publishedView_left.constant = 17
+                self.publishedView_right.constant = 17
+                self.trashedView_left.constant = 467
+                self.trashedView_right.constant = -433
                 self.view.layoutIfNeeded()
             }, completion: { finished in
                 if finished {
@@ -99,9 +111,12 @@ class WorksViewController: UIViewController {
         case 2:
             self.TrashedTableView.isHidden = false
             UIView.animate(withDuration: 0.3, animations:{
-                self.privateView_X_constraint.constant = -416
-                self.publishedView_X_constraint.constant = -416
-                self.trashedView_X_constraint.constant = 0
+                self.privateView_left.constant = -433
+                self.privateView_right.constant = 467
+                self.publishedView_left.constant = -433
+                self.publishedView_right.constant = 467
+                self.trashedView_left.constant = 17
+                self.trashedView_right.constant = 17
                 self.view.layoutIfNeeded()
             }, completion: { finished in
                 if finished {
@@ -222,14 +237,18 @@ extension WorksViewController : UICollectionViewDataSource, UICollectionViewDele
             let cell = PublicCollection.dequeueReusableCell(withReuseIdentifier: "published_post", for: indexPath) as! PublicCollectionViewCell
             let canvasSize = publicWorks[indexPath.row]["gridSize"] as! Int
             let colors : [String:String] = publicWorks[indexPath.row]["colors"] as! [String:String]
-            cell.canvas.makeCells(size: canvasSize, data: colors)
+            let canvas_width = floor((CGFloat(Application.device_width) - 17 - 17 - 2 - 2 - CELL_PADDING - CELL_PADDING) / 2)
+            cell.width.constant = canvas_width
+            cell.canvas.makeCells(size: canvasSize, data: colors, canvasWidth: canvas_width)
             return cell
         }
         if collectionView == PrivateCollection {
             let cell = PrivateCollection.dequeueReusableCell(withReuseIdentifier: "private_post", for: indexPath) as! PrivateCollectionViewCell
             let canvasSize = privateWorks[indexPath.row]["gridSize"] as! Int
             let colors : [String:String] = privateWorks[indexPath.row]["colors"] as! [String:String]
-            cell.canvas.makeCells(size: canvasSize, data: colors)
+            let canvas_width = floor((CGFloat(Application.device_width) - 17 - 17 - 2 - 2 - CELL_PADDING - CELL_PADDING) / 2)
+            cell.width.constant = canvas_width
+            cell.canvas.makeCells(size: canvasSize, data: colors, canvasWidth: canvas_width)
             return cell
         }
         return UICollectionViewCell()
@@ -269,7 +288,7 @@ extension WorksViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "trashed") as! TrashedTableViewCell
         let gridSize = (trashedWorks[indexPath.row])["gridSize"] as! Int
         let colors: [String:String] = (trashedWorks[indexPath.row])["colors"] as! [String:String]
-        cell.preview.makeCells(size: gridSize, data: colors)
+        cell.preview.makeCells(size: gridSize, data: colors, canvasWidth: 100 - 11 - 11)
         cell.title.text = (trashedWorks[indexPath.row])["name"] as? String
         return cell
     }

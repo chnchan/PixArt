@@ -12,26 +12,20 @@ class GridView: UIView {
 
     let BORDER_WIDTH: CGFloat = 0.5
     let BORDER_COLOR = UIColor.black.cgColor
-
     let BACKGROUND_COLOR = UIColor.white
     let LIMIT_SIZE_OUT: CGFloat = 0.65
     let LIMIT_SIZE_IN: CGFloat = 1.6
-
     
     var canvas_size: Int = 0
     var cells = [String: UIView]()
     var cellWidth: CGFloat = 0
     var drawingColor =  UIColor.red
     
-
-
     override func draw(_ rect: CGRect) {
         self.addGestureRecognizer(UIPinchGestureRecognizer(target: self, action: #selector(pinchAction(gesture:))))
         self.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handleGesturePan)))
         self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleGestureTap)))
      }
-    
-
     
     // This function zooms in and out
     @objc func pinchAction(gesture: UIPinchGestureRecognizer) {
@@ -86,8 +80,9 @@ class GridView: UIView {
     }
     
     public func makeCells(size: Int, color: UIColor = UIColor.white){
+        let canvas_width = CGFloat(Application.device_width) - 8 - 8 - 15 - 15 - 5 - 5
         canvas_size = size
-        cellWidth = self.frame.width / CGFloat(canvas_size)
+        cellWidth = canvas_width / CGFloat(canvas_size)
         
         for j in 0...canvas_size - 1 {
             for i in 0...canvas_size - 1 {
@@ -106,8 +101,9 @@ class GridView: UIView {
     }
     
     public func loadCanvas(size: Int, colors: [String:String]){
+        let canvas_width = CGFloat(Application.device_width) - 8 - 8 - 15 - 15 - 5 - 5
         canvas_size = size
-        cellWidth = self.frame.width / CGFloat(canvas_size)
+        cellWidth = canvas_width / CGFloat(canvas_size)
         
         for j in 0...canvas_size - 1 {
             for i in 0...canvas_size - 1 {

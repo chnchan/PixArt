@@ -12,6 +12,7 @@ import Firebase
 class WorksDetailViewController: UIViewController {
 
     let db = Firestore.firestore()
+    let canvas_width = CGFloat(Application.device_width) - 17 - 17 - 5 - 5
     var handle: AuthStateDidChangeListenerHandle?
     var userID = ""
     
@@ -35,11 +36,12 @@ class WorksDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .light
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
         self.view.addGestureRecognizer(tap)
         self.workname.setTitle(self.work_name, for: .normal)
         self.likesField.text = "\(likes)"
-        self.preview.makeCells(size: canvas_size, data: colors)
+        self.preview.makeCells(size: canvas_size, data: colors, canvasWidth: canvas_width)
         
         if (self.published == 0) {
             self.published_icon.alpha = 0
@@ -191,7 +193,7 @@ class WorksDetailViewController: UIViewController {
     @IBAction func unwindToWorksDetail(_ unwindSegue: UIStoryboardSegue) {
         workname.setTitle(work_name, for: .normal)
         self.likesField.text = "\(likes)"
-        preview.makeCells(size: canvas_size, data: colors)
+        preview.makeCells(size: canvas_size, data: colors, canvasWidth: canvas_width)
     }
 }
 

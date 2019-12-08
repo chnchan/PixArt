@@ -27,8 +27,9 @@ class TrashDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .light
         self.workname.text = self.work_name
-        self.preview.makeCells(size: canvas_size, data: colors)
+//        self.preview.makeCells(size: canvas_size, data: colors)
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {

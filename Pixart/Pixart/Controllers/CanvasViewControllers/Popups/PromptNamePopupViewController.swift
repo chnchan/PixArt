@@ -16,6 +16,7 @@ class PromptNamePopupViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .light
         self.centerX.constant = -416
         self.name.delegate = self
     }

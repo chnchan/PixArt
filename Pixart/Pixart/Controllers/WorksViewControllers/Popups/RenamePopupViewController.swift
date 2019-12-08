@@ -23,6 +23,7 @@ class RenamePopupViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .light
         self.name.delegate = self
         self.name.placeholder = work_name
         self.centerX.constant = -416

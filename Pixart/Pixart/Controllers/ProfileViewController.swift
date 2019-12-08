@@ -23,6 +23,7 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .light
         loadData()
         card_view.addShadow()
         card_view_centerX.constant = 416

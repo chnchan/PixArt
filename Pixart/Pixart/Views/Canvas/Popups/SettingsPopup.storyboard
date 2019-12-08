@@ -66,11 +66,10 @@
                                             <segment title="32x32"/>
                                         </segments>
                                     </segmentedControl>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="NOTE: Canvas will be cleared to accommodate the new settings. Please save your work before proceeding." selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EUm-PL-EYX">
-                                        <rect key="frame" x="19" y="308" width="360" height="47"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="NOTE: Canvas will be cleared to accommodate the new settings. Please save your work before proceeding." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EUm-PL-EYX">
+                                        <rect key="frame" x="20" y="308" width="358" height="47"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="47" id="M1Z-RE-O51"/>
-                                            <constraint firstAttribute="width" constant="360" id="n7S-l7-7sI"/>
                                         </constraints>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
@@ -148,9 +147,10 @@
                                     <constraint firstItem="Awr-DX-PG6" firstAttribute="top" secondItem="ACC-m7-nQf" secondAttribute="top" constant="16" id="RqB-kj-uUt"/>
                                     <constraint firstAttribute="bottom" secondItem="mUA-5t-zKZ" secondAttribute="bottom" id="Wpm-0q-psD"/>
                                     <constraint firstAttribute="trailing" secondItem="uTR-2I-bNO" secondAttribute="trailing" constant="27" id="YKI-XY-JEY"/>
+                                    <constraint firstItem="EUm-PL-EYX" firstAttribute="leading" secondItem="ACC-m7-nQf" secondAttribute="leading" constant="20" id="bac-1W-0Bt"/>
                                     <constraint firstItem="uTR-2I-bNO" firstAttribute="top" secondItem="WLg-wE-Tqd" secondAttribute="bottom" constant="8" id="gfW-ch-fLC"/>
+                                    <constraint firstAttribute="trailing" secondItem="EUm-PL-EYX" secondAttribute="trailing" constant="20" id="i6h-6L-0Np"/>
                                     <constraint firstItem="lMc-Sj-bET" firstAttribute="leading" secondItem="ACC-m7-nQf" secondAttribute="leading" constant="27" id="oZG-cm-hCM"/>
-                                    <constraint firstItem="EUm-PL-EYX" firstAttribute="centerX" secondItem="ACC-m7-nQf" secondAttribute="centerX" id="sNP-Mo-rdT"/>
                                     <constraint firstItem="B1R-jw-Gkw" firstAttribute="top" secondItem="Awr-DX-PG6" secondAttribute="bottom" constant="8" id="vfI-t6-FcN"/>
                                     <constraint firstItem="WLg-wE-Tqd" firstAttribute="leading" secondItem="ACC-m7-nQf" secondAttribute="leading" constant="27" id="x2a-jd-Xdm"/>
                                     <constraint firstItem="ZsZ-p1-tRM" firstAttribute="top" secondItem="ACC-m7-nQf" secondAttribute="top" id="yLk-z9-AnF"/>

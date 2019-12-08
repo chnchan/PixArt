@@ -20,7 +20,6 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
     let db = Firestore.firestore()
     var handle: AuthStateDidChangeListenerHandle?
     var userID = ""
-    
     var work_name: String = ""
     var canvas_size: Int = 8
     
@@ -37,6 +36,7 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .light
 //        setupSideMenu()
         setupColorSlider()
 //        card_view_width.constant = CGFloat(view.frame.width) - 17 - 17
@@ -140,10 +140,11 @@ class CanvasViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func setupColorSlider() {
-        let y_pos = Int(canvasContainer.frame.width) + 25 + SLIDER_Y_POS
+        let card_view_width = Application.device_width - 8 - 8
+        let y_pos = card_view_width + 45
         
         let colorSlider = ColorSlider(orientation: .horizontal, previewSide: .top)
-        colorSlider.frame = CGRect( x: Int((card_view.frame.width)/2) - Int(SLIDER_WIDTH/2), y: y_pos, width: SLIDER_WIDTH, height: SLIDER_HIGHT)
+        colorSlider.frame = CGRect( x: Int(card_view_width/2) - Int(SLIDER_WIDTH/2), y: y_pos, width: SLIDER_WIDTH, height: SLIDER_HIGHT)
         card_view.addSubview(colorSlider)
         
         colorSlider.addTarget(self, action: #selector(changedColor(_:)), for: .valueChanged)

@@ -25,6 +25,7 @@ class SettingsPopupViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .light
         self.setupColorSlider()
         self.view_left.constant = -408
         self.view_right.constant = 392

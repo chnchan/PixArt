@@ -61,31 +61,32 @@
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="popular_post" id="hRR-eT-IEw" customClass="PopularCollectionViewCell" customModule="Pixart" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="186" height="186"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="188" height="188"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ivk-6W-Pfk">
-                                                    <rect key="frame" x="0.0" y="0.0" width="186" height="186"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="188" height="188"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="44C-KZ-C5V" customClass="CanvasPreview" customModule="Pixart" customModuleProvider="target">
-                                                            <rect key="frame" x="1" y="1" width="184" height="184"/>
+                                                            <rect key="frame" x="2" y="2" width="184" height="184"/>
                                                             <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="184" id="3ax-h0-opC"/>
                                                                 <constraint firstAttribute="width" constant="184" id="RMw-Xw-w8Q"/>
+                                                                <constraint firstAttribute="width" secondItem="44C-KZ-C5V" secondAttribute="height" multiplier="1:1" id="icy-G1-wKF"/>
                                                             </constraints>
                                                         </view>
                                                     </subviews>
                                                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="bottom" secondItem="44C-KZ-C5V" secondAttribute="bottom" constant="1" id="0ru-cs-dJt"/>
-                                                        <constraint firstItem="44C-KZ-C5V" firstAttribute="leading" secondItem="ivk-6W-Pfk" secondAttribute="leading" constant="1" id="een-ef-k2S"/>
-                                                        <constraint firstAttribute="trailing" secondItem="44C-KZ-C5V" secondAttribute="trailing" constant="1" id="kXw-iF-VUc"/>
-                                                        <constraint firstItem="44C-KZ-C5V" firstAttribute="top" secondItem="ivk-6W-Pfk" secondAttribute="top" constant="1" id="kf0-Xv-Izg"/>
+                                                        <constraint firstAttribute="bottom" secondItem="44C-KZ-C5V" secondAttribute="bottom" constant="2" id="0ru-cs-dJt"/>
+                                                        <constraint firstItem="44C-KZ-C5V" firstAttribute="leading" secondItem="ivk-6W-Pfk" secondAttribute="leading" constant="2" id="een-ef-k2S"/>
+                                                        <constraint firstAttribute="trailing" secondItem="44C-KZ-C5V" secondAttribute="trailing" constant="2" id="kXw-iF-VUc"/>
+                                                        <constraint firstItem="44C-KZ-C5V" firstAttribute="top" secondItem="ivk-6W-Pfk" secondAttribute="top" constant="2" id="kf0-Xv-Izg"/>
                                                     </constraints>
                                                 </collectionViewCellContentView>
                                                 <connections>
                                                     <outlet property="canvas" destination="44C-KZ-C5V" id="EyX-1P-abD"/>
+                                                    <outlet property="width" destination="RMw-Xw-w8Q" id="7un-hJ-eTq"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
@@ -97,7 +98,6 @@
                                     <constraint firstAttribute="bottom" secondItem="EzA-Wy-uKh" secondAttribute="bottom" id="d4P-c7-iU7"/>
                                     <constraint firstItem="EzA-Wy-uKh" firstAttribute="top" secondItem="PH7-gr-vKC" secondAttribute="top" id="piG-B9-9cw"/>
                                     <constraint firstItem="EzA-Wy-uKh" firstAttribute="leading" secondItem="PH7-gr-vKC" secondAttribute="leading" id="rzH-S7-SlE"/>
-                                    <constraint firstAttribute="width" constant="380" id="t3J-ms-w63"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -107,7 +107,9 @@
                             <constraint firstItem="9bw-pW-aMI" firstAttribute="leading" secondItem="HNd-sJ-k2O" secondAttribute="leading" id="bAE-QE-AZ8"/>
                             <constraint firstItem="PH7-gr-vKC" firstAttribute="top" secondItem="9bw-pW-aMI" secondAttribute="bottom" constant="8" id="cjJ-i3-D85"/>
                             <constraint firstItem="9bw-pW-aMI" firstAttribute="top" secondItem="HNd-sJ-k2O" secondAttribute="top" id="fOR-2I-8Ls"/>
+                            <constraint firstItem="HNd-sJ-k2O" firstAttribute="trailing" secondItem="PH7-gr-vKC" secondAttribute="trailing" constant="17" id="kBg-km-HLB"/>
                             <constraint firstItem="HNd-sJ-k2O" firstAttribute="bottom" secondItem="PH7-gr-vKC" secondAttribute="bottom" id="xCP-CS-gpv"/>
+                            <constraint firstItem="PH7-gr-vKC" firstAttribute="leading" secondItem="HNd-sJ-k2O" secondAttribute="leading" constant="17" id="xFq-WC-CIq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HNd-sJ-k2O"/>
                     </view>

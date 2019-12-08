@@ -102,14 +102,14 @@
                                     <constraint firstItem="nk0-WC-Ntj" firstAttribute="centerX" secondItem="XxM-wD-3XL" secondAttribute="centerX" id="28b-iz-cB8"/>
                                     <constraint firstItem="nk0-WC-Ntj" firstAttribute="leading" secondItem="XxM-wD-3XL" secondAttribute="leading" constant="17" id="Bnt-bL-va2"/>
                                     <constraint firstItem="P9L-qG-akE" firstAttribute="top" secondItem="2Yy-zM-r5A" secondAttribute="bottom" constant="18" id="C16-nG-9WR"/>
-                                    <constraint firstAttribute="height" constant="500" id="Mdb-1B-RyC"/>
                                     <constraint firstItem="glP-Sh-pd3" firstAttribute="width" secondItem="2Yy-zM-r5A" secondAttribute="width" id="U1p-S7-MYx"/>
                                     <constraint firstItem="2Yy-zM-r5A" firstAttribute="centerX" secondItem="XxM-wD-3XL" secondAttribute="centerX" id="V7n-qL-c5Q"/>
                                     <constraint firstItem="nk0-WC-Ntj" firstAttribute="top" secondItem="XxM-wD-3XL" secondAttribute="top" constant="17" id="ZYN-8y-XGu"/>
                                     <constraint firstItem="P9L-qG-akE" firstAttribute="centerX" secondItem="XxM-wD-3XL" secondAttribute="centerX" id="e6z-cz-ciD"/>
-                                    <constraint firstAttribute="bottom" secondItem="h6P-4k-UtN" secondAttribute="bottom" constant="30" id="eih-uL-Rey"/>
+                                    <constraint firstAttribute="bottom" secondItem="h6P-4k-UtN" secondAttribute="bottom" priority="249" constant="30" id="eih-uL-Rey"/>
                                     <constraint firstItem="h6P-4k-UtN" firstAttribute="top" secondItem="P9L-qG-akE" secondAttribute="bottom" constant="10" id="ltW-Nr-Fbn"/>
                                     <constraint firstItem="h6P-4k-UtN" firstAttribute="centerX" secondItem="XxM-wD-3XL" secondAttribute="centerX" id="suV-Ef-flZ"/>
+                                    <constraint firstItem="2Yy-zM-r5A" firstAttribute="top" secondItem="nk0-WC-Ntj" secondAttribute="bottom" constant="18" id="vqZ-jm-ZVZ"/>
                                     <constraint firstItem="glP-Sh-pd3" firstAttribute="top" secondItem="2Yy-zM-r5A" secondAttribute="bottom" constant="1" id="xmx-5N-7tS"/>
                                     <constraint firstItem="glP-Sh-pd3" firstAttribute="centerX" secondItem="XxM-wD-3XL" secondAttribute="centerX" id="ywl-6D-i3b"/>
                                 </constraints>

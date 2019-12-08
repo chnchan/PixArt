@@ -37,6 +37,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .light
         signup_view.addShadow()
         card_view.addShadow()
         login_view.alpha = 0
@@ -83,6 +84,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         Application.safeArea_top = Int(view.safeAreaInsets.top) // for color slider later
+        Application.device_width = Int(view.frame.width)
         Application.sidemenu_initialized = false
         SideMenuManager.default.leftMenuNavigationController = nil
         SideMenuManager.default.rightMenuNavigationController = nil

@@ -11,4 +11,6 @@ import UIKit
 class PopularCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var canvas: CanvasPreview!
+    @IBOutlet weak var width: NSLayoutConstraint!
+    
 }
