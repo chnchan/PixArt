@@ -240,16 +240,17 @@
                                     <action selector="deletebutton:" destination="B7u-gC-C8E" eventType="touchUpInside" id="0rN-zE-Irg"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mxi-Ax-K3H">
-                                <rect key="frame" x="244" y="60" width="150" height="35"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mxi-Ax-K3H" userLabel="Share">
+                                <rect key="frame" x="327" y="58" width="70" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="e1A-m8-AYf"/>
+                                    <constraint firstAttribute="height" constant="50" id="e1A-m8-AYf"/>
                                 </constraints>
-                                <state key="normal" title=" Save to Photos" image="tray.and.arrow.down" catalog="system">
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="  Share" image="square.and.arrow.up" catalog="system">
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="saveToPhotos:" destination="B7u-gC-C8E" eventType="touchUpInside" id="6qC-ed-O6g"/>
+                                    <action selector="share:" destination="B7u-gC-C8E" eventType="touchUpInside" id="ozs-Oc-p1y"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -265,12 +266,11 @@
                             <constraint firstItem="xg9-zV-FA5" firstAttribute="centerX" secondItem="XDm-uE-eNo" secondAttribute="centerX" id="JS6-I3-fEk"/>
                             <constraint firstItem="Ihm-Jh-iA0" firstAttribute="bottom" secondItem="xg9-zV-FA5" secondAttribute="bottom" id="K5w-K2-pvg"/>
                             <constraint firstItem="cUS-Wf-5i0" firstAttribute="top" secondItem="qBa-9C-D1b" secondAttribute="bottom" constant="16" id="M4f-97-Vtu"/>
-                            <constraint firstItem="Mxi-Ax-K3H" firstAttribute="top" secondItem="Ihm-Jh-iA0" secondAttribute="top" constant="16" id="OGg-ga-sSJ"/>
+                            <constraint firstItem="Mxi-Ax-K3H" firstAttribute="trailing" secondItem="9ks-nL-ouT" secondAttribute="trailing" id="Nyd-ol-iV8"/>
                             <constraint firstItem="qLN-ym-HCh" firstAttribute="top" secondItem="qJV-Sp-TTO" secondAttribute="bottom" constant="16" id="Pyl-yE-jJh"/>
                             <constraint firstItem="9ks-nL-ouT" firstAttribute="centerX" secondItem="XDm-uE-eNo" secondAttribute="centerX" id="U89-hT-M8S"/>
                             <constraint firstItem="xg9-zV-FA5" firstAttribute="top" secondItem="x0l-8a-TAN" secondAttribute="bottom" constant="20" id="YL4-Jv-41R"/>
                             <constraint firstItem="mLc-Bf-OHK" firstAttribute="top" secondItem="9ks-nL-ouT" secondAttribute="bottom" constant="-9" id="Ym9-Xw-Grg"/>
-                            <constraint firstItem="Ihm-Jh-iA0" firstAttribute="trailing" secondItem="Mxi-Ax-K3H" secondAttribute="trailing" constant="20" id="Ze6-mG-GPw"/>
                             <constraint firstItem="I3E-Va-qbd" firstAttribute="height" secondItem="qBa-9C-D1b" secondAttribute="height" id="cBX-vX-SaZ"/>
                             <constraint firstItem="mLc-Bf-OHK" firstAttribute="trailing" secondItem="9ks-nL-ouT" secondAttribute="trailing" id="cIS-Yi-MuE"/>
                             <constraint firstItem="9ks-nL-ouT" firstAttribute="leading" secondItem="Ihm-Jh-iA0" secondAttribute="leading" constant="17" id="dGd-DG-FS6"/>
@@ -280,6 +280,7 @@
                             <constraint firstItem="I3E-Va-qbd" firstAttribute="top" secondItem="qBa-9C-D1b" secondAttribute="top" id="mvN-qg-sjw"/>
                             <constraint firstItem="I3E-Va-qbd" firstAttribute="leading" secondItem="qBa-9C-D1b" secondAttribute="leading" id="nfa-A1-LXG"/>
                             <constraint firstAttribute="bottom" secondItem="qLN-ym-HCh" secondAttribute="bottom" constant="33" id="pkK-bw-PMO"/>
+                            <constraint firstItem="9ks-nL-ouT" firstAttribute="top" secondItem="Mxi-Ax-K3H" secondAttribute="bottom" id="qid-dD-fKO"/>
                             <constraint firstItem="Typ-EM-e6g" firstAttribute="centerX" secondItem="XDm-uE-eNo" secondAttribute="centerX" id="v6E-dB-gGd"/>
                             <constraint firstItem="nZi-mF-fuf" firstAttribute="trailing" secondItem="9ks-nL-ouT" secondAttribute="trailing" id="wtE-cM-4UX"/>
                             <constraint firstItem="qBa-9C-D1b" firstAttribute="top" secondItem="9ks-nL-ouT" secondAttribute="bottom" constant="-9" id="xWS-hq-RdG"/>
@@ -341,8 +342,8 @@
         <image name="heart.fill" catalog="system" width="64" height="54"/>
         <image name="person" catalog="system" width="64" height="58"/>
         <image name="person.2" catalog="system" width="64" height="40"/>
+        <image name="square.and.arrow.up" catalog="system" width="56" height="64"/>
         <image name="square.and.pencil" catalog="system" width="64" height="58"/>
         <image name="trash" catalog="system" width="60" height="64"/>
-        <image name="tray.and.arrow.down" catalog="system" width="64" height="54"/>
     </resources>
 </document>

@@ -65,13 +65,24 @@
                                                 <rect key="frame" x="5" y="5" width="330" height="330"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ld-6C-yHp">
+                                                <rect key="frame" x="0.0" y="0.0" width="340" height="340"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <action selector="zoomImage:" destination="yL3-F0-3Kz" eventType="touchUpInside" id="3UZ-iJ-pJY"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="CBO-UU-LRJ" secondAttribute="trailing" constant="5" id="4AB-J2-gcr"/>
+                                            <constraint firstAttribute="trailing" secondItem="3ld-6C-yHp" secondAttribute="trailing" id="5dY-3a-T1G"/>
                                             <constraint firstAttribute="bottom" secondItem="CBO-UU-LRJ" secondAttribute="bottom" constant="5" id="PWN-4m-8hr"/>
                                             <constraint firstItem="CBO-UU-LRJ" firstAttribute="leading" secondItem="nk0-WC-Ntj" secondAttribute="leading" constant="5" id="Yth-SY-dI9"/>
+                                            <constraint firstItem="3ld-6C-yHp" firstAttribute="leading" secondItem="nk0-WC-Ntj" secondAttribute="leading" id="epE-Xq-p0s"/>
+                                            <constraint firstAttribute="bottom" secondItem="3ld-6C-yHp" secondAttribute="bottom" id="qdc-Rz-6Rp"/>
                                             <constraint firstItem="CBO-UU-LRJ" firstAttribute="top" secondItem="nk0-WC-Ntj" secondAttribute="top" constant="5" id="rkA-Wh-44P"/>
+                                            <constraint firstItem="3ld-6C-yHp" firstAttribute="top" secondItem="nk0-WC-Ntj" secondAttribute="top" id="sUi-WO-vKd"/>
                                             <constraint firstAttribute="width" secondItem="nk0-WC-Ntj" secondAttribute="height" multiplier="1:1" id="srT-t4-dPC"/>
                                         </constraints>
                                     </view>
@@ -264,11 +275,20 @@
                         <outlet property="swipe_right_icon" destination="oLn-o1-d9T" id="gIN-hV-oik"/>
                         <outlet property="swipe_view" destination="kLZ-T9-aVb" id="HxT-hU-eBF"/>
                         <outlet property="work_name" destination="2Yy-zM-r5A" id="QCV-r6-4Ss"/>
+                        <segue destination="nQ3-wL-HIz" kind="presentation" identifier="image_only2" id="eEf-gr-sr9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BUu-Q8-H0V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="608.69565217391312" y="-561.16071428571422"/>
+        </scene>
+        <!--Image-->
+        <scene sceneID="2es-GM-8s0">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Image" id="nQ3-wL-HIz" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K7h-Ak-Av8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1125" y="-543"/>
         </scene>
         <!--SideMenu-->
         <scene sceneID="kau-Nm-ZQP">
@@ -278,7 +298,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Na3-Nv-LW9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1143" y="-561"/>
+            <point key="canvasLocation" x="1142" y="-577"/>
         </scene>
     </scenes>
     <resources>

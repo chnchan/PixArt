@@ -288,7 +288,7 @@ extension WorksViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "trashed") as! TrashedTableViewCell
         let gridSize = (trashedWorks[indexPath.row])["gridSize"] as! Int
         let colors: [String:String] = (trashedWorks[indexPath.row])["colors"] as! [String:String]
-        cell.preview.makeCells(size: gridSize, data: colors, canvasWidth: 100 - 11 - 11)
+        cell.preview.makeCells(size: gridSize, data: colors, canvasWidth: 100 - 12 - 12)
         cell.title.text = (trashedWorks[indexPath.row])["name"] as? String
         return cell
     }

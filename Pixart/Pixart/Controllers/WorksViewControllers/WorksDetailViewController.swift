@@ -135,16 +135,24 @@ class WorksDetailViewController: UIViewController {
         self.db.collection("PublishedWorks").document(self.work_UUID).delete()
     }
     
-    @IBAction func saveToPhotos(_ sender: Any) {
+    @IBAction func share(_ sender: Any) {
         let image = preview.exportToImg().pngData()
-        let compressedImage = UIImage(data: image!)
-        UIImageWriteToSavedPhotosAlbum(compressedImage!, nil, nil, nil)
-        
-        let alert = UIAlertController(title: "Artwork Saved", message: nil, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "ok", style: .default, handler: nil)
-        alert.addAction(okAction)
-        self.present(alert, animated: true, completion: nil)
+        if let compressedImage = UIImage(data: image!){
+            let vc = UIActivityViewController(activityItems: [compressedImage], applicationActivities: [])
+            present(vc, animated: true)
+        }
     }
+    
+//    @IBAction func saveToPhotos(_ sender: Any) {
+//        let image = preview.exportToImg().pngData()
+//        let compressedImage = UIImage(data: image!)
+//        UIImageWriteToSavedPhotosAlbum(compressedImage!, nil, nil, nil)
+//        
+//        let alert = UIAlertController(title: "Artwork Saved", message: nil, preferredStyle: .alert)
+//        let okAction = UIAlertAction(title: "ok", style: .default, handler: nil)
+//        alert.addAction(okAction)
+//        self.present(alert, animated: true, completion: nil)
+//    }
     
     @IBAction func deletebutton(_ sender: UIButton) {
         self.db.collection(self.userID).document(self.work_UUID).updateData(["public" : -1], completion: {error in

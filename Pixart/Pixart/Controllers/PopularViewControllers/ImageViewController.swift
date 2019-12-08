@@ -13,12 +13,9 @@ class ImageViewController: UIViewController {
 
     let db = Firestore.firestore()
     var handle: AuthStateDidChangeListenerHandle?
-    var userID = ""
-    var work_UUID: String = ""
     var work_name: String = ""
     var canvas_size : Int = 8
     var colors: [String : String] = [:]
-    var likes : Int = 0
     var author: String = ""
     var date : String = ""
     
@@ -34,6 +31,14 @@ class ImageViewController: UIViewController {
         self.workname.text = self.work_name
 //        self.authorname.text = self.author
 //        self.publishdate.text = "Published on " + self.date
+    }
+    
+    @IBAction func share(_ sender: Any) {
+        let image = preview.exportToImg().pngData()
+        if let compressedImage = UIImage(data: image!){
+            let vc = UIActivityViewController(activityItems: [compressedImage], applicationActivities: [])
+            present(vc, animated: true)
+        }
     }
     
     @IBAction func back(_ sender: Any) {

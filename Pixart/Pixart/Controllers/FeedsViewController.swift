@@ -16,6 +16,8 @@ class FeedsViewController: UIViewController {
     var handle: AuthStateDidChangeListenerHandle?
     var curr_workID: String = ""
     var publicWorks: [[String: Any]] = []
+    var canvas_size : Int = 8
+    var colors: [String : String] = [:]
 
     @IBOutlet weak var card_view: UIView!
     @IBOutlet weak var card_view_top: NSLayoutConstraint!
@@ -47,6 +49,18 @@ class FeedsViewController: UIViewController {
         swipe_right_icon.addShadow()
         Application.current_VC = self
         fetch()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let dest = segue.destination as? ImageViewController {
+            dest.work_name = work_name.text ?? ""
+            dest.canvas_size = self.canvas_size
+            dest.colors = self.colors
+        }
+    }
+    
+    @IBAction func zoomImage(_ sender: Any) {
+        performSegue(withIdentifier: "image_only2", sender: self)
     }
     
     @IBAction func like(_ sender: Any) {
@@ -126,14 +140,14 @@ class FeedsViewController: UIViewController {
                 print("Error getting documents: \(err)")
             } else {
                 let name = document!["name"] as! String
-                let gridColors = document!["colors"] as! [String:String]
-                let gridSize = document!["gridSize"] as! Int
                 let author = document!["author"] as! String
                 let date = document!["date"] as! String
+                self.colors = document!["colors"] as! [String:String]
+                self.canvas_size = document!["gridSize"] as! Int
 
                 if (self.publicWorks.count == 1 || self.workID != self.curr_workID) {
                     self.curr_workID = self.workID
-                    self.preview.makeCells(size: gridSize, data: gridColors, canvasWidth: self.canvas_width)
+                    self.preview.makeCells(size: self.canvas_size, data: self.colors, canvasWidth: self.canvas_width)
                     self.work_name.text = name
                     self.author_name.text = author
                     self.publish_date.text = "Published on " + date

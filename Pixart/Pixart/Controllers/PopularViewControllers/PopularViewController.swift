@@ -32,12 +32,9 @@ class PopularViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let dest = segue.destination as? ImageViewController {
             let work = popularworks[index]
-            dest.presentationController?.delegate = self
-            dest.work_UUID = work["documentdata"] as? String ?? ""
             dest.work_name = work["name"] as? String ?? ""
             dest.canvas_size = work["gridSize"] as! Int
             dest.colors = work["colors"] as! [String:String]
-            dest.likes = work["likes"] as? Int ?? 0
             dest.author = work["author"] as! String
             dest.date = work["date"] as! String
         }
@@ -112,7 +109,7 @@ extension PopularViewController: UICollectionViewDataSource, UICollectionViewDel
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         view.endEditing(true)
         index = indexPath.row
-        performSegue(withIdentifier: "popular_detail", sender: self)
+        performSegue(withIdentifier: "image_only", sender: self)
     }
     
     
@@ -124,12 +121,5 @@ extension PopularViewController: UICollectionViewDataSource, UICollectionViewDel
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return CELL_PADDING
-    }
-}
-
-
-extension PopularViewController: UIAdaptivePresentationControllerDelegate {
-    func presentationControllerWillDismiss(_ presentationController: UIPresentationController) {
-        //fetchPopulars(num: 30)
     }
 }
