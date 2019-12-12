@@ -47,7 +47,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZL-xe-QRS" userLabel="new">
-                                <rect key="frame" x="366" y="44" width="48" height="48"/>
+                                <rect key="frame" x="362" y="44" width="48" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="bZL-xe-QRS" secondAttribute="height" multiplier="1:1" id="B3I-ju-OEV"/>
                                 </constraints>
@@ -55,6 +55,14 @@
                                 <state key="normal" image="square.and.pencil" catalog="system"/>
                                 <connections>
                                     <action selector="newPressed:" destination="p9p-gi-iaX" eventType="touchUpInside" id="MmG-aU-kc5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="taF-tC-bqQ" userLabel="trashAll">
+                                <rect key="frame" x="361" y="44" width="48" height="48"/>
+                                <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="trash.slash" catalog="system"/>
+                                <connections>
+                                    <action selector="trashAll:" destination="p9p-gi-iaX" eventType="touchUpInside" id="iV3-Xl-vae"/>
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="FAd-iz-whM">
@@ -289,13 +297,16 @@
                             <constraint firstItem="FAd-iz-whM" firstAttribute="centerX" secondItem="fod-N1-yYd" secondAttribute="centerX" id="4eY-b9-udX"/>
                             <constraint firstItem="Vbm-96-Red" firstAttribute="trailing" secondItem="FyW-42-TnX" secondAttribute="trailing" constant="17" id="5hY-08-lNu"/>
                             <constraint firstItem="ZkL-Uj-oUx" firstAttribute="centerY" secondItem="fod-N1-yYd" secondAttribute="centerY" id="6Fa-o2-GFd"/>
-                            <constraint firstItem="bZL-xe-QRS" firstAttribute="trailing" secondItem="Vbm-96-Red" secondAttribute="trailing" id="8gB-jU-380"/>
                             <constraint firstItem="Vbm-96-Red" firstAttribute="trailing" secondItem="Bjd-rB-Dqi" secondAttribute="trailing" constant="17" id="BM4-0y-9oP"/>
                             <constraint firstItem="YN9-xI-SGi" firstAttribute="centerY" secondItem="fod-N1-yYd" secondAttribute="centerY" id="Bp8-hj-sKb"/>
                             <constraint firstItem="FyW-42-TnX" firstAttribute="leading" secondItem="Vbm-96-Red" secondAttribute="leading" constant="17" id="Dj2-SR-zCc"/>
+                            <constraint firstItem="taF-tC-bqQ" firstAttribute="top" secondItem="KeE-wG-Jbe" secondAttribute="top" id="FdP-se-wmL"/>
+                            <constraint firstItem="taF-tC-bqQ" firstAttribute="trailing" secondItem="Vbm-96-Red" secondAttribute="trailing" constant="-5" id="HEi-IX-90m"/>
                             <constraint firstItem="FyW-42-TnX" firstAttribute="top" secondItem="KeE-wG-Jbe" secondAttribute="bottom" constant="8" id="HZl-Ju-dzN"/>
+                            <constraint firstItem="taF-tC-bqQ" firstAttribute="bottom" secondItem="KeE-wG-Jbe" secondAttribute="bottom" id="Qiq-BX-oeO"/>
                             <constraint firstItem="YN9-xI-SGi" firstAttribute="centerX" secondItem="fod-N1-yYd" secondAttribute="centerX" id="RWf-vL-1Of"/>
                             <constraint firstItem="Vbm-96-Red" firstAttribute="trailing" secondItem="c1f-gv-nZ9" secondAttribute="trailing" constant="17" id="SLe-pk-1gq"/>
+                            <constraint firstItem="bZL-xe-QRS" firstAttribute="trailing" secondItem="Vbm-96-Red" secondAttribute="trailing" constant="-4" id="TB0-Wk-krX"/>
                             <constraint firstItem="YN9-xI-SGi" firstAttribute="centerY" secondItem="fod-N1-yYd" secondAttribute="centerY" id="UKD-B5-aEv"/>
                             <constraint firstItem="Vbm-96-Red" firstAttribute="bottom" secondItem="FyW-42-TnX" secondAttribute="bottom" id="cXR-e7-2MM"/>
                             <constraint firstItem="ZkL-Uj-oUx" firstAttribute="centerX" secondItem="fod-N1-yYd" secondAttribute="centerX" id="cmY-DV-Jhn"/>
@@ -307,6 +318,7 @@
                             <constraint firstItem="FAd-iz-whM" firstAttribute="top" secondItem="Vbm-96-Red" secondAttribute="top" constant="9" id="mq5-hT-dq6"/>
                             <constraint firstItem="KeE-wG-Jbe" firstAttribute="top" secondItem="Vbm-96-Red" secondAttribute="top" id="nAL-FY-LNb"/>
                             <constraint firstItem="c1f-gv-nZ9" firstAttribute="bottom" secondItem="Vbm-96-Red" secondAttribute="bottom" id="t80-fS-tXm"/>
+                            <constraint firstItem="taF-tC-bqQ" firstAttribute="width" secondItem="taF-tC-bqQ" secondAttribute="height" multiplier="1:1" id="t8z-zW-Tzm"/>
                             <constraint firstItem="c1f-gv-nZ9" firstAttribute="top" secondItem="KeE-wG-Jbe" secondAttribute="bottom" constant="8" id="tLM-px-h0j"/>
                             <constraint firstItem="Bjd-rB-Dqi" firstAttribute="top" secondItem="KeE-wG-Jbe" secondAttribute="bottom" constant="8" id="v6j-Sj-bKp"/>
                         </constraints>
@@ -321,6 +333,7 @@
                         <outlet property="PublicCollection" destination="zr9-zd-5kq" id="JsZ-0P-Z30"/>
                         <outlet property="TrashedTableView" destination="FyW-42-TnX" id="NQw-Yp-sfa"/>
                         <outlet property="error_view" destination="YN9-xI-SGi" id="4Fq-4F-i0Z"/>
+                        <outlet property="newArtButton_right" destination="TB0-Wk-krX" id="6Jb-GL-sJu"/>
                         <outlet property="options" destination="FAd-iz-whM" id="K0s-6f-8vh"/>
                         <outlet property="privateView" destination="c1f-gv-nZ9" id="QXt-TD-aBX"/>
                         <outlet property="privateView_left" destination="3zl-Nm-HLk" id="C5D-GE-q9A"/>
@@ -329,6 +342,8 @@
                         <outlet property="publishedView_left" destination="k5U-59-mTs" id="z15-Yi-mQ6"/>
                         <outlet property="publishedView_right" destination="BM4-0y-9oP" id="JaM-X3-Nv7"/>
                         <outlet property="spinner" destination="ZkL-Uj-oUx" id="J2N-Ih-gHk"/>
+                        <outlet property="trashAllButton" destination="taF-tC-bqQ" id="1eP-Bs-U2c"/>
+                        <outlet property="trashAllButton_right" destination="HEi-IX-90m" id="gop-iG-H2K"/>
                         <outlet property="trashedView_left" destination="Dj2-SR-zCc" id="3rs-13-qgX"/>
                         <outlet property="trashedView_right" destination="5hY-08-lNu" id="VaO-mA-XpF"/>
                         <segue destination="PGV-vr-Z5e" kind="presentation" identifier="works_detail_published" id="Kaa-N1-R9r"/>
@@ -385,6 +400,7 @@
         <image name="moon.zzz" catalog="system" width="58" height="64"/>
         <image name="square.and.pencil" catalog="system" width="64" height="58"/>
         <image name="trash" catalog="system" width="60" height="64"/>
+        <image name="trash.slash" catalog="system" width="60" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="rZ1-Ba-L2v"/>

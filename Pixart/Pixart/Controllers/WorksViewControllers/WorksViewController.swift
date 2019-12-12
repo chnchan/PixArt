@@ -36,7 +36,10 @@ class WorksViewController: UIViewController {
     @IBOutlet weak var privateView_right: NSLayoutConstraint!
     @IBOutlet weak var trashedView_left: NSLayoutConstraint!
     @IBOutlet weak var trashedView_right: NSLayoutConstraint!
-
+    @IBOutlet weak var newArtButton_right: NSLayoutConstraint!
+    @IBOutlet weak var trashAllButton: UIButton!
+    @IBOutlet weak var trashAllButton_right: NSLayoutConstraint!
+    
     var backfromdetail = false
     var movetotrash = false
     var restoretrash = false
@@ -49,6 +52,7 @@ class WorksViewController: UIViewController {
         publishedView_right.constant = -433
         trashedView_left.constant = 467
         trashedView_right.constant = -433
+        trashAllButton_right.constant = 70
         Application.current_VC = self
         PublicCollection.dataSource = self
         PublicCollection.delegate = self
@@ -83,6 +87,8 @@ class WorksViewController: UIViewController {
                 self.publishedView_right.constant = -433
                 self.trashedView_left.constant = 467
                 self.trashedView_right.constant = -433
+                self.newArtButton_right.constant = -4
+                self.trashAllButton_right.constant = 70
                 self.view.layoutIfNeeded()
             }, completion: { finished in
                 if finished {
@@ -100,6 +106,8 @@ class WorksViewController: UIViewController {
                 self.publishedView_right.constant = 17
                 self.trashedView_left.constant = 467
                 self.trashedView_right.constant = -433
+                self.newArtButton_right.constant = -4
+                self.trashAllButton_right.constant = 70
                 self.view.layoutIfNeeded()
             }, completion: { finished in
                 if finished {
@@ -117,6 +125,8 @@ class WorksViewController: UIViewController {
                 self.publishedView_right.constant = 467
                 self.trashedView_left.constant = 17
                 self.trashedView_right.constant = 17
+                self.newArtButton_right.constant = 70
+                self.trashAllButton_right.constant = -5
                 self.view.layoutIfNeeded()
             }, completion: { finished in
                 if finished {
@@ -146,6 +156,36 @@ class WorksViewController: UIViewController {
         performSegue(withIdentifier: "works_to_canvas", sender: self)
     }
     
+    @IBAction func trashAll(_ sender: Any) {
+        let alert = UIAlertController(title: "Do you want to remove the trashed artworks?", message: nil, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let deleteAction = UIAlertAction(title: "Yes", style: .destructive, handler: { _ in
+            let alert = UIAlertController(title: "Are You Sure?", message: "You won't be able to restore them. Do you really want to remove them permanently?", preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            let removeAction = UIAlertAction(title: "Yes", style: .destructive, handler: { _ in
+                for work in self.trashedWorks {
+                    let work_UUID = work["documentdata"] as? String ?? ""
+                    self.db.collection(self.userID).document(work_UUID).delete(completion: { error in
+                        if error != nil {
+                            print("error deleting")
+                        } else {
+                            self.removetrash = true
+                            self.fetch()
+                        }
+                    })
+                }
+            })
+            
+            alert.addAction(cancelAction)
+            alert.addAction(removeAction)
+            self.present(alert, animated: true, completion: nil)
+        })
+        alert.addAction(cancelAction)
+        alert.addAction(deleteAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    
     private func fetch() {
         self.privateWorks = []
         self.publicWorks = []
@@ -171,10 +211,17 @@ class WorksViewController: UIViewController {
                             }
                         }
                     }
-                    if self.backfromdetail
-                    {   //come back from workdetail view
-                        if self.movetotrash
-                        {
+                    
+                    if self.trashedWorks.count > 0 {
+                        self.trashAllButton.tintColor = UIColor.red
+                        self.trashAllButton.isEnabled = true
+                    } else {
+                        self.trashAllButton.tintColor = UIColor.black
+                        self.trashAllButton.isEnabled = false
+                    }
+                    
+                    if self.backfromdetail {   //come back from workdetail view
+                        if self.movetotrash {
                             //deleted a work
                             self.TrashedTableView.reloadData()
                             self.movetotrash = false
@@ -300,7 +347,7 @@ extension WorksViewController: UITableViewDataSource, UITableViewDelegate {
         let alert = UIAlertController(title: "Actions:", message: nil, preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let restoreAction = UIAlertAction(title: "Restore", style: .default, handler: restore_handle)
-        let deleteAction = UIAlertAction(title: "Remove It", style: .destructive, handler: delete_handle)
+        let deleteAction = UIAlertAction(title: "Remove", style: .destructive, handler: delete_handle)
         alert.addAction(cancelAction)
         alert.addAction(restoreAction)
         alert.addAction(deleteAction)
@@ -322,7 +369,7 @@ extension WorksViewController: UITableViewDataSource, UITableViewDelegate {
     func delete_handle(alert: UIAlertAction) {
         let alert = UIAlertController(title: "Are You Sure?", message: "You won't be able to restore this work. Do you really want to remove it permanently?", preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        let removeAction = UIAlertAction(title: "Remove It!", style: .destructive, handler: {alert in
+        let removeAction = UIAlertAction(title: "Yes", style: .destructive, handler: {alert in
             let work_UUID = self.trashedWorks[self.index]["documentdata"] as? String ?? ""
             self.db.collection(self.userID).document(work_UUID).delete(completion: {error in
                 if error != nil {

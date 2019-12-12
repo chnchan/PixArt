@@ -121,7 +121,7 @@ class WorksEditingViewController: UIViewController {
     
     private func setupColorSlider() {
         let card_view_width = Application.device_width - 8 - 8
-        let y_pos = 16 + 32 + Int(canvas_container.frame.width) + 45
+        let y_pos = 16 + 32 + 20 + card_view_width + 35
         
         let colorSlider = ColorSlider(orientation: .horizontal, previewSide: .top)
         colorSlider.frame = CGRect( x: Int(card_view_width/2) - Int(SLIDER_WIDTH/2), y: y_pos, width: SLIDER_WIDTH, height: SLIDER_HIGHT)
